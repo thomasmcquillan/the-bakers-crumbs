@@ -1,5 +1,6 @@
-# The Last Loaf
-## Baking Better, Together 
+# Bakers' Crumbs
+## Baking Better, Together
+---
 ## Code Institute - Milestone 3 Project
 
 View the live site [here](link.placeholder.com)
@@ -76,7 +77,6 @@ This site is targeted at experienced bakers and beginner bakers alike. It is a p
 - View a website that is visually engaging and pleasing to the eye.
 - Browse existing recipes to get a sense of whether there are things I would like to bake myself.
 - Find recipes that have all ingredients cleary listed.
-- Find recipes that list any special tools or equipment required.
 - Filter recipes by category, with the option to exclude nuts / dairy / gluten etc, when baking for people with special dietary requirements.
 - Search existing recipes, filtered by category.
 - Search existing recipes, filtered by difficulty.
