@@ -1,7 +1,7 @@
 # The Last Loaf
-## Baking Better, Together.
+## Baking Better, Together 
 ## Code Institute - Milestone 3 Project
----
+
 View the live site [here](link.placeholder.com)
 
 
@@ -58,7 +58,7 @@ The site owner is a passionate baker and active user of the site, contributing a
     * [Images]()
     * [Libraries]()
 
-* [Thanks]()
+* [Special Thanks]()
 
 ---
 
