@@ -21,10 +21,9 @@ The site owner is a passionate baker and active user of the site, contributing a
 
 * [UX]()
     * [User Stories](#user-stories)
-        * [First-Time User Stories]()
-        * [Returning-User Stories]()
-        * [Special-diet User Stories]()
-    * [Site Flow]()
+        * [First-Time User Stories](#first-time-user-stories)
+        * [Returning-User Stories](#returning-time-user-stories)
+        * [Site Owner Stories](#site-owner-stories)
 
 * [Strategy]()
     * [Project Goals]()
@@ -78,6 +77,7 @@ This site is targeted at experienced bakers and beginner bakers alike. It is a p
 - Browse existing recipes to get a sense of whether there are things I would like to bake myself.
 - Find recipes that have all ingredients cleary listed.
 - Find recipes that list any special tools or equipment required.
+- Filter recipes by category, with the option to exclude nuts / dairy / gluten etc, when baking for people with special dietary requirements.
 - Search existing recipes, filtered by category.
 - Search existing recipes, filtered by difficulty.
 - Search existing recipes, filtered by cooking-time.
@@ -95,12 +95,6 @@ This site is targeted at experienced bakers and beginner bakers alike. It is a p
     * Update my password.
     * Add an avatar / profle-picture.
 - View any recipes that I have previously saved.
-
-## Special Diet User Stories
-
-### *As a User with Special Dietary Requirements, I would like to..*
-
-- Filter recipes by category, with the option to exclude nuts / dairy / gluten etc.
 
 ## Site Owner Stories
 
