@@ -1,7 +1,5 @@
 import os
-from flask import (
-    Flask, flash, render_template,
-    redirect, request, session, url_for)
+from flask import Flask, flash, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -30,14 +28,6 @@ def get_recipes():
     """ Displays recipes from MongoDB Database """
     recipes = mongo.db.recipes.find()
     return render_template("recipes.html", recipes=recipes)
-
-
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    """ Search recipes function """
-    query = request.form.get("query")
-    recipes = mongo.db.recipes.find({"$text": {"$search": query}})
-    return render_template("searchresults.html", recipes=recipes)
 
 
 if __name__ == "__main__":
