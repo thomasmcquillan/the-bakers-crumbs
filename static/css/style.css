@@ -1,0 +1,8 @@
+body {
+    background-color: rgb(205, 234, 243);
+}
+
+#recipe-thumb {
+    width: 200px;
+    height: 200px;
+}

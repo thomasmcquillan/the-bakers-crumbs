@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+    {% for recipes in recipes %}
+        {{ recipes.recipe_name }}<br>
+        {{ recipes.category_name }}<br>
+        {{ recipes.recipe_description }}<br>
+        {{ recipes.created_by }}<br>
+        {{ recipes.is_dairyfree }}<br>
+    {% endfor %}
+
+{% endblock %}
