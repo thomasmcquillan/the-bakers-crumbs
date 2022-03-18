@@ -106,3 +106,13 @@ This site is targeted at experienced bakers and beginner bakers alike. It is a p
 #### back to [contents](#table-of-contents)
 
 ---
+
+# Design
+
+## Wireframes
+
+## Color Scheme
+
+## Database Schema
+
+![Database schema, showing collections](static/docs/images/db-schema.jpeg) 
