@@ -1,4 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        <a href="{{ url_for('get_recipes') }}" class="navlink">View all Recipes</a>
+    </li>
+    <li class="list-group-item">Search Recipes</li>
+    <li class="list-group-item">Browse by Category</li>
+</ul>
+
 {% endblock %}

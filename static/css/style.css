@@ -1,8 +1,37 @@
 body {
-    background-color: rgb(205, 234, 243);
+    background-color: rgb(222, 242, 248);
+    font-family: 'Noto Sans Mono', monospace;
+    font-weight: 300;
+    font-size: 22px;
+    color: #454545;
+    text-decoration: none;
 }
 
-#recipe-thumb {
+/* fonts styling */
+
+.navbar-brand {
+    font-family: 'Courier', monospace;
+    font-weight: 400;
+    font-size: 40px;
+    color: #454545;
+}
+
+.navbar-brand:hover {
+    color: #c860ae;
+}
+
+a {
+    text-decoration: none;
+    color: #454545;
+}
+
+a:hover {
+    color: #c860ae;
+}
+
+/* image styles */
+
+.recipe-thumb {
     width: 200px;
-    height: 200px;
+    height: auto;
 }
