@@ -5,8 +5,15 @@
     <li class="list-group-item">
         <a href="{{ url_for('get_recipes') }}" class="navlink">View all Recipes</a>
     </li>
-    <li class="list-group-item">Search Recipes</li>
-    <li class="list-group-item">Browse by Category</li>
+    <li class="list-group-item">
+        <a href="{{ url_for('search') }}" class="navlink">Search Recipes</a>
+    </li>
 </ul>
+<form action="{{ url_for('search') }}" method="post" class="col-10">
+    <div class="input-field">
+        <input type="text" name="query" id="query" minlength="3" class="validate" required>
+        <label for="query"></label>
+    </div>
+</form>
 
 {% endblock %}

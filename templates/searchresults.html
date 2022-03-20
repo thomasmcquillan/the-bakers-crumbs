@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    <form action="{{ url_for('get_recipes') }}" method="post" class="col-10">
+        <div class="justify-center">
+            <div class="input-field">
+                <input type="text" name="query" id="query" minlength="3" class="validate" placeholder="Search all Recipes" required>
+            </div>
+        </div>
+        <div class="col-6">
+            <a href="{{ url_for('get_recipes') }}" class="btn"></a>
+            <button type="submit" class="btn">
+                Search
+            </button>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    {% for recipe in recipes %}
+    <div class="col-8">
+        <div class="card">
+            <div class="recipe-thumb">
+                <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+                    <img src="{{ recipe.image_url }}" class="img-fluid" alt="">
+                </a>
+            </div>
+            <div>
+                <h4>{{ recipe.recipe_name }}</h4>
+                <p>{{ recipe.recipe_description }}</p>
+                <h4>Ingredients</h4>
+                <!-- <p>{{ recipe.ingredients }}</p> -->
+                <ul>
+                    {% for ingredient in recipe.ingredients %}
+                    <li>{{ ingredient }}</li>
+                    {% endfor %}
+                </ul>
+                <h4>Directions</h4>
+                <ul>
+                    {% for ingredient in recipe.directions %}
+                    <li>{{ ingredient }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

@@ -5,6 +5,7 @@ body {
     font-size: 22px;
     color: #454545;
     text-decoration: none;
+    overflow: scroll;
 }
 
 /* fonts styling */
@@ -34,4 +35,45 @@ a:hover {
 .recipe-thumb {
     width: 200px;
     height: auto;
+}
+
+/* card styles */
+
+.card {
+    height: 1000px;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 10px;
+    top: 88px;
+    margin: 200px auto auto auto;
+    width: 88%;
+    height: 100%;
+    z-index: -1;
+    background-image: url("../images/tbc-recipecard.png");
+}
+
+.card-header {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    background: none;
+}
+
+.recipe-card {
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-image: url("../images/bread-default.png");
+    background-size: cover;
+    margin: 10px;
+}
+
+.list-group {
+    margin: 120px auto 40px auto;
+}
+
+.list-group-item {
+    margin: 30px auto;
 }

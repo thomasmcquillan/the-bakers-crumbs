@@ -66,10 +66,8 @@ The site owner is a passionate baker and active user of the site, contributing a
 # UX
 ## User Stories
 
-This site is targeted at experienced bakers and beginner bakers alike. It is a place people can come for inspiration, browsing through the featured recipes. Equally, it is intended as a place for bakers to share their favourite recipes with fellow users. It also seeks to accommodate users who follow special diets, such as vegans, vegetarians or allergy sufferers.
-
+This site is targeted at experienced bakers and beginner bakers alike. It is a place people can come for inspiration, browsing through the featured recipes. Equally, it is intended as a place for bakers to share their favourite recipes with fellow users. 
 ## First-Time User Stories
-
 ### *As a First-time User I would like to..*
 
 - Arrive at a website that has a clear, unambiguous purpose.
@@ -77,13 +75,11 @@ This site is targeted at experienced bakers and beginner bakers alike. It is a p
 - View a website that is visually engaging and pleasing to the eye.
 - Browse existing recipes to get a sense of whether there are things I would like to bake myself.
 - Find recipes that have ingredients cleary listed.
-- Filter recipes by category, with the option to exclude nuts / dairy / gluten etc, when baking for people with special dietary requirements.
-- Search existing recipes, filtered by category.
+- Search existing recipes by category.
 - Register a user account, with username and password.
 - Find links to associated social media accounts.
 
 ## Returning-User Stories
-
 ### *As a Returning User I would like to..*
 
 - Login to the website using my username and password.
@@ -94,13 +90,12 @@ This site is targeted at experienced bakers and beginner bakers alike. It is a p
 - View recipes that I have saved on previous visits.
 
 ## Site Owner Stories
-
 ### *As Site Owner, I would like to..*
 
 - Have a site that is welcoming and user-friendly.
 - Have a site that provides a rich resource to the online baking community.
-- Have a site that is ad-free, refined and pleasing to navigate - in stark contrast to the majority of online baking websites today.
-#### back to [contents](#table-of-contents)
+- Have a site that is ad-free, memorable, and pleasing to navigate.
+#### [return to contents](#table-of-contents)
 
 ---
 

@@ -30,6 +30,24 @@ def get_recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    """
+    Returns recipes based on keyword search by user
+    """
+    query = request.form.get("query")
+    recipes = mongo.db.recipes.find({"$text": {"$search": query}})
+    # recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    return render_template("searchresults.html", recipes=recipes)
+
+
+@app.route("/view_recipe", methods=["GET"])
+def view_recipe():
+    """ Displays page with a specific recipe, as chosen by the user """
+    recipes = mongo.db.recipes.find()
+    return render_template("view_recipe.html", recipes=recipes)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
