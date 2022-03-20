@@ -111,8 +111,33 @@ This site is targeted at experienced bakers and beginner bakers alike. It is a p
 
 ## Wireframes
 
+### Home Page
+
+##### This page greets site visitors with a quirky design aesthetic, combined with clear, concise navigation bar and links. The page content is neatly contained atop a card - referencing the index-card / catalogue-cards that were often used for sorting recipes in times-past.
+
+![Wireframes for TBC website home-page](docs/images/wireframes-home-page.png)
+
+### View all Recipes & View by Category
+
+##### The wireframes seen below indicate the layout for both 'View all Recipes' and a user's chosen 'Recipes by Category' option, as accessed from the home page. If a category contains more recipes than can be displayed comfortably on a given display, pagination will be utilised for a tidy appearance and reduced dependance on scrolling.
+
+![Wireframes for 'View All Recipes' page](docs/images/wireframes-view-all-recipes.png)
+
+### View Recipe Page
+
+##### The layout of individual recipes is extremely simple and uncomplicated, referencing the recipe-cards of old that were often typed on typewriters - necessitating a basic layout. Recipes that are too long to fit on a single card continue on another.
+
+![Wireframes for 'View Recipe' page](docs/images/wireframes-view-recipe.png)
+
+### Add Recipe Page
+
+![Wireframes for 'Add Recipe' page](docs/images/wireframes-add-recipe.png)
+
+### Sign-in / Sign-up Page
+
+![Wireframes for 'sign-in and register new user' page](docs/images/wireframes-signin-signup.png)
 ## Color Scheme
 
 ## Database Schema
 
-![Database schema, showing collections](static/docs/images/db-schema.jpeg) 
+![Database schema, showing collections](docs/images/db-schema.jpeg) 
