@@ -23,18 +23,12 @@
     <title>The Baker's Crumbs</title>
 </head>
 <body>
-    <div class="col-10">
-        <a href="{{ url_for('index') }}" class="btn">Cancel</a>
-        <button type="submit" class="btn">
-            Search Recipes
-        </button>
-    </div>
     <!-- header opens -->
     <header class="container-fluid">
         <div class="card">
             <div class="card-header">
                 <a href="{{ url_for('index') }}"><h1>the baker's crumbs</h1></a>
-                <h3>baking wisdom, served hot</h3>
+                <h3>baking wisdom, <span style="color:hotpink">served hot</span></h3>
             </div>
         </div>
     </header>
