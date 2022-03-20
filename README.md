@@ -76,11 +76,9 @@ This site is targeted at experienced bakers and beginner bakers alike. It is a p
 - Arrive at a website that is easy to use and navigate.
 - View a website that is visually engaging and pleasing to the eye.
 - Browse existing recipes to get a sense of whether there are things I would like to bake myself.
-- Find recipes that have all ingredients cleary listed.
+- Find recipes that have ingredients cleary listed.
 - Filter recipes by category, with the option to exclude nuts / dairy / gluten etc, when baking for people with special dietary requirements.
 - Search existing recipes, filtered by category.
-- Search existing recipes, filtered by difficulty.
-- Search existing recipes, filtered by cooking-time.
 - Register a user account, with username and password.
 - Find links to associated social media accounts.
 
@@ -93,8 +91,7 @@ This site is targeted at experienced bakers and beginner bakers alike. It is a p
 - Edit my account information, including:
     * Change my username.
     * Update my password.
-    * Add an avatar / profle-picture.
-- View any recipes that I have previously saved.
+- View recipes that I have saved on previous visits.
 
 ## Site Owner Stories
 
