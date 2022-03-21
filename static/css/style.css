@@ -153,6 +153,10 @@ header .container-fluid {
     border: none;
 }
 
+.tbc-search input:hover {
+    color: pink;
+}
+
 .search-input {
     display: flex;
     flex-direction: column;
@@ -162,8 +166,21 @@ header .container-fluid {
 input {
     text-align: center;
     line-height: 54px;
-    padding-top: 12px;
+    padding-top: 6px;
+    height: 33px;
+    margin-top: 13px;
     background: none;
+    background-color: rgba(248, 202, 209, 0.719);
+}
+
+.signin-link {
+    position: absolute;
+    right: 66px;
+    line-height: 54px;
+    height: 33px;
+    padding-top: 6px;
+    top: 30px;
+    background-color: rgba(248, 202, 209, 0.719);
 }
 
 .navbar .navbar-brand {

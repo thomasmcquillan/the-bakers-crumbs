@@ -31,8 +31,8 @@
             <div class="navbar">
                 <div class="tbc-logo">
                     <a href="{{ url_for('index') }}"><h1>the baker's crumbs</h1></a>
-                    <!-- <h3>baking wisdom, <span style="color:rgb(236, 76, 156)"><strong><em>served hot</em></strong></span></h3> -->
                 </div>
+                <a class="signin-link" href="{{ url_for('index') }}"><h4>sign-in</h4></a>
             </div>
             <form action="{{ url_for('search') }}" method="post" class="tbc-search">
                 <div class="input-field search-input">
