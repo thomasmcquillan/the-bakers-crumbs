@@ -4,16 +4,16 @@
 
 <div class="row">
     {% for recipe in recipes %}
-    <div class="col-8">
-        <div class="card">
+    <div class="col-9">
+        <div class="card recipe-card">
             <div class="recipe-thumb">
                 <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
                     <img src="{{ recipe.image_url }}" class="img-fluid" alt="">
                 </a>
             </div>
-            <div>
-                <h4>{{ recipe.recipe_name }}</h4>
-                <p>{{ recipe.recipe_description }}</p>
+            <div class="recipe-copy">
+                <h4><strong>{{ recipe.recipe_name }}</strong></h4>
+                <!-- <p>{{ recipe.recipe_description }}</p> -->
                 <h4>Ingredients</h4>
                 <ul>
                     {% for ingredient in recipe.ingredients %}

@@ -23,13 +23,15 @@
     <title>The Baker's Crumbs</title>
 </head>
 <body>
-    <div class="container indexcard">
+    <div class="container-fluid p-0">
         <!-- header opens -->
-        <header class="nav tbc-header">
+        <!-- <header class="row nav tbc-header"> -->
+        <header class="tbc-header container-fluid">
+            <!-- <div class="navbar"> -->
             <div class="navbar">
                 <div class="tbc-logo">
                     <a href="{{ url_for('index') }}"><h1>the baker's crumbs</h1></a>
-                    <h3>baking wisdom, <span style="color:rgb(236, 76, 156)"><strong><em>served hot</em></strong></span></h3>
+                    <!-- <h3>baking wisdom, <span style="color:rgb(236, 76, 156)"><strong><em>served hot</em></strong></span></h3> -->
                 </div>
             </div>
             <form action="{{ url_for('search') }}" method="post" class="tbc-search">
@@ -41,7 +43,11 @@
                 </div>
             </form>
         </header>
-        <main class="row indexcard"></main>
+        <main class="row indexcard">
+            <div class="tbc-logo-caption">
+                <h3>baking wisdom, <span style="color:rgb(236, 76, 156)"><strong><em>served hot</em></strong></span></h3>
+            </div>
+        </main>
     </div>
 
     {% block content %}
