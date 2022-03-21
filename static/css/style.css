@@ -12,9 +12,10 @@ body {
     background: rgb(253, 216, 222);
 }
 
+
 main {
     display: flex;
-    margin-top: 126px;
+    /* margin-top: 126px; */
     line-height: 54px;
     /*  Lined-paper css styles borrowed and heavily adapted from Emily Gagne article, 
         here: https://codepen.io/ceg9498/post/creating-lined-paper */
@@ -72,11 +73,10 @@ a:hover {
 }
 
 .indexcard {
-    min-height: 600px;
+    min-height: 588px;
+    min-width: 1000px;
     padding-top: 11px;
 }
-
-/* .tbc-header {} */
 
 /* .recipe-card {
     display: block;
@@ -120,10 +120,28 @@ header {
 }
 
 .btn {
-    background-color: rgb(245, 245, 245);
-    font-family: 'Courier New', Courier, monospace;
+    background: none;
     font-family: 'Noto Sans Mono', monospace;
     font-size: 22px;
     font-weight: 600;
-    color: navy;
+    height: 24px;
+}
+
+.tbc-search input {
+    display: block;
+    margin: auto;
+    border: none;
+}
+
+.search-input {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+input {
+    text-align: center;
+    line-height: 54px;
+    padding-top: 12px;
+    background: none;
 }

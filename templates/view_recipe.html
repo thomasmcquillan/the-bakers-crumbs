@@ -1,7 +1,71 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h4>Recipe will go here.</h4>
 
+<div class="row">
+    {% for recipe in recipes %}
+    <div class="col">
+        <div class="recipe-card">
+            <header>
+                <span class="card-title">
+                    <h4>{{ recipe.recipe_name }}</h4>
+                    <!-- <h5>{{ recipe.recipe_description }}</h5> -->
+                </span>
+            </header>
+            <br>
+                <span>
+                    <h4>Ingredients</h4>
+                </span>
+            <br>
+            <p class="card-text">{{ recipe.recipe_description }}</p>
+        </div>
+            <!-- <div class="recipe-thumb">
+                <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+                    <img src="{{ recipe.image_url }}" class="img-fluid" alt="">
+                </a>
+            </div> -->
+        <!-- <div>
+            <h4>{{ recipe.recipe_name }}</h4>
+            <p>{{ recipe.recipe_description }}</p>
+            <h4>Ingredients</h4>
+            <ul>
+                {% for ingredient in recipe.ingredients %}
+                <li>{{ ingredient }}</li>
+                {% endfor %}
+            </ul>
+            <h4>Directions</h4>
+            <ul>
+                {% for ingredient in recipe.directions %}
+                <li>{{ ingredient }}</li>
+                {% endfor %}
+            </ul>
+        </div> -->
+    </div>
+    {% endfor %}
+</div>
+
+<div class="recipe-card">
+    <header>
+        <span class="card-title">
+            Recipe Name
+        </span>
+    </header>
+    <p class="card-text"></p>
+</div>
+   
+   <!-- <div class="sheet">
+    <div class="l-margin margin">
+     <div class="hole first-hole"></div>
+     <div class="hole second-hole"></div>
+     <div class="hole third-hole"></div>
+    </div>
+    <div class="r-margin margin"></div>
+    <header>
+     <span class="sheet-title">
+      Looks like refill
+     </span>
+    </header>
+    <p class="sheet-text"></p>
+   </div> -->
 
 {% endblock %}

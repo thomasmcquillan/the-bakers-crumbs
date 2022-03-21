@@ -25,18 +25,23 @@
 <body>
     <div class="container indexcard">
         <!-- header opens -->
-        <header class="row tbc-header">
+        <header class="nav tbc-header">
             <div class="navbar">
                 <div class="tbc-logo">
                     <a href="{{ url_for('index') }}"><h1>the baker's crumbs</h1></a>
-                    <h3>baking wisdom, <span style="color:hotpink">served hot</span></h3>
+                    <h3>baking wisdom, <span style="color:rgb(236, 76, 156)"><strong><em>served hot</em></strong></span></h3>
                 </div>
             </div>
+            <form action="{{ url_for('search') }}" method="post" class="tbc-search">
+                <div class="input-field search-input">
+                    <input type="text" name="query" id="query" minlength="3" class="validate" placeholder="search for recipes" required>
+                    <button type="submit" class="btn">
+                        Search
+                    </button>
+                </div>
+            </form>
         </header>
-        <main class="row indexcard">
-            <h4>pumpkin</h4>
-            <p>pie</p>
-        </main>
+        <main class="row indexcard"></main>
     </div>
 
     {% block content %}
