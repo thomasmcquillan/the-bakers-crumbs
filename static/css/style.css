@@ -1,11 +1,24 @@
 body {
-    background-color: rgb(222, 242, 248);
+    background-color: rgb(245, 245, 245);
     font-family: 'Noto Sans Mono', monospace;
     font-weight: 300;
     font-size: 22px;
+    line-height: 54px;
     color: #454545;
     text-decoration: none;
-    overflow: scroll;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: rgb(253, 216, 222);
+}
+
+main {
+    display: flex;
+    margin-top: 126px;
+    line-height: 54px;
+    /*  Lined-paper css styles borrowed and heavily adapted from Emily Gagne article, 
+        here: https://codepen.io/ceg9498/post/creating-lined-paper */
+    background: repeating-linear-gradient(white, white 50px,#74aac9 51px, #74aac9 53px, white 54px);
 }
 
 /* fonts styling */
@@ -39,17 +52,6 @@ a:hover {
 
 /* card styles */
 
-.card-svg {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    flex-direction: column;
-    justify-content: center;
-    width: 100vw;
-    z-index: -2;
-}
-
 .card {
     display: flex;
     flex-direction: column;
@@ -62,21 +64,28 @@ a:hover {
 .tbc-logo {
     background: none;
     border: none;
-    display: flex;
+    display: block;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
+    width: auto;
+    margin: 10px auto auto auto;
 }
 
-.recipe-card {
+.indexcard {
+    min-height: 600px;
+    padding-top: 11px;
+}
+
+/* .tbc-header {} */
+
+/* .recipe-card {
     display: block;
     width: 200px;
     height: 200px;
     position: absolute;
     right: 20px;
-    background-image: url("../images/bread-default.png");
-    background-size: cover;
     margin: 10px;
-}
+} */
 
 .list-group {
     margin: 120px auto 40px auto;
@@ -84,4 +93,37 @@ a:hover {
 
 .list-group-item {
     margin: 30px auto;
+}
+
+header {    
+    display: block;
+    /*  Lined-paper css styles borrowed and heavily adapted from Emily Gagne article, 
+        here: https://codepen.io/ceg9498/post/creating-lined-paper */
+    background: linear-gradient(white, white 67px, #faa7e3 68px, #d15da7 69px, #d15da7 71px, white 72px);
+    height: 72px;
+}
+
+.card-title {
+    position: relative;
+    left: 10px;
+    top: 8px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.card-text {
+    position: relative;
+    top: 30px;
+    font-size: 18px;
+    margin: 0 20px;
+    line-height: 27px;
+}
+
+.btn {
+    background-color: rgb(245, 245, 245);
+    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Noto Sans Mono', monospace;
+    font-size: 22px;
+    font-weight: 600;
+    color: navy;
 }
