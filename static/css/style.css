@@ -39,25 +39,32 @@ a:hover {
 
 /* card styles */
 
-.card {
-    height: 1000px;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
+.card-svg {
+    display: flex;
     position: absolute;
-    top: 44px;
-    margin: 100px auto auto auto;
-    width: 88%;
-    height: 100%;
-    z-index: -1;
-    background-image: url("../images/tbc-recipecard.png");
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    z-index: -2;
 }
 
-.card-header {
+.card {
     display: flex;
     flex-direction: column;
     height: auto;
+    justify-content: center;
+    background: transparent;
+    border: none;
+}
+
+.tbc-logo {
     background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .recipe-card {
