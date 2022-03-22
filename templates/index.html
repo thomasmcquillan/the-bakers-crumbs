@@ -1,11 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-<!-- <ul class="list-group list-group-flush">
-    <li class="list-group-item">
-        <a href="{{ url_for('get_recipes') }}" class="navlink">View all Recipes</a>
-    </li>
-</ul> -->
+<div class="d-md-flex my-3 row" style="z-index:100">
+    
+    <div class="col-11 col-md-9 mx-auto d-flex">
+        <div class="card">
+            <div class="recipe-thumb">
+                <img    src="static/images/bread-default.png" 
+                        class="card-img"
+                        alt="bread slice" />
+            </div>
+            <div class="card-body">
+                <div class="header">
+                    <h3>Tasty Cookies</h3>
+                </div>
+                <div>
+                    <p>
+                        recipe deets
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

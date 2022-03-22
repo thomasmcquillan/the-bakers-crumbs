@@ -23,51 +23,18 @@
     <title>The Baker's Crumbs</title>
 </head>
 <body>
-    <!-- <header class="tbc-header container-fluid">
-        <nav class="navbar navbar-custom">
-            <a href="{{ url_for('/') }}" class="navbar-brand"><h1>The Baker's Crumbs</h1></a>
-        </nav>
-    </header> -->
-    <header class="tbc-header container-fluid">
-        <nav class="navbar navbar-custom">
-            <div class="tbc-logo">
-                <a href="{{ url_for('index') }}"><h1>the baker's crumbs</h1></a>
-            </div>
-            <a class="tbc-nav-link login-link" href="{{ url_for('login') }}"><h4>login</h4></a>
-            <a class="tbc-nav-link register-link" href="{{ url_for('login') }}"><h4>register</h4></a>
-        </nav>
-        <form action="{{ url_for('search') }}" method="post" class="tbc-search">
-            <div class="input-field search-input">
-                <input type="text" name="query" id="query" minlength="3" class="validate" placeholder="search for recipes" required>
-                <button type="submit" class="tbc-button btn">
-                    Search
-                </button>
-            </div>
-        </form>
-        <!-- <div class="row indexcard">
-            <div class="tbc-logo-caption">
-                <h3>baking wisdom, <span style="color:rgb(236, 76, 156)"><strong><em>served hot</em></strong></span></h3>
-            </div>
-        </div> -->
-    </header>
-
-    <div class="row indexcard">
-        <div class="tbc-logo-caption">
-            <h3>baking wisdom, <span style="color:rgb(236, 76, 156)"><strong><em>served hot</em></strong></span></h3>
-        </div>
-    </div>
-    <!-- <div class="container-fluid p-0">
+    <div class="container-fluid">
         <header class="tbc-header container-fluid">
-            <div class="navbar">
-                <div class="tbc-logo">
-                    <a href="{{ url_for('index') }}"><h1>the baker's crumbs</h1></a>
-                </div>
+            <div class="tbc-logo">
+                <a href="{{ url_for('index') }}">the baker's crumbs</a>
+            </div>
+            <nav class="navbar">
                 <a class="tbc-nav-link login-link" href="{{ url_for('login') }}"><h4>login</h4></a>
                 <a class="tbc-nav-link register-link" href="{{ url_for('register') }}"><h4>register</h4></a>
-            </div>
+            </nav>
             <form action="{{ url_for('search') }}" method="post" class="tbc-search">
                 <div class="input-field search-input">
-                    <input type="text" name="query" id="query" minlength="3" class="validate" placeholder="search for recipes" required>
+                    <input type="text" name="query" id="query" minlength="3" class="validate" placeholder="search recipes" required>
                     <button type="submit" class="tbc-button btn">
                         Search
                     </button>
@@ -79,7 +46,7 @@
                 <h3>baking wisdom, <span style="color:rgb(236, 76, 156)"><strong><em>served hot</em></strong></span></h3>
             </div>
         </main>
-    </div> -->
+    </div>
 
     {% block content %}
     {% endblock %}

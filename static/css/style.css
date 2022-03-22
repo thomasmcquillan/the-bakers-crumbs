@@ -3,44 +3,30 @@ body {
     font-weight: 300;
     font-size: 22px;
     line-height: 54px;
+    flex-direction: column;
     color: #454545;
     background-color: rgb(245, 245, 245);
     text-decoration: none;
     display: flex;
-    justify-content: center;
+    justify-items: center;
     flex-wrap: wrap;
-    z-index: -5;
-}
-
-header {
-    width: 100vw;
-    top: 0;
-    left: 0;
+    z-index: -50;
 }
 
 main {
     display: flex;
     line-height: 54px;
     width: 100vw;
-    height: 300vh;
+    min-height: 100vw;
     position: absolute;
     left: 0;
-    /* margin-top: 196px; */
     flex-wrap: wrap;
-    /*  Lined-paper css styles borrowed and heavily adapted from Emily Gagne article, 
+    /*  Lined-paper css styles borrowed and then adapted from Emily Gagne article, 
         here: https://codepen.io/ceg9498/post/creating-lined-paper */
     background: repeating-linear-gradient(rgb(245, 245, 245), rgb(245, 245, 245) 50px,#74aac9 51px, #74aac9 53px, rgb(245, 245, 245) 54px);
 }
 
 /* fonts styling */
-
-.navbar-brand {
-    font-family: 'Courier', monospace;
-    font-weight: 400;
-    font-size: 40px;
-    height: 126px;
-    color: #454545;
-}
 
 .navbar-brand:hover {
     color: #c860ae;
@@ -49,6 +35,8 @@ main {
 a {
     text-decoration: none;
     color: #454545;
+    padding-right: 18px;
+    z-index: 200;
 }
 
 a:hover {
@@ -76,19 +64,28 @@ a:hover {
 .tbc-logo {
     background: none;
     border: none;
-    display: block;
+    display: flex;
     flex-direction: column;
+    justify-self: center;
+    margin: auto;
+    /* align-items: flex-end; */
     /* justify-content: center; */
     width: auto;
-    margin: 10px auto auto auto;
+    margin: auto auto 5px auto;
+    font-size: 40px;
+    font-weight: 500;
 }
 
 /* .indexcard {} */
 
-.recipe-card {
+/* .recipe-card {
     padding-top: 26px;
     display: block;
     width: 50vw;
+} */
+
+.recipe-thumb {
+    margin-top: 117px;
 }
 
 .list-group {
@@ -100,7 +97,10 @@ a:hover {
 }
 
 header {    
-    display: block;
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: space-between;
     /*  Lined-paper css styles borrowed and heavily adapted from Emily Gagne article, 
         here: https://codepen.io/ceg9498/post/creating-lined-paper */
     background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 67px, #faa7e3 68px, #d15da7 69px, #d15da7 71px, rgb(245, 245, 245) 72px);
@@ -116,31 +116,26 @@ header .container-fluid {
     left: 0;
 }
 
-/* .card-title {
-    position: relative;
-    left: 10px;
-    top: 8px;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.card-text {
+.recipe-copy li,
+.recipe-copy h4 {
     position: relative;
     top: 30px;
-    font-size: 18px;
     margin: 0 20px;
     line-height: 27px;
-} */
+}
 
 .btn {
+    display: flex;
+    flex-direction: column;
     background: none;
     font-family: 'Noto Sans Mono', monospace;
     font-size: 22px;
     font-weight: 600;
     width: fit-content;
-    height: 24px;
-    border: 1px solid pink;
-    z-index: 200;
+    height: 33px;
+    justify-content: center;
+    border: 1px solid rgb(250, 228, 232);
+    z-index: 20;
 }
 
 .tbc-search input {
@@ -169,33 +164,25 @@ input {
     margin-top: 13px;
     background: none;
     background-color: rgba(248, 202, 209, 0.719);
+    background-color: rgba(248, 214, 219, 0.836);
 }
 
 .tbc-nav-link,
 .tbc-button {
-    /* position: absolute; */
-    display: inline;
-    /* right: 66px; */
+    display: flex;
     line-height: 54px;
-    height: 33px;
-    padding-top: 6px;
-    top: 30px;
     background-color: rgba(248, 202, 209, 0.719);
 }
 
-/* .login-link,
-.register-link {
-    display: inline-block;
-} */
-
 .navbar .navbar-brand {
     justify-self: center;
-    /* padding-left: 15px; */
     height: 126px;
 }
 
 .navbar {
-    justify-content: center;
+    justify-items: space-between;
+    width: 20vw;
+    margin: auto 13px auto auto;
 }
 
 .tbc-logo-caption {
@@ -222,16 +209,32 @@ input {
 
 /* Register page */
 
-.card-panel {
-    background: pink;
-    z-index: 100;
-}
-
 label {
     color: lightblue;
 }
 
-.input-field {
-    color: yellow;
-    z-index: 105;
+.card-img {
+    justify-self: center;
 }
+
+.card-login *,
+.card-register * {
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30vw;
+}
+
+.pink-text {
+    color: #d15da7;
+    font-weight: 600px;
+}
+
+input:placeholder-shown {
+    border: 3px solid pink;
+}
+
+/* input::placeholder {
+    color: rgb(24, 110, 168);
+} */

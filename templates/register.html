@@ -3,25 +3,25 @@
 
 <div class="container">
     <div class="row">
-        <form class="col-12 col-m-8" method="POST" action="{{ url_for('register') }}">
-            <div class="card-panel">
+        <form class="col mt-5" method="POST" action="{{ url_for('register') }}">
+            <div class="card-register container-fluid">
                 <!-- Username Input -->
-                <div class="row">
-                    <div class="input-field col justify-content-center">
-                        <input id="username" name="username" type="text" class="validate">
-                        <label for="username">Username</label>
+                <div class="row mt-5">
+                    <div class="input-field col-4 justify-content-center">
+                        <input id="username" name="username" type="text" class="validate" placeholder="Username">
+                        <!-- <label for="username">Username</label> -->
                     </div>
                 </div>
                 <!-- Password Input -->
                 <div class="row">
-                    <div class="input-field col">
-                        <input id="password" name="password" type="password" class="validate">
-                        <label for="password">Password</label>
+                    <div class="input-field col-4">
+                        <input id="password" name="password" type="password" class="validate" placeholder="Password">
+                        <!-- <label for="password">Password</label> -->
                     </div>
                 </div>
                 <!-- Submit Registration Button -->
                 <div class="row">
-                    <button type="submit" class="col btn">
+                    <button type="submit" class="tbc-button btn">
                         Register
                     </button>
                 </div>
