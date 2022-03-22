@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <h4>log in below</h4>
+        <form class="col-12 col-m-8" method="POST" action="{{ url_for('login') }}">
+            <div class="card-panel">
+                <!-- Username Input -->
+                <div class="row">
+                    <div class="input-field">
+                        <input id="username" name="username" type="text" minlength="6" maxlength="15" class="validate" autocomplete="on" required>
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+                <!-- Password Input -->
+                <div class="row">
+                    <div class="input-field">
+                        <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" required>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <!-- Confirm Login Button -->
+                <div class="row">
+                    <button type="submit" class="tbc-button submit">
+                        Submit
+                    </button>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <p class="justify-self-center">
+                            No account? No problem..<a href="{{ url_for('register') }}">Register here</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

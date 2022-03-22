@@ -32,12 +32,13 @@
                 <div class="tbc-logo">
                     <a href="{{ url_for('index') }}"><h1>the baker's crumbs</h1></a>
                 </div>
-                <a class="register-link" href="{{ url_for('register') }}"><h4>register</h4></a>
+                <a class="tbc-nav-link login-link" href="{{ url_for('login') }}"><h4>login</h4></a>
+                <a class="tbc-nav-link register-link" href="{{ url_for('register') }}"><h4>register</h4></a>
             </div>
             <form action="{{ url_for('search') }}" method="post" class="tbc-search">
                 <div class="input-field search-input">
                     <input type="text" name="query" id="query" minlength="3" class="validate" placeholder="search for recipes" required>
-                    <button type="submit" class="btn">
+                    <button type="submit" class="tbc-button btn">
                         Search
                     </button>
                 </div>
