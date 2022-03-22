@@ -9,6 +9,7 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    z-index: -5;
 }
 
 header {
@@ -173,7 +174,7 @@ input {
     background-color: rgba(248, 202, 209, 0.719);
 }
 
-.signin-link {
+.register-link {
     position: absolute;
     right: 66px;
     line-height: 54px;
@@ -209,4 +210,20 @@ input {
     line-height: 54px;
     padding: none;
     font-size: 22px;
+}
+
+/* Register page */
+
+.card-panel {
+    background: pink;
+    z-index: 100;
+}
+
+label {
+    color: lightblue;
+}
+
+.input-field {
+    color: yellow;
+    z-index: 105;
 }

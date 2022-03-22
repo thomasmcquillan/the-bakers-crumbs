@@ -48,7 +48,37 @@ def view_recipe():
     return render_template("view_recipe.html", recipes=recipes)
 
 
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    """
+    The register route allows new users to create a user
+    account, using a unique username and valid password.
+    """
+    if request.method == "POST":
+        # Checks to see if username already exists.
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("Username already in use")
+            return redirect(url_for("register"))
+        # Takes user info and places them in the database.
+        register = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(
+                request.form.get("password"))
+            }
+        mongo.db.users.insert_one(register)
+
+        # Puts user into a new 'session' cookie.
+        session["user"] = request.form.get("username").lower()
+        flash("Registration Successful")
+        return redirect(url_for("account", username=session["user"]))
+
+    return render_template("register.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
