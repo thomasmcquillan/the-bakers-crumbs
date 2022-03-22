@@ -6,22 +6,19 @@
         <form class="col mt-5" method="POST" action="{{ url_for('register') }}">
             <div class="card-register container-fluid">
                 <!-- Username Input -->
-                <div class="row mt-5">
-                    <div class="input-field col-4 justify-content-center">
+                <!-- <div class="row mt-5"> -->
+                    <div class="input-field my-2">
                         <input id="username" name="username" type="text" class="validate" placeholder="Username">
                         <!-- <label for="username">Username</label> -->
                     </div>
-                </div>
+                <!-- </div> -->
                 <!-- Password Input -->
-                <div class="row">
-                    <div class="input-field col-4">
-                        <input id="password" name="password" type="password" class="validate" placeholder="Password">
-                        <!-- <label for="password">Password</label> -->
-                    </div>
+                <div class="input-field my-2">
+                    <input id="password" name="password" type="password" class="validate" placeholder="Password">
                 </div>
                 <!-- Submit Registration Button -->
                 <div class="row">
-                    <button type="submit" class="tbc-button btn">
+                    <button type="submit" class="tbc-button my-4">
                         Register
                     </button>
                 </div>
