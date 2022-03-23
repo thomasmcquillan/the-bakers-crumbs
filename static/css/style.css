@@ -15,10 +15,12 @@ body {
 
 main {
     display: flex;
+    z-index: -5;
     line-height: 54px;
     width: 100vw;
     min-height: 100vw;
     position: absolute;
+    align-content:flex-start;
     left: 0;
     flex-wrap: wrap;
     /*  Lined-paper css styles borrowed and then adapted from Emily Gagne article, 
@@ -68,21 +70,23 @@ a:hover {
     flex-direction: column;
     justify-self: center;
     margin: auto;
-    /* align-items: flex-end; */
-    /* justify-content: center; */
-    width: auto;
-    margin: auto auto 5px auto;
-    font-size: 40px;
-    font-weight: 500;
+    align-self: center;
+    line-height: 55px;
+    position: fixed;
+    top: 13px;
 }
 
-/* .indexcard {} */
+.tbc-logo h1 {
+    font-size: 41px;
+    font-weight: 500;
+    margin-top: 7px;
+}
 
-/* .recipe-card {
-    padding-top: 26px;
-    display: block;
-    width: 50vw;
-} */
+.tbc-logo-caption {
+    font-size: 29px;
+    line-height: 24px;
+    margin-left: 3px;
+}
 
 .recipe-thumb {
     margin-top: 117px;
@@ -186,18 +190,9 @@ input {
     margin: auto 13px auto auto;
 }
 
-.tbc-logo-caption {
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-    justify-self: center;
-    text-align: center;
-}
-
 .recipe-copy {
     position: absolute;
     top: 333px;
-    /* line-height: 52px; */
 }
 
 .recipe-copy h4,
@@ -218,13 +213,13 @@ label {
     justify-self: center;
 }
 
-.card-login *,
-.card-register * {
+.card-login,
+.card-register {
     z-index: 4;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 30vw;
+    justify-items: center;
+    width: 100vw;
 }
 
 .pink-text {
@@ -236,6 +231,14 @@ input:placeholder-shown {
     border: 3px solid pink;
 }
 
-/* input::placeholder {
-    color: rgb(24, 110, 168);
-} */
+input::placeholder {
+    color: rgb(156, 156, 156);
+    align-content: center;
+}
+
+.form-row {
+    width: 100vw;
+    justify-content: center;
+    margin-left: 0;
+    display: flex;
+}

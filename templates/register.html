@@ -1,25 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <form class="col mt-5" method="POST" action="{{ url_for('register') }}">
-            <div class="card-register container-fluid">
+        <form class="col-12 mt-5" method="POST" action="{{ url_for('register') }}">
+            <div class="card-register container-fluid justify-content-center">
                 <!-- Username Input -->
-                <!-- <div class="row mt-5"> -->
-                    <div class="input-field my-2">
+                <div class="row justify-content-center mt-5">
+                    <div class="input-field col-3">
                         <input id="username" name="username" type="text" class="validate" placeholder="Username">
-                        <!-- <label for="username">Username</label> -->
                     </div>
-                <!-- </div> -->
+                </div>
                 <!-- Password Input -->
-                <div class="input-field my-2">
-                    <input id="password" name="password" type="password" class="validate" placeholder="Password">
+                <div class="row justify-content-center">
+                    <div class="input-field col-3 my-2">
+                        <input id="password" name="password" type="password" class="validate" placeholder="Password">
+                    </div>
                 </div>
                 <!-- Submit Registration Button -->
-                <div class="row">
-                    <button type="submit" class="tbc-button my-4">
-                        Register
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn tbc-button justify-content-center my-2">
+                        submit
                     </button>
                 </div>
             </div>
