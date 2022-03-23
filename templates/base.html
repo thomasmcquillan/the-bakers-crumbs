@@ -18,7 +18,7 @@
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Local Javascript -->
-    <!-- <script src="assets/js/script.js" defer></script> -->
+    <script src="assets/js/script.js" defer></script>
     <!-- Page title -->
     <title>The Baker's Crumbs</title>
 </head>
@@ -35,9 +35,9 @@
             </nav>
             <form action="{{ url_for('search') }}" method="post" class="tbc-search">
                 <div class="input-field search-input">
-                    <input type="text" name="query" id="query" minlength="3" class="validate" placeholder="search recipes" required>
-                    <button type="submit" class="tbc-button btn">
-                        Search
+                    <input type="text" name="query" on-click="button-toggle()" minlength="3" class="validate" placeholder="search recipes" required>
+                    <button type="submit" class="tbc-button search-btn btn d-none">
+                        search
                     </button>
                 </div>
             </form>
