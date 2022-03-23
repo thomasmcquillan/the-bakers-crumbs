@@ -128,6 +128,14 @@ This site is targeted at experienced bakers and beginner bakers alike. It is a p
 ### Sign-in / Sign-up Page
 
 ![Wireframes for 'sign-in and register new user' page](docs/images/wireframes-signin-signup.png)
+
+## Site Mockups
+
+##### I produced mock-ups of the tbc site in addition to the wireframes to explore colour and to get a better sense of how things would look. Consideration of colour is always important. However, this is especially true here because success of the simulated lined-paper / index-card aesthetic really hinges on evoking nostalgia in the user, which means it needs to be believable.
+
+![Mockup for 'the baker's crumbs' homepage](docs/images/mockup-tbc-homepage.png)
+
+![Mockup for 'View Recipe' page](docs/images/mockup-tbc-recipe.png)
 ## Color Scheme
 
 ## Database Schema
