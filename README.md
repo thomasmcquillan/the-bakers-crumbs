@@ -140,4 +140,4 @@ This site is targeted at experienced bakers and beginner bakers alike. It is a p
 
 ## Database Schema
 
-![Database schema, showing collections](docs/images/db-schema.jpeg) 
+![Database schema, showing collections](docs/images/db-schema.png) 

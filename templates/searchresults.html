@@ -1,36 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-<div class="row">
+<div class="container recipe-list">
     {% for recipe in recipes %}
-    <div class="col-9">
-        <div class="card recipe-card">
-            <div class="recipe-thumb">
-                <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
-                    <img src="{{ recipe.image_url }}" class="img-fluid" alt="">
-                </a>
-            </div>
-            <div class="recipe-copy">
-                <h4><strong>{{ recipe.recipe_name }}</strong></h4>
-                <!-- <p>{{ recipe.recipe_description }}</p> -->
-                <h4>Ingredients</h4>
-                <ul>
-                    {% for ingredient in recipe.ingredients %}
-                    <li>{{ ingredient }}</li>
-                    {% endfor %}
-                </ul>
-                <h4>Directions</h4>
-                <ul>
-                    {% for ingredient in recipe.directions %}
-                    <li>{{ ingredient }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
+    <div class="row">
+        <div class="col-9 col-md-4">
+            <img src="{{ recipe.image_url }}" class="img-fluid" alt="">
+        </div>
+        <div class="col-10 col-md-4">
+            <h4>{{ recipe.recipe_name }}<br></h4>
+            <p>{{ recipe.recipe_description }}</p>
         </div>
     </div>
     {% endfor %}
 </div>
-
 
 {% endblock %}
