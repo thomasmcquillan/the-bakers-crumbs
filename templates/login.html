@@ -1,37 +1,44 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <h4>log in below</h4>
-        <form class="col-12 col-m-8" method="POST" action="{{ url_for('login') }}">
-            <div class="card-login">
+        <form class="card-login col-12" method="POST" action="{{ url_for('login') }}">
+            <div class="container-fluid justify-content-center">
+                <div class="row justify-content-center">
+                    <h4 class="col-3" style="text-align:center">log in below</h4>
+                </div>
                 <!-- Username Input -->
-                <div class="row">
-                    <div class="input-field col-4">
+                <div class="row justify-content-center">
+                    <div class="input-field col-3">
                         <input id="username" name="username" type="text" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Username" required>
                     </div>
                 </div>
                 <!-- Password Input -->
-                <div class="row">
-                    <div class="input-field col-4">
+                <div class="row justify-content-center">
+                    <div class="input-field col-3">
                         <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Password" required>
                     </div>
                 </div>
                 <!-- Confirm Login Button -->
-                <div class="row">
-                    <button type="submit" class="tbc-button submit">
-                        Submit
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn col-1 tbc-button justify-self-center">
+                        submit
                     </button>
                 </div>
 
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col">
-                        <p class="justify-self-center">
-                            No account?
+                        <br>
+                        <p style="text-align:center">
+                            No account? No problem.
                         </p>
-                        <a href="{{ url_for('register') }}" class="pink-text"><strong>Register here</strong></a>
+                        <p style="text-align:center">Register now to save favourite recipes <br> and even contribute some of your own..</p>
+                        <a href="{{ url_for('register') }}" class="pink-text">Register here</a>
                     </div>
+                    <!-- <div class="col-10"> -->
+                        
+                    <!-- </div> -->
                 </div>
             </div>
         </form>
