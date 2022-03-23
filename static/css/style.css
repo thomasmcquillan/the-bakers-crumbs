@@ -169,8 +169,8 @@ header .container-fluid {
 .search-btn {
     display: flex;
     position: absolute;
-    left: 15px;
-    top: 33px;
+    left: 299px;
+    top: -10px;
     z-index: 20000;
 }
 
@@ -306,7 +306,8 @@ button {
 }
 
 .recipe-list,
-.view-recipe {
+.view-recipe,
+.tbc-home {
     margin-top: 290px;
     margin-top: 183px;
 }
