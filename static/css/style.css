@@ -158,25 +158,33 @@ header .container-fluid {
     border: 1px solid rgb(250, 228, 232);
     z-index: 20;
     background-color: rgba(248, 202, 209, 0.719);
+    position: relative;
+    /* right: 10px; */
 }
 
-.tbc-nav-link,
-.tbc-button {
+.search-btn {
     display: flex;
-    /* line-height: 54px; */
-    /* line-height: 34px; */
+    position: absolute;
+    left: 15px;
+    top: 33px;
+    z-index: 20000;
+}
+
+.tbc-nav-link {
+    display: flex;
+    padding-bottom: 24px;
     /* background-color: rgba(248, 202, 209, 0.719); */
 }
 
-.tbc-search input {
+.search-input {
     display: inline-flex;
     position: absolute;
-    top: 16px;
+    top: 30px;
     left: 13px;
     border: none;
 }
 
-.tbc-search input:hover {
+.search-input:hover {
     color: pink;
 }
 
@@ -190,9 +198,7 @@ input {
     text-align: center;
     line-height: 54px;
     height: 33px;
-    background: none;
-    background-color: rgba(248, 202, 209, 0.719);
-    background-color: rgba(248, 214, 219, 0.836);
+    background-color: rgba(252, 229, 232, 0.836);
 }
 
 .navbar .navbar-brand {
@@ -243,14 +249,21 @@ label {
 
 .pink-text {
     color: #d15da7;
-    font-weight: 600px;
+    font-size: 24px;
     font-weight: 600;
     display: flex;
     justify-content: center;
+    background-color: #5a97c9;
+    color: white;
+}
+
+.pink-text:hover {
+    color:#454545;
 }
 
 input:placeholder-shown {
-    border: 3px solid pink;
+    border: 2px solid pink;
+    border: none;
 }
 
 input::placeholder {
@@ -277,4 +290,8 @@ p, li, h2, h3, h4, h5, input, textarea, ul, .row, col {
 
 a {
     line-height: 54px;
+}
+
+button {
+    border: none;
 }

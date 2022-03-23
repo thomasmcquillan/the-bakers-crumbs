@@ -3,24 +3,42 @@
 
 <div class="container-fluid">
     <div class="row">
-        <form class="col-12 mt-5" method="POST" action="{{ url_for('register') }}">
-            <div class="card-register container-fluid justify-content-center">
+        <h4>Register below</h4>
+        <form class="card-register col-12" method="POST" action="{{ url_for('register') }}">
+            <div class="container-fluid justify-content-center">
+                <div class="row justify-content-center">
+                    <h4 class="col-3" style="text-align:center">register here</h4>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <br>
+                        <p style="text-align:center">Please enter a username</p>
+                    </div>
+                </div>
                 <!-- Username Input -->
-                <div class="row justify-content-center mt-5">
+                <div class="row justify-content-center">
                     <div class="input-field col-3">
-                        <input id="username" name="username" type="text" class="validate" placeholder="Username">
+                        <input id="username" name="username" type="text" class="validate" placeholder="..............">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <p style="text-align:center">Please enter a secure password</p>
                     </div>
                 </div>
                 <!-- Password Input -->
                 <div class="row justify-content-center">
-                    <div class="input-field col-3 my-2">
-                        <input id="password" name="password" type="password" class="validate" placeholder="Password">
+                    <div class="input-field col-3">
+                        <input id="password" name="password" type="password" class="validate" placeholder="..............">
                     </div>
+                </div>
+                <div class="row">
+                    <p><br></p>
                 </div>
                 <!-- Submit Registration Button -->
                 <div class="row justify-content-center">
-                    <button type="submit" class="btn tbc-button justify-content-center my-2">
-                        submit
+                    <button type="submit" class="pink-text col-4">
+                        confirm
                     </button>
                 </div>
             </div>
