@@ -1,5 +1,7 @@
 import os
-from flask import Flask, flash, render_template, redirect, request, session, url_for
+from flask import (
+    Flask, flash, render_template,
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -18,6 +20,7 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/index")
 def index():
     """ Returns user to Homepage """
     return render_template("index.html")
@@ -63,11 +66,12 @@ def register():
             flash("Username already in use")
             return redirect(url_for("register"))
         # Takes user info and places them in the database.
+
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(
                 request.form.get("password"))
-            }
+        }
         mongo.db.users.insert_one(register)
         # Puts user into a new 'session' cookie.
         session["user"] = request.form.get("username").lower()
@@ -97,11 +101,12 @@ def login():
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 # Displays welcome alert to user
-                flash("Welcome back, {}.. the oven is hot!".format(request.form.get("username")))
+                flash("Welcome back, {}.. let's bake!".format(
+                    request.form.get("username")))
                 # Delivers user to the their profile page
-                return redirect(url_for("account", username=session["user"]))
+                return redirect(url_for("index", username=session["user"]))
             else:
-                # Alerts user that an incorrect username or password was entered.
+                # Alerts user that incorrect username or password was entered.
                 flash("Username or password in incorrect, please try again.")
                 return redirect(url_for("login"))
 
