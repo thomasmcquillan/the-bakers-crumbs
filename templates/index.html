@@ -3,17 +3,17 @@
 
 
     <div class="row tbc-home justify-content-center">
-        <div class="col-4">
-            <h4 class="justify-content-center"><a href="{{ url_for('get_recipes') }}">view all recipes</a></h4>
+        <div class="col-12 justify-content-center">
+            <h4 class="tbc-links"><a href="{{ url_for('get_recipes') }}">view all recipes</a></h4>
             <p><br></p>
-            <h4 class="justify-content-center"><a href="{{ url_for('view_recipe') }}">browse by category</a></h4>
-            <form class="card-register col-12" method="POST" action="{{ url_for('register') }}">
+            <h4 class="tbc-links"><a href="{{ url_for('view_recipe') }}">browse by category</a></h4>
+            <!-- <form class="card-register col-12" method="POST" action="{{ url_for('register') }}">
                 <div class="container-fluid justify-content-center">
                     <div class="row justify-content-center">
                         <h4 class="col-3" style="text-align:center">boop</h4>
                     </div>
                 </div>
-            </form>
+            </form> -->
         </div>
     </div>
 
