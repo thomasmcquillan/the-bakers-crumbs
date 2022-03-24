@@ -40,14 +40,13 @@ def search():
     """
     query = request.form.get("query")
     recipes = mongo.db.recipes.find({"$text": {"$search": query}})
-    # recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     return render_template("searchresults.html", recipes=recipes)
 
 
 @app.route("/view_recipe", methods=["GET"])
-def view_recipe():
+def view_recipe(recipe_id):
     """ Displays page with a specific recipe, as chosen by the user """
-    recipes = mongo.db.recipes.find()
+    recipes = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("view_recipe.html", recipes=recipes)
 
 
@@ -104,7 +103,7 @@ def login():
                 flash("Welcome back, {}.. let's bake!".format(
                     request.form.get("username")))
                 # Delivers user to the their profile page
-                return redirect(url_for("index", username=session["user"]))
+                return redirect(url_for("account", username=session["user"]))
             else:
                 # Alerts user that incorrect username or password was entered.
                 flash("Username or password in incorrect, please try again.")
@@ -116,6 +115,19 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/browse_by_category/<category_id>")
+def browse_by_category(category_id):
+    """
+    Enables users to browse recipes by category
+    after having chosen a category on the homepage.
+    """
+    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    recipes = mongo.db.recipes.find(
+        {"category_name": category["category_name"]})
+
+    return render_template("browse_by_category.html", recipes=recipes, category=category)
 
 
 if __name__ == "__main__":
