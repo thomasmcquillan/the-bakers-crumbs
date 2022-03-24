@@ -5,32 +5,38 @@ body {
     line-height: 54px;
     flex-direction: column;
     color: #454545;
-    background-color: rgb(245, 245, 245);
+    /* background-color: rgb(245, 245, 245); */
     text-decoration: none;
     display: flex;
     justify-items: center;
     flex-wrap: wrap;
-    z-index: -50;
+    z-index: -5;
     padding: 0;
-    
+    min-height: 100vh;
+    display: flex;
+    min-width: 100vw;
+    min-height: 100vh;
+    /*  Lined-paper css styles borrowed and then adapted from Emily Gagne article, 
+        here: https://codepen.io/ceg9498/post/creating-lined-paper */
+    background: repeating-linear-gradient(rgb(245, 245, 245), rgb(245, 245, 245) 50px,#74aac9 51px, #74aac9 53px, rgb(245, 245, 245) 54px);
 }
 
 main {
     display: flex;
-    z-index: -5;
+    z-index: -50;
     line-height: 54px;
     width: 100vw;
-    min-height: 100vw;
-    height: fit-content;
+    height: auto;
     position: absolute;
     left: 0;
     top: 22px;
-    align-content:flex-start;
-    
+    align-content: flex-start;
+    min-height: 100%;
     flex-wrap: wrap;
+    margin-top: 95px;
     /*  Lined-paper css styles borrowed and then adapted from Emily Gagne article, 
         here: https://codepen.io/ceg9498/post/creating-lined-paper */
-    background: repeating-linear-gradient(rgb(245, 245, 245), rgb(245, 245, 245) 50px,#74aac9 51px, #74aac9 53px, rgb(245, 245, 245) 54px);
+    /* background: repeating-linear-gradient(rgb(245, 245, 245), rgb(245, 245, 245) 50px,#74aac9 51px, #74aac9 53px, rgb(245, 245, 245) 54px); */
 }
 
 /* fonts styling */
@@ -84,20 +90,13 @@ a:hover {
     align-self: center;
     line-height: 54px;
     position: fixed;
-    top: 13px;
+    top: 38px;
 }
 
 .tbc-logo h1 {
     font-size: 41px;
     font-weight: 500;
     margin-top: 7px;
-}
-
-.tbc-logo-caption {
-    font-size: 29px;
-    line-height: 24px;
-    line-height: 28px;
-    margin-left: 3px;
 }
 
 .recipe-thumb {
@@ -125,10 +124,12 @@ header {
     justify-content: space-between;
     /*  Lined-paper css styles borrowed and heavily adapted from Emily Gagne article, 
         here: https://codepen.io/ceg9498/post/creating-lined-paper */
-    background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 67px, #faa7e3 68px, #d15da7 69px, #d15da7 71px, rgb(245, 245, 245) 72px);
-    height: 72px;
+    /* background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 67px, #faa7e3 68px, #d15da7 69px, #d15da7 71px, rgb(245, 245, 245) 72px); */
+    background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 100px, #faa7e3 101px, #d15da7 102px, #d15da7 104px, rgb(245, 245, 245) 105px);
     height: 124px;
-    top: 0;
+    height: 155px;
+    /* height: 97px; */
+    /* top: 34px; */
     left: 0;
     padding: 0;
     position: fixed;
@@ -166,43 +167,6 @@ header .container-fluid {
     position: relative;
 }
 
-.tbc-search,
-.tbc-search-hover {
-    display: flex;
-    position: absolute;
-    left: 288px;
-    width: 32px;
-    background: none;
-    transition: .35s ease-in;
-}
-
-.tbc-search-hover {
-    display: none;
-    z-index: 1;
-}
-
-.tbc-nav-link {
-    display: flex;
-    padding-bottom: 24px;
-}
-
-.search-input {
-    display: inline-flex;
-    position: absolute;
-    top: 30px;
-    left: 13px;
-    border: none;
-    justify-items: center;
-}
-
-.icon-wrap {
-    display: inline-flex;
-    align-content: center;
-    width: 44px;
-    height: 44px;
-    background: transparent;
-}
-
 input {
     text-align: center;
     line-height: 54px;
@@ -218,7 +182,7 @@ input {
 .navbar {
     justify-items: space-between;
     width: 20vw;
-    margin: auto 13px auto auto;
+    margin: 42px 6px auto auto;
 }
 
 .recipe-copy h4,
@@ -281,7 +245,7 @@ input::placeholder {
     display: flex;
 }
 
-p, li, h2, h3, h4, h5, input, textarea, ul, .row, col {
+p, li, h2, h3, h4, h5, input, textarea, ul, .row, col, .tbc-links, .tbc-nav-link, * {
     line-height: 54px;
     padding: 0 auto;
     margin: 0 auto;
@@ -292,7 +256,7 @@ a {
 }
 
 .tbc-links {
-    text-align: center;
+    justify-self: center;
 }
 
 button {
@@ -315,10 +279,13 @@ button {
                 0 32px 16px rgba(0,0,0,0.04);
 }
 
+.card-image {
+    padding-bottom: 54px;
+}
+
 .recipe-list,
 .view-recipe,
 .tbc-home {
-    margin-top: 290px;
     margin-top: 183px;
 }
 
@@ -332,4 +299,140 @@ button {
 
 .recipe-wrap .row {
     margin-bottom: 54px !important;
+}
+
+.tbc-footer .row {
+    display: flex;
+    align-self: flex-end;
+    bottom: 0;
+    left: 0;
+    height: 54px;
+    width: 100vw;
+    flex-direction: row;
+    justify-items: space-evenly;
+    background-color: rgb(245, 245, 245);
+}
+
+.social-links {
+    display: flex;
+    flex-direction: row;
+    justify-items: space-evenly;
+    list-style: none;
+}
+
+.tbc-logo-caption {
+    font-size: 29px;
+    line-height: 28px;
+    margin-left: 3px;
+}
+
+.page-content {
+    margin-top: 108px;
+}
+
+#tbc-search-form {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    width: 100vw;
+}
+
+#tbc-search,
+#tbc-search-hover {
+    display: flex;
+    position: absolute;
+    width: 32px;
+    z-index: 99;
+    top: 0px;
+    background: none;
+    transition: .35s ease-in;
+}
+
+#tbc-search-hover {
+    display: none;
+    z-index: 100;
+}
+
+.tbc-nav-link {
+    display: flex;
+    /* padding-bottom: 54px; */
+    text-align: center;
+}
+
+.login-link,
+.register-link {
+    padding: none;
+}
+
+.search-input {
+    display: inline-flex;
+    position: absolute;
+    top: 224px;
+    left: 13px;
+    border: none;
+    justify-items: center;
+}
+
+#icon-wrap {
+    display: inline-flex;
+    align-content: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+}
+
+/* Media Queries */
+
+@media (min-width: 768px) {
+    #tbc-search,
+    #tbc-search-hover {
+        position: absolute;
+        top: 0px;
+        right: 88px;
+    }
+
+    .search-input {
+        top: 100px;
+        right: 400px;
+    }
+
+    .search-form {
+        width: 300px;
+    }
+
+    #tbc-search-form {
+        display: flex;
+        flex-direction: row;
+        justify-items: center;
+        width: 100vw;
+        width: 500px;
+        margin: 16px 0px auto auto;
+        right: -28px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .social-nav {
+        position: fixed;
+        left: 16px;
+        top: 52px;
+    }
+    /* #tbc-search-form {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        right: 10px;
+        justify-items: space-between;
+        justify-items: right;
+        width: 100vw;
+        top: 200px;
+        border: 1px solid orange;
+        align-items: flex-start;
+    }
+
+    .search-form {
+        position: absolute;
+        margin: 33px 33px auto auto;
+    } */
 }

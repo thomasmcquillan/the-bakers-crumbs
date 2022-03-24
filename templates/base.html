@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <!-- meta tags -->
@@ -23,33 +23,35 @@
     <!-- Page title -->
     <title>The Baker's Crumbs</title>
 </head>
-<body class="container">
-    <div class="container-fluid">
-        <header class="tbc-header container-fluid">
-            <div class="tbc-logo">
-                <a href="{{ url_for('index') }}"><h1>the baker's crumbs</h1></a>
-                <h3 class="tbc-logo-caption">baking wisdom, <span style="color:rgb(236, 76, 156)"><strong><em>served hot</em></strong></span></h3>
+<body class="container-fluid">
+    <header class="tbc-header container-fluid">
+        <div class="social-nav">
+            <ul class="social-links justify-content-center">
+                <li><a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.twitter.com/" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a></li>
+            </ul>
+        </div>
+        <div class="tbc-logo">
+            <a href="{{ url_for('index') }}"><h1>the baker's crumbs</h1></a>
+            <h3 class="tbc-logo-caption">baking wisdom, <span style="color:rgb(236, 76, 156)"><strong><em>served hot</em></strong></span></h3>
+        </div>
+        <nav class="navbar">
+            <a class="tbc-nav-link login-link" href="{{ url_for('login') }}"><h4>login</h4></a>
+            <a class="tbc-nav-link register-link" href="{{ url_for('register') }}"><h4>register</h4></a>
+        </nav>
+        <form class="search-form" action="{{ url_for('search') }}" method="post">
+            <div id="tbc-search-form" class="search-input">
+                <input type="text" name="query" minlength="3" class="validate" placeholder="search recipes" required>
+                <button id="icon-wrap" type="submit">
+                    <span><img id="tbc-search" src="static/images/tbc-search.png"></span>
+                    <span><img id="tbc-search-hover" src="static/images/tbc-search-hover.png"></span>
+                </button>
             </div>
-            <nav class="navbar">
-                <a class="tbc-nav-link login-link" href="{{ url_for('login') }}"><h4>login</h4></a>
-                <a class="tbc-nav-link register-link" href="{{ url_for('register') }}"><h4>register</h4></a>
-            </nav>
-            <form action="{{ url_for('search') }}" method="post">
-                <div>
-                    <div class="search-input">
-                        <input type="text" name="query" minlength="3" class="validate" placeholder="search recipes" required>
-                        <button class="icon-wrap" type="submit">
-                            <span><img class=tbc-search src="static/images/tbc-search.png" alt="submit search icon"></span>
-                            <span><img class=tbc-search-hover src="static/images/tbc-search-hover.png" alt="click to confirm search"></span>
-                        </button>
-                        <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
-                    </div>
-                </div>
-            </div>
-            </form>
-        </header>
-        <main class="row indexcard"></main>
-    </div>
+        </form>
+        
+    </header>
+    <main class="row"></main>
 
     {% block content %}
     {% endblock %}
