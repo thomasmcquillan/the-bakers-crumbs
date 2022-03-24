@@ -1,31 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container view-recipe">
-    {% for recipe in recipes %}
-    <div class="row">
-        <div class="col-12 col-md-5">
-            <h4>{{ recipe.recipe_name }}<br></h4>
-            <h4 class="tbc-text-pink">Ingredients</h4>
-            <ul>
-                {% for ingredient in recipe.ingredients %}
-                <li>{{ ingredient }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="col-9 col-md-5">
-            <img src="{{ recipe.image_url }}" class="img-fluid" alt="">
-        </div>
-        <div class="col-12 col-md-6">
-            <h4 class="tbc-text-pink">Directions</h4>
-            <ul>
-                {% for direction in recipe.directions %}
-                <li>{{ direction }}</li>
-                {% endfor %}
-            </ul>
-        </div>  
+<div class="recipe-row recipe-list row page-content">
+    <div class="col recipe-img">
+        <img src="{{ recipe.image_url }}" class="img-fluid" alt="">
     </div>
-    {% endfor %}
+    <div class="col-12 col-md-6">
+        <div class="recipe-wrap col-md-7">
+            <h4>{{ recipe.recipe_name }}</h4>
+            <p><br></p>
+            <p>{{ recipe.recipe_description }}</p>
+            <p><br></p>
+        </div>
+        <h4 class="tbc-text-pink">Ingredients</h4>
+        <ul>
+            {% for ingredient in recipe.ingredients %}
+            <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-12 col-md-6">
+        <h4 class="tbc-text-pink">Directions</h4>
+        <ul>
+            {% for direction in recipe.directions %}
+            <li>{{ direction }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 </div>
 
 {% endblock %}
