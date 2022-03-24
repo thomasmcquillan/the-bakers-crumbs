@@ -22,15 +22,19 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/index")
 def index():
-    """ Returns user to Homepage """
+    """
+    Returns user to Homepage
+    """
     return render_template("index.html")
 
 
 @app.route("/get_recipes")
 def get_recipes():
-    """ Displays recipes from MongoDB Database """
+    """
+    Displays recipes from MongoDB Database
+    """
     recipes = mongo.db.recipes.find()
-    return render_template("all_recipes.html", recipes=recipes)
+    return render_template("get_recipes.html", recipes=recipes)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -43,11 +47,13 @@ def search():
     return render_template("searchresults.html", recipes=recipes)
 
 
-@app.route("/view_recipe", methods=["GET"])
+@app.route("/view_recipe/<recipe_id>")
 def view_recipe(recipe_id):
-    """ Displays page with a specific recipe, as chosen by the user """
-    recipes = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("view_recipe.html", recipes=recipes)
+    """
+    Displays page with a specific recipe, as chosen by the user
+    """
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("view_recipe.html", recipe=recipe)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -64,7 +70,6 @@ def register():
         if existing_user:
             flash("Username already in use")
             return redirect(url_for("register"))
-        # Takes user info and places them in the database.
 
         register = {
             "username": request.form.get("username").lower(),
@@ -72,6 +77,7 @@ def register():
                 request.form.get("password"))
         }
         mongo.db.users.insert_one(register)
+
         # Puts user into a new 'session' cookie.
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
@@ -83,11 +89,11 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """
-    Login function that initially checks to see if username entered
-    is already in the database.  If yes, brilliant. It also checks
-    to see if the hashed password matches the one entered. In both
-    cases it will alert the user with flash messages to notify them
-    of errors and/or successes.
+    Login function that checks to see if username entered
+    is already in the database. It also checks whether the hashed 
+    password matches the one entered. In both cases it will alert 
+    the user with flash messages to notify them of errors and/or 
+    success.
     """
     if request.method == "POST":
         # Checking for existing username in db.
@@ -98,12 +104,13 @@ def login():
             # Ensures hashed password correctly matches user input.
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("username").lower()
-                # Displays welcome alert to user
-                flash("Welcome back, {}.. let's bake!".format(
-                    request.form.get("username")))
-                # Delivers user to the their profile page
-                return redirect(url_for("account", username=session["user"]))
+                        session["user"] = request.form.get("username").lower()
+                        # Displays welcome alert to user
+                        flash("Welcome back, {}".format(
+                        request.form.get("username")))
+                        # Delivers user to the their profile page
+                        return redirect(url_for(
+                            "account", username=session["user"]))
             else:
                 # Alerts user that incorrect username or password was entered.
                 flash("Username or password in incorrect, please try again.")
@@ -117,8 +124,33 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/browse_by_category/<category_id>")
-def browse_by_category(category_id):
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    """
+    Retrieves the session user's username from database
+    """
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if session["user"]:
+        return render_template("profile.html", username=username)
+
+    return redirect(url_for("login"))
+
+
+@app.route("/all_categories")
+def all_categories():
+    """
+    Retrieves categories of recipes for users to select from.
+    """
+    categories = list(mongo.db.categories.find().sort("category_name", 1))
+    recipes = mongo.db.recipes.find()
+    return render_template("all_categories.html", categories=categories,
+        recipes=recipes)
+
+
+@app.route("/view_category/<category_id>")
+def view_category(category_id):
     """
     Enables users to browse recipes by category
     after having chosen a category on the homepage.
@@ -126,9 +158,13 @@ def browse_by_category(category_id):
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     recipes = mongo.db.recipes.find(
         {"category_name": category["category_name"]})
+    return render_template("view_category.html", recipes=recipes, category=category)
 
-    return render_template("browse_by_category.html", recipes=recipes, category=category)
 
+if __name__ == "__main__":
+    app.run(host=os.environ.get("IP"),
+            port=int(os.environ.get("PORT")),
+            debug=True)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
