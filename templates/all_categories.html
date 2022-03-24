@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="recipe-row recipe-list row">
+    {% for category in categories %}
+    <div class="recipe-wrap col-3 card-image">
+        <a href="{{ url_for('view_category', category_id=category._id) }}">
+            <span>
+                {% for recipe in recipes %}
+                <img src="{{ recipe.image_url }}" class="card-image" alt="image of {{ recipe.recipe_name }}">
+                {% endfor %}
+                <h4>{{ category.category_name }}</h4>
+            </span>
+        </a>
+     
+        <p><br></p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
