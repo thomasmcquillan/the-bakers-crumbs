@@ -1,8 +1,8 @@
-const searchbutton = document.getElementById("search-btn");
-const butt = document.getElementById("query");
-
+// hover function for custom search icon
 $(document).ready(function() {
-	$("butt").click(function() {
-		$(".main").toggle();
-    });
+	$(".icon-wrap").hover(function() {
+		$(".tbc-search-hover").toggle();
+	}, function() {
+		$(".tbc-search-hover").toggle();
+	});
 });
