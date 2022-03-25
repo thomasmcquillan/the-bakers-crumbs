@@ -418,21 +418,14 @@ button {
         left: 16px;
         top: 52px;
     }
-    /* #tbc-search-form {
-        display: flex;
-        flex-direction: row;
-        position: absolute;
-        right: 10px;
-        justify-items: space-between;
-        justify-items: right;
-        width: 100vw;
-        top: 200px;
-        border: 1px solid orange;
-        align-items: flex-start;
-    }
+}
 
-    .search-form {
-        position: absolute;
-        margin: 33px 33px auto auto;
-    } */
+/* testing styles */
+
+.z-100 {
+    z-index: 40000;
+}
+
+.recipe-row {
+    z-index: 20000;
 }
