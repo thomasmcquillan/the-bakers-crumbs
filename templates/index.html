@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row page-content justify-content-center">
-    <div class="col-12 justify-items-center">
-        <h4 class="pink-text">Welcome to The Baker's Crumbs</h4>
+<div class="row page-content mx-auto">
+    <div class="col-12">
+        <h4 class="text-center">Welcome to The Baker's Crumbs</h4>
         <p class="tbc-body" style="text-align:center">
             Baking is best when enjoyed together.
             <br>
@@ -13,17 +13,45 @@
             <br>
         </p>
     </div>
-    <div class="col-12 tbc-cat-links home-link-wrap">
-        <a href="{{ url_for('category', categories='all') }}"><h4 class="tbc-links tbc-home-link">View All Recipes</h4>
-        <a class="tbc-link"
-            href="{{ url_for('category', categories='bread') }}"><h4 class="tbc-links tbc-home-link">Bread</h4>
-        <a class="tbc-link"
-            href="{{ url_for('category', categories='pizza') }}"><h4 class="tbc-links tbc-home-link">Pizza</h4>
-        <a class="tbc-link"
-            href="{{ url_for('category', categories='cookies') }}"><h4 class="tbc-links tbc-home-link">Cookies</h4>
-        <a class="tbc-link"
-            href="{{ url_for('category', categories='cakes') }}"><h4 class="tbc-links tbc-home-link">Cakes</h4>
+    <div class="col-12 mx-auto">
+        <a href="{{ url_for('category', categories='all') }}" class="col col-md-4">
+            <h4 class="tbc-links tbc-text-pink">
+                View All Recipes
+            </h4>
+        </a>
     </div>
+</div>
+<div class="row mx-auto tbc-cat-links home-link-wrap">
+    <a href="{{ url_for('category', categories='bread') }}" class="col col-md-4">
+        <span>
+            <h4 class="tbc-links">Bread</h4>
+        </span>
+    </a>
+    <a href="{{ url_for('category', categories='pizza') }}" class="col col-md-4">
+        <span>
+            <h4 class="tbc-links">Pizza</h4>
+        </span>
+    </a>
+    <a href="{{ url_for('category', categories='muffins') }}" class="col col-md-4">
+        <span>
+            <h4 class="tbc-links">Muffins</h4>
+        </span>
+    </a>
+    <a href="{{ url_for('category', categories='cakes') }}" class="col col-md-4">
+        <span>
+            <h4 class="tbc-links">Cakes</h4>
+        </span>
+    </a>
+    <a href="{{ url_for('category', categories='cookies') }}" class="col col-md-4">
+        <span>
+            <h4 class="tbc-links">Cookies</h4>
+        </span>
+    </a>
+    <a href="{{ url_for('category', categories='scones') }}" class="col col-md-4">
+        <span>
+            <h4 class="tbc-links">Scones</h4>
+        </span>
+    </a>
 </div>
 
 {% endblock %}

@@ -134,6 +134,10 @@ def category(categories):
         recipes = list(mongo.db.recipes.find({"category_name": "Cakes"}))
     elif categories == "cookies":
         recipes = list(mongo.db.recipes.find({"category_name": "Cookies"}))
+    elif categories == "scones":
+        recipes = list(mongo.db.recipes.find({"category_name": "Scones"}))
+    elif categories == "muffins":
+        recipes = list(mongo.db.recipes.find({"category_name": "Muffins"}))
     else:
         recipes = list(mongo.db.recipes.find())
     return render_template(
