@@ -128,13 +128,16 @@ def profile(username):
     """
     Retrieves the session user's username from database
     """
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+    if "user" not in session:
+        return redirect(url_for("login"))
 
-    if session["user"]:
-        return render_template("profile.html", username=username)
+    username = session["user"]
 
-    return redirect(url_for("login"))
+    user = mongo.db.users.find_one({"username": username})
+    if not user:
+        return redirect(url_for("login"))
+
+    return render_template("profile.html", username=username)
 
 
 @app.route("/all_categories")
