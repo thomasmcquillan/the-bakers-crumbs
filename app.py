@@ -9,7 +9,6 @@ if os.path.exists("env.py"):
     import env
 
 
-# Setting Config variables
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -103,14 +102,14 @@ def login():
         if existing_user:
             # Ensures hashed password correctly matches user input.
             if check_password_hash(
-                    existing_user["password"], request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
-                        # Displays welcome alert to user
-                        flash("Welcome back, {}".format(
-                        request.form.get("username")))
-                        # Delivers user to the their profile page
-                        return redirect(url_for(
-                            "account", username=session["user"]))
+                existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                # Displays welcome alert to user
+                flash("Welcome back, {}".format(
+                    request.form.get("username")))
+                # Delivers user to the their profile page
+                return redirect(url_for(
+                    "account", username=session["user"]))
             else:
                 # Alerts user that incorrect username or password was entered.
                 flash("Username or password in incorrect, please try again.")
@@ -145,8 +144,8 @@ def all_categories():
     """
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     recipes = mongo.db.recipes.find()
-    return render_template("all_categories.html", categories=categories,
-        recipes=recipes)
+    return render_template(
+        "all_categories.html", categories=categories, recipes=recipes)
 
 
 @app.route("/view_category/<category_id>")
@@ -158,10 +157,11 @@ def view_category(category_id):
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     recipes = mongo.db.recipes.find(
         {"category_name": category["category_name"]})
-    return render_template("view_category.html", recipes=recipes, category=category)
+    return render_template(
+        "view_category.html", recipes=recipes, category=category)
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
