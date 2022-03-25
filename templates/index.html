@@ -5,17 +5,24 @@
     <div class="col-12 justify-items-center">
         <h4 class="pink-text">Welcome to The Baker's Crumbs</h4>
         <p class="tbc-body" style="text-align:center">
-            We believe baking is a always best when shared.
+            Baking is best when enjoyed together.
             <br>
-            Discover great recipes from the community, and
+            Discover tasty recipes from the community and
             <br>
             register to contribute recipes of your own..
             <br>
         </p>
     </div>
-    <div class="col-12 justify-items-center home-link-wrap">
-        <h4 class="tbc-links tbc-home-link"><a href="{{ url_for('get_recipes') }}">View all Recipes</a></h4>
-        <h4 class="tbc-links tbc-home-link"><a href="{{ url_for('all_categories') }}">Browse by Category</a></h4>
+    <div class="col-12 tbc-cat-links home-link-wrap">
+        <a href="{{ url_for('category', categories='all') }}"><h4 class="tbc-links tbc-home-link">View All Recipes</h4>
+        <a class="tbc-link"
+            href="{{ url_for('category', categories='bread') }}"><h4 class="tbc-links tbc-home-link">Bread</h4>
+        <a class="tbc-link"
+            href="{{ url_for('category', categories='pizza') }}"><h4 class="tbc-links tbc-home-link">Pizza</h4>
+        <a class="tbc-link"
+            href="{{ url_for('category', categories='cookies') }}"><h4 class="tbc-links tbc-home-link">Cookies</h4>
+        <a class="tbc-link"
+            href="{{ url_for('category', categories='cakes') }}"><h4 class="tbc-links tbc-home-link">Cakes</h4>
     </div>
 </div>
 
