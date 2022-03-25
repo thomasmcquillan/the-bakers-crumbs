@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="recipe-row recipe-list page-content row">
+<div class="page-content row">
     {% for recipe in recipes %}
     <div class="card-image col col-md-3 mx-auto justify-items-center">
         <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">

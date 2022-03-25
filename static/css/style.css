@@ -252,16 +252,6 @@ a {
     line-height: 54px;
 }
 
-.tbc-cat-links {
-    justify-self: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    width: 90vw;
-    justify-content: space-evenly;
-}
-
 button {
     border: none;
 }
@@ -365,21 +355,6 @@ button {
     background: transparent;
 }
 
-.tbc-home-link {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 100vw;
-    left: 0;
-    position: relative;
-    justify-items: center;
-    margin-bottom: 54px;
-}
-
-.home-link-wrap {
-    margin-top: 54px;
-}
-
 /* Media Queries */
 
 @media (min-width: 768px) {
@@ -429,20 +404,6 @@ button {
 
 /* testing styles */
 
-.z-100 {
-    z-index: 40000;
-}
-
-.recipe-row {
-    z-index: 20000;
-}
-
-.row {
-    width: 100vw;
-    margin-left: -20px;
-
-}
-
 .btn-center {
     display: block;
     width: 66px;
@@ -451,12 +412,35 @@ button {
 
 .page-content {
     margin-top: 214px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
 }
 
 .tbc-body {
     margin-top: 54px;
 }
 
-div {
-    border: 1px solid red;
+.tbc-cat-links {
+    justify-self: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90vw;
+    justify-content: space-evenly;
+}
+
+.tbc-home-link {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    left: 0;
+    position: relative;
+    justify-items: center;
+    margin-bottom: 54px;
+}
+
+.home-link-wrap {
+    margin-top: 54px;
 }
