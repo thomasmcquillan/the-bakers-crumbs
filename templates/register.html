@@ -1,49 +1,47 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container-fluid">
-    <div class="row">
-        <h4>Register below</h4>
-        <form class="card-register col-12" method="POST" action="{{ url_for('register') }}">
-            <div class="container-fluid justify-content-center">
-                <div class="row justify-content-center">
-                    <h4 class="col" style="text-align:center">register here</h4>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col">
-                        <br>
-                        <p style="text-align:center">Please enter a username</p>
-                    </div>
-                </div>
-                <!-- Username Input -->
-                <div class="row justify-content-center">
-                    <div class="input-field col-3">
-                        <input id="username" name="username" type="text" class="validate" placeholder="..............">
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col">
-                        <p style="text-align:center">Please enter a password</p>
-                    </div>
-                </div>
-                <!-- Password Input -->
-                <div class="row justify-content-center">
-                    <div class="input-field col-3">
-                        <input id="password" name="password" type="password" class="validate" placeholder="..............">
-                    </div>
-                </div>
-                <div class="row">
-                    <p><br></p>
-                </div>
-                <!-- Submit Registration Button -->
-                <div class="row justify-content-center">
-                    <button type="submit" class="pink-text col-4">
-                        confirm
-                    </button>
+<div class="row">
+    <h4>Register below</h4>
+    <form class="card-register col-12" method="POST" action="{{ url_for('register') }}">
+        <div class="container-fluid justify-content-center">
+            <div class="row justify-content-center">
+                <h4 class="col" style="text-align:center">register here</h4>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <br>
+                    <p style="text-align:center">Please enter a username</p>
                 </div>
             </div>
-        </form>
-    </div>
+            <!-- Username Input -->
+            <div class="row justify-content-center">
+                <div class="input-field col-3">
+                    <input id="username" name="username" type="text" class="validate" placeholder="..............">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <p style="text-align:center">Please enter a password</p>
+                </div>
+            </div>
+            <!-- Password Input -->
+            <div class="row justify-content-center">
+                <div class="input-field col-3">
+                    <input id="password" name="password" type="password" class="validate" placeholder="..............">
+                </div>
+            </div>
+            <div class="row">
+                <p><br></p>
+            </div>
+            <!-- Submit Registration Button -->
+            <div class="row justify-content-center">
+                <button type="submit" class="blue-button col-4">
+                    confirm
+                </button>
+            </div>
+        </div>
+    </form>
 </div>
 
 

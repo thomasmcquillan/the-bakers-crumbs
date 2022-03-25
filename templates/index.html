@@ -1,10 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row tbc-home page-content justify-content-center">
-    <div class="col justify-content-center">
-        <h4 class="tbc-links"><a class="tbc-nav-link" href="{{ url_for('get_recipes') }}">view all recipes</a></h4>
-        <h4 class="tbc-links"><a class="tbc-nav-link" href="{{ url_for('all_categories') }}">browse by category</a></h4>
+<div class="row page-content justify-content-center">
+    <div class="col-12 justify-items-center">
+        <h4 class="pink-text">Welcome to The Baker's Crumbs</h4>
+        <p class="tbc-body" style="text-align:center">
+            We believe baking is a always best when shared.
+            <br>
+            Discover great recipes from the community, and
+            <br>
+            register to contribute recipes of your own..
+            <br>
+        </p>
+    </div>
+    <div class="col-12 justify-items-center home-link-wrap">
+        <h4 class="tbc-links tbc-home-link"><a href="{{ url_for('get_recipes') }}">View all Recipes</a></h4>
+        <h4 class="tbc-links tbc-home-link"><a href="{{ url_for('all_categories') }}">Browse by Category</a></h4>
     </div>
 </div>
 

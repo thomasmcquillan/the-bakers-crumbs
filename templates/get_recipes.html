@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="recipe-row recipe-list row">
+<div class="recipe-row recipe-list page-content row">
     {% for recipe in recipes %}
     <div class="card-image col-md-5">
         <img src="{{ recipe.image_url }}" class="recipe-img" alt="Image of {{ recipe.recipe_name }}">

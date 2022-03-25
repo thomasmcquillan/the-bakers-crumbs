@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container-fluid">
-    <div class="row">
-        <form class="card-login col-12" method="POST" action="{{ url_for('login') }}">
+<!-- <div class="container-fluid"> -->
+    <div class="row page-content justify-content-center">
+        <form class="col-12" method="POST" action="{{ url_for('login') }}">
             <div class="container-fluid justify-content-center">
-                <div class="row justify-content-center">
-                    <h4 class="col" style="text-align:center">log in below</h4>
+                <div class="row justify-items-center">
+                    <h4 style="text-align:center" class="mx-auto col-3">log in below</h4>
                 </div>
                 <!-- Username Input -->
                 <div class="row justify-content-center">
@@ -22,7 +22,7 @@
                 </div>
                 <!-- Confirm Login Button -->
                 <div class="row justify-content-center">
-                    <button type="submit" class="btn col-1 tbc-button justify-self-center">
+                    <button type="submit" class="btn col-1 tbc-button">
                         submit
                     </button>
                 </div>
@@ -34,20 +34,16 @@
                         </h4>
                         <p style="text-align:center">Register now to save favourite recipes <br> and even contribute some of your own..</p>
                         <br>
-                        <!-- <a href="{{ url_for('register') }}" class="pink-text">Register here</a> -->
                     </div>
+                    <!-- <a style="text-align: center" href="{{ url_for('register') }}" class="btn-center justify-self-center blue-button">Register here</a> -->
                 </div>
-                <div class="row">
-                    <div class="d-none d-md-flex col-md-4"></div>
-                    <div class="col-6 col-md-4">
-                        <a href="{{ url_for('register') }}" class="pink-text">Register here</a>
-                    </div>
-                    <div class="d-none d-md-flex col-md-4"></div>
+                <div class="row justify-content-center">
+                    <a style="text-align: center" href="{{ url_for('register') }}" class="col-3 blue-button">Register here</a>
                 </div>
             </div>
         </form>
     </div>
-</div>
+<!-- </div> -->
 
 
 {% endblock %}
