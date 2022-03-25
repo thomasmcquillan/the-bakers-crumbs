@@ -282,7 +282,7 @@ button {
 }
 
 .recipe-wrap .row {
-    margin-bottom: 54px !important;
+    margin-bottom: 54px;
 }
 
 .social-links {
@@ -443,4 +443,9 @@ button {
 
 .home-link-wrap {
     margin-top: 54px;
+}
+
+.tbc-links {
+    margin-bottom: 54px;
+    text-align: center;
 }
