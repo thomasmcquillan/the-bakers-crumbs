@@ -129,11 +129,14 @@ header {
     height: 124px;
     height: 155px;
     /* height: 97px; */
+    height: 108px;
     /* top: 34px; */
     left: 0;
     padding: 0;
+    top: 0;
     position: fixed;
-    z-index: 10000;
+    z-index: 100000;
+    /* background: transparent; */
 }
 
 header .container-fluid {
@@ -216,7 +219,11 @@ label {
     font-size: 24px;
     font-weight: 600;
     display: flex;
+    text-align: center;
     justify-content: center;
+}
+
+.blue-button {
     background-color: #5a97c9;
     color: white;
 }
@@ -263,11 +270,6 @@ button {
     border: none;
 }
 
-.recipe-img {
-    display: flex;
-    height: 271px;
-}
-
 .card-image img {
     display: flex;
     width: 323px;
@@ -280,13 +282,9 @@ button {
 }
 
 .card-image {
-    padding-bottom: 54px;
-}
-
-.recipe-list,
-.view-recipe,
-.tbc-home {
-    margin-top: 183px;
+    /* margin-top: 262px; */
+    margin-bottom: 54px;
+    /* background-color: rgba(245, 245, 245, 0.541); */
 }
 
 .view-recipe {
@@ -301,18 +299,6 @@ button {
     margin-bottom: 54px !important;
 }
 
-.tbc-footer .row {
-    display: flex;
-    align-self: flex-end;
-    bottom: 0;
-    left: 0;
-    height: 54px;
-    width: 100vw;
-    flex-direction: row;
-    justify-items: space-evenly;
-    background-color: rgb(245, 245, 245);
-}
-
 .social-links {
     display: flex;
     flex-direction: row;
@@ -324,10 +310,12 @@ button {
     font-size: 29px;
     line-height: 28px;
     margin-left: 3px;
-}
-
-.page-content {
-    margin-top: 108px;
+    margin: 80px auto auto auto;
+    width: 100vw;
+    left: 0;
+    text-align: center;
+    padding-right: 10px;
+    line-height: 54px;
 }
 
 #tbc-search-form {
@@ -381,6 +369,17 @@ button {
     background: transparent;
 }
 
+.tbc-home-link {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    left: 0;
+    position: relative;
+    justify-items: center;
+    margin-bottom: 54px;
+}
+
 /* Media Queries */
 
 @media (min-width: 768px) {
@@ -397,7 +396,7 @@ button {
     }
 
     .search-form {
-        width: 300px;
+        width: 288px;
     }
 
     #tbc-search-form {
@@ -405,9 +404,10 @@ button {
         flex-direction: row;
         justify-items: center;
         width: 100vw;
-        width: 500px;
-        margin: 16px 0px auto auto;
-        right: -28px;
+        width: 488px;
+        position: absolute;
+        margin: 16px auto auto -66px;
+        /* left: -28px; */
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: flex-start;
@@ -428,4 +428,28 @@ button {
 
 .recipe-row {
     z-index: 20000;
+}
+
+.row {
+    width: 100vw;
+    margin-left: -20px;
+
+}
+
+.home-link-wrap {
+    margin-top: 54px;
+}
+
+.btn-center {
+    display: block;
+    width: 66px;
+    margin: 0 auto;
+}
+
+.page-content {
+    margin-top: 214px;
+}
+
+.tbc-body {
+    margin-top: 54px;
 }
