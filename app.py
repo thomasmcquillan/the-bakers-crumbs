@@ -104,9 +104,6 @@ def login():
                     request.form.get("username")))
                 return redirect(url_for(
                     "account", username=session["user"]))
-            else:
-                flash("Username or password in incorrect, please try again.")
-                return redirect(url_for("login"))
 
         else:
             flash("Username or password is incorrect")
@@ -128,35 +125,31 @@ def profile(username):
     user = mongo.db.users.find_one({"username": username})
     if not user:
         return redirect(url_for("login"))
-
     return render_template("profile.html", username=username)
 
 
-@app.route("/all_categories")
-def all_categories():
+@app.route("/category/<categories>")
+def category(categories):
     """
-    Retrieves categories of recipes for users to select from.
+    Displays all recipes in a given category.
     """
-    categories = list(mongo.db.categories.find().sort("category_name", 1))
-    recipes = mongo.db.recipes.find()
+    if categories == "all":
+        recipes = list(mongo.db.recipes.find())
+    elif categories == "bread":
+        recipes = list(mongo.db.recipes.find({"category_name": "Bread"}))
+    elif categories == "pizza":
+        recipes = list(mongo.db.recipes.find({"category_name": "Pizza"}))
+    elif categories == "cakes":
+        recipes = list(mongo.db.recipes.find({"category_name": "Cakes"}))
+    elif categories == "cookies":
+        recipes = list(mongo.db.recipes.find({"category_name": "Cookies"}))
+    else:
+        recipes = list(mongo.db.recipes.find())
     return render_template(
-        "all_categories.html", categories=categories, recipes=recipes)
-
-
-@app.route("/view_category/<category_id>")
-def view_category(category_id):
-    """
-    Enables users to browse recipes by category
-    after having chosen a category on the homepage.
-    """
-    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-    recipes = mongo.db.recipes.find(
-        {"category_name": category["category_name"]})
-    return render_template(
-        "view_category.html", recipes=recipes, category=category)
+        "category.html", recipes=recipes, categories=categories)
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)
