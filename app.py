@@ -62,7 +62,6 @@ def register():
     account, using a unique username and valid password.
     """
     if request.method == "POST":
-        # Checks to see if username already exists.
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
@@ -77,7 +76,6 @@ def register():
         }
         mongo.db.users.insert_one(register)
 
-        # Puts user into a new 'session' cookie.
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
         return redirect(url_for("account", username=session["user"]))
@@ -89,34 +87,28 @@ def register():
 def login():
     """
     Login function that checks to see if username entered
-    is already in the database. It also checks whether the hashed 
-    password matches the one entered. In both cases it will alert 
-    the user with flash messages to notify them of errors and/or 
+    is already in the database. It also checks whether the hashed
+    password matches the one entered. In both cases it will alert
+    the user with flash messages to notify them of errors and/or
     success.
     """
     if request.method == "POST":
-        # Checking for existing username in db.
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            # Ensures hashed password correctly matches user input.
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                # Displays welcome alert to user
                 flash("Welcome back, {}".format(
                     request.form.get("username")))
-                # Delivers user to the their profile page
                 return redirect(url_for(
                     "account", username=session["user"]))
             else:
-                # Alerts user that incorrect username or password was entered.
                 flash("Username or password in incorrect, please try again.")
                 return redirect(url_for("login"))
 
         else:
-            # Username not found.
             flash("Username or password is incorrect")
             return redirect(url_for("login"))
 
