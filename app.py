@@ -27,15 +27,6 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/get_recipes")
-def get_recipes():
-    """
-    Displays recipes from MongoDB Database
-    """
-    recipes = mongo.db.recipes.find()
-    return render_template("get_recipes.html", recipes=recipes)
-
-
 @app.route("/search", methods=["GET", "POST"])
 def search():
     """

@@ -5,7 +5,6 @@ body {
     line-height: 54px;
     flex-direction: column;
     color: #454545;
-    /* background-color: rgb(245, 245, 245); */
     text-decoration: none;
     display: flex;
     justify-items: center;
@@ -54,11 +53,6 @@ a {
 
 a:hover {
     color: #c860ae;
-}
-
-.tbc-text-pink {
-    font-weight: 500;
-    color: #be2398; 
 }
 
 /* image styles */
@@ -112,10 +106,6 @@ a:hover {
                 0 16px 8px rgba(0,0,0,0.09),
                 0 32px 16px rgba(0,0,0,0.09);
 }
-
-/* .list-group {
-    margin: 120px auto 40px auto;
-} */
 
 header {    
     display: flex;
@@ -262,8 +252,14 @@ a {
     line-height: 54px;
 }
 
-.tbc-links {
+.tbc-cat-links {
     justify-self: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: 90vw;
+    justify-content: space-evenly;
 }
 
 button {
@@ -380,6 +376,10 @@ button {
     margin-bottom: 54px;
 }
 
+.home-link-wrap {
+    margin-top: 54px;
+}
+
 /* Media Queries */
 
 @media (min-width: 768px) {
@@ -417,6 +417,13 @@ button {
         position: fixed;
         left: 16px;
         top: 52px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card-image {
+        flex-direction: column;
+        display: flex;
     }
 }
 
@@ -436,10 +443,6 @@ button {
 
 }
 
-.home-link-wrap {
-    margin-top: 54px;
-}
-
 .btn-center {
     display: block;
     width: 66px;
@@ -452,4 +455,8 @@ button {
 
 .tbc-body {
     margin-top: 54px;
+}
+
+div {
+    border: 1px solid red;
 }
