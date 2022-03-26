@@ -164,6 +164,17 @@ def add_recipe():
     return render_template("add_recipe.html", categories=categories)
 
 
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    """
+    Deletes recipe from the database. The recipe deletion can be
+    performed by the user who submitted it or site admin. 
+    """
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    flash("recipe successfully deleted!")
+    return redirect(url_for("index"))
+
+
 @app.route("/category/<categories>")
 def category(categories):
     """
