@@ -1,49 +1,46 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- <div class="container-fluid"> -->
-    <div class="row page-content justify-content-center">
-        <form class="col-12" method="POST" action="{{ url_for('login') }}">
-            <div class="container-fluid justify-content-center">
-                <div class="row justify-items-center">
-                    <h4 style="text-align:center" class="mx-auto col-3">log in below</h4>
-                </div>
-                <!-- Username Input -->
-                <div class="row justify-content-center">
-                    <div class="input-field col-3">
-                        <input id="username" name="username" type="text" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Username" required>
-                    </div>
-                </div>
-                <!-- Password Input -->
-                <div class="row justify-content-center">
-                    <div class="input-field col-3">
-                        <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Password" required>
-                    </div>
-                </div>
-                <!-- Confirm Login Button -->
-                <div class="row justify-content-center">
-                    <button type="submit" class="btn col-1 tbc-button">
-                        submit
-                    </button>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col">
-                        <br>
-                        <h4 style="text-align:center">
-                            No account? No problem..
-                        </h4>
-                        <p style="text-align:center">Register now to save favourite recipes <br> and even contribute some of your own..</p>
-                        <br>
-                    </div>
-                    <!-- <a style="text-align: center" href="{{ url_for('register') }}" class="btn-center justify-self-center blue-button">Register here</a> -->
-                </div>
-                <div class="row justify-content-center">
-                    <a style="text-align: center" href="{{ url_for('register') }}" class="col-3 blue-button">Register here</a>
+<div class="row page-content justify-content-center">
+    <form class="col-12" method="POST" action="{{ url_for('login') }}">
+        <div class="container-fluid justify-content-center">
+            <div class="row justify-items-center">
+                <h4 style="text-align:center" class="mx-auto col">log in below</h4>
+            </div>
+            <br>
+            <!-- Username Input -->
+            <div class="row">
+                <div class="username-input">
+                    <input id="username" name="username" type="text" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Username" required>
                 </div>
             </div>
-        </form>
-    </div>
-<!-- </div> -->
+            <!-- Password Input -->
+            <div class="row">
+                <div class="password-input">
+                    <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Password" required>
+                </div>
+            </div>
+            <!-- Confirm Login Button -->
+            <div class="row">
+                <button type="submit" class="tbc-button justify-content-center">
+                    submit
+                </button>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <h4 style="text-align:center">
+                        No account? No problem..
+                    </h4><br>
+                    <p style="text-align:center">Register now to save favourite recipes <br> and even contribute some of your own..</p>
+                    <br>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <a style="text-align: center" href="{{ url_for('register') }}" class="tbc-button blue-button justify-content-center">Register here</a>
+            </div>
+        </div>
+    </form>
+</div>
 
 
 {% endblock %}

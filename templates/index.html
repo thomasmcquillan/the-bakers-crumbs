@@ -5,21 +5,24 @@
     <div class="col-12">
         <h4 class="text-center">Welcome to The Baker's Crumbs</h4>
         <p class="tbc-body" style="text-align:center">
-            Baking is best when enjoyed together.
+            Baking is a joy best shared.
             <br>
-            Discover tasty recipes from the community and
+            Discover recipes from the community
             <br>
-            register to contribute recipes of your own..
-            <br>
+            & contribute recipes of your own.
+            <br><br>
         </p>
     </div>
-    <div class="col justify-content-center">
-        <a href="{{ url_for('category', categories='all') }}" class="col col-md-4">
-            <h4 class="tbc-links tbc-text-pink">
-                View All Recipes
-            </h4>
-        </a>
-    </div>
+    <a href="{{ url_for('category', categories='all') }}" class="col">
+        <h4 class="tbc-links tbc-text-pink">
+            View All Recipes
+        </h4>
+    </a>
+</div>
+<div class="row mx-auto">
+    <h4 class="tbc-links tbc-text-pink col">
+        Browse By Category
+    </h4>
 </div>
 <div class="row mx-auto tbc-cat-links home-link-wrap">
     <a href="{{ url_for('category', categories='bread') }}" class="col col-md-4">
