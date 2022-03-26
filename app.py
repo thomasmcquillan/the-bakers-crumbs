@@ -115,6 +115,32 @@ def profile(username):
     return render_template("profile.html", username=username, recipes=recipes)
 
 
+@app.route("/logout")
+def logout():
+    """
+    Removes a user from their session.
+    """
+    flash("Goodbye for now. Happy baking!")
+    session.pop("user")
+    return redirect(url_for("index"))
+
+
+@app.route("/delete_user/<username>")
+def delete_user(username):
+    """
+    This function deletes a user's account,
+    as well as all their submitted recipes.
+    """
+    recipes_to_delete = list(
+        mongo.db.recipes.find({"created_by": username}))
+    for recipe in recipes_to_delete:
+        mongo.db.recipes.remove(recipe)
+    mongo.db.users.remove({"username": username})
+    flash("Your account and recipes have been deleted")
+    session.pop("user")
+    return redirect(url_for("index"))
+
+
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     """
