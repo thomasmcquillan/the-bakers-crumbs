@@ -1,48 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row">
-    <h4>Register below</h4>
-    <form class="card-register col-12" method="POST" action="{{ url_for('register') }}">
+<div class="row page-content justify-content-center">
+    <form class="col-12" method="POST" action="{{ url_for('register') }}">
         <div class="container-fluid justify-content-center">
-            <div class="row justify-content-center">
-                <h4 class="col" style="text-align:center">register here</h4>
+            <div class="row justify-items-center">
+                <h4 style="text-align:center" class="mx-auto col">register here</h4>
             </div>
-            <div class="row justify-content-center">
+            <!-- Username Input -->
+            <div class="row">
                 <div class="col">
                     <br>
                     <p style="text-align:center">Please enter a username</p>
                 </div>
-            </div>
-            <!-- Username Input -->
-            <div class="row justify-content-center">
-                <div class="input-field col-3">
-                    <input id="username" name="username" type="text" class="validate" placeholder="..............">
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col">
-                    <p style="text-align:center">Please enter a password</p>
+                <div class="username-input">
+                    <input id="username" name="username" type="text" minlength="6" maxlength="15" class="validate" autocomplete="on" title="Please enter a username of at least 6 characters" required>
                 </div>
             </div>
             <!-- Password Input -->
-            <div class="row justify-content-center">
-                <div class="input-field col-3">
-                    <input id="password" name="password" type="password" class="validate" placeholder="..............">
+            <div class="row">
+                <div class="col">
+                    <p style="text-align:center">Please enter a Password</p>
+                </div>
+                <div class="password-input">
+                    <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" title="Password must have at least 6 characters" required>
                 </div>
             </div>
+            <!-- Confirm Registration Button -->
             <div class="row">
-                <p><br></p>
-            </div>
-            <!-- Submit Registration Button -->
-            <div class="row justify-content-center">
-                <button type="submit" class="blue-button col-4">
-                    confirm
+                <button type="submit" class="tbc-button blue-button justify-content-center">
+                    Confirm Registration
                 </button>
             </div>
         </div>
     </form>
 </div>
-
 
 {% endblock %}
