@@ -119,6 +119,29 @@ def profile(username):
     return render_template("profile.html", username=username)
 
 
+@app.route("/add_recipe", methods=["GET", "POST"])
+def add_recipe():
+    """
+    Enables user to add a recipe of their own to the db
+    """
+    if request.method == "POST":
+        recipe = {
+            "recipe_name": request.form.get("recipe_name"),
+            "category_name": request.form.getlist("category_name"),
+            "image_url": request.form.get("image_url"),
+            "recipe_description": request.form.get("recipe_description"),
+            "ingredients": request.form.getlist("ingredients"),
+            "directions": request.form.getlist("directions"),
+            "created_by": session["user"]
+        }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe added successfully - thanks for sharing!")
+        return redirect(url_for("index"))
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_recipe.html", categories=categories)
+
+
 @app.route("/category/<categories>")
 def category(categories):
     """
