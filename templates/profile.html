@@ -3,10 +3,11 @@
 <div class="container-md">
     <div class="row page-content mx-auto">
         <div class="col-10 col-md-5">
-            <h4 class="text-center">Welcome {{ username.capitalize() }}</h4>
-            <p class="tbc-body" style="text-align:center">
+            <h4 class="text-center">Welcome back {{ username.capitalize() }}</h4>
+            <!-- <p class="tbc-body" style="text-align:center">
                 May your loaves have the most golden of crusts and the softest of crumbs.
-            </p><br>
+            </p> -->
+            <br>
         </div>
     </div>
     <div class="row mx-auto">
@@ -46,6 +47,20 @@
             <a class="tbc-button blue-button justify-content-center nudge-down" href="#delete_user">Delete Account</a>
         </div>
     </div>
+
+    
+   <div id="delete_account" class="modal modal-style">
+        <div class="modal-content">
+            <h4>Are you sure you wish to delete your account?</h4>
+            <p>Deleting your account will also permanently delete all your recipes.</p>
+        </div>
+        <div class="modal_footer">
+            <a href="#!" class="modal-close">Cancel</a>
+            <a href="{{ url_for('delete_user', username=username) }}" class="modal-close">Yes, I am sure! Delete my account.</a>
+        </div>
+    </div>
+
+
 </div>
 
 {% endblock %}
