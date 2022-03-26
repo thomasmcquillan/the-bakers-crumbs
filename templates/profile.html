@@ -16,7 +16,7 @@
             {% endif %}
             {% if recipes|length == 0 %}
             <p class="text-center">We see you have not uploaded any recipes.
-                Should you wish to simply click the link below.</p><br>
+                Should you wish to, simply click the link below.</p><br>
             {% endif %}
         </div>
     </div>
@@ -24,6 +24,21 @@
         <div class="col-4">
             <a class="tbc-button blue-button justify-content-center" href="{{ url_for('add_recipe') }}">Submit a Recipe</a>
         </div>
+    </div>
+
+    <div class="row mx-auto">
+        {% for recipe in recipes %}
+        <div class="col">
+            <a href="#">
+                <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+                    <img src="{{ recipe.image_url }}" class="img-fluid" alt="image of {{ recipe.recipe_name }}">
+                </a>
+            </a>
+        </div>
+        <div class="col-3">
+            <h4>{{ recipe.recipe_name }}</h4>
+        </div>
+        {% endfor %}
     </div>
 
     <div class="row mx-auto">
