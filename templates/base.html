@@ -35,7 +35,7 @@
         <form class="search-form" action="{{ url_for('search') }}" method="post">
             <div id="tbc-search-form" class="search-input">
                 <input type="text" name="query" minlength="3" class="validate" placeholder="search for recipes" required>
-                <button type="submit">
+                <button type="submit" id="icon-wrap">
                     <span><img id="tbc-search" src="{{ url_for('static', filename='images/tbc-search.png') }}"></span>
                     <span><img id="tbc-search-hover" type="submit" src="{{ url_for('static', filename='images/tbc-search-hover.png') }}"></span>
                 </button>

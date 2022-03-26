@@ -10,19 +10,19 @@
             <br>
             <!-- Username Input -->
             <div class="row">
-                <div class="username-input">
+                <div class="tbc-input">
                     <input id="username" name="username" type="text" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Username" required>
                 </div>
             </div>
             <!-- Password Input -->
             <div class="row">
-                <div class="password-input">
+                <div class="tbc-input nudge-down">
                     <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Password" required>
                 </div>
             </div>
             <!-- Confirm Login Button -->
             <div class="row">
-                <button type="submit" class="tbc-button blue-button justify-content-center">
+                <button type="submit" class="tbc-button nudge-down blue-button justify-content-center">
                     confirm
                 </button>
             </div>
@@ -35,8 +35,8 @@
                     <br>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <a style="text-align: center" href="{{ url_for('register') }}" class="tbc-button blue-button justify-content-center">Register here</a>
+            <div class="row justify-content-center nudge-up">
+                <a style="text-align: center" href="{{ url_for('register') }}" class="blue-button justify-content-center">Register here</a>
             </div>
         </div>
     </form>
