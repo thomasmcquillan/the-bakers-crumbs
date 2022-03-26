@@ -379,7 +379,6 @@ button:hover {
     #tbc-search-form {
         display: flex;
         flex-direction: column;
-        /* justify-items: center; */
         width: 550px;
         position: absolute;
         margin: 16px auto auto -99px;
@@ -442,12 +441,7 @@ button:hover {
     left: 0;
     position: relative;
     justify-items: center;
-    /* margin-bottom: 54px; */
 }
-
-/* .home-link-wrap {
-    margin-top: 54px;
-} */
 
 .tbc-links {
     margin-bottom: 54px;
@@ -488,6 +482,10 @@ select {
 
 .tbc-textarea {
     height: 108px;
+}
+
+textarea {
+    font-size: 16px;
 }
 
 .add-recipe-row {
