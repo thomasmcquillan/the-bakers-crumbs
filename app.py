@@ -69,7 +69,7 @@ def register():
 
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
-        return redirect(url_for("account", username=session["user"]))
+        return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
 
@@ -94,7 +94,7 @@ def login():
                 flash("Welcome back, {}".format(
                     request.form.get("username")))
                 return redirect(url_for(
-                    "account", username=session["user"]))
+                    "profile", username=session["user"]))
 
         else:
             flash("Username or password is incorrect")
@@ -108,14 +108,11 @@ def profile(username):
     """
     Retrieves the session user's username from database
     """
-    if "user" not in session:
-        return redirect(url_for("login"))
-
     username = session["user"]
 
     user = mongo.db.users.find_one({"username": username})
     if not user:
-        return redirect(url_for("login"))
+        return redirect(url_for("register"))
     return render_template("profile.html", username=username)
 
 

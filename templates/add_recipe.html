@@ -7,9 +7,9 @@
             <label for="recipe_name" class="tbc-input justify-content-center" for="recipe_name">
                 <h4 style="text-align:center">recipe name</h4>
             </label>
-            <div class="nudge-down">
+            <div class="tbc-input">
                 <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-                <input required type="text" class="form-control nudge-down" name="recipe_name" placeholder="Enter a name for your recipe" aria-describedby="recipe name"
+                <input required type="text" class="form-control tbc-input" name="recipe_name" placeholder="Enter a name for your recipe" aria-describedby="recipe name"
                     maxlength="50"/>
             </div>
         </div>
@@ -35,7 +35,7 @@
             <input id="ingredients" name="ingredients" type="text" class="form-control" placeholder="Ingredient #1" minlength="3" required>
             <div id="ingredient-insert"></div>
         </div>
-        <div class="add-recipe-row row">
+        <div class="add-recipe-row nudge-down row">
             <span class="col">
                 <button type="button" class="blue-button tbc-button justify-content-center">Add Ingredient</button>
             </span>
@@ -56,9 +56,9 @@
                 <h4 style="text-align:center">directions</h4>
             </label>
             <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-            <textarea name="directions" class="tbc-textarea text-center" type="text" minlength="100" maxlength="6000" class="validate mx-0" placeholder="Enter recipe instructions, one step at a time" required></textarea>
+            <textarea name="directions" class="tbc-textarea text-center" type="text" minlength="100" maxlength="6000" class="validate mx-0" placeholder="Enter recipe instructions, one at a time" required></textarea>
         </div>
-        <div class="add-recipe-row row">
+        <div class="add-recipe-row nudge-down row">
             <span class="col">
                 <button type="button" class="tbc-button blue-button justify-content-center">Confirm Step</button>
             </span>
@@ -77,7 +77,7 @@
         <!-- Submit Recipe Button -->
         <div class="add-recipe-row row">
             <div class="col-4 justify-content-center">
-                <button class="submit tbc-button justify-content-center blue-button nudge-up">
+                <button class="submit tbc-button nudge-down justify-content-center blue-button">
                     Publish Recipe
                 </button>
             </div>

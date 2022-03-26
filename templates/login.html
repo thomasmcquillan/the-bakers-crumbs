@@ -16,13 +16,13 @@
             </div>
             <!-- Password Input -->
             <div class="row">
-                <div class="tbc-input nudge-down">
+                <div class="tbc-input">
                     <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Password" required>
                 </div>
             </div>
             <!-- Confirm Login Button -->
-            <div class="row">
-                <button type="submit" class="tbc-button nudge-down blue-button justify-content-center">
+            <div class="row nudge-down">
+                <button type="submit" class="tbc-button blue-button justify-content-center">
                     confirm
                 </button>
             </div>
@@ -31,12 +31,9 @@
                     <h4 style="text-align:center">
                         No account? No problem..
                     </h4><br>
-                    <p style="text-align:center">Register now to save favourite recipes <br> and even contribute some of your own..</p>
+                    <p style="text-align:center">Register to save favourite recipes <br> and contribute some of your own..</p>
                     <br>
                 </div>
-            </div>
-            <div class="row justify-content-center nudge-up">
-                <a style="text-align: center" href="{{ url_for('register') }}" class="blue-button justify-content-center">Register here</a>
             </div>
         </div>
     </form>

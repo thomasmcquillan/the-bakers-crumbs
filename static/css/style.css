@@ -472,16 +472,16 @@ select {
     align-items: center;
 }
 
-.tbc-button {
+/* .tbc-button {
     margin-top: 6px;
-}
+} */
 
-.nudge-up {
+/* .nudge-up {
     margin-bottom: 2px;
-}
+} */
 
 .nudge-down {
-    margin-top: 3px;
+    margin-top: 4px;
 }
 
 .tbc-textarea {
