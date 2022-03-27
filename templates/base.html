@@ -18,7 +18,7 @@
 </head>
 <body class="container-fluid">
     <header class="tbc-header container-fluid">
-        <div class="social-nav">
+        <div class="social-nav d-none d-md-flex">
             <ul class="social-links justify-content-center">
                 <li><a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a></li>
                 <li><a href="https://www.instagram.com/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></li>
@@ -28,13 +28,12 @@
         <div class="tbc-logo">
             <a href="{{ url_for('index') }}"><h1>the baker's crumbs</h1></a>
         </div>
-        <nav class="navbar">
-            <a class="tbc-nav-link login-link" href="{{ url_for('login') }}"><h4>login</h4></a>
-            <a class="tbc-nav-link register-link" href="{{ url_for('register') }}"><h4>register</h4></a>
-        </nav>
+        <div class="tbc-logo-caption">
+            <h3 class="d-none d-lg-flex">baking wisdom, <span style="color:rgb(236, 76, 156)"><strong><em>served hot</em></strong></span></h3>
+        </div>
         <form class="search-form" action="{{ url_for('search') }}" method="post">
             <div id="tbc-search-form" class="search-input">
-                <input type="text" name="query" minlength="3" class="validate" placeholder="search for recipes" required>
+                <input type="text" name="query" minlength="3" class="tbc-search-input validate" placeholder="search for recipes" required>
                 <button type="submit" id="icon-wrap">
                     <span><img id="tbc-search" src="{{ url_for('static', filename='images/tbc-search.png') }}"></span>
                     <span><img id="tbc-search-hover" type="submit" src="{{ url_for('static', filename='images/tbc-search-hover.png') }}"></span>
@@ -43,7 +42,6 @@
         </form>
     </header>
     <main class="row">
-        <h3 class="tbc-logo-caption">baking wisdom, <span style="color:rgb(236, 76, 156)"><strong><em>served hot</em></strong></span></h3>
     </main>
 
     {% block content %}

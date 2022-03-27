@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-
-<div class="row page-content mx-auto">
-    <div class="col-12">
+<nav class="navbar">
+    <a class="tbc-nav-link login-link" href="{{ url_for('login') }}"><h4>login</h4></a>
+    <a class="tbc-nav-link register-link" href="{{ url_for('register') }}"><h4>register</h4></a>
+</nav>
+<div class="row page-content-home mx-auto">
+    <div class="d-none d-md-flex col-12">
         <p style="text-align:center">
             We believe baking is a joy best shared.
             <br>
@@ -24,32 +27,38 @@
     </h4>
 </div>
 <div class="row mx-auto tbc-cat-links home-link-wrap">
-    <a href="{{ url_for('category', categories='bread') }}" class="col col-md-4">
+    <a href="{{ url_for('category', categories='bread') }}" class="col-10 col-lg-4">
+        <img src="{{ url_for('static', filename='images/bread-default.png') }}" class="img-fluid recipe-thumb" alt="loaf of bread">
         <span>
             <h4 class="tbc-links">Bread</h4>
         </span>
     </a>
-    <a href="{{ url_for('category', categories='pizza') }}" class="col col-md-4">
+    <a href="{{ url_for('category', categories='pizza') }}" class="col-10 col-lg-4">
+        <img src="{{ url_for('static', filename='images/bread-default.png') }}" class="img-fluid recipe-thumb" alt="loaf of bread">
         <span>
             <h4 class="tbc-links">Pizza</h4>
         </span>
     </a>
-    <a href="{{ url_for('category', categories='muffins') }}" class="col col-md-4">
+    <a href="{{ url_for('category', categories='muffins') }}" class="col-10 col-lg-4">
+        <img src="{{ url_for('static', filename='images/bread-default.png') }}" class="img-fluid recipe-thumb" alt="loaf of bread">
         <span>
             <h4 class="tbc-links">Muffins</h4>
         </span>
     </a>
-    <a href="{{ url_for('category', categories='cakes') }}" class="col col-md-4">
+    <a href="{{ url_for('category', categories='cakes') }}" class="col-10 col-lg-4">
+        <img src="{{ url_for('static', filename='images/bread-default.png') }}" class="img-fluid recipe-thumb" alt="loaf of bread">
         <span>
             <h4 class="tbc-links">Cakes</h4>
         </span>
     </a>
-    <a href="{{ url_for('category', categories='cookies') }}" class="col col-md-4">
+    <a href="{{ url_for('category', categories='cookies') }}" class="col-10 col-lg-4">
+        <img src="{{ url_for('static', filename='images/bread-default.png') }}" class="img-fluid recipe-thumb" alt="loaf of bread">
         <span>
             <h4 class="tbc-links">Cookies</h4>
         </span>
     </a>
-    <a href="{{ url_for('category', categories='scones') }}" class="col col-md-4">
+    <a href="{{ url_for('category', categories='scones') }}" class="col-10 col-lg-4">
+        <img src="{{ url_for('static', filename='images/bread-default.png') }}" class="img-fluid recipe-thumb" alt="loaf of bread">
         <span>
             <h4 class="tbc-links">Scones</h4>
         </span>
