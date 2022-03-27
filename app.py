@@ -61,11 +61,11 @@ def register():
             flash("Username already in use")
             return redirect(url_for("register"))
 
-        register_user = {
+        register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
-        mongo.db.users.insert_one(register_user)
+        mongo.db.users.insert_one(register)
 
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
