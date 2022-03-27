@@ -1,81 +1,57 @@
 {% extends "base.html" %}
 {% block content %}
+
 <div class="container-md">
     <div class="row page-content mx-auto">
         <div class="col-10 col-md-5">
-            <h4 class="text-center">Welcome back {{ username.capitalize() }}</h4>
-            <br>
+            <h4 class="text-center">Welcome {{ username.capitalize() }}</h4>
         </div>
     </div>
     <div class="row mx-auto">
         <div class="col-10 col-md-6">
             {% if recipes|length > 0 %}
-            <p>Any recipes you have shared can be seen below.</p>
+                <p class="text-center">Recipes you have shared are shown below.</p>
+            {% else %}
+                <p class="text-center"> 
+                    We see you have not uploaded any recipes.
+                    If you wish to, simply click the link below.
+                </p><br>
             {% endif %}
-            {% if recipes|length == 0 %}
-            <p class="text-center">We see you have not uploaded any recipes.
-                Should you wish to, simply click the link below.</p><br>
-            {% endif %}
-        </div>
-    </div>
-    <div class="row mx-auto">
-        <div class="col-4">
-            <a class="tbc-button blue-button justify-content-center" href="{{ url_for('add_recipe') }}">Submit a Recipe</a>
         </div>
     </div>
 
-    <div class="row mx-auto">
+    <div class="row">
+        <div class="mx-auto">
+            <!-- <a class="tbc-button btn blue-button" href="{{ url_for('add_recipe') }}">Add a new recipe</a> -->
+            <a href="{{ url_for('add_recipe') }}"><h4 class="blue-text text-center">Add a New Recipe</h4></a>
+        </div>
         {% for recipe in recipes %}
-        <div class="col">
-            <a href="#">
-                <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
-                    <img src="{{ recipe.image_url }}" class="img-fluid" alt="image of {{ recipe.recipe_name }}">
-                </a>
+            <!-- Will display any recipes contributed by current user -->
+            {% if session.user|lower == recipe.created_by|lower %}
+            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="col-10 col-lg-6">
+                <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}" class="img-fluid recipe-thumb">
+                <span>
+                    <h4 class="tbc-links">{{ recipe.recipe_name }}</h4>
+                </span>
             </a>
-        </div>
-        <div class="col-3">
-            <h4>{{ recipe.recipe_name }}</h4>
-        </div>
-        {% endfor %}
-    </div>
-
-    <button type="button" class="btn tbc-button blue-button" data-bs-toggle="modal" data-bs-target="#delete_user">
-        Delete my Account
-    </button>
-    <div class="modal-wrapper row">
-        <div class="modal col-12 my-auto" id="delete_user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <!-- Buttons to edit and delete -->
+            <div class="button-box">
+                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn tbc-button blue-button">Edit</a>
+                <a class="modal-trigger tbc-button btn blue-button" href="#delete_recipe{{recipe._id}}">Delete</a>
+            </div>
+            <!-- Modal to confirm recipe deletion -->
+            <div class="modal" id="delete_recipe{{recipe._id}}">
                 <div class="modal-content">
-                    <div class="modal-body">
-                        <h4>Are you sure you want to permanently delete your account?</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn" data-bs-dismiss="modal">No thankyou.</button>
-                        <button type="button" class="btn"><a href="{{ url_for('delete_user', username=username) }}" class="modal-close">Yes, delete my account.</a></button>
-                    </div>
+                    <p>Are you sure you want to permanently delete this recipe?</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn modal-close">Cancel</button>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn delete-btn">Delete</a>
                 </div>
             </div>
-        </div>
+            {% endif %}
+        {% endfor %}
     </div>
-
 </div>
 
 {% endblock %}
-
-
-<div class="row mx-auto">
-    <div class="col-4">
-        <a class="tbc-button blue-button justify-content-center nudge-down" href="#delete_user">Delete Account</a>
-    </div>
-</div>
-
-<div class="modal fade" id="delete_user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-content">
-        <h4>Are you sure you wish to delete your account?</h4>
-        <p>Deleting your account will also permanently delete all your recipes.</p>
-    </div>
-    <div class="modal_footer">
-        <a href="#!" class="modal-close">Cancel</a>
-        
-    </div>
-</div>
