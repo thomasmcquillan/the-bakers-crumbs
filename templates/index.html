@@ -1,9 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<!-- <nav class="navbar d-none d-md-flex">
-    <a class="tbc-nav-link login-link" href="{{ url_for('login') }}"><h4>login</h4></a>
-    <a class="tbc-nav-link register-link" href="{{ url_for('register') }}"><h4>register</h4></a>
-</nav> -->
 <div class="row page-content-home justify-content-center">
     <div class="d-none d-lg-flex col-lg-12">
         <p style="text-align:center"><br><br><br>
@@ -73,5 +69,6 @@
     </a>
 </div>
 <a href="{{ url_for('logout') }}">sign out</a>
+<a href="{{ url_for('edit_recipe') }}">edit recipe</a>
 
 {% endblock %}

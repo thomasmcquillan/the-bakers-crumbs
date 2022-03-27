@@ -135,7 +135,7 @@ def delete_user(username):
     mongo.db.users.remove({"username": username})
     flash("Your account and recipes have been deleted")
     session.pop("user")
-    return redirect(url_for("index"))
+    return redirect(url_for("profile"))
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -155,10 +155,36 @@ def add_recipe():
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe added successfully - thanks for sharing!")
-        return redirect(url_for("index"))
+        return redirect(url_for("profile"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recipe.html", categories=categories)
+
+
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    """
+    Allows user to update their previously submitted recipes
+    """
+
+    if request.method == "POST":
+        submit = {
+            "recipe_name": request.form.get("recipe_name"),
+            "category_name": request.form.get("category_name"),
+            "image_url": request.form.get("image_url"),
+            "recipe_description": request.form.get("recipe_description"),
+            "ingredients": request.form.getlist("ingredients"),
+            "directions": request.form.getlist("directions"),
+            "created_by": session["user"]
+        }
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+        flash("Recipe Updated")
+        return redirect(url_for("profile", username=session['user']))
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template(
+        "edit_recipe.html", recipe=recipe, categories=categories)
 
 
 @app.route("/delete_recipe/<recipe_id>")
@@ -169,7 +195,7 @@ def delete_recipe(recipe_id):
     """
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("recipe successfully deleted!")
-    return redirect(url_for("index"))
+    return redirect(url_for("profile"))
 
 
 @app.route("/category/<categories>")
