@@ -53,8 +53,16 @@ nav > a > h4:hover {
     color: #d665ba;
 }
 
-a:hover {
-    color: #c860ae;
+.blue-button a:hover {
+    color: white;
+}
+
+.blue-text {
+    color: #72a9c9;
+}
+
+.blue-text:hover {
+    color: #d665ba;
 }
 
 /* image styles */
@@ -241,7 +249,8 @@ label {
     background-color: #72a9c9;
     color: white;
     font-weight: 500;
-    width: fit-content;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 .pink-text:hover {
@@ -388,10 +397,9 @@ button:hover {
     #tbc-search,
     #tbc-search-hover {
         position: absolute;
-        top: -126px;
-        left: 390px;
+        top: 88px;
+        left: 277px;
     }
-
 
     .search-input {
         top: 120px;
