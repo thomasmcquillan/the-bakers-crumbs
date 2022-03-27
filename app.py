@@ -49,8 +49,9 @@ def view_recipe(recipe_id):
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """
-    The register route allows new users to create a user
-    account, using a unique username and valid password.
+    Allows new users to create a user account, using a unique
+    username and valid password. If successful, puts user into
+    a new session.
     """
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
@@ -60,12 +61,11 @@ def register():
             flash("Username already in use")
             return redirect(url_for("register"))
 
-        register = {
+        register_user = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(
-                request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password"))
         }
-        mongo.db.users.insert_one(register)
+        mongo.db.users.insert_one(register_user)
 
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
@@ -89,12 +89,9 @@ def login():
 
         if existing_user:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                    existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome back, {}".format(
-                    request.form.get("username")))
-                return redirect(url_for(
-                    "profile", username=session["user"]))
+                return redirect(url_for("profile", username=session["user"]))
 
         else:
             flash("Username or password is incorrect")
@@ -167,8 +164,8 @@ def add_recipe():
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     """
-    Deletes recipe from the database. The recipe deletion can be
-    performed by the user who submitted it or site admin. 
+    Deletes recipe from the database. The recipe deletion can
+    be performed by the user who submitted it or site admin.
     """
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("recipe successfully deleted!")
