@@ -42,7 +42,7 @@
                             hot</em></strong></span></h3>
         </div>
         <form class="search-form" action="{{ url_for('search') }}" method="post">
-            <div id="tbc-search-form mx-auto" class="search-input">
+            <div id="tbc-search-form" class="search-input">
                 <input type="text" name="query" minlength="3" class="tbc-search-input validate"
                     placeholder="search for recipes" required>
                 <button type="submit" id="icon-wrap">
@@ -52,7 +52,7 @@
                 </button>
             </div>
         </form>
-        <nav class="navbar d-xl-flex">
+        <nav class="navbar d-none d-xl-flex">
             <a class="tbc-nav-link login-link" href="{{ url_for('login') }}">
                 <h4>sign-in</h4>
             </a>

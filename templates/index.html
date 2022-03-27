@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-<nav class="navbar">
+<!-- <nav class="navbar d-none d-md-flex">
     <a class="tbc-nav-link login-link" href="{{ url_for('login') }}"><h4>login</h4></a>
     <a class="tbc-nav-link register-link" href="{{ url_for('register') }}"><h4>register</h4></a>
-</nav>
-<div class="row page-content-home mx-auto">
-    <div class="d-none d-md-flex col-12">
-        <p style="text-align:center">
+</nav> -->
+<div class="row page-content-home justify-content-center">
+    <div class="d-none d-lg-flex col-lg-12">
+        <p style="text-align:center"><br><br><br>
             We believe baking is a joy best shared.
             <br>
             Discover recipes from the community and
@@ -15,8 +15,16 @@
             <br><br>
         </p>
     </div>
+    <div class="col-11 mx-auto d-flex d-lg-none">
+        <p style="text-align:center"><br><br><br><br>
+            We believe baking is a joy best shared.
+            Discover recipes from the community and
+            consider contributing some of your own.
+            <br>
+        </p>
+    </div>
     <a href="{{ url_for('category', categories='all') }}" class="col">
-        <h4 class="tbc-links tbc-text-pink">
+        <h4 class="tbc-links tbc-text-pink"><br>
             View All Recipes
         </h4>
     </a>

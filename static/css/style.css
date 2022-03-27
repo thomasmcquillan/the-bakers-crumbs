@@ -33,14 +33,12 @@ main {
     min-height: 100%;
     flex-wrap: wrap;
     margin-top: 95px;
-    /*  Lined-paper css styles borrowed and then adapted from Emily Gagne article, 
-        here: https://codepen.io/ceg9498/post/creating-lined-paper */
-    /* background: repeating-linear-gradient(rgb(245, 245, 245), rgb(245, 245, 245) 50px,#74aac9 51px, #74aac9 53px, rgb(245, 245, 245) 54px); */
 }
 
 /* fonts styling */
 
-.navbar-brand:hover {
+.navbar-brand:hover,
+a:hover {
     color: #d665ba;
 }
 
@@ -49,6 +47,10 @@ a {
     color: #454545;
     padding-right: 18px;
     z-index: 200;
+}
+
+nav > a > h4:hover {
+    color: #d665ba;
 }
 
 a:hover {
@@ -102,10 +104,9 @@ a:hover {
 }
 
 .tbc-logo h1 {
-    font-size: 30px;
+    font-size: 44px;
     font-weight: 500;
-    margin-top: 22px;
-    margin-left: 14px;
+    margin-top: 12px;
 }
 
 .tbc-logo-caption {
@@ -132,7 +133,6 @@ header {
     justify-content: space-between;
     /*  Lined-paper css styles borrowed and heavily adapted from Emily Gagne article, 
         here: https://codepen.io/ceg9498/post/creating-lined-paper */
-    /* background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 100px, #faa7e3 101px, #d15da7 102px, #d15da7 104px, rgb(245, 245, 245) 105px); */
     background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 100px, #faa7e3 101px, #d15da7 102px, #d15da7 104px, rgb(245, 245, 245) 105px, rgb(245, 245, 245) 141px);
     height: 108px;
     height: 155px;;
@@ -140,8 +140,7 @@ header {
     padding: 0;
     top: 0;
     position: fixed;
-    z-index: 100000;
-    /* background: transparent; */
+    z-index: 10000;
 }
 
 header .container-fluid {
@@ -151,6 +150,10 @@ header .container-fluid {
     position: absolute;
     left: 0;
     top: 0;
+}
+
+.page-content-home {
+    margin-top: 40px;
 }
 
 .recipe-copy li,
@@ -190,8 +193,14 @@ input {
 
 .navbar {
     justify-items: space-between;
-    width: 18vw;
+    width: minmax(18vw, 260vw);
     margin: 42px 6px auto auto;
+    margin: 99px 6px auto auto;
+    z-index: 20000;
+}
+
+.navbar a > h4 {
+    color: #454545;
 }
 
 .recipe-copy h4,
@@ -279,12 +288,6 @@ button {
 
 button:hover {
     border: none;
-    /* border: 1px solid rgb(195, 215, 221); */
-    box-shadow: 0 2px 1px rgba(0,0,0,0.04), 
-                0 4px 2px rgba(0,0,0,0.04), 
-                0 8px 4px rgba(0,0,0,0.04), 
-                0 16px 8px rgba(0,0,0,0.04),
-                0 32px 16px rgba(0,0,0,0.04);
 }
 
 .card-image img {
@@ -319,30 +322,44 @@ button:hover {
     flex-direction: row;
     justify-items: space-evenly;
     list-style: none;
+    width: 166px;
 }
 
 #tbc-search-form {
     display: flex;
+    justify-content: center;
+    width: fit-content;
+    position: absolute;
+    left: 11px;
+    top: 66px;
+    display: flex;
     flex-direction: row;
-    justify-items: center;
-    width: 100vw;
-    margin: -111px auto auto auto;
+    flex-wrap: nowrap;
+}
+
+#icon-wrap {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background: transparent;
 }
 
 #tbc-search,
 #tbc-search-hover {
-    display: flex;
-    position: absolute;
     width: 32px;
     z-index: 99;
-    top: 0px;
-    background: none;
     transition: .35s ease-in;
 }
 
 #tbc-search-hover {
     display: none;
     z-index: 100;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .tbc-nav-link {
@@ -356,39 +373,30 @@ button:hover {
 }
 
 .search-input {
-    display: inline-flex;
+    display: flex;
+    align-items: center;
     position: absolute;
-    top: 224px;
-    left: 13px;
+    top: 170px;
+    left: 11px;
     border: none;
-    justify-items: center;
+    justify-content: space-between;
 }
 
 /* Media Queries */
 
 @media (min-width: 990px) {
-    /* #tbc-search,
+    #tbc-search,
     #tbc-search-hover {
         position: absolute;
         top: -126px;
         left: 390px;
     }
 
-    .tbc-search-input {
-        position: absolute;
-        top: -126px;
-        left: 108px;
-    }
 
-    #tbc-search-form {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        margin: 16px auto auto -99px;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-start;
-    } */
+    .search-input {
+        top: 120px;
+        left: 11px;
+    }
 
     .tbc-logo {
         top: 28px;
@@ -445,27 +453,17 @@ button:hover {
 }
 
 @media (min-width: 1100px) {
-    #tbc-search,
-    #tbc-search-hover {
-        /* position: absolute; */
-        top: -126px;
-        left: 390px;
-    }
 
     .tbc-search-input {
         position: absolute;
-        top: -126px;
-        left: 108px;
+        left: 16px;
+        top: 88px;
+        width: 255px;
     }
 
-    #tbc-search-form {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        margin: 16px auto auto -99px;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-start;
+    .search-input {
+        top: 27px;
+        width: 255px;
     }
 }
 
@@ -538,14 +536,6 @@ select {
     margin-bottom: 54px;
     align-items: center;
 }
-
-/* .tbc-button {
-    margin-top: 6px;
-} */
-
-/* .nudge-up {
-    margin-bottom: 2px;
-} */
 
 .nudge-down {
     margin-top: 4px;
