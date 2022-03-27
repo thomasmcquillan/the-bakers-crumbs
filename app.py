@@ -166,7 +166,6 @@ def edit_recipe(recipe_id):
     """
     Allows user to update their previously submitted recipes
     """
-
     if request.method == "POST":
         submit = {
             "recipe_name": request.form.get("recipe_name"),
@@ -178,8 +177,7 @@ def edit_recipe(recipe_id):
             "created_by": session["user"]
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
-        flash("Recipe Updated")
-        return redirect(url_for("profile", username=session['user']))
+        flash("Recipe successfully updated!")
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -227,3 +225,4 @@ if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
+

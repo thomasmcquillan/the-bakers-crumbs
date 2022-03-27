@@ -552,3 +552,7 @@ textarea {
 .add-recipe-row {
     max-width: 900px;
 }
+
+.modal-wrapper row{
+    top: 40vh !important;
+}

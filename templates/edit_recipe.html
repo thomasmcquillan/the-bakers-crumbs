@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<p>beep beep boop</p>
+<form method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+    
+    
+
+</form>
 
 {% endblock %}
