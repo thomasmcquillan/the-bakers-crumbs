@@ -125,17 +125,12 @@ def logout():
 @app.route("/delete_user/<username>")
 def delete_user(username):
     """
-    This function deletes a user's account,
-    as well as all their submitted recipes.
+    This function deletes a user's account.
     """
-    recipes_to_delete = list(
-        mongo.db.recipes.find({"created_by": username}))
-    for recipe in recipes_to_delete:
-        mongo.db.recipes.remove(recipe)
     mongo.db.users.remove({"username": username})
-    flash("Your account and recipes have been deleted")
+    flash("Your account has been deleted")
     session.pop("user")
-    return redirect(url_for("profile"))
+    return redirect(url_for("index"))
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -155,7 +150,10 @@ def add_recipe():
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe added successfully - thanks for sharing!")
-        return redirect(url_for("profile"))
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        recipes = list(mongo.db.recipes.find({"created_by": username}))
+        return redirect(url_for("profile", username=username, recipes=recipes))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recipe.html", categories=categories)
