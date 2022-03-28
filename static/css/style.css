@@ -73,7 +73,6 @@ nav > a > h4:hover {
 
 .recipe-thumb {
     margin-top: -4px;
-    /* height: 320px; */
     height: 244px;
     width: auto;
     padding: 8px;
@@ -142,8 +141,7 @@ header {
     /*  Lined-paper css styles borrowed and heavily adapted from Emily Gagne article, 
         here: https://codepen.io/ceg9498/post/creating-lined-paper */
     background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 100px, #faa7e3 101px, #d15da7 102px, #d15da7 104px, rgb(245, 245, 245) 105px, rgb(245, 245, 245) 141px);
-    height: 108px;
-    height: 155px;;
+    height: 155px;
     left: 0;
     padding: 0;
     top: 0;
@@ -191,20 +189,18 @@ input {
     text-align: center;
     line-height: 54px;
     height: 33px;
-    background-color: rgba(252, 229, 232, 0.836);
+    background-color: rgba(250, 235, 237, 0.836);
+}
+
+.navbar {
+    justify-items: space-between;
+    margin: 155px 6px auto auto;
+    z-index: 20000;
 }
 
 .navbar .navbar-brand {
     justify-self: center;
     height: 126px;
-}
-
-.navbar {
-    justify-items: space-between;
-    width: minmax(18vw, 260vw);
-    margin: 42px 6px auto auto;
-    margin: 99px 6px auto auto;
-    z-index: 20000;
 }
 
 .navbar a > h4 {
@@ -343,7 +339,7 @@ button:hover {
     justify-content: center;
     width: fit-content;
     position: absolute;
-    left: 11px;
+    left: 110px;
     top: 66px;
     display: flex;
     flex-direction: row;
@@ -380,9 +376,37 @@ button:hover {
     text-align: center;
 }
 
-.login-link,
 .register-link {
     padding: none;
+    position: fixed;
+    right: 16px;
+    top: 104px;
+}
+
+.all-recipes-link {
+    position: fixed;
+    left: 36px;
+    top: 212px;
+}
+
+.login-link {
+    position: fixed;
+    right: 16px;
+    top: 104px;
+    top: 158px;
+}
+
+.logout-link {
+    position: fixed;
+    right: 16px;
+    top: 212px;
+}
+
+.profile-link {
+    position: fixed;
+    right: 11px;
+    top: 104px;
+    padding-right: 30px;
 }
 
 .search-input {
@@ -409,7 +433,7 @@ button:hover {
         top: 120px;
         left: 11px;
     }
-
+    
     .tbc-logo {
         top: 28px;
         left: 0;
@@ -439,9 +463,31 @@ button:hover {
         line-height: 54px;
     }
 
+    .register-link {
+        padding: none;
+        position: fixed;
+        right: 16px;
+        top: 212px;
+    }
+    
+    .login-link {
+        position: fixed;
+        right: 19px;
+        top: 104px;
+    }
+    
+    .logout-link {
+        right: 16px;
+        top: 158px;
+    }
+
+    .all-recipes-link {
+        top: 54px;
+    }
+
     .social-nav {
         position: fixed;
-        left: 16px;
+        right: 16px;
         top: 52px;
         display: flex;
         justify-content: space-between;
@@ -455,14 +501,17 @@ button:hover {
         margin-bottom: 58px;
     }
 
+    .search-wrapper .recipe-thumb {
+        margin-left: 277px;
+    }
+
     .page-content-home {
-        margin-top: 48px;
+        margin-top: 52px;
     }
 
     .recipe-thumb {
         margin-top: 4px;
         height: 200px;
-        width: auto;
         padding: 8px;
     }
 
@@ -470,8 +519,13 @@ button:hover {
         margin-left: 55px;
     }
 
+    .recipe-thumb-lg {
+        height: 254px;
+        width: 254px;
+    }
+
     .recipe-directions {
-        margin-right: 55px;
+        margin-right: 88px;
     }
 }
 
@@ -480,8 +534,9 @@ button:hover {
     .tbc-search-input {
         position: absolute;
         left: 16px;
-        top: 88px;
+        top: 84px;
         width: 255px;
+        height: 42px;
     }
 
     .search-input {
@@ -587,4 +642,20 @@ textarea {
 
 .modal {
     z-index: 5000000;
+}
+
+.row {
+    width: 100vw;
+}
+
+.tbc-10 {
+    margin-top: 60px;
+}
+
+.navbar {
+    width: minmax(220px, 300px);
+}
+
+.bluest-text {
+    color:#548fb1;
 }
