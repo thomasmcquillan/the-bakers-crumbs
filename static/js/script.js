@@ -9,31 +9,30 @@ $(document).ready(function() {
 
 // Function that enables the addition of extra input fields for adding 
 //      extra recipe ingredients and/or cooking steps
-var add_ingredient_btn = document.getElementById('add-ingredient-btn');
-var del_ingredient_btn = document.getElementById('del-ingredient-btn');
+var addIngredientButton = document.getElementById('add-ingredient-btn');
+var delIngredientButton = document.getElementById('del-ingredient-btn');
 
 // And the location in the template where div will be inserted..
-var food_delivery = document.getElementById('food-delivery');
+var foodDelivery = document.getElementById('food-delivery');
 
 // On-click button listener function for actioning the dynamic
 //      ingredient list on the add recipe page.
-add_ingredient_btn.onclick = function(){
+addIngredientButton.onclick = function(){
     var addFoodstuff = document.createElement('input');
     addFoodstuff.setAttribute('id', 'ingredients');
-    addFoodstuff.setAttribute('class', 'ingredient-items');
+    addFoodstuff.setAttribute('class', 'ingredient-list');
     addFoodstuff.setAttribute('type', 'text');
     addFoodstuff.setAttribute('name', 'ingredients');
     addFoodstuff.setAttribute('minlength', '3');
     addFoodstuff.setAttribute('required', 'true');
     addFoodstuff.setAttribute('placeholder', 'Add any further ingredients');
-    food_delivery.appendChild(addFoodstuff);
+    foodDelivery.appendChild(addFoodstuff);
 };
 
-
-del_ingredient_btn.onclick = function(){
+delIngredientButton.onclick = function(){
     var ingredient_fields = document.getElementsByClassName('ingredient-list');
     if(ingredient_fields.length > 1) {
-        food_delivery.removeChild(ingredient_fields[(ingredient_fields.length) - 1]);
+        foodDelivery.removeChild(ingredient_fields[(ingredient_fields.length) - 1]);
     }
 };
 
