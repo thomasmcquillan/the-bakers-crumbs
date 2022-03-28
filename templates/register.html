@@ -1,34 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
 
+
 <div class="row page-content justify-content-center">
-    <form class="col-12" method="POST" action="{{ url_for('register') }}">
-        <div class="container-fluid justify-content-center">
-            <div class="row justify-items-center">
-                <h4 style="text-align:center" class="mx-auto col">register here</h4>
+    <form class="col login-form mx-auto" method="POST" action="{{ url_for('register') }}">
+        <!-- Username Input -->
+        <div class="row" style="width:500px">
+            <div class="mx-auto">
+                <p style="text-align:center">Please enter a username</p>
             </div>
-            <div class="row">
-                <div class="col">
-                    <br>
-                    <p style="text-align:center">Please enter a username</p>
-                </div>
-                <div class="tbc-input">
-                    <input id="username" name="username" type="text" minlength="6" maxlength="15" class="validate" autocomplete="on" title="Please enter a username of at least 6 characters" required>
-                </div>
+            <div class="tbc-input">
+                <input id="username" name="username" type="text" minlength="6" maxlength="15" class="validate" autocomplete="on" title="Please enter a username of at least 6 characters" required>
             </div>
-            <div class="row">
-                <div class="col">
-                    <p style="text-align:center">Please enter a Password</p>
-                </div>
-                <div class="tbc-input">
-                    <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" title="Password must have at least 6 characters" required>
-                </div>
+        </div>
+        <!-- Password Input -->
+        <div class="row" style="width:500px">
+            <div class="col-5">
+                <p style="text-align:center">Please enter a Password</p>
             </div>
-            <div class="row nudge-down">
-                <button type="submit" class="tbc-button blue-button justify-content-center">
-                    Confirm Registration
-                </button>
+            <div class="tbc-input">
+                <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Password" required>
             </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" title="Password must have at least 6 characters" required>
+            </div>
+        </div>
+        <div class="row nudge-down">
+            <button type="submit" class="tbc-button blue-button justify-content-center">
+                Confirm Registration
+            </button>
         </div>
     </form>
 </div>

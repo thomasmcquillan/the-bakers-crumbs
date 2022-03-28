@@ -2,42 +2,40 @@
 {% block content %}
 
 <div class="row page-content justify-content-center">
-    <form class="col mx-auto" method="POST" action="{{ url_for('login') }}">
-        <!-- <div class="container-lg justify-content-center"> -->
-            <!-- Username Input -->
-            <div class="row" style="width:500px">
-                <div class="mx-auto">
-                    <p style="text-align:center">Username</p>
-                </div>
-                <div class="tbc-input">
-                    <input id="username" name="username" type="text" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Username" required>
-                </div>
+    <form class="col login-form mx-auto" method="POST" action="{{ url_for('login') }}">
+        <!-- Username Input -->
+        <div class="row" style="width:500px">
+            <div class="tbc-input">
+                <p style="text-align:center">Username</p>
             </div>
-            <!-- Password Input -->
-            <div class="row" style="width:500px">
-                <div class="col-5">
-                    <p style="text-align:center">Password</p>
-                </div>
-                <div class="tbc-input">
-                    <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Password" required>
-                </div>
+            <div class="tbc-input">
+                <input id="username" name="username" type="text" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Username" required>
             </div>
-            <!-- Confirm Login Button -->
-            <div class="row nudge-down">
-                <button type="submit" class="tbc-button blue-button justify-content-center">
-                    confirm
-                </button>
+        </div>
+        <!-- Password Input -->
+        <div class="row" style="width:500px">
+            <div class="col-5">
+                <p style="text-align:center">Password</p>
             </div>
-            <div class="row justify-content-center">
-                <div class="col">
-                    <h4 style="text-align:center">
-                        No account? No problem..
-                    </h4>
-                    <p style="text-align:center"><a href="{{ url_for('register') }}" class="blue-text"><strong>Register now</strong></a>to save favourite recipes <br> and contribute some of your own..</p>
-                    <br>
-                </div>
+            <div class="tbc-input">
+                <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Password" required>
             </div>
-        <!-- </div> -->
+        </div>
+        <!-- Confirm Login Button -->
+        <div class="row nudge-down">
+            <button type="submit" class="tbc-button blue-button justify-content-center">
+                sign in
+            </button>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col">
+                <h4 style="text-align:center">
+                    No account? No problem..
+                </h4>
+                <p style="text-align:center"><a href="{{ url_for('register') }}" class="blue-text"><strong>Register now</strong></a>to save favourite recipes <br> and contribute some of your own..</p>
+                <br>
+            </div>
+        </div>
     </form>
 </div>
 
