@@ -32,15 +32,15 @@
                 <br><h4 style="text-align:center">ingredients</h4>
             </label>
             <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-            <input id="ingredients" name="ingredients" type="text" class="form-control" placeholder="Ingredient #1" minlength="3" required>
-            <div id="ingredient-insert"></div>
+            <textarea id="food-delivery" name="ingredients" type="text" class="form-control ingredient-items" placeholder="Please enter an ingredient" minlength="3" required>
+            <div id="further-ingredients"></div>
         </div>
         <div class="add-recipe-row nudge-down row">
             <span class="col">
-                <button type="button" class="blue-button tbc-button justify-content-center">Add Ingredient</button>
+                <button type="button" id="add-ingredient-btn" class="blue-button tbc-button justify-content-center">Add Ingredient</button>
             </span>
             <span class="col">
-                <button type="button" class="blue-button tbc-button justify-content-center">Delete Ingredient</button>
+                <button type="button" id="del-ingredient-btn" class="blue-button tbc-button justify-content-center">Remove Ingredient</button>
             </span>
         </div>
         <div class="add-recipe-row row nudge-up">
@@ -48,22 +48,23 @@
                 <h4 style="text-align:center">description</h4>
             </label>
             <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-            <input id="description" name="description" type="text" class="form-control" placeholder="Please enter a short description for your recipe." maxlength="120" required/>
+            <textarea id="description" name="description" type="text" class="form-control" placeholder="Please enter a short description for your recipe." maxlength="120" required/>
         </div>
         <!-- Recipe Directions -->
-        <div class="add-recipe-row row">
+        <div class="add-recipe-row row" id="recipe-directions-section">
             <label class="tbc-input justify-content-center" for="directions">
                 <h4 style="text-align:center">directions</h4>
             </label>
             <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-            <textarea name="directions" class="tbc-textarea text-center" type="text" minlength="100" maxlength="6000" class="validate mx-0" placeholder="Enter recipe instructions, one at a time" required></textarea>
+            <textarea id="recipe-directions-section" name="directions" class="recipe_directions tbc-textarea text-center form-control" type="text" minlength="6" maxlength="5000" class="validate mx-0" placeholder="Please enter step by step instructions." required></textarea>
+            <div class="next-steps"></div>
         </div>
         <div class="add-recipe-row nudge-down row">
             <span class="col">
-                <button type="button" class="tbc-button blue-button justify-content-center">Confirm Step</button>
+                <button type="button" id="add-step-button" class="directions tbc-button blue-button justify-content-center">Confirm Step</button>
             </span>
             <span class="col">
-                <button type="button" class="tbc-button blue-button justify-content-center">Delete Step</button>
+                <button type="button" id="remove-step-button" class="tbc-button blue-button justify-content-center">Delete Step</button>
             </span>
         </div>
         <!-- Recipe Image URL -->
