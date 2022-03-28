@@ -119,7 +119,7 @@ def logout():
     """
     if not session.get("user"):
         return render_template("templates/404.html")
-    
+
     flash("Goodbye for now. Happy baking!")
     session.pop("user")
     return redirect(url_for("login"))
