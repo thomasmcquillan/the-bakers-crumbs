@@ -118,7 +118,7 @@ def logout():
     Removes a user from their session.
     """
     if not session.get("user"):
-        return render_template("error_handlers/404.html")
+        return render_template("templates/404.html")
     
     flash("Goodbye for now. Happy baking!")
     session.pop("user")
@@ -222,8 +222,33 @@ def category(categories):
         "category.html", recipes=recipes, categories=categories)
 
 
+# Error Handlers
+# https://flask.palletsprojects.com/en/2.0.x/errorhandling/
+@app.errorhandler(403)
+def forbidden(e):
+    """
+    404 Error Page - Forbidden 
+    """
+    return render_template('403.html'), 403
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    """
+    404 Error page - page not found
+    """
+    return render_template('404.html'), 404
+
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    """
+    500 Error page - server error
+    """
+    return render_template('500.html'), 500
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-
