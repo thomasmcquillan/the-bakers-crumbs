@@ -281,10 +281,6 @@ input {
     display: flex;
 }
 
-.row> * {
-    width:auto;
-}
-
 p, li, h2, h3, h4, h5, input, textarea, ul, .row, col, .tbc-links, .tbc-nav-link, * {
     line-height: 54px;
     padding: 0 auto;
