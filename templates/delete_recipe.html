@@ -31,9 +31,7 @@
             <label class="tbc-input justify-content-center" for="ingredients">
                 <br><h4 style="text-align:center">ingredients</h4>
             </label>
-            <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
             <input id="ingredients" name="ingredients" type="text" class="form-control" placeholder="Ingredient #1" minlength="3" required>
-            <div id="ingredient-insert"></div>
         </div>
         <div class="add-recipe-row nudge-down row">
             <span class="col">
@@ -47,23 +45,22 @@
             <label class="tbc-input justify-content-center" for="recipe_description">
                 <h4 style="text-align:center">description</h4>
             </label>
-            <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-            <input id="description" name="description" type="text" class="form-control" placeholder="Please enter a short description for your recipe." maxlength="120" required/>
+            <input id="description" name="description" type="text" class="form-control" placeholder="Please enter a short description for your recipe." maxlength="300" required/>
         </div>
         <!-- Recipe Directions -->
         <div class="add-recipe-row row">
             <label class="tbc-input justify-content-center" for="directions">
                 <h4 style="text-align:center">directions</h4>
             </label>
-            <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-            <textarea name="directions" class="tbc-textarea text-center" type="text" minlength="100" maxlength="6000" class="validate mx-0" placeholder="Enter recipe instructions, one at a time" required></textarea>
+            <!-- Extra task steps go after here, via js script -->
+            <textarea name="directions" class="tbc-textarea text-center" type="text" minlength="6" maxlength="3000" class="validate mx-0" placeholder="Enter recipe instructions, one at a time" required></textarea>
         </div>
         <div class="add-recipe-row nudge-down row">
             <span class="col">
-                <button type="button" class="tbc-button blue-button justify-content-center">Confirm Step</button>
+                <button type="button" class="tbc-button blue-button justify-content-center">Click here to add another step.</button>
             </span>
             <span class="col">
-                <button type="button" class="tbc-button blue-button justify-content-center">Delete Step</button>
+                <button type="button" class="tbc-button blue-button justify-content-center">Delete last step</button>
             </span>
         </div>
         <!-- Recipe Image URL -->
@@ -78,7 +75,7 @@
         <div class="add-recipe-row row">
             <div class="col-4 justify-content-center">
                 <button class="submit tbc-button nudge-down justify-content-center blue-button">
-                    Publish Recipe
+                    Submit Recipe
                 </button>
             </div>
         </div>

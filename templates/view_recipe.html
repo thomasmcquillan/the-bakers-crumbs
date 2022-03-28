@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row page-content ml-lg-3">
-    <div class="recipe-img-lg col-10 col-md-7 col-lg-5">
+<div class="row search-wrapper page-content ml-lg-3 mr-3">
+    <div class="recipe-thumb-view-recipe col-10 col-md-7 col-lg-5">
         <img src="{{ recipe.image_url }}" class="img-fluid" alt="{{ recipe.recipe_name }}">
     </div>
-    <div class="recipe-wrap col-10 col-md-6 mb-5">
+    <div class="recipe-wrap col-10 col-md-7 mb-5 mr-5">
         <br>
         <h4 class="mx-4">{{ recipe.recipe_name|capitalize }}</h4>
         <br>
@@ -15,10 +15,10 @@
             <li class="mx-4">{{ ingredient }}</li>
             {% endfor %}
         </ul>
-        <h4 class="blue-text mx-4">Directions</h4>
-        <ul class="recipe-directions">
+        <h4 class="blue-text">Directions</h4>
+        <ul class="recipe-directions mx-0">
             {% for direction in recipe.directions %}
-            <li class="mx-4">{{ direction }}</li>
+            <li class="pr-4">{{ direction }}</li>
             {% endfor %}
         </ul>
     </div>

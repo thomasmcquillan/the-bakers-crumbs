@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% for recipe in recipes %}
-<div class="row justify-content-center">
-    <div class="search-wrapper col-10 col-lg-5">
-        <a class="recipe-thumb" href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+<div class="page-content mr-2">
+    {% for recipe in recipes %}
+    <div class="row">
+        <a class="recipe-thumb col-10 col-md-8 col-lg-4 mx-auto" href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
             <img src="{{ recipe.image_url }}" class="img-fluid" alt="{{ recipe.recipe_name }}">
         </a>
+        <div class="col-10 col-lg-7 mr-4">
+            <h4 class="mx-auto blue-text">{{ recipe.recipe_name|capitalize }}</h4>
+            <br>
+            <p class="recipe-directions mr-5">{{ recipe.recipe_description }}</p>
+        </div>
     </div>
-    <div class="col-10 col-lg-7">
-        <h4 class="mx-auto blue-text">{{ recipe.recipe_name|capitalize }}</h4>
-        <br>
-        <p class="recipe-directions">{{ recipe.recipe_description }}</p>
-    </div>
+    {% endfor %}
 </div>
-{% endfor %}
 
 {% endblock %}

@@ -28,11 +28,11 @@
         </div>
         <div class="add-recipe-row row mx-auto">
             <h4 class="text-center">ingredients</h4>
-            <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-            <div class="tbc-input form-control">
-                <input id="food-delivery" name="ingredients" type="text" class="form-control ingredient-list col" placeholder="Please enter an ingredient" minlength="3" required />
+            <div class="tbc-input" id="food-delivery">
+                <!-- Extra input fields added by custom js script will appear below this one -->
+                <input name="ingredients" type="text" class="ingredient-list" placeholder="Please enter ingredient, one at a time" minlength="3" required>
+                <div class="food-basket"></div>
             </div>
-            <div id="grocery-basket"></div>
         </div>
         <div class="add-recipe-row row">
             <span class="col mr-auto">
@@ -45,14 +45,14 @@
         <div class="add-recipe-row row">
             <h4 class="text-center">description</h4>
             <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-            <div class="tbc-input form-control">
+            <div class="tbc-input">
                 <input id="description" name="description" type="text" class="form-control col" placeholder="Please enter a short description for your recipe." maxlength="120" required/>
             </div>
         </div>
         <!-- Recipe Directions -->
         <div class="add-recipe-row row">
             <h4 class="text-center">directions</h4>
-            <div class="tbc-input form-control">
+            <div id="recipe-directions-section">
                 <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
                 <input id="recipe-directions" name="directions" class="recipe-directions tbc-textarea text-center form-control validate" type="text" minlength="60" maxlength="5000" placeholder="Please enter step by step instructions" required/>
             </div>

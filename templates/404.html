@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="error-wrap">
-    <div class="row">
-        <div class="col-12">
+<div class="error-wrap container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-6 mx-auto justify-content-center">
             <h2 class="text-blue">404 - Page not found </h2>
             <h4 class="text-pink">  Sorry, something went awry - but nevermind, <br>
                 let's get back to the kitchen.</h4>
         </div>
-        <a class="container-fluid" href="{{ url_for('index')}}">Let's Bake</a>
+        <a class="btn justify-content-center" href="{{ url_for('index')}}">Let's Bake</a>
     </div>
     
 </div>
