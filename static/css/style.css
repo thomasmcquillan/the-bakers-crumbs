@@ -659,3 +659,13 @@ textarea {
 .bluest-text {
     color:#548fb1;
 }
+
+.error-wrap {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    z-index: 200000;
+    background: repeating-linear-gradient(rgb(245, 245, 245), rgb(245, 245, 245) 50px,#74aac9 51px, #74aac9 53px, rgb(245, 245, 245) 54px);
+}

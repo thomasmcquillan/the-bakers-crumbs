@@ -227,7 +227,7 @@ def category(categories):
 @app.errorhandler(403)
 def forbidden(e):
     """
-    404 Error Page - Forbidden 
+    404 Error Page - Forbidden
     """
     return render_template('403.html'), 403
 
@@ -251,4 +251,4 @@ def internal_server_error(e):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
