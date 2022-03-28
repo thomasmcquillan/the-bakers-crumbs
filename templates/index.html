@@ -3,34 +3,25 @@
 <div class="row page-content-home justify-content-center">
     <div class="d-none d-lg-flex col-lg-12">
         <p style="text-align:center"><br><br><br>
-            We believe baking is a joy best shared.
+            We believe baking is best when shared.
             <br>
             Discover recipes from the community and
             <br>
-            consider contributing some of your own.
+            maybe share some of your own.
             <br><br>
         </p>
     </div>
     <div class="col-11 mx-auto d-flex d-lg-none">
-        <p style="text-align:center"><br><br><br><br>
-            We believe baking is a joy best shared.
+        <p style="text-align:center"><br><br><br><br><br><br>
+            We believe baking is best when shared.
             Discover recipes from the community and
-            consider contributing some of your own.
-            <br>
+            maybe share some of your own.
+            <br><br>
         </p>
     </div>
-    <a href="{{ url_for('category', categories='all') }}" class="col">
-        <h4 class="tbc-links tbc-text-pink"><br>
-            View All Recipes
-        </h4>
-    </a>
 </div>
-<div class="row mx-auto">
-    <h4 class="tbc-links tbc-text-pink col" title="Click on a Recipe Category Below">
-        Browse By Category
-    </h4>
-</div>
-<div class="row mx-auto tbc-cat-links home-link-wrap">
+
+<div class="row mx-auto tbc-cat-links tbc-10 home-link-wrap">
     <a href="{{ url_for('category', categories='bread') }}" class="col-10 col-lg-4">
         <img src="{{ url_for('static', filename='images/bread-default.png') }}" class="img-fluid recipe-thumb" alt="loaf of bread">
         <span>

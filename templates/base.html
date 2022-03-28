@@ -38,7 +38,7 @@
             </a>
         </div>
         <div class="tbc-logo-caption">
-            <h3 class="d-none d-lg-flex">baking wisdom, <span style="color:rgb(236, 76, 156)"><strong><em>served
+            <h3 class="d-none d-lg-flex pt-1">baking wisdom, <span style="color:rgb(236, 76, 156)"><strong><em>served
                             hot</em></strong></span></h3>
         </div>
         <form class="search-form" action="{{ url_for('search') }}" method="post">
@@ -52,12 +52,20 @@
                 </button>
             </div>
         </form>
-        <nav class="navbar d-xl-flex">
-            <a class="tbc-nav-link login-link" href="{{ url_for('login') }}">
+        <a href="{{ url_for('category', categories='all') }}">
+            <h4 class="tbc-links all-recipes-link blue-text">
+                View All Recipes
+            </h4>
+        </a>
+        <nav class="navbar">
+            <a class="tbc-nav-link d-flex d-lg-block pb-2 login-link" href="{{ url_for('login') }}">
                 <h4>sign-in</h4>
             </a>
-            <a class="tbc-nav-link register-link" href="{{ url_for('register') }}">
+            <a class="tbc-nav-link d-flex d-lg-block pb-2 register-link" href="{{ url_for('register') }}">
                 <h4>register</h4>
+            </a>
+            <a class="tbc-nav-link d-flex d-lg-block pb-2 logout-link" href="{{ url_for('logout') }}">
+                <h4>sign-out</h4>
             </a>
         </nav>
     </header>
