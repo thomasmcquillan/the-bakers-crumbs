@@ -117,9 +117,12 @@ def logout():
     """
     Removes a user from their session.
     """
+    if not session.get("user"):
+        return render_template("error_handlers/404.html")
+    
     flash("Goodbye for now. Happy baking!")
     session.pop("user")
-    return redirect(url_for("index"))
+    return redirect(url_for("login"))
 
 
 @app.route("/delete_user/<username>")
