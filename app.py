@@ -24,7 +24,20 @@ def index():
     """
     Returns user to Homepage
     """
-    return render_template("index.html")
+    categories = mongo.db.categories.find()
+    return render_template("index.html", categories=categories)
+
+
+@app.route("/get_category/<category_id>")
+def get_category(category_id):
+    """
+    Displays all recipes in a given category.
+    """
+    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    recipes = list(mongo.db.recipes.find(
+        {"category_name": category["category_name"]}))
+    return render_template(
+        "category.html", recipes=recipes, category=category)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -197,31 +210,6 @@ def delete_recipe(recipe_id):
     return redirect(url_for("profile"))
 
 
-@app.route("/category/<categories>")
-def category(categories):
-    """
-    Displays all recipes in a given category.
-    """
-    if categories == "all":
-        recipes = list(mongo.db.recipes.find())
-    elif categories == "bread":
-        recipes = list(mongo.db.recipes.find({"category_name": "Bread"}))
-    elif categories == "pizza":
-        recipes = list(mongo.db.recipes.find({"category_name": "Pizza"}))
-    elif categories == "cakes":
-        recipes = list(mongo.db.recipes.find({"category_name": "Cakes"}))
-    elif categories == "cookies":
-        recipes = list(mongo.db.recipes.find({"category_name": "Cookies"}))
-    elif categories == "scones":
-        recipes = list(mongo.db.recipes.find({"category_name": "Scones"}))
-    elif categories == "muffins":
-        recipes = list(mongo.db.recipes.find({"category_name": "Muffins"}))
-    else:
-        recipes = list(mongo.db.recipes.find())
-    return render_template(
-        "category.html", recipes=recipes, categories=categories)
-
-
 # Error Handlers
 # https://flask.palletsprojects.com/en/2.0.x/errorhandling/
 @app.errorhandler(403)
@@ -251,4 +239,4 @@ def internal_server_error(e):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)
