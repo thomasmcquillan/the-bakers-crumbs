@@ -165,10 +165,7 @@ def add_recipe():
             "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
-        flash("Recipe added successfully - thanks for sharing!")
-        username = mongo.db.users.find_one(
-            {"username": session["user"]})["username"]
-        recipes = list(mongo.db.recipes.find({"created_by": username}))
+        flash("Recipe successfully added!")
         return redirect(url_for("profile", username=username, recipes=recipes))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
