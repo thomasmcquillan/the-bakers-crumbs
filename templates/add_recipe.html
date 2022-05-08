@@ -15,11 +15,24 @@
             </div>
         </div>
         <div class="add-recipe-row row">
+            <h4 class="text-center">description</h4>
+            <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
+            <div class="tbc-input">
+                <input required
+                    id="description"
+                    name="description" 
+                    type="text" 
+                    class="form-control col" 
+                    placeholder="Please give a short description of your recipe" 
+                    maxlength="120"/>
+            </div>
+        </div>
+        <div class="add-recipe-row row">
             <h4 class="text-center">category</h4>
             <div class="justify-items-center">
                 <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
                 <select name="category_name" class="form-control" required>
-                    <option class="text-center" selected disabled>Please select a recipe category</option>
+                    <option class="text-center" selected disabled>Please select a category for your recipe</option>
                     {% for category in categories %}
                     <option class="text-center" value="{{category.category_name}}">{{ category.category_name }}</option>
                     {% endfor %}
@@ -30,7 +43,12 @@
             <h4 class="text-center">ingredients</h4>
             <div class="tbc-input" id="food-delivery">
                 <!-- Extra input fields added by custom js script will appear below this one -->
-                <input name="ingredients" type="text" class="ingredient-list" placeholder="Please enter first ingredient here." minlength="3" required>
+                <input required 
+                        name="ingredients" 
+                        type="text"
+                        class="form-control col" 
+                        placeholder="Please enter first ingredient here." 
+                        minlength="3">
                 <div class="food-basket"></div>
             </div>
         </div>
@@ -41,13 +59,6 @@
             <span class="col ml-auto">
                 <button type="button" id="del-ingredient-btn" class="blue-button tbc-button justify-content-center">Remove Ingredient</button>
             </span>
-        </div>
-        <div class="add-recipe-row row">
-            <h4 class="text-center">description</h4>
-            <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-            <div class="tbc-input">
-                <input id="description" name="description" type="text" class="form-control col" placeholder="Please enter a short description for your recipe." maxlength="120" required/>
-            </div>
         </div>
         <!-- Recipe Directions -->
         <div class="add-recipe-row row">
@@ -71,7 +82,12 @@
             <h4 class="text-center">Recipe Image</h4>
             <div class="tbc-input form-control" style="height:113px">
                 <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-                <input id="image_url" name="image_url" type="text" class="form-control validate" placeholder="You may enter the URL for an image of the finished recipe" style="height:108px" />
+                <input id="image_url" 
+                    name="image_url" 
+                    type="text"
+                    class="form-control validate"
+                    placeholder="You may enter the URL for an image of the finished recipe"
+                    style="height:108px"/>
             </div>
         </div>
         <!-- Submit Recipe Button -->

@@ -121,7 +121,7 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     recipes = list(mongo.db.recipes.find({"created_by": username}))
-
+    
     return render_template("profile.html", username=username, recipes=recipes)
 
 
@@ -159,7 +159,7 @@ def add_recipe():
             "recipe_name": request.form.get("recipe_name"),
             "category_name": request.form.getlist("category_name"),
             "image_url": request.form.get("image_url"),
-            "recipe_description": request.form.get("recipe_description"),
+            "recipe_description": request.form.get("description"),
             "ingredients": request.form.getlist("ingredients"),
             "directions": request.form.getlist("directions"),
             "created_by": session["user"]
@@ -183,7 +183,7 @@ def edit_recipe(recipe_id):
             "recipe_name": request.form.get("recipe_name"),
             "category_name": request.form.get("category_name"),
             "image_url": request.form.get("image_url"),
-            "recipe_description": request.form.get("recipe_description"),
+            "recipe_description": request.form.get("description"),
             "ingredients": request.form.getlist("ingredients"),
             "directions": request.form.getlist("directions"),
             "created_by": session["user"]
@@ -203,13 +203,11 @@ def delete_recipe(recipe_id):
     Deletes recipe from the database. The recipe deletion can
     be performed by the user who submitted it or site admin.
     """
-    mongo.db.recipes.remove_one({"_id": ObjectId(recipe_id)})
-    flash("recipe successfully deleted!")
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    flash("recipe deleted!")
     return redirect(url_for("profile"))
 
 
-# Error Handlers
-# https://flask.palletsprojects.com/en/2.0.x/errorhandling/
 @app.errorhandler(403)
 def forbidden(e):
     """
