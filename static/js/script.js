@@ -53,8 +53,8 @@ nextStepButton.onclick = function(){
     addStepButton.setAttribute('style', 'height:54px');
     addStepButton.setAttribute('minlength', '3');
     addStepButton.setAttribute('required', 'true');
-    addStepButton.setAttribute('placeholder', 'Click here to add another step..');
-        recipeDirectionsDiv.appendChild(addStepButton);
+    addStepButton.setAttribute('placeholder', 'Click here to add another step.');
+    recipeDirectionsDiv.appendChild(addStepButton);
 };
 
 removeStepButton.onclick = function(){

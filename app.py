@@ -206,7 +206,7 @@ def delete_recipe(recipe_id):
     Deletes recipe from the database. The recipe deletion can
     be performed by the user who submitted it or site admin.
     """
-    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
     flash("recipe deleted!")
     return redirect(url_for("index"))
 
