@@ -22,22 +22,10 @@ mongo = PyMongo(app)
 @app.route("/index")
 def index():
     """
-    Returns user to Homepage
+    Returns user to homepage, where recipe categories are displayed.
     """
-    categories = mongo.db.categories.find()
+    categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("index.html", categories=categories)
-
-
-@app.route("/get_category/<category_id>")
-def get_category(category_id):
-    """
-    Displays all recipes in a given category.
-    """
-    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-    recipes = list(mongo.db.recipes.find(
-        {"category_name": category["category_name"]}))
-    return render_template(
-        "category.html", recipes=recipes, category=category)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -46,17 +34,8 @@ def search():
     Returns recipes based on keyword search by user
     """
     query = request.form.get("query")
-    recipes = mongo.db.recipes.find({"$text": {"$search": query}})
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     return render_template("searchresults.html", recipes=recipes)
-
-
-@app.route("/view_recipe/<recipe_id>")
-def view_recipe(recipe_id):
-    """
-    Displays page with a specific recipe, as chosen by the user
-    """
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("view_recipe.html", recipe=recipe)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -76,7 +55,8 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(
+                request.form.get("password"))
         }
         mongo.db.users.insert_one(register)
 
@@ -105,9 +85,8 @@ def login():
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 return redirect(url_for("profile", username=session["user"]))
-
         else:
-            flash("Username or password is incorrect")
+            flash("Invalid username and/or password")
             return redirect(url_for("login"))
 
     return render_template("login.html")
@@ -120,9 +99,13 @@ def profile(username):
     """
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    recipes = list(mongo.db.recipes.find({"created_by": username}))
     
-    return render_template("profile.html", username=username, recipes=recipes)
+    if session["user"]:
+        recipes = list(mongo.db.recipes.find({"created_by": username}))
+        return render_template(
+            "profile.html", username=username, recipes=recipes)
+    else:
+        return redirect(url_for("login"))
 
 
 @app.route("/logout")
@@ -135,18 +118,30 @@ def logout():
 
     flash("Goodbye for now. Happy baking!")
     session.pop("user")
-    return redirect(url_for("login"))
+    return redirect(url_for("index"))
 
 
 @app.route("/delete_user/<username>")
 def delete_user(username):
     """
-    This function deletes a user's account.
+    This function allows deletion of a user account.
     """
     mongo.db.users.remove({"username": username})
     flash("Your account has been deleted")
     session.pop("user")
-    return redirect(url_for("index"))
+    return redirect(url_for("register"))
+
+
+@app.route("/get_category/<category_id>")
+def get_category(category_id):
+    """
+    Displays all recipes in a given category.
+    """
+    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    recipes = list(mongo.db.recipes.find(
+        {"category_name": category["category_name"]}))
+    return render_template(
+        "category.html", recipes=recipes, category=category)
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -166,11 +161,19 @@ def add_recipe():
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe successfully added!")
-        session["user"] = request.form.get("username").lower()
         return redirect(url_for("profile", username=session["user"]))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recipe.html", categories=categories)
+
+
+@app.route("/view_recipe/<recipe_id>")
+def view_recipe(recipe_id):
+    """
+    Displays full recipe, as selected by user.
+    """
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("view_recipe.html", recipe=recipe)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -205,7 +208,7 @@ def delete_recipe(recipe_id):
     """
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("recipe deleted!")
-    return redirect(url_for("profile"))
+    return redirect(url_for("index"))
 
 
 @app.errorhandler(403)
