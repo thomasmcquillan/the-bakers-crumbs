@@ -652,8 +652,8 @@ textarea {
     padding: 0;
 }
 
-.modal {
-    z-index: 5000000;
+.modal, .modal-content {
+    z-index: 500000;
 }
 
 .row {
@@ -699,3 +699,13 @@ textarea {
     height:380px;
     width:380px;
 }
+
+/* #modal-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+    z-index: 1000000;
+} */
