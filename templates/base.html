@@ -19,7 +19,7 @@
     <title>The Baker's Crumbs</title>
 </head>
 
-<body class="container-fluid">
+<body>
     <header class="tbc-header container-fluid">
         <div class="social-nav d-none d-md-flex">
             <ul class="social-links justify-content-center">
@@ -64,11 +64,11 @@
             </a>
         </nav>
     </header>
-    <main class="row">
-    </main>
 
-    {% block content %}
-    {% endblock %}
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

@@ -28,12 +28,12 @@
         {% for recipe in recipes %}
         <!-- Will display any recipes contributed by current user -->
         {% if session.user|lower == recipe.created_by|lower %}
-        <div class="col-10 col-md-5 col-lg-4 mx-auto">
-            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
+        <!-- <div class="col-10 col-md-5 col-lg-4 mx-auto"> -->
+            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="col-10 col-md-6 mx-auto">
                 <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}" class="img-fluid recipe-thumb">
                 <h4 class="tbc-links">{{ recipe.recipe_name }}</h4>
             </a>
-        </div>
+        <!-- </div> -->
         {% endif %}
         {% endfor %}
     </div>

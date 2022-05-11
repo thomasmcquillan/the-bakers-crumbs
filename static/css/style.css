@@ -3,7 +3,7 @@ body {
     font-weight: 300;
     font-size: 22px;
     line-height: 54px;
-    flex-direction: column;
+    /* flex-direction: column; */
     color: #454545;
     text-decoration: none;
     display: flex;
@@ -11,7 +11,6 @@ body {
     flex-wrap: wrap;
     z-index: -5;
     padding: 0;
-    min-height: 100vh;
     display: flex;
     min-width: 100vw;
     min-height: 100vh;
