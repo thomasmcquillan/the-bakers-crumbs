@@ -1,25 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container-lg">
+<div class="row pb-4 page-content">
     {% for recipe in recipes %}
-    <div class="row justify-content-center">
-        <div class="col-12">
-            <a class="recipe-thumb" href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
-                <img src="{{ recipe.image_url }}" class="img-fluid" alt="{{ recipe.recipe_name }}">
-            </a>
+        <div class="recipe-wrap col-12 col-lg-5 pt-2 pb-3">
             <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
-                <h4 class="mx-auto blue-text">{{ recipe.recipe_name|capitalize }}</h4>
+                <img src="{{recipe.image_url}}" class="img-fluid" alt="{{recipe.recipe_name}}">
+                <h4 class="blue-text">{{ recipe.recipe_name|capitalize }}</h4>
             </a>
-        </div>
-        <div class="col-10 col-md-6 mx-auto">s
-            <!-- <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
-                <h4 class="mx-auto blue-text">{{ recipe.recipe_name|capitalize }}</h4>
-            </a> -->
             <p class="recipe-directions">{{ recipe.recipe_description }}</p>
+            <div class="row">
+                <div class="col-6">{{recipe.category}}</div>
+                <div class="col-6"></i>{{recipe.created_by}}</div>
+            </div>
         </div>
-    </div>
     {% endfor %}
-</row>
+</div>
 
 {% endblock %}
