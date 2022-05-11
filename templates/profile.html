@@ -2,25 +2,24 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="row page-content">
-        <div class="col-5">
-            <a href="{{ url_for('add_recipe') }}" class="btn" style="width:300px"><h4 class="blue-text text-center">Add a New Recipe</h4></a><br>
-        </div>
-    </div>
-    <div class="row mx-auto">
+    <div class="row mx-auto page-content">
         <div class="col-10 col-md-5">
-            <h4 class="text-center">Welcome {{ username.capitalize() }}</h4>
-            <br>
+            <h4 class="text-center">Hello {{ username.capitalize() }}</h4>
         </div>
     </div>
     <div class="row mx-auto">
         <div class="col-10 col-md-6">
             {% if recipes|length > 0 %}
-                <p class="text-center">Recipes that you have shared are displayed below.</p>
+                <p class="text-center">
+                    Recipes you have shared are displayed below.
+                    <br>
+                    To add another recipe <span><a href="{{ url_for('add_recipe') }}" class="blue-text"><strong>click here</strong></a></span>
+                </p>
+                <br>
             {% else %}
                 <p class="text-center"> 
                     We see you have not uploaded any recipes.
-                    To share a recipe click the link below.
+                    To share a recipe <span><a href="{{ url_for('add_recipe') }}" class="blue-text"><strong>click here</strong></a></span>
                 </p><br>
             {% endif %}
         </div>
