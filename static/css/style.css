@@ -18,6 +18,7 @@ body {
     /*  Lined-paper css styles borrowed and then adapted from Emily Gagne article, 
         here: https://codepen.io/ceg9498/post/creating-lined-paper */
     background: repeating-linear-gradient(rgb(245, 245, 245), rgb(245, 245, 245) 50px,#74aac9 51px, #74aac9 53px, rgb(245, 245, 245) 54px);
+    /* background: rgb(245, 245, 245); */
 }
 
 main {
