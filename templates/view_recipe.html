@@ -1,24 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row search-wrapper page-content ml-lg-3 mr-3">
-    <div class="recipe-thumb-view-recipe col-10 col-md-6">
+<!-- <div class="row search-wrapper page-content ml-lg-3 mr-3"> -->
+<div class="row justify-items-center">
+    <div class="col-10 col-md-6 mx-auto">
+        <h3 class="text-center">{{ recipe.recipe_name|capitalize }}</h3>
+        <br>
         <img src="{{ recipe.image_url }}" class="img-fluid" alt="{{ recipe.recipe_name }}">
-    </div>
-</div>
-<div class="row">
-    <div class="recipe-wrap col-10 col-md-7 mb-5 mr-5">
-        <br>
-        <h4 class="mx-4">{{ recipe.recipe_name|capitalize }}</h4>
-        <br>
+
+        <br><br>
         <h4 class="blue-text mx-4">Ingredients</h4>
         <ul>
             {% for ingredient in recipe.ingredients %}
-            <li class="mx-4">{{ ingredient }}</li>
+            <li class="mx-3">{{ ingredient }}</li>
             {% endfor %}
         </ul>
+        <br>
         <h4 class="blue-text">Directions</h4>
-        <ul class="recipe-directions mx-0">
+        <ul class="mx-0">
             {% for direction in recipe.directions %}
             <li class="pr-4">{{ direction }}</li>
             {% endfor %}

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row pb-4 page-content">
+<div class="row pb-4 page-content recipe-results">
     {% for recipe in recipes %}
         <div class="recipe-wrap col-12 col-lg-5 pt-2 pb-3">
             <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
