@@ -29,10 +29,10 @@ main {
     line-height: 54px;
     width: 100vw;
     height: auto;
-    position: absolute;
+    /* position: absolute; */
     left: 0;
     top: 22px;
-    padding: none;
+    padding: 0;
     margin-left: 0;
     align-content: flex-start;
     min-height: 100%;

@@ -4,11 +4,14 @@
 <!-- <div class="row search-wrapper page-content ml-lg-3 mr-3"> -->
 <div class="row justify-items-center">
     <div class="col-10 col-md-6 mx-auto">
-        <h3 class="text-center">{{ recipe.recipe_name|capitalize }}</h3>
-        <br>
+        <!-- <h3 class="text-center">{{ recipe.recipe_name|capitalize }}</h3>
+        <br> -->
         <img src="{{ recipe.image_url }}" class="img-fluid" alt="{{ recipe.recipe_name }}">
-
         <br><br>
+        <!-- <h3 class="text-center">{{ recipe.recipe_name|capitalize }}</h3> -->
+        <h3 class="mx-3">{{ recipe.recipe_name|capitalize }}</h3>
+
+        <br>
         <h4 class="blue-text mx-4">Ingredients</h4>
         <ul>
             {% for ingredient in recipe.ingredients %}
