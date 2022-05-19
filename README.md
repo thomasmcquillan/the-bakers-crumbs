@@ -141,3 +141,47 @@ This site is targeted at experienced bakers and beginner bakers alike. It is a p
 ## Database Schema
 
 ![Database schema, showing collections](docs/images/db-schema.png) 
+
+# Deployment
+
+The project’s static assets are stored on GitHub Pages, which is then connected to MongoDB before deployment via Heroku using the following steps.
+
+## Deploying Project to GitHub Pages
+
+1. Visit https://github.com 
+2. Log in to account.
+3. Click “Your Repositories”, found under the user profile menu.
+4. Select desired Repository, in this case “the-bakers-crumbs”.
+5. Click on "Settings".
+6. Under ‘Code and automation’ sub-menu, select ‘Pages’.
+7. Under "Source" heading, there is a dropdown menu. Click "None". Then select ‘main’ (or ‘master’) and click ‘Save’.
+8. If everything went well you will see the message "Your site is ready to be published at _______".
+
+## Forking the Repository
+
+This will create a replica of the repository to enable viewing or editing without any risk of affecting the original application.
+1. Visit https://github.com and if you don’t already have one, create a user account.
+2. Navigate to my user page:  https://github.com/thomasmcquillan
+3. Select ‘Repositories’ tab.
+4. Select ‘the-bakers-crumbs’.
+5. Click the button named ‘Fork’, which adds a copy of the project to your repositories.
+
+## Cloning the Repository
+
+Cloning is another option for creating a local version of the repository to play with.  To do so, follow steps 1 - 4 from above but instead of clicking ‘Fork’ button, click on the ‘Code’ dropdown menu and choose from one of the following options:
+
+1. Under ‘HTTPS’, copy the provided link to git repository.
+2. In your preferred code editor, open a Terminal window and in the directory you want to clone the repository, type:
+
+		$ git init
+
+		followed by:
+
+		$ git clone https://github.com/thomasmcquillan/the-bakers-crumbs.git
+3. Hit Enter and a clone of the project will be created locally.
+
+
+Alternatively, for GitHub Desktop users, click the “Open with GitHub Desktop”.
+
+Or, simply click “Download ZIP” to download a compressed file containing a clone of the repository that you can decompress and access locally using your preferred code editor.
+
