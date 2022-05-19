@@ -160,6 +160,7 @@ The project’s static assets are stored on GitHub Pages, which is then connecte
 ## Forking the Repository
 
 This will create a replica of the repository to enable viewing or editing without any risk of affecting the original application.
+
 1. Visit https://github.com and if you don’t already have one, create a user account.
 2. Navigate to my user page:  https://github.com/thomasmcquillan
 3. Select ‘Repositories’ tab.
@@ -185,3 +186,39 @@ Alternatively, for GitHub Desktop users, click the “Open with GitHub Desktop�
 
 Or, simply click “Download ZIP” to download a compressed file containing a clone of the repository that you can decompress and access locally using your preferred code editor.
 
+
+## Connecting Application to MongoDB
+
+
+    The project must be connected to MongoDB to access the database containing recipe and user collection records. We connect as follows:
+
+1. Log in to my MongoDB user account.
+2. Within the 'clusters' tab, click on "Connect".
+3. Select 'Connect your application".
+4. For 'DRIVER' select 'Python' and for 'VERSION' select '3.6 or later'.
+5. Copy the provided connection string and paste it in the env.py file, making sure to edit it to include my 'dbname' and user <password>.
+6. Create an instance of PyMongo, into which we pass the application: "mongo = PyMongo(app)".
+
+## Deploying to Heroku
+
+Before the application can be deployed to Heroku, we need to provide a couple of files. The first, 'requirements.txt' will contain a list of dependencies the application needs to run. This can be created with the following command:
+
+       pip3 freeze --local > requirements.txt
+
+Secondly, a file named 'Procfile' (no extension) specifies the commands that are executed by the app on startup. This is created with the command below:
+
+        echo web: python app.py > Procfile
+
+## To deploy app to Heroku:
+
+1. Navigate to [Heroku](https://www.heroku.com/) and sign in.
+2. On the dashboard select 'New', followed by "Create new app".
+3. Add a name for the app.
+4. For 'Choose a region' I selected Europe.
+5. Click 'Create app'.
+6. Under the 'Deploy' tab, select 'GitHub - Connect to GitHub' for deployment method.
+7. Navigate to 'Settings' tab and click 'Reveal Config Vars'.
+8. Add config variables to Heroku.
+9. Returning to 'Deploy' tab, select 'Enable Automatic Deploys' with Master Branch selected from drop-down menu.
+10. Next click on 'Deploy Branch', selecting 'master'.
+11. The site is now deployed and will automatically re-deploy whenever changes are made and pushed to GitHub.
