@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row page-content-home justify-content-center">
+
+<!-- hero banner -->
+<!-- <div row> -->
+    <div class="container-fluid" id="hero-tbc">
+        <img id="hero-img" src="{{ url_for ('static', filename='images/hero-banner.png') }}">
+    </div>
+<!-- </div> -->
+
+<!-- <div class="row page-content-home justify-content-center">
     <div class="d-none d-lg-flex col-lg-12">
         <p style="text-align:center"><br><br><br>
             Baking is always best when shared.
@@ -19,7 +27,7 @@
             <br><br>
         </p>
     </div>
-</div>
+</div> -->
 
 <div class="row mx-auto tbc-cat-links tbc-10 home-link-wrap">
     {% for category in categories %}
