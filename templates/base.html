@@ -7,71 +7,90 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- <script src="https://kit.fontawesome.com/d3a1f4adbf.js" crossorigin="anonymous"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400&family=Noto+Sans+Mono:wght@100;200;300;400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <script src="https://use.fontawesome.com/dd058a3225.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>The Baker's Crumbs</title>
 </head>
 
 <body class="container-fluid">
+<!-- <body> -->
     
-    <header class="tbc-header container-fluid">
-
+    <!-- <header class="container-fluid tbc-header"> -->
+        <div class="row tbc-header">
         <nav class="navbar navbar-custom navbar-expand-lg fixed-top">
         
-        <a class="tbc-logo navbar-brand" href="{{ url_for('index') }}"><h1>the baker's crumbs</h1></a>
+            <a class="navbar-brand" href="{{ url_for('index') }}"><h1>the baker's crumbs</h1></a>
+        
+            <button class="navbar-toggler d-block d-lg-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item d-md-none">
+                        <a href="{{ url_for('login') }}" class="nav-link" aria-label="Login">Login</a>
+                    </li>
+                    <li class="nav-item d-md-none">
+                        <a href="{{ url_for('register') }}" class="nav-link" aria-label="register new user">Register</a>
+                    </li>
+                    <li class="nav-item d-md-none">
+                        <a href="{{ url_for('logout') }}" class="nav-link" aria-label="browse by recipe category">Categories</a>
+                    </li>
+            
+                    <li class="nav-item d-none d-md-block">
+                        <a href="{{ url_for('login') }}" class="nav-link" aria-label="login to user account">Login</a>
+                    </li>
+                    <li class="nav-item d-none d-md-block">
+                        <a href="{{ url_for('register') }}" class="nav-link" aria-label="register new user">Register</a>
+                    </li>
+                    <li class="nav-item d-none d-md-block">
+                        <a href="{{ url_for('logout') }}" class="nav-link tbc-nav-link" aria-label="about the baker's crumbs">About</a>
+                    </li>
+                </ul>
+            </div>
 
-        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span>Menu</span></button>
-        <!-- navbar menu links wrapper -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- un-ordered list of navigation links -->
-            <ul class="navbar-nav">
-                 <li class="nav-item d-lg-none">
-                    <a href="{{ url_for('login') }}" class="nav-link" aria-label="Login">Login</a>
-                </li>
-                <li class="nav-item d-lg-none">
-                    <a href="{{ url_for('login') }}" class="nav-link" aria-label="register new user">Register</a>
-                </li>
-                <li class="nav-item d-lg-none">
-                    <a href="{{ url_for('logout') }}" class="nav-link" aria-label="browse by recipe category">Categories</a>
-                </li>
-                <!-- expanded nav-links for large and xlarge viewports -->
-                <li class="nav-item d-none d-lg-block">
-                    <a href="{{ url_for('login') }}" class="nav-link" aria-label="login to user account">Login</a>
-                </li>
-                <li class="nav-item d-none d-lg-block">
-                    <a href="{{ url_for('register') }}" class="nav-link" aria-label="register new user">Register</a>
-                </li>
-                <li class="nav-item d-none d-lg-block">
-                    <a href="{{ url_for('logout') }}" class="nav-link tbc-nav-link" aria-label="about the baker's crumbs">About</a>
-                </li>
-            </ul>
-        </div>
-
+            
 
         </nav>
 
-        <form class="search-form" action="{{ url_for('search') }}" method="post">
-            <div id="tbc-search-form mx-auto" class="search-input">
-                <input type="text" name="query" minlength="3" class="tbc-search-input validate"
-                    placeholder="search for recipes" required>
-                <button type="submit" id="icon-wrap">
-                    <img id="tbc-search" src="{{ url_for('static', filename='images/tbc-search.png') }}">
-                    <img id="tbc-search-hover" type="submit"
-                        src="{{ url_for('static', filename='images/tbc-search-hover.png') }}">
-                </button>
-            </div>
-        </form>
-        
-    </header>
+        <div class="row justify-items-center">
+            <form action="{{ url_for('search') }}" method="post" class="col my-5 pt-4 mx-auto">
+                <div class="center-align">
+                    <div class="input-field col">
+                        <input type="text" name="query" id="query" minlength="3" class="validate" placeholder="Search Recipes.." required>
+                    </div>
+                </div>
+            </form>
+        </div>
 
+    </div>
+
+        <!-- <div id="search-wrapper" class="row justify-contents-center">
+            <form class="search-form" action="{{ url_for('search') }}" method="post">
+                <div id="tbc-search-form" class="search-input">
+                    <input id="search-input" type="text" name="query" minlength="3" class="tbc-search-input validate d-none"
+                        placeholder="search for recipes" required>
+                    <button type="submit" id="icon-wrap">
+                        <img id="tbc-search" src="{{ url_for('static', filename='images/tbc-search.png') }}">
+                        <img id="tbc-search-hover" type="submit"
+                            src="{{ url_for('static', filename='images/tbc-search-hover.png') }}">
+                    </button>
+                </div>
+            </form>
+        </div> -->
+
+       
+        
+        
+    <!-- </header> -->
+    
+   
     
 
-    <main class="container-fluid">
+    <!-- <main class="container-fluid"> -->
 
         {% block content %}
         {% endblock %}
@@ -89,7 +108,7 @@
                 </div>
         </footer> -->
 
-    </main>
+    <!-- </main> -->
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -105,3 +124,7 @@
 </body>
 
 </html>
+
+
+
+

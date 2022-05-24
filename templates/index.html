@@ -3,9 +3,15 @@
 
 <!-- hero banner -->
 <!-- <div row> -->
-    <div class="container-fluid" id="hero-tbc">
-        <img id="hero-img" src="{{ url_for ('static', filename='images/hero-banner.png') }}">
-    </div>
+    <!-- <div class="container-fluid" id="hero-tbc"> -->
+        <div class="container-fluid p-0">
+            <div class="col mx-auto p-0">
+                <!-- <img src="https://images.pexels.com/photos/6605206/pexels-photo-6605206.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" class="img-fluid col-12 col-lg-8 col-xl-6 mx-auto p-0"> -->
+                <!-- <img class="img-fluid" src="{{ url_for('static', filename='images/hero-tall.png') }}"> -->
+                <img class="img-fluid" src="{{ url_for('static', filename='images/landscape-loaf.png') }}">
+            </div>
+        </div>
+    <!-- </div> -->
 <!-- </div> -->
 
 <!-- <div class="row page-content-home justify-content-center">
@@ -29,7 +35,7 @@
     </div>
 </div> -->
 
-<div class="row mx-auto tbc-cat-links tbc-10 home-link-wrap">
+<!-- <div class="row mx-auto tbc-cat-grid home-link-wrap">
     {% for category in categories %}
         <a href="{{ url_for('get_category', category_id=category._id) }}" class="col-10 col-lg-4">
             <img src="{{ category.category_img }}" class="img-fluid recipe-thumb" alt="sourdough">
@@ -38,7 +44,7 @@
             </span>
         </a>
     {% endfor %}
-</div>
+</div> -->
 
 
 {% endblock %}

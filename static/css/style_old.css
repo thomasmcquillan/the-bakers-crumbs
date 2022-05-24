@@ -1,6 +1,6 @@
 body {
-    /* position: relative;
-    left: 0; */
+    position: relative;
+    left: 0;
     font-family: 'Noto Sans Mono', monospace;
     font-weight: 300;
     font-size: 22px;
@@ -8,12 +8,14 @@ body {
     color: #454545;
     text-decoration: none;
     display: flex;
+    justify-items: center;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     z-index: -50;
     padding: 0;
-    /* width: 100vw; */
+    margin-left: 0;
+    width: 100vw;
     min-height: 100vh;
     /*  Lined-paper css styles borrowed and then adapted from Emily Gagne article, 
         here: https://codepen.io/ceg9498/post/creating-lined-paper */
@@ -21,135 +23,29 @@ body {
     background: rgb(245, 245, 245);
 }
 
-/* homepage styling */
-
-#hero-img {
-    width: 100%;
-    height: auto;
-}
-
 main {
     display: flex;
     z-index: -50;
     line-height: 54px;
-    /* width: 100vw; */
+    width: 100vw;
     height: auto;
     /* position: absolute; */
-    /* left: 0;
-    top: 22px; */
+    left: 0;
+    top: 22px;
     padding: 0;
     margin-left: 0;
     align-content: flex-start;
     min-height: 100%;
     flex-wrap: wrap;
+    margin-top: 95px;
     margin-bottom:  180px;
     /* background: repeating-linear-gradient(rgb(245, 245, 245), rgb(245, 245, 245) 50px,#74aac9 51px, #74aac9 53px, rgb(245, 245, 245) 54px); */
-}
-
-/* ============================== Navigation Styles =============================== */
-
-.tbc-header {
-    display: flex;
-    position: fixed;
-    top: 10px;
-    left: 0;
-    height: auto;
-    width: 100vw;
-    /* background: repeating-linear-gradient(rgb(245, 245, 245), rgb(245, 245, 245) 50px,#74aac9 51px, #74aac9 53px, rgb(245, 245, 245) 54px);
-    background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 10em, #faa7e3 10.1em, #d15da7 10.2em, #d15da7 10.4em, rgb(245, 245, 245) 10.5em, rgb(245, 245, 245) 14.1em);
-    background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 100px, #faa7e3 101px, #d15da7 102px, #d15da7 104px, rgb(245, 245, 245) 105px, rgb(245, 245, 245) 141px); */
-    /*  */
-    z-index: 999;
-    background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 100px, #faa7e3 101px, #d15da7 102px, #d15da7 104px, rgb(245, 245, 245) 105px, rgb(245, 245, 245) 141px); 
-}
-
-.navbar {
-    display: flex;
-    width: 100%;
-    height: 70px;
-    position: fixed;
-    flex-direction: column;
-    justify-content: center;
-    right: 0;
-    top: 0;
-}
-
-.navbar-custom .navbar-nav {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    justify-items: center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    text-align: center;
-    padding: 30vh 0 36vh 0;
-}
-
-.navbar-custom .navbar-brand {
-    margin: auto auto auto 14px;
-}
-
-.navbar-custom .navbar-toggler {
-    justify-self: center;
-    /* position: fixed;
-    right: 4vw;
-    top: 20px;
-    font-size: 1.6rem;
-    border: none; */
-}
-
-/* ============================== Media Queries =============================== */
-
-@media (min-width: 576px) {
-    .navbar-custom .navbar-brand,
-    .navbar-custom .navbar-nav .nav-item a {
-        font-size: 1.5rem;
-        font-size: 26px;
-        margin-left: 54px;
-        z-index: 111111111111;
-    }
-}
-
-@media (min-width: 992px) {
-    nav {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .navbar-custom .navbar-nav {
-        display: flex;
-        flex-direction: row;
-        justify-items: center;
-        position: fixed;
-        top: 0;
-        right: 0;
-        align-content: center;
-        justify-content: flex-end;
-        /* height: auto; */
-        margin-right: 24px;
-        padding: 0 22px 0 calc(100vw - 22px);
-        width: 100%;
-    }
-
-    .nav-item { 
-        padding-left: 24px;
-    }
 }
 
 /* fonts styling */
 
 .navbar-brand:hover,
 a:hover {
-    color: #d665ba;
-}
-
-.navbar-custom .navbar-nav .nav-item a {
-    text-decoration: none;
-    color: #454545;
-}
-
-.navbar-custom .navbar-nav .nav-item a:hover {
     color: #d665ba;
 }
 
@@ -183,8 +79,8 @@ nav > a > h4:hover {
 /* image styles */
 
 .recipe-thumb {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     display: flex;
 }
 
@@ -234,13 +130,21 @@ nav > a > h4:hover {
 
 .tbc-logo {
     display: flex;
-    /* line-height: 54px; */
+    flex-direction: column;
+    margin: auto;
+    align-self: center;
+    line-height: 54px;
+    position: absolute;
+    top: 38px;
+    left: 0;
+    width: 100vw;
+    justify-items: center;
 }
 
 .tbc-logo h1 {
-    font-size: 36px;
+    font-size: 40px;
     font-weight: 500;
-    /* margin-top: 12px; */
+    margin-top: 12px;
 }
 
 .tbc-logo-caption {
@@ -250,42 +154,40 @@ nav > a > h4:hover {
     flex-direction: row;
     justify-content: center;
     position: absolute;
-    /* line-height: 54px; */
+    line-height: 54px;
     left: 0;
 }
 
 .tbc-logo-caption h3 {
     font-size: 32px;
     text-align: center;
-    /* line-height: 54px; */
+    line-height: 54px;
 }
 
 header {    
     display: flex;
-    /* width: 100vw; */
-    flex-direction: row;
+    width: 100vw;
+    flex-direction: column;
     justify-content: space-between;
     /*  Lined-paper css styles borrowed and heavily adapted from Emily Gagne article, 
         here: https://codepen.io/ceg9498/post/creating-lined-paper */
-
-    /* background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 100px, #faa7e3 101px, #d15da7 102px, #d15da7 104px, rgb(245, 245, 245) 105px, rgb(245, 245, 245) 141px); */
-
+    background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 100px, #faa7e3 101px, #d15da7 102px, #d15da7 104px, rgb(245, 245, 245) 105px, rgb(245, 245, 245) 141px);
     height: 155px;
     left: 0;
     padding: 0;
     top: 0;
-    /* position: absolute; */
-    /* z-index: 10000; */
+    position: absolute;
+    z-index: 10000;
 }
 
-/* header .container-fluid {
+header .container-fluid {
     padding: none;
     margin: 0;
     min-width: 100vw;
     position: absolute;
     left: 0;
     top: 0;
-} */
+}
 
 .page-content-home {
     margin-top: 40px;
@@ -316,12 +218,19 @@ header {
 
 input {
     text-align: center;
-    /* line-height: 54px; */
+    line-height: 54px;
     height: 33px;
     background-color: rgba(250, 235, 237, 0.836);
 }
 
+.navbar {
+    justify-items: space-between;
+    margin: 155px 6px auto auto;
+    z-index: 20000;
+}
+
 .navbar .navbar-brand {
+    justify-self: center;
     height: 126px;
 }
 
@@ -332,19 +241,9 @@ input {
 .recipe-copy h4,
 .recipe-copy ul,
 .recipe-copy li {
+    line-height: 54px;
     padding: none;
     font-size: 22px;
-}
-
-.col-lg-4 {
-    flex: 0 0 auto;
-    width: 33.33333333%;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Register page */
@@ -357,7 +256,7 @@ label {
 .card-register {
     z-index: 4;
     display: flex;
-    /* line-height: 54px; */
+    line-height: 54px;
     flex-direction: column;
     justify-items: center;
     width: 100vw;
@@ -419,9 +318,9 @@ select, input {
 }
 
 p, li, h2, h3, h4, h5, input, textarea, ul, .row, col, .tbc-links, .tbc-nav-link, * {
-    /* line-height: 54px; */
+    line-height: 54px;
     padding: 0 auto;
-    /* margin: 0 auto; */
+    margin: 0 auto;
 }
 
 a {
@@ -445,6 +344,10 @@ button:hover {
                 0 8px 4px rgba(0,0,0,0.04), 
                 0 16px 8px rgba(0,0,0,0.04),
                 0 32px 16px rgba(0,0,0,0.04);
+}
+
+.card-image {
+    margin-bottom: 54px;
 }
 
 .view-recipe {
@@ -504,17 +407,17 @@ button:hover {
     justify-content: center;
 }
 
-/* .tbc-nav-link {
+.tbc-nav-link {
     display: flex;
     text-align: center;
-} */
+}
 
-/* .register-link {
+.register-link {
     padding: none;
     position: fixed;
     right: 16px;
     top: 104px;
-} */
+}
 
 .all-recipes-link {
     position: fixed;
@@ -522,18 +425,18 @@ button:hover {
     top: 212px;
 }
 
-/* .login-link {
+.login-link {
     position: fixed;
     right: 16px;
     top: 104px;
     top: 158px;
-} */
+}
 
-/* .logout-link {
+.logout-link {
     position: fixed;
     right: 16px;
     top: 212px;
-} */
+}
 
 .profile-link {
     position: fixed;
@@ -542,7 +445,7 @@ button:hover {
     padding-right: 30px;
 }
 
-/* .search-input {
+.search-input {
     display: flex;
     align-items: center;
     position: absolute;
@@ -550,7 +453,7 @@ button:hover {
     left: 11px;
     border: none;
     justify-content: space-between;
-} */
+}
 
 /* .recipe-index, .recipe-results {
     display: grid;
@@ -562,9 +465,9 @@ button:hover {
 
 @media (min-width: 990px) {
 
-    /* header {
+    header {
         position: fixed;
-    } */
+    }
 
     #tbc-search,
     #tbc-search-hover {
@@ -578,17 +481,20 @@ button:hover {
         left: 11px;
     }
     
-    /* .tbc-logo {
-        margin: auto auto auto 14px;
-    } */
-
-    .tbc-logo h1 {
-        /* font-size: 43px;
-        font-weight: 500; */
-        margin: 14px auto auto 66px;
+    .tbc-logo {
+        top: 28px;
+        left: 0;
+        width: 100vw;
     }
 
-    /* .tbc-logo-caption {
+    .tbc-logo h1 {
+        font-size: 43px;
+        font-weight: 500;
+        margin-top: 22px;
+        margin-left: 14px;
+    }
+
+    .tbc-logo-caption {
         width: 100vw;
         display: flex;
         flex-direction: row;
@@ -596,12 +502,12 @@ button:hover {
         position: absolute;
         left: 0;
         top: 41px;
-    } */
+    }
     
     .tbc-logo-caption h3 {
         font-size: 32px;
         text-align: center;
-        /* line-height: 54px; */
+        line-height: 54px;
     }
 
     .register-link {
@@ -620,6 +526,10 @@ button:hover {
     .logout-link {
         right: 16px;
         top: 158px;
+    }
+
+    .all-recipes-link {
+        top: 54px;
     }
 
     .social-nav {
@@ -672,7 +582,7 @@ button:hover {
 
 @media (min-width: 1100px) {
 
-    /* .tbc-search-input {
+    .tbc-search-input {
         position: absolute;
         left: 16px;
         top: 84px;
@@ -683,7 +593,7 @@ button:hover {
     .search-input {
         top: 27px;
         width: 255px;
-    } */
+    }
 
     .recipe-img-lg {
         margin-top: 56px;
@@ -722,20 +632,9 @@ button:hover {
     justify-content: space-evenly;
 }
 
-.tbc-cat-grid {
-    grid-template-columns: 2fr 1fr 2fr;
-    grid-template-rows: 80px auto 80px; 
-    column-gap: 10px;
-    row-gap: 15px;
-}
-
 /* .tbc-cat-links a {
     margin-bottom: 54px;
 } */
-
-.new-nav {
-    z-index: 10000000;
-}
 
 .tbc-home-link {
     display: flex;
@@ -747,29 +646,18 @@ button:hover {
     justify-items: center;
 }
 
-.tbc-header {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 108px;
-    width: 100vw;
-    z-index: 999px;
-}
-
 .tbc-links {
-    display: inline-flex;
     margin-bottom: 54px;
-    text-align: right;
+    text-align: center;
 }
 
-/* option[value] { 
+option[value] { 
     background-color: lightpink;
-} */
+}
 
 select {
     border: none;
-    /* line-height: 54px; */
+    line-height: 54px;
     height: 54px;
 }
 
@@ -781,7 +669,7 @@ select {
     display: flex;
     width: 100%;
     height: 50px;
-    /* line-height: 54px; */
+    line-height: 54px;
     margin-bottom: 54px;
     align-items: center;
 }
@@ -816,18 +704,12 @@ textarea {
     width: 100vw;
 }
 
-.navbar {
-    display: flex;
-    width: 100vw;
-    height: 88px;
-    right: 0;
-    top: 0;
-    /* height: 100vh; */
-    width: 100%;
-    z-index: 1000000;
+.tbc-10 {
+    margin-top: 60px;
+}
 
-    /* transition: transform .5s ease-in-out; */
-    /* width: minmax(220px, 300px); */
+.navbar {
+    width: minmax(220px, 300px);
 }
 
 .bluest-text {
@@ -852,6 +734,7 @@ textarea {
 }
 
 .form-control {
+    height: 54px;
     padding: 0;
     margin: 0 auto;
 }
@@ -862,6 +745,8 @@ textarea {
     padding-top: 46px;
     padding: 0;
     margin: auto auto 80px auto;
+    /* margin-top: 20px;
+    bottom: -20px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -882,9 +767,6 @@ textarea {
 
 .recipe-bg {
     display: flex;
+    /* width: 60%; */
     padding-bottom: 33px;
 }
-
-/* * {
-    border: 1px solid pink;
-} */

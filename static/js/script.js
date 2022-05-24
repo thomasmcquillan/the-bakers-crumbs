@@ -7,6 +7,12 @@ $(document).ready(function() {
 	});
 });
 
+// $(document).ready(function() {
+//     $("#tbc-search").click(function() {
+//         $("#search-input").toggle();
+//     });
+// });
+
 // Function that enables the addition of extra input fields for adding 
 //      extra recipe ingredients and/or cooking steps
 var addIngredient = document.getElementById('add-ingredient-btn');
