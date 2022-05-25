@@ -11,52 +11,108 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400&family=Noto+Sans+Mono:wght@100;200;300;400&display=swap"
         rel="stylesheet">
+    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    <script src="https://use.fontawesome.com/dd058a3225.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>The Baker's Crumbs</title>
 </head>
 
 <body class="container-fluid">
-<!-- <body> -->
-    
-    <!-- <header class="container-fluid tbc-header"> -->
-        <div class="row tbc-header">
-        <nav class="navbar navbar-custom navbar-expand-lg fixed-top">
-        
-            <a class="navbar-brand" href="{{ url_for('index') }}"><h1>the baker's crumbs</h1></a>
-        
-            <button class="navbar-toggler d-block d-lg-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
-            
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item d-md-none">
-                        <a href="{{ url_for('login') }}" class="nav-link" aria-label="Login">Login</a>
-                    </li>
-                    <li class="nav-item d-md-none">
-                        <a href="{{ url_for('register') }}" class="nav-link" aria-label="register new user">Register</a>
-                    </li>
-                    <li class="nav-item d-md-none">
-                        <a href="{{ url_for('logout') }}" class="nav-link" aria-label="browse by recipe category">Categories</a>
-                    </li>
-            
-                    <li class="nav-item d-none d-md-block">
-                        <a href="{{ url_for('login') }}" class="nav-link" aria-label="login to user account">Login</a>
-                    </li>
-                    <li class="nav-item d-none d-md-block">
-                        <a href="{{ url_for('register') }}" class="nav-link" aria-label="register new user">Register</a>
-                    </li>
-                    <li class="nav-item d-none d-md-block">
-                        <a href="{{ url_for('logout') }}" class="nav-link tbc-nav-link" aria-label="about the baker's crumbs">About</a>
-                    </li>
-                </ul>
+
+        <nav class="tbc-nav">
+
+            <div class="nav-g1">
+                <a class="navbar-brand mx-auto" href="{{ url_for('index') }}">
+                    <h1>the baker's crumbs</h1>
+                </a>
             </div>
 
-            
+            <div class="nav-g2">
+                <form action="{{ url_for('search') }}" method="post" class="justify-self-right">
+                    <div class="input-field">
+                        <input type="text" name="query" id="query" minlength="3" class="validate text-center" placeholder="Search Recipes.." required>
+                    </div>
+                </form>
+            </div>
 
+            <div class="nav-g3">
+
+                <!-- <button class="tbc-toggle-btn d-lg-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="lni lni-menu"></i>
+                </button> -->
+
+                <div class="" id="navlinks-sm">
+                    <ul class="tbc-mobile-nav">
+                        <li class="d-lg-none">
+                            <a href="{{ url_for('login') }}" class="" aria-label="login">Login</a>
+                        </li>
+                        <li class="d-lg-none">
+                            <a href="{{ url_for('register') }}" class="" aria-label="register new user">Register</a>
+                        </li>
+                        <li class="d-lg-none">
+                            <a href="{{ url_for('logout') }}" class="" aria-label="browse by recipe category">Categories</a>
+                        </li>
+                    </ul>
+
+                <div class="tbc-nav-links" id="navlinks-lg">
+                    <ul class="tbc-desktop-nav">
+                        <li class="d-none d-lg-block">
+                            <a href="{{ url_for('login') }}" class="nav-link" aria-label="login to user account">Login</a>
+                        </li>
+                        <li class="d-none d-lg-block">
+                            <a href="{{ url_for('register') }}" class="nav-link" aria-label="register new user">Register</a>
+                        </li>
+                        <li class="d-none d-lg-block">
+                            <a href="{{ url_for('logout') }}" class="nav-link" aria-label="about the baker's crumbs">About</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+                
+
+                <!-- <div class="navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav">
+                        <li class="d-lg-none">
+                            <a href="{{ url_for('login') }}" class="nav-link" aria-label="login">Login</a>
+                        </li>
+                        <li class="d-lg-none">
+                            <a href="{{ url_for('register') }}" class="nav-link" aria-label="register new user">Register</a>
+                        </li>
+                        <li class="d-lg-none">
+                            <a href="{{ url_for('logout') }}" class="nav-link" aria-label="browse by recipe category">Categories</a>
+                        </li>
+                        
+                        <li class="d-none d-lg-block">
+                            <a href="{{ url_for('login') }}" class="nav-link" aria-label="login to user account">Login</a>
+                        </li>
+                        <li class="d-none d-lg-block">
+                            <a href="{{ url_for('register') }}" class="nav-link" aria-label="register new user">Register</a>
+                        </li>
+                        <li class="d-none d-lg-block">
+                            <a href="{{ url_for('logout') }}" class="nav-link" aria-label="about the baker's crumbs">About</a>
+                        </li>
+                    </ul>
+                    
+                </div> -->
+
+            </div>
         </nav>
 
-        <div class="row justify-items-center">
+        <!-- <div class="fixed-top row">
+            <form action="{{ url_for('search') }}" method="post" class="justify-self-right">
+                <div class="input-field">
+                    <input type="text" name="query" id="query" minlength="3" class="validate text-center" placeholder="Search Recipes.." required>
+                </div>
+            </form>
+        </div> -->
+
+    {% block content %}
+    {% endblock %}
+    
+        <!-- '<div class="row justify-items-center">
             <form action="{{ url_for('search') }}" method="post" class="col my-5 pt-4 mx-auto">
                 <div class="center-align">
                     <div class="input-field col">
@@ -64,9 +120,24 @@
                     </div>
                 </div>
             </form>
-        </div>
+        </div>' -->
 
-    </div>
+        
+
+        <!-- <footer class="">
+                <div class="col-3 mx-auto">
+                    <ul class="social-links col align-self-center">
+                        <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">
+                            <i class="lni lni-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">
+                            <i class="lni lni-instagram"></i></a></li>
+                        <li><a href="https://www.twitter.com/" target="_blank" rel="noopener">
+                            <i class="lni lni-twitter"></i></a></li>
+                    </ul>
+                </div>
+        </footer> -->
+
+    <!-- </div> -->
 
         <!-- <div id="search-wrapper" class="row justify-contents-center">
             <form class="search-form" action="{{ url_for('search') }}" method="post">
@@ -82,45 +153,22 @@
             </form>
         </div> -->
 
-       
-        
-        
     <!-- </header> -->
-    
-   
-    
 
-    <!-- <main class="container-fluid"> -->
-
-        {% block content %}
-        {% endblock %}
-
-        <!-- <footer class="tbc-footer row">
-                <div class="col-3 mx-auto">
-                    <ul class="social-links col align-self-center">
-                        <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">
-                            <i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">
-                            <i class="fab fa-instagram"></i></a></li>
-                        <li><a href="https://www.twitter.com/" target="_blank" rel="noopener">
-                            <i class="fab fa-twitter"></i></a></li>
-                    </ul>
-                </div>
-        </footer> -->
-
-    <!-- </main> -->
-
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+<!-- jquery script -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<!-- bootstrap min -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
+        crossorigin="anonymous"></script> -->
+<!-- custom local js -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
-    {% block scripts %}
-    {% endblock %}
-    
 </body>
 
 </html>
