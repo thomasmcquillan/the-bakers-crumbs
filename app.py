@@ -8,7 +8,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
-
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -22,10 +21,18 @@ mongo = PyMongo(app)
 @app.route("/index")
 def index():
     """
-    Returns user to homepage, where recipe categories are displayed.
+    Returns user to homepage.
+    """
+    return render_template("index.html")
+
+
+@app.route("/all_categories")
+def all_categories():
+    """
+    Displays all categories of recipes.
     """
     categories = list(mongo.db.categories.find().sort("category_name", 1))
-    return render_template("index.html", categories=categories)
+    return render_template("all_categories.html", categories=categories)
 
 
 @app.route("/search", methods=["GET", "POST"])
