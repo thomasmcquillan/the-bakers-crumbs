@@ -19,12 +19,18 @@ body {
     left: 0;
 }
 
+main {
+    display: flex;
+    position: relative;
+    margin: 10em auto;
+}
+
 /* ============================== Links Styling =============================== */
 
 a {
-    color: rgb(245, 146, 163) !important;
+    color: black;
     text-decoration: none;
-    margin: 0 1em;
+    /* margin: 0 1em; */
 }
 
 a:hover {
@@ -37,109 +43,118 @@ a:hover {
 }
 
 .tbc-links {
-    display: inline-flex;
     margin-bottom: 54px;
-    text-align: right;
+    text-align: center;
+    padding-top: .8em;
+    font-size: .9em;
 }
 
-/* ============================== Navigation Styling =============================== */
+/* ============================== Header & Navigation Styling =============================== */
+
+header {
+    display: flex;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color:rgb(249, 233, 235);
+    height: 8.5em;
+}
 
 .tbc-nav {
-    display: grid;
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    position: relative;
     left: 0;
     top: 0;
     width: 100vw;
-    height: auto;
-    grid-template-columns: 33.333vw 1fr 33.333vw;
-    grid-template-rows: 100px 44px 44px;
     place-items: center;
 }
 
 .tbc-nav-item {
-    font-size: 1em;
+    font-size: .8em;
+    font-weight: 400;
     color:rgb(245, 146, 163);
 }
 
 .logo-wrap {
-    grid-column: 1 / 4;
-    grid-row: 1 / 2;
-    margin-top: 3em;
-    margin: 12px auto auto auto;
+    margin: 22px auto auto auto;
     padding: 0;
+    z-index: 5;
 }
 
 .nav-wrap {
-    grid-column: 1 / 4;
-    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
 #navlinks-lg {
-    width: 472px;
+    width: 80vw;
 }
 
 .search-wrap {
-    grid-column: 1 / 4;
-    grid-row: 2 / 4;
-}
-
-.search-icon {
-    font-size: 1.5em;
-    padding-top: 2px;
-
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    width: 30vw;
+    justify-content: flex-start;
 }
 
 .tbc-mobile-nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
-    margin-top: 5.5em;
-    justify-content: center;
-    justify-items: center;
+    justify-content: space-evenly;
     align-items: center;
     padding: 0;
 }
 
 .tbc-mobile-nav li,
 .tbc-desktop-nav li {
-    display: flex;
-    margin-top: 2.2em;
+    margin-top: 2em;
     text-align: center;
+    z-index: 11;
 }
 
-.tbc-logo h1 {
-    font-size: 1.6em;
+.tbc-logo a h1 {
+    font-size: 1.7em;
     font-weight: 500;
-    color: black;
-    margin-top: 8px;
 }
 
 .tbc-logo-caption {
-    font-size: 1.1em;
+    font-size: 1.2em;
     text-align: center;
     line-height: 54px;
-    margin: -10px auto 33px auto;
-    color: black;
-}
-
-.input-search {
-    font-size: .7em;
+    margin-top: -10px;
+    margin-bottom: -80px;
 }
 
 .input-search input {
-    background-color: rgb(218, 207, 208);
+    font-size: .7em;
+    background: none;
     padding: 0;
     border: none;
 }
 
+.input-search input:hover {
+    background-color: rgb(240, 230, 231);
+}
+
 .social-links {
-    position: relative;
+    position: fixed;
+    top: 0;
     right: 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+    justify-content: flex-end;
     padding: 0;
+    width: 30vw;
+}
+
+.social-links li {
+    margin-left: .8em;
 }
 
 /* ============================== Homepage Styling =============================== */
@@ -161,7 +176,7 @@ a:hover {
 }
 
 .tbc-hero {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background: url('../images/hero-tbc-home.jpg');
@@ -170,7 +185,7 @@ a:hover {
     background-position-y: 80%;
     width: 110%;
     height: 110vh;
-    z-index: -1;
+    z-index: -10;
     animation: introLoad 2s forwards;
 }
 
@@ -195,20 +210,9 @@ a:hover {
 }
 
 @media (min-width: 992px) {
-    
-    .nav-wrap {
-        grid-column: 1 / 4;
-        grid-row: 3 / 4;
-    }
-    
-    .logo-wrap {
-        grid-column: 1 / 4;
-        grid-row: 1 / 2;
-    }
 
-    .tbc-logo h1 {
+    .tbc-logo a h1 {
         font-size: 2em;
-        font-weight: 500;
         margin-top: 12px;
     }
     
@@ -227,38 +231,36 @@ a:hover {
 
     .tbc-desktop-nav {
         display: flex;
-        flex-direction: column;
-        justify-items: center;
+        flex-direction: row;
         align-items: center;
         width: 100%;
-        margin: auto;
-        padding-top: 54px;
-    }
-
-    .recipe-search {
-        display: inline-flex;
-        width: 33vw;
-        margin: auto;
+        margin: -5em auto auto auto;
+        padding: 0;
+        justify-content: space-evenly;
     }
 
     .tbc-nav-item {
-        font-size: 1.1em;
+        font-size: .9em;
+    }
+
+    .tbc-desktop-nav li {
+        margin-top: 0;
     }
 }
 
 /* ============================== Image Styling =============================== */
 
-.recipe-thumb {
-    min-width: 100%;
+.recipe-link-wrap {
+    margin-top: 3em;
+    width: 88%;
     height: auto;
-    max-height: 100%;
-    display: flex;
 }
 
 .recipe-thumb {
-    margin-top: 4px;
-    height: 300px;
-    padding: 8px;
+    display: flex;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
 }
 
 #icon-wrap {
@@ -285,21 +287,6 @@ a:hover {
     display: none;
 }
 
-.recipe-index, .recipe-results {
-    display: grid;
-    grid-column-gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
-} 
-
-/* Media Queries */
-
-@media (min-width: 990px) {
-
-    .tbc-cat-grid {
-        grid-template-columns: 1fr 36vw 1fr 36vw 1fr;
-        grid-template-rows: 80px auto 80px;
-        width: 100vw;
-        column-gap: 10px;
-        row-gap: 15px;
-    }
+* {
+    border: 1px solid rgba(211, 211, 211, 0);
 }
