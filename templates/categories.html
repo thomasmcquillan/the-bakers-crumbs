@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row justify-content-center">
+        {% for category in categories %}
+        <div class="col-11 col-md-4 mx-4">
+            <a href="{{ url_for('get_category', category_id=category._id) }}" class="recipe-link-wrap">
+                <img src="{{ category.category_img }}" class="recipe-thumb" alt="sourdough loaf">
+                    <h4 class="tbc-links">{{ category.category_name }}</h4>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
