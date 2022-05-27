@@ -18,7 +18,7 @@
 </head>
 
 <body class="container-fluid">
-
+    <header>
         <nav class="tbc-nav mx-auto">
 
             <div class="logo-wrap tbc-logo">
@@ -32,21 +32,19 @@
             <div class="nav-wrap mt-5" id="navlinks-sm">
                 <ul class="tbc-mobile-nav">
                     <li class="d-lg-none">
-                        <a href="{{ url_for('login') }}" class="tbc-nav-item" aria-label="login">login</a>
-                    </li>
-                    <li class="d-lg-none">
                         <a href="{{ url_for('all_categories') }}" class="tbc-nav-item" aria-label="Browse by Category">Browse by Category</a>
                     </li>
-
-                    <!-- need to add app route and html template to display all recipes: -->
-
                     <li class="d-lg-none">
-                        <a href="{{ url_for('all_categories') }}" class="tbc-nav-item" aria-label="View all Recipes">View all Recipes</a>
+                        <a href="{{ url_for('all_recipes') }}" class="tbc-nav-item" aria-label="View all Recipes">View all Recipes</a>
                     </li>
                     
                     <!-- need to add if function to only show links applicable to whether or not user is in session: -->
 
                     <!-- <li class="d-lg-none">
+                        <a href="{{ url_for('login') }}" class="tbc-nav-item" aria-label="login">login</a>
+                    </li>
+
+                    <li class="d-lg-none">
                         <a href="{{ url_for('logout') }}" class="tbc-nav-item" aria-label="browse by recipe category">logout</a>
                     </li>
                     <li class="d-lg-none">
@@ -56,23 +54,21 @@
             </div>
 
             <div class="nav-wrap" id="navlinks-lg">
-                <ul class="tbc-desktop-nav justify-content-center">
-                    <li class="d-none d-lg-flex">
-                        <a href="{{ url_for('login') }}" class="tbc-nav-item" aria-label="login to user account">login</a>
-                    </li>
+                <ul class="tbc-desktop-nav">   
                     <li class="d-none d-lg-flex">
                         <a href="{{ url_for('all_categories') }}" class="tbc-nav-item" aria-label="Browse by Category">Browse by Category</a>
                     </li>
-
-                    <!-- need to add app route and html template to display all recipes: -->
-
                     <li class="d-none d-lg-flex">
-                        <a href="{{ url_for('all_categories') }}" class="tbc-nav-item" aria-label="View all Recipes">View all Recipes</a>
+                        <a href="{{ url_for('all_recipes') }}" class="tbc-nav-item" aria-label="View all Recipes">View all Recipes</a>
                     </li>
 
                     <!-- need to add if function to only show links applicable to whether or not user is in session: -->
 
-                    <!-- <li class="d-none d-lg-block">
+                    <!-- <li class="d-none d-lg-flex">
+                        <a href="{{ url_for('login') }}" class="tbc-nav-item" aria-label="login to user account">login</a>
+                    </li>
+
+                    <li class="d-none d-lg-block">
                         <a href="{{ url_for('logout') }}" class="tbc-nav-item" aria-label="about the baker's crumbs">signout</a>
                     </li>
                     <li class="d-none d-lg-block">
@@ -92,7 +88,8 @@
                             src="{{ url_for('static', filename='images/tbc-search-hover.png') }}">
                     </button>
                 </form>
-                <ul class="social-links d-none d-lg-flex">
+
+                <ul class="social-links">
                     <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">
                         <i class="lni lni-facebook"></i></a></li>
                     <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">
@@ -103,9 +100,14 @@
             </div>
             
         </nav>
+    </header>
     
+    <main class="container-xl mx-auto">
+
     {% block content %}
     {% endblock %}
+
+    </main>
 
 <!-- jquery script -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
