@@ -26,13 +26,22 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/all_recipes")
+def all_recipes():
+    """
+    Displays all recipes in database.
+    """
+    recipes = list(mongo.db.recipes.find().sort("recipe_name", 1))
+    return render_template("recipes.html", recipes=recipes)
+
+
 @app.route("/all_categories")
 def all_categories():
     """
     Displays all categories of recipes.
     """
     categories = list(mongo.db.categories.find().sort("category_name", 1))
-    return render_template("all_categories.html", categories=categories)
+    return render_template("categories.html", categories=categories)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -42,7 +51,7 @@ def search():
     """
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
-    return render_template("searchresults.html", recipes=recipes)
+    return render_template("recipes.html", recipes=recipes)
 
 
 @app.route("/register", methods=["GET", "POST"])
