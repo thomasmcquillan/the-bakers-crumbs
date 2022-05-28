@@ -9,11 +9,11 @@ $(document).ready(function() {
 	});
 });
 
-// $(document).ready(function() {
-//     $("#tbc-search").click(function() {
-//         $("#search-input").toggle();
-//     });
-// });
+$(document).ready(function() {
+    $("#nav-trigger").click(function() {
+        $("#navlinks-sm").toggle();
+    });
+});
 
 // Function that enables the addition of extra input fields for adding 
 //      extra recipe ingredients and/or cooking steps

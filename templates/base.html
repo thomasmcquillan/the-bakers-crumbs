@@ -18,6 +18,7 @@
 </head>
 
 <body class="container-fluid">
+    <button><i class="lni lni-menu d-lg-none" id="nav-trigger"></i></button>
     <header>
         <nav class="tbc-nav">
             <div class="logo-wrap tbc-logo">
@@ -27,9 +28,9 @@
                         hot</em></span></h3>
                 </a>
             </div>
-
-            <div class="nav-wrap mt-5" id="navlinks-sm">
-                <ul class="tbc-mobile-nav">
+            
+            <div class="nav-wrap mt-5">
+                <ul class="tbc-mobile-nav" id="navlinks-sm">
                     <li class="d-lg-none">
                         <a href="{{ url_for('all_recipes') }}" class="tbc-nav-item" aria-label="View all Recipes">View all Recipes</a>
                     </li>
@@ -38,7 +39,7 @@
                     </li>
                     {% if session.user %}
                     {% if session.user|lower == "admin"|lower %}
-                        <li class="d-lg-none">
+                        <li class="d-none">
                             <a href="{{ url_for('add_recipe') }}">Add Recipe</a>
                         </li>
                     {% endif %}
@@ -58,7 +59,6 @@
                     {% endif %}
                 </ul>
             </div>
-
             <div class="nav-wrap" id="navlinks-lg">
                 <ul class="tbc-desktop-nav">   
                     <li class="d-none d-lg-flex">
@@ -89,8 +89,7 @@
                     {% endif %}
                 </ul>
             </div>
-
-            <div class="search-wrap">
+            <div class="search-wrap d-flex">
                 <form action="{{ url_for('search') }}" method="post" class="d-flex">
                     <div class="input-search">
                         <input type="text" name="query" id="query" minlength="3" class="validate text-center" placeholder="Search Recipes.." required>
@@ -101,7 +100,6 @@
                             src="{{ url_for('static', filename='images/tbc-search-hover.png') }}">
                     </button>
                 </form>
-
                 <ul class="social-links">
                     <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">
                         <i class="lni lni-facebook"></i></a></li>
@@ -111,16 +109,15 @@
                         <i class="lni lni-twitter"></i></a></li>
                 </ul>
             </div>
-            
         </nav>
     </header>
     
     <div class="container-xl page-content mx-auto">
-
-    {% block content %}
-    {% endblock %}
-
+        {% block content %}
+        {% endblock %}
     </div>
+  
+    
 
 <!-- jquery script -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -129,7 +126,7 @@ integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRk
 <!-- bootstrap min -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
+</script>
 <!-- local js -->
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 

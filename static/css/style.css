@@ -57,14 +57,34 @@ header {
     height: 8.5em;
 }
 
+#navlinks-sm {
+    display: none;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    background-color:rgb(249, 233, 235);
+}
+
+#nav-trigger {
+    font-size: 1.6em;
+    top: 3em;
+    right: 20px;
+    position: absolute;
+    z-index: 400;
+}
+
 .tbc-nav {
     display: flex;
     flex-direction: column;
-    position: relative;
+    position: absolute;
     left: 0;
     top: 0;
     width: 100vw;
     place-items: center;
+    /* background-color:rgb(249, 233, 235);
+    height: 8.5em; */
 }
 
 .tbc-nav-item {
@@ -74,7 +94,7 @@ header {
 }
 
 .logo-wrap {
-    margin: 22px auto auto auto;
+    margin: 66px auto auto auto;
     padding: 0;
     z-index: 5;
 }
@@ -98,10 +118,20 @@ header {
     justify-content: flex-start;
 }
 
-.tbc-mobile-nav {
+/* .tbc-mobile-nav {
     display: flex;
     flex-direction: row;
     width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0;
+} */
+
+.tbc-mobile-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
     justify-content: space-evenly;
     align-items: center;
     padding: 0;
@@ -112,6 +142,7 @@ header {
     margin-top: 2em;
     text-align: center;
     z-index: 11;
+    padding-top: 2em;
 }
 
 .tbc-logo a h1 {
@@ -124,7 +155,7 @@ header {
     text-align: center;
     line-height: 54px;
     margin-top: -10px;
-    margin-bottom: -80px;
+    /* margin-bottom: -80px; */
 }
 
 .input-search input {
@@ -199,8 +230,6 @@ header {
 
 /* ============================== Recipe Styling =============================== */
 
-/* .recipe-directions,
-.recipe-directions li { */
 .recipe-card * {
     margin-left: 1px;
 }
@@ -247,9 +276,7 @@ header {
     .tbc-desktop-nav {
         display: flex;
         flex-direction: row;
-        /* align-items: center; */
         width: 100%;
-        /* margin: -5em auto auto auto; */
         padding: 0;
         justify-content: space-evenly;
     }
