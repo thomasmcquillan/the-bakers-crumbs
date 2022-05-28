@@ -19,8 +19,7 @@
 
 <body class="container-fluid">
     <header>
-        <nav class="tbc-nav mx-auto">
-
+        <nav class="tbc-nav">
             <div class="logo-wrap tbc-logo">
                 <a class="mx-auto" href="{{ url_for('index') }}">
                     <h1 class="text-center">the baker's crumbs</h1>
@@ -32,48 +31,62 @@
             <div class="nav-wrap mt-5" id="navlinks-sm">
                 <ul class="tbc-mobile-nav">
                     <li class="d-lg-none">
-                        <a href="{{ url_for('all_categories') }}" class="tbc-nav-item" aria-label="Browse by Category">Browse by Category</a>
-                    </li>
-                    <li class="d-lg-none">
                         <a href="{{ url_for('all_recipes') }}" class="tbc-nav-item" aria-label="View all Recipes">View all Recipes</a>
                     </li>
-                    
-                    <!-- need to add if function to only show links applicable to whether or not user is in session: -->
-
-                    <!-- <li class="d-lg-none">
-                        <a href="{{ url_for('login') }}" class="tbc-nav-item" aria-label="login">login</a>
-                    </li>
-
                     <li class="d-lg-none">
-                        <a href="{{ url_for('logout') }}" class="tbc-nav-item" aria-label="browse by recipe category">logout</a>
+                        <a href="{{ url_for('all_categories') }}" class="tbc-nav-item" aria-label="Browse by Category">Browse by Category</a>
+                    </li>
+                    {% if session.user %}
+                    {% if session.user|lower == "admin"|lower %}
+                        <li class="d-lg-none">
+                            <a href="{{ url_for('add_recipe') }}">Add Recipe</a>
+                        </li>
+                    {% endif %}
+                    <li class="d-lg-none">
+                        <a href="{{ url_for('profile', username=session['user']) }}" class="tbc-nav-item" aria-label="profile page">Profile</a>
                     </li>
                     <li class="d-lg-none">
-                        <a href="{{ url_for('register') }}" class="tbc-nav-item" aria-label="register new user">register</a>
-                    </li> -->
+                        <a href="{{ url_for('logout') }}" class="tbc-nav-item" aria-label="log in">Log Out</a>
+                    </li>
+                    {% else %}
+                    <li class="d-lg-none">
+                        <a href="{{ url_for('login') }}" class="tbc-nav-item" aria-label="sign in">Log In</a>
+                    </li>
+                    <li class="d-lg-none">
+                        <a href="{{ url_for('register') }}" class="tbc-nav-item" aria-label="register new user">Register</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
 
             <div class="nav-wrap" id="navlinks-lg">
                 <ul class="tbc-desktop-nav">   
                     <li class="d-none d-lg-flex">
-                        <a href="{{ url_for('all_categories') }}" class="tbc-nav-item" aria-label="Browse by Category">Browse by Category</a>
-                    </li>
-                    <li class="d-none d-lg-flex">
                         <a href="{{ url_for('all_recipes') }}" class="tbc-nav-item" aria-label="View all Recipes">View all Recipes</a>
                     </li>
-
-                    <!-- need to add if function to only show links applicable to whether or not user is in session: -->
-
-                    <!-- <li class="d-none d-lg-flex">
-                        <a href="{{ url_for('login') }}" class="tbc-nav-item" aria-label="login to user account">login</a>
+                    <li class="d-none d-lg-flex">
+                        <a href="{{ url_for('all_categories') }}" class="tbc-nav-item" aria-label="Browse by Category">Browse by Category</a>
                     </li>
-
-                    <li class="d-none d-lg-block">
-                        <a href="{{ url_for('logout') }}" class="tbc-nav-item" aria-label="about the baker's crumbs">signout</a>
+                    {% if session.user %}
+                    {% if session.user|lower == "admin"|lower %}
+                        <li class="d-none d-lg-flex">
+                            <a href="{{ url_for('add_recipe') }}">Add Recipe</a>
+                        </li>
+                    {% endif %}
+                    <li class="d-none d-lg-flex">
+                        <a href="{{ url_for('profile', username=session['user']) }}" class="tbc-nav-item" aria-label="profile page">Profile</a>
                     </li>
-                    <li class="d-none d-lg-block">
-                        <a href="{{ url_for('register') }}" class="tbc-nav-item" aria-label="register new user">register</a>
-                    </li> -->
+                    <li class="d-none d-lg-flex">
+                        <a href="{{ url_for('logout') }}" class="tbc-nav-item" aria-label="log in">Log Out</a>
+                    </li>
+                    {% else %}
+                    <li class="d-none d-lg-flex">
+                        <a href="{{ url_for('login') }}" class="tbc-nav-item" aria-label="sign in">Log In</a>
+                    </li>
+                    <li class="d-none d-lg-flex">
+                        <a href="{{ url_for('register') }}" class="tbc-nav-item" aria-label="register new user">Register</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
 
@@ -102,12 +115,12 @@
         </nav>
     </header>
     
-    <main class="container-xl mx-auto">
+    <div class="container-xl page-content mx-auto">
 
     {% block content %}
     {% endblock %}
 
-    </main>
+    </div>
 
 <!-- jquery script -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
