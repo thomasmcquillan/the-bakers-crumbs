@@ -1,70 +1,80 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row mt-5 page-content justify-items-center">
-    <div class="col-10 col-md-7 col-lg-6 mx-auto">
-        <div class="recipe-img-wrap">
-            <img src="{{ recipe.image_url }}" class="recipe-img" alt="{{ recipe.recipe_name }}">
-        </div>
-        <br><br>
-    </div>
-    <div class="recipe-card-header">
-        <div class="col-10 col-md-9 col-lg-8">
-            <h3 class="mx-3">{{ recipe.recipe_name|title }}</h3>
-        </div>
-    </div>
-    <div class="recipe-card">
-        <div class="col-11 col-md-9 col-lg-8">
-            <br>
-            <h4 class="blue-text mx-4">Ingredients</h4>
-            <ul>
-                {% for ingredient in recipe.ingredients %}
-                <li class="mx-3">{{ ingredient }}</li>
-                {% endfor %}
-            </ul>
-            <br>
-            <h4 class="blue-text">Directions</h4>
-            <ul class="mx-0">
-                {% for direction in recipe.directions %}
-                <li class="pr-4">{{ direction }}</li>
-                {% endfor %}
-            </ul>
-            <br><br>
+<div class="row justify-content-center">
+    <div class="col-10 col-md-8 mx-auto">
+        <h4 class="text-center my-5">{{ recipe.recipe_name|title }}</h4>
+        <div class="recipe-img-wrap col-11 col-8 mx-auto">
+            <img src="{{ recipe.image_url }}" class="view-recipe-img" alt="{{ recipe.recipe_name }}">
         </div>
     </div>
 </div>
+  
+<div class="row mt-5">
+    <div class="col-12 col-md-8 mx-auto recipe-card">
+        <h4 class="mx-5 my-4">Ingredients</h4>
+        <ul class="recipe-directions pb-3">
+            {% for ingredient in recipe.ingredients %}
+            <li class="mx-3 mb-3">{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+        <h4 class="mx-5 my-4">
+            Directions
+        </h4>
+        <ul class="recipe-directions">
+            {% for direction in recipe.directions %}
+            <li class="mx-3 mb-3">{{ direction }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 
-{% if (session.user|lower == recipe.created_by|lower) %}
-    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="submit btn">
-        Edit Recipe
-    </a>
-{% endif %}
-    
 {% if (session.user|lower == recipe.created_by|lower) or (session.user == "admin") %}
-    <a href="#delete_recipe" data-toggle="modal">Delete Recipe</a>
-    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" id="delete_recipe">omg delete already</a>
+
+    <button class="btn">
+        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="submit btn">
+            Edit Recipe
+        </a>
+    </button>
+
+    <!-- Delete Recipe Modal Trigger -->
+    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#confirmRecipeDeletionModal" style="margin: 2em;">
+        <a href="#delete_recipe">
+            Delete Recipe
+        </a>
+    </button>
+
 {% endif %}
 
-<!--Modal-->
-<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="delete_recipe" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<!-- Delete Recipe Confirmation Modal -->
+<div class="modal fade" id="confirmRecipeDeletionModal" tabindex="-1" aria-labelledby="deleteRecipe" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="confirmDeletion">Confirm Deletion</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <h5 class="modal-title" 
+                    id="confirmRecipeDeletionModal">
+                    Confirm Deletion
+                </h5>
+                <button type="button"
+                        class="btn-close" 
+                        data-bs-dismiss="modal" 
+                        aria-label="Close">
                 </button>
             </div>
             <div class="modal-body">
                 <p>Are you sure want to permanently delete this recipe?</p>
             </div>
-            <div class="modal_footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" id="delete_recipe">
-                    <button type="button" class="btn btn-primary">
-                        Yes, Delete
-                    </button>
-                </a>
+            <div class="modal-footer">
+                <button type="button" 
+                        class="btn-close" 
+                        data-bs-dismiss="modal">
+                        Cancel
+                </button>
+                <button type="button" class="btn">
+                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" id="delete_recipe">
+                            Yes, Delete
+                        </a>
+                </button>
             </div>
         </div>
     </div>
