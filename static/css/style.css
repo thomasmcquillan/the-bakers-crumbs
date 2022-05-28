@@ -1,7 +1,6 @@
 * {
     list-style-type: none;
     padding: 0;
-    list-style: none;
 }
 
 /* ============================== Body Styling =============================== */
@@ -19,10 +18,8 @@ body {
     left: 0;
 }
 
-main {
-    display: flex;
-    position: relative;
-    margin: 10em auto;
+.page-content {
+    margin: 13em auto;
 }
 
 /* ============================== Links Styling =============================== */
@@ -30,7 +27,6 @@ main {
 a {
     color: black;
     text-decoration: none;
-    /* margin: 0 1em; */
 }
 
 a:hover {
@@ -201,11 +197,30 @@ header {
     }
 }
 
+/* ============================== Recipe Styling =============================== */
+
+/* .recipe-directions,
+.recipe-directions li { */
+.recipe-card * {
+    margin-left: 1px;
+}
+
 /* ============================== Media Queries =============================== */
 
 @media (max-width: 440px) {
     .tbc-nav {
-        left: -10%;
+        /* left: -10%; */
+        font-size: smaller;
+    }
+}
+
+@media (max-width: 380px) {
+    * {
+        font-size: small;
+    }
+
+    .tbc-nav {
+        font-size: .7em;
     }
 }
 
@@ -232,9 +247,9 @@ header {
     .tbc-desktop-nav {
         display: flex;
         flex-direction: row;
-        align-items: center;
+        /* align-items: center; */
         width: 100%;
-        margin: -5em auto auto auto;
+        /* margin: -5em auto auto auto; */
         padding: 0;
         justify-content: space-evenly;
     }
@@ -250,10 +265,14 @@ header {
 
 /* ============================== Image Styling =============================== */
 
-.recipe-link-wrap {
-    margin-top: 3em;
-    width: 88%;
-    height: auto;
+.recipe-link-wrap,
+.cat-link-wrap {
+    margin: 30px 30px 0 30px;
+    padding: 0;
+}
+
+.cat-link-wrap a img {
+    aspect-ratio: 1 / 1;
 }
 
 .recipe-thumb {
@@ -287,6 +306,16 @@ header {
     display: none;
 }
 
-* {
-    border: 1px solid rgba(211, 211, 211, 0);
+/* testing recipe view styles */
+
+.view-recipe-img {
+    height: auto;
+    width: 100%;
+    display: flex;
 }
+
+/* testing area */
+
+/* * {
+    border: 1px solid rgba(211, 211, 211, 0);
+} */
