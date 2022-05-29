@@ -1,39 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row justify-content-center">
-    <div class="col-9 col-md-7 mx-auto">
-        <h4 class="text-center my-5">{{ recipe.recipe_name|title }}</h4>
-        <div class="recipe-img-wrap col-9 col-md-8 mx-auto">
+<!-- <div class="row justify-content-center">
+    <div class="col-9 col-md-7 mx-auto mt-5">
+        <div class="recipe-img-wrap col-8 col-md-6 mx-auto">
             <img src="{{ recipe.image_url }}" class="view-recipe-img" alt="{{ recipe.recipe_name }}">
         </div>
     </div>
-</div>
-  
-<div class="row mt-5">
-    
-    <div class="recipe-card-header col-12 col-md-8 mx-auto">
+</div> -->
+<div class="row justify-content-center recipe-wrap">
+    <div class="recipe-card-header col-10 col-md-8 mx-auto">
         <h4>{{ recipe.recipe_name|title }}</h4>
     </div>
-
-    <div class="recipe-card col-12 col-md-8 mx-auto">
+    <div class="recipe-card col-10 col-md-8 mx-auto">
         <h4 class="pink-text"><br>Ingredients</h4>
-        <ul class="recipe-directions">
+        <ul class="recipe-ingredients">
             {% for ingredient in recipe.ingredients %}
             <li>{{ ingredient }}</li>
             {% endfor %}
             <br>
         </ul>
-        <h4>Directions</h4>
+        <h4 class="pink-text">Directions</h4>
         <ul class="recipe-directions">
             {% for direction in recipe.directions %}
             <li>{{ direction }}</li>
             {% endfor %}
-        </ul>
+            </ul>
         <br>
     </div>
 </div>
-
+<div class="row justify-content-center">
 {% if (session.user|lower == recipe.created_by|lower) or (session.user == "admin") %}
 
     <button class="btn">
@@ -50,7 +46,7 @@
     </button>
 
 {% endif %}
-
+</div>
 <!-- Delete Recipe Confirmation Modal -->
 <div class="modal fade" id="confirmRecipeDeletionModal" tabindex="-1" aria-labelledby="deleteRecipe" aria-hidden="true">
     <div class="modal-dialog">

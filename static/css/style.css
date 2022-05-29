@@ -248,40 +248,61 @@ header {
 
 /* ============================== Recipe Styling =============================== */
 
+.recipe-wrap {
+    justify-content: center;
+    margin: 6em auto 4em auto;
+}
+
 .recipe-card-header {   
     display: flex;
     flex-direction: row;
-    width: 100%;
     height: 108px;
-    /*  Lined-paper css styles borrowed and heavily adapted from Emily Gagne article, 
-        here: https://codepen.io/ceg9498/post/creating-lined-paper */
+    /*  Lined-paper css styles borrowed from Emily Gagne article, then adapted for
+        own use:  https://codepen.io/ceg9498/post/creating-lined-paper */
     background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 100px, #faa7e3 101px, #d15da7 102px, #d15da7 104px, rgb(245, 245, 245) 105px, rgb(245, 245, 245) 141px);
     align-items: center;
 }
 
 .recipe-card-header h4 {
-    color: #d51616;
-    color: #72a9c9;
-    color: #3f7a9c;
-    margin-left: 3em;
+    /* color: #3f7a9c; */
+    color: #0e5781;
+    margin-left: 4em;
     font-weight: 600;
 }
 
 .recipe-card {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    background: repeating-linear-gradient(rgb(245, 245, 245), rgb(245, 245, 245) 50px,#74aac9 51px, #74aac9 53px, rgb(245, 245, 245) 54px);
+    /*  Lined-paper css styles borrowed from Emily Gagne article, then adapted for
+        own use:  https://codepen.io/ceg9498/post/creating-lined-paper */
+    background: repeating-linear-gradient(rgb(245, 245, 245), rgb(245, 245, 245) 25px, #74aac9 25.5px, #74aac9 26.5px, rgb(245, 245, 245) 27px);
 }
 
 .recipe-card > * {
-    font-size: 1em;
-    line-height: 54px;
+    font-size: 14px;
+    line-height: 27px;
     padding: 0;
     margin-top: 0;
     margin-bottom: 0;
     margin-left: 3em;
-    margin-right: 4em;
+    margin-right: 3em;
+}
+
+.recipe-card-header,
+.recipe-card {
+    width: 88%;
+    max-width: 1100px;
+    box-shadow: 0 2px 1px rgba(0,0,0,0.06), 
+                0 4px 2px rgba(0,0,0,0.06), 
+                0 8px 4px rgba(0,0,0,0.06), 
+                0 16px 8px rgba(0,0,0,0.06),
+                0 32px 16px rgba(0,0,0,0.06),
+                0 64px 32px rgba(0,0,0,0.06);
+}
+
+.recipe-ingredients li,
+.recipe-directions li {
+    list-style-type: disc;
 }
 
 /* ======================= Login & Register Pages =============================== */
@@ -299,12 +320,6 @@ header {
 
 /* ============================== Media Queries =============================== */
 
-@media (max-width: 440px) {
-    .tbc-nav {
-        font-size: smaller;
-    }
-}
-
 @media (max-width: 380px) {
     * {
         font-size: small;
@@ -312,6 +327,12 @@ header {
 
     .tbc-nav {
         font-size: .7em;
+    }
+}
+
+@media (max-width: 440px) {
+    .tbc-nav {
+        font-size: smaller;
     }
 }
 
@@ -343,6 +364,11 @@ header {
         padding: 0;
         justify-content: space-between;
 
+    width: 88vw;
+    position: absolute;
+    left: 4vw;
+    padding: 0;
+    /* margin: 0 auto; */
     }
 
     .tbc-nav-item {
@@ -351,6 +377,17 @@ header {
 
     .tbc-desktop-nav li {
         margin-top: 0;
+    }
+
+    .recipe-card {
+        background: repeating-linear-gradient(rgb(245, 245, 245), rgb(245, 245, 245) 50px,#74aac9 51px, #74aac9 53px, rgb(245, 245, 245) 54px);
+    }
+
+    .recipe-card > * {
+        font-size: 1em;
+        line-height: 54px;
+        margin-left: 6rem;
+        margin-right: 8rem;
     }
 }
 
@@ -372,6 +409,13 @@ header {
     aspect-ratio: 4 / 5;
     object-fit: cover;
 }
+
+/* .recipe-card-img {
+    display: flex;
+    max-height: 80%;
+    margin: auto;
+    width: auto;
+} */
 
 #icon-wrap {
     display: inline-flex;
