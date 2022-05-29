@@ -2,30 +2,35 @@
 {% block content %}
 
 <div class="row justify-content-center">
-    <div class="col-10 col-md-8 mx-auto">
+    <div class="col-9 col-md-7 mx-auto">
         <h4 class="text-center my-5">{{ recipe.recipe_name|title }}</h4>
-        <div class="recipe-img-wrap col-11 col-8 mx-auto">
+        <div class="recipe-img-wrap col-9 col-md-8 mx-auto">
             <img src="{{ recipe.image_url }}" class="view-recipe-img" alt="{{ recipe.recipe_name }}">
         </div>
     </div>
 </div>
   
 <div class="row mt-5">
-    <div class="col-12 col-md-8 mx-auto recipe-card">
-        <h4 class="mx-5 my-4">Ingredients</h4>
-        <ul class="recipe-directions pb-3">
+    
+    <div class="recipe-card-header col-12 col-md-8 mx-auto">
+        <h4>{{ recipe.recipe_name|title }}</h4>
+    </div>
+
+    <div class="recipe-card col-12 col-md-8 mx-auto">
+        <h4 class="pink-text"><br>Ingredients</h4>
+        <ul class="recipe-directions">
             {% for ingredient in recipe.ingredients %}
-            <li class="mx-3 mb-3">{{ ingredient }}</li>
+            <li>{{ ingredient }}</li>
             {% endfor %}
+            <br>
         </ul>
-        <h4 class="mx-5 my-4">
-            Directions
-        </h4>
+        <h4>Directions</h4>
         <ul class="recipe-directions">
             {% for direction in recipe.directions %}
-            <li class="mx-3 mb-3">{{ direction }}</li>
+            <li>{{ direction }}</li>
             {% endfor %}
         </ul>
+        <br>
     </div>
 </div>
 
