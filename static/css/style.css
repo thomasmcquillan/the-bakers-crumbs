@@ -19,7 +19,7 @@ body {
 }
 
 .page-content {
-    margin: 15rem auto;
+    margin: 7em auto 3rem auto;
 }
 
 /* ============================== Links Styling =============================== */
@@ -64,6 +64,10 @@ a:hover {
 .login-page-msg {
     text-align: center;
     line-height: 54px;
+}
+
+.tbc-input-label h4 {
+    text-align: center;
 }
 
 /* ============================== Header & Navigation Styling =============================== */
@@ -200,50 +204,86 @@ a:hover {
     padding-left: .8em;
 }
 
+/* form styling */
+
+.add-recipe-row {
+    max-width: 800px;
+    margin-bottom: 54px;
+    padding: 0;
+}
+
+#food-delivery > textarea:placeholder-shown,
+#recipe-directions > textarea:placeholder-shown {
+    background-color:rgb(250, 217, 221);
+    align-content: center;
+    line-height: 38px;
+}
+
+/* #food-delivery > input > textarea {
+    display: flex;
+    flex-direction: row;
+    color: pink;
+    align-items: center;
+    text-justify: center;
+} */
+
 /* =========================== Button & Inputs etc =========================== */
 
-        .btn {
-            display: flex;
-            background: none;
-            font-family: 'Noto Sans Mono', monospace;
-            font-size: 1em;
-            font-weight: 600;
-            justify-content: center;
-            justify-self: center;
-            align-content: center;
-            height: 2em;
-            margin: 1em auto;
-            padding: 0 1.2em;
-            background-color: rgba(248, 202, 209, 0.719);
-            border: 1px solid grey;
-            max-width: fit-content;
-        }
+.btn {
+    display: flex;
+    background: none;
+    font-family: 'Noto Sans Mono', monospace;
+    font-size: 1em;
+    font-weight: 600;
+    justify-content: center;
+    justify-self: center;
+    align-content: center;
+    height: 2em;
+    margin: 1em auto;
+    padding: 0 1.2em;
+    background-color: rgba(248, 202, 209, 0.719);
+    border: 1px solid grey;
+    max-width: fit-content;
+}
 
-        .tbc-button {
-            display: flex;
-            line-height: 54px;
-            margin-bottom: 54px;
-            align-items: center;
-        }
+.tbc-button {
+    display: flex;
+    line-height: 54px;
+    /* margin-bottom: 54px; */
+    align-items: center;
+    background-color:rgb(249, 233, 235);
+}
 
-        .tbc-input-label {
-            display: flex;
-            width: 100%;
-            justify-content: center;
-            margin: auto;
-            padding-bottom: .3em;
-            font-size: .8em;
-            color: grey;
-            margin: auto;
-        }
+.tbc-input-label {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: auto;
+    padding-bottom: .3em;
+    font-size: .8em;
+    color: rgb(66, 66, 66);
+    margin: auto;
+}
 
 input {
-    display: block;
+    display: flex;
+    justify-self: center;
     text-align: center;
     line-height: 54px;
     height: 33px;
     padding: 0;
     margin: auto;
+}
+
+.tbc-input input,
+.tbc-button {
+    margin-top: 2px;
+    display: flex;
+    width: 100%;
+    height: 50px;
+    line-height: 54px;
+    /* margin-bottom: 54px; */
+    align-items: center;
 }
 
 /* ============================== Homepage Styling =============================== */
@@ -351,6 +391,10 @@ input {
 .recipe-directions li {
     list-style-type: disc;
 }
+
+/* ======================= Add / Edit Recipe Pages ============================== */
+
+
 
 /* ======================= Login & Register Pages =============================== */
 
@@ -484,6 +528,10 @@ input {
 
     .tbc-desktop-nav li {
         margin-top: 0;
+    }
+
+    .page-content {
+        margin: 13em auto 3rem auto;
     }
 
     .recipe-card {

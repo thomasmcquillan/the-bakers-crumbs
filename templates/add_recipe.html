@@ -1,104 +1,108 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container-lg page-content justify-content-center">
-    <form class="row" method="POST" action="{{ url_for('add_recipe') }}">
-        <div class="add-recipe-row row">
-            <h4 class="text-center">recipe name</h4>
-            <div class="tbc-input form-control">
-                <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-                <input required type="text" 
-                        class="form-control tbc-input" 
-                        name="recipe_name" 
-                        placeholder="Enter a name for your recipe"
-                        maxlength="50"/>
-            </div>
-        </div>
-        <div class="add-recipe-row row">
-            <h4 class="text-center">description</h4>
+<div class="row">
+    <h3 class="text-center my-5">Add Recipe</h3>
+    <h5 class="text-center mb-5">Please add your recipe below, taking care to fill out all fields.</h5>
+</div>
+<form class="row justify-content-center mt-4" method="POST" action="{{ url_for('add_recipe') }}">
+    <div class="add-recipe-row row">
+        <label for="username" class="tbc-input-label"><h4>recipe name</h4></label>
+        <div class="tbc-input">
             <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-            <div class="tbc-input">
-                <input required
-                    id="description"
-                    name="description" 
-                    type="text" 
-                    class="form-control col" 
-                    placeholder="Please give a short description of your recipe" 
-                    maxlength="120"/>
-            </div>
+            <input required type="text" 
+                    class="form-control" 
+                    name="recipe_name" 
+                    placeholder="Enter a memorable name for your recipe"
+                    maxlength="50"/>
         </div>
-        <div class="add-recipe-row row">
-            <h4 class="text-center">category</h4>
-            <div class="justify-items-center">
-                <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-                <select name="category_name" class="form-control" required>
-                    <option class="text-center" selected disabled>Please select a category for your recipe</option>
-                    {% for category in categories %}
-                    <option class="text-center" value="{{category.category_name}}">{{ category.category_name }}</option>
-                    {% endfor %}
-                </select>
-            </div>
+    </div>
+    <div class="add-recipe-row row">
+        <label for="description" class="tbc-input-label"><h4>description</h4></label>
+        <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
+        <div class="tbc-input">
+            <input required
+                id="description"
+                name="description" 
+                type="text" 
+                class="form-control col" 
+                placeholder="Give a short description of your recipe" 
+                maxlength="120"/>
         </div>
-        <div class="add-recipe-row row mx-auto">
-            <h4 class="text-center">ingredients</h4>
-            <div class="tbc-input" id="food-delivery">
-                <!-- Extra input fields added by custom js script will appear below this one -->
-                <input required 
-                        name="ingredients" 
-                        type="text"
-                        class="form-control col" 
-                        placeholder="Please enter first ingredient here." 
-                        minlength="3">
-                <div class="food-basket"></div>
-            </div>
+    </div>
+    <div class="add-recipe-row row">
+        <label for="category" class="tbc-input-label"><h4>category</h4></label>
+        <div class="justify-items-center">
+            <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
+            <select name="category_name" class="form-control" required>
+                <option class="text-center" selected disabled>Click here to select the category that best matches your recipe</option>
+                {% for category in categories %}
+                <option class="text-center" value="{{category.category_name}}">{{ category.category_name }}</option>
+                {% endfor %}
+            </select>
         </div>
-        <div class="add-recipe-row row">
-            <span class="col mr-auto">
-                <button type="button" id="add-ingredient-btn" class="blue-button tbc-button justify-content-center">Add Ingredient</button>
-            </span>
-            <span class="col ml-auto">
-                <button type="button" id="del-ingredient-btn" class="blue-button tbc-button justify-content-center">Remove Ingredient</button>
-            </span>
+    </div>
+    <div class="add-recipe-row row">
+        <label for="ingredients" class="tbc-input-label"><h4>ingredients</h4></label>
+        <div id="food-delivery" class="tbc-input">
+            <!-- Extra input fields added by custom js script will appear below this one -->
+            <input required 
+                    name="ingredients" 
+                    type="text"
+                    class="ingredients-list form-control mb-2" 
+                    placeholder="Click here to add first ingredient. For example: 200g flour." 
+                    minlength="3">
         </div>
-        <!-- Recipe Directions -->
-        <div class="add-recipe-row row">
-            <h4 class="text-center">directions</h4>
-            <div id="recipe-directions-section">
-                <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-                <input id="recipe-directions" name="directions" class="recipe-directions tbc-textarea text-center form-control validate" type="text" minlength="20" maxlength="5000" placeholder="Please enter step by step instructions" required/>
-            </div>
+    </div>
+    <div class="add-recipe-row row">
+        <div class="col-6 mx-auto">
+            <button type="button" id="add-ingredient-btn" class="blue-button tbc-button mb-3 justify-content-center">Add Ingredient</button>
+            <button type="button" id="del-ingredient-btn" class="blue-button tbc-button justify-content-center">Remove Last Added</button>
         </div>
-        <div class="add-recipe-row row">
-            <span class="col">
-                <button type="button" id="add-step-button" class="directions tbc-button blue-button justify-content-center">Confirm Step</button>
-            </span>
-            <span class="col">
-                <button type="button" id="remove-step-button" class="tbc-button blue-button justify-content-center">Remove Step</button>
-            </span>
-            <div class="next-steps"></div>
+    </div>
+    <!-- Recipe Directions -->
+    <div class="add-recipe-row row">
+        <label for="directions" class="tbc-input-label"><h4>directions</h4></label>
+        <div id="recipe-directions" class="tbc-input">
+            <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
+            <input  name="directions" 
+                    type="text"
+                    id="recipe-directions"
+                    class="form-control mb-2" 
+                    minlength="15" 
+                    maxlength="3000" 
+                    placeholder="Please enter instructions, one at a time." 
+                    minlength="3"
+                    required>
         </div>
-        <!-- Recipe Image URL -->
-        <div class="add-recipe-row row">
-            <h4 class="text-center">Recipe Image</h4>
-            <div class="tbc-input form-control" style="height:113px">
-                <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-                <input id="image_url" 
+    </div>
+
+    <div class="add-recipe-row row">
+        <div class="col-6 mx-auto">
+            <button type="button" id="add-step-button" class="blue-button tbc-button mb-3 justify-content-center">Add Step</button>
+            <button type="button" id="remove-step-button" class="blue-button tbc-button justify-content-center">Remove Last Added</button>
+        </div>
+    </div>
+    <!-- Recipe Image URL -->
+    <div class="add-recipe-row row">
+        <h4 class="text-center">Recipe Image</h4>
+        <div class="tbc-input" style="height:113px">
+            <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
+            <input id="image_url" 
                     name="image_url" 
                     type="text"
-                    class="form-control validate"
-                    placeholder="You may enter the URL for an image of the finished recipe"
+                    class="form-control"
+                    placeholder="Enter the URL of an image of the finished recipe"
+                    title="Images hosted on GoogleDrive, Cloudinary, Flickr etc work fine. Right-click the image and copy the image-address then paste link here."
                     style="height:108px"/>
-            </div>
         </div>
-        <!-- Submit Recipe Button -->
-        <div class="add-recipe-row row">
-            <div class="col-4 justify-content-center">
-                <button class="submit tbc-button justify-content-center blue-button">
-                    Publish Recipe
-                </button>
-            </div>
+    </div>
+    <!-- Submit Recipe Button -->
+    <div class="add-recipe-row row pb-4">
+        <div class="col-6 mx-auto">
+            <button type="button" class="submit blue-button tbc-button justify-content-center">Publish Recipe</button>            
         </div>
-    </form>
-</div>
+    </div>
+</form>
 
 {% endblock %}
