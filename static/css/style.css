@@ -19,7 +19,7 @@ body {
 }
 
 .page-content {
-    margin: 12em auto;
+    margin: 16em auto;
 }
 
 /* ============================== Links Styling =============================== */
@@ -60,6 +60,11 @@ a:hover {
 
 .blue-text {
     color: #72a9c9;
+}
+
+.login-page-msg {
+    text-align: center;
+    line-height: 54px;
 }
 
 /* ============================== Header & Navigation Styling =============================== */
@@ -206,6 +211,53 @@ header {
     padding-left: .8em;
 }
 
+/* =========================== Button & Inputs etc =========================== */
+
+        .btn {
+            display: flex; 
+            /* flex-direction: column; */
+            background: none;
+            font-family: 'Noto Sans Mono', monospace;
+            font-size: 1em;
+            font-weight: 600;
+            justify-content: center;
+            justify-self: center;
+            align-content: center;
+            height: 2em;
+            margin: 1em auto;
+            padding: 0 1.2em;
+            /* border: 1px solid rgb(250, 228, 232); */
+            background-color: rgba(248, 202, 209, 0.719);
+            /* position: relative; */
+            max-width: fit-content;
+        }
+
+        .tbc-button {
+            display: flex;
+            line-height: 54px;
+            margin-bottom: 54px;
+            align-items: center;
+        }
+
+        .tbc-input-label {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            padding-bottom: .3em;
+            font-size: .8em;
+            color: grey;
+            margin: auto;
+        }
+
+input {
+    text-align: center;
+    line-height: 54px;
+    height: 33px;
+    background-color: rgba(250, 235, 237, 0.836);
+    padding: 0;
+    margin: auto;
+}
+
 /* ============================== Homepage Styling =============================== */
 
 #hero-sm {
@@ -228,7 +280,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    background: url('../images/hero-tbc-home.jpg');
+    background: linear-gradient(rgba(216, 216, 216, 0.9), rgba(250, 250, 250, 0.9)), url('../images/hero-tbc-home.jpg');
     background-size: cover;
     background-position-x: 60%;
     background-position-y: 80%;
