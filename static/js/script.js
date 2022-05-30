@@ -39,7 +39,7 @@ addIngredient.onclick = function(){
 
 delIngredient.onclick = function(){
     var ingredient_fields = document.getElementsByClassName('ingredient-list');
-    if(ingredient_fields.length > 0) {
+    if(ingredient_fields.length > 1) {
         foodDelivery.removeChild(ingredient_fields[(ingredient_fields.length) - 1]);
     }
 };
@@ -47,7 +47,7 @@ delIngredient.onclick = function(){
 /**Below is the functionality for adding additional cooking step fields to the add_recipe page */
 var nextStepButton = document.getElementById('add-step-button');
 var removeStepButton = document.getElementById('remove-step-button');
-var recipeDirectionsDiv = document.getElementById('recipe-directions');
+var recipeDirectionsDiv = document.getElementById('recipe-directions-section');
 
  // Function to add further textarea fields for cooking instructions when 
  // button is clicked to enter an instruction.
@@ -57,7 +57,7 @@ nextStepButton.onclick = function(){
     var addStepButton = document.createElement('textarea');
     addStepButton.setAttribute('type', 'text');
     addStepButton.setAttribute('name', 'directions');
-    addStepButton.setAttribute('class', 'directions validate form-control text-center');
+    addStepButton.setAttribute('class', 'recipe-directions validate form-control text-center');
     addStepButton.setAttribute('style', 'height:54px');
     addStepButton.setAttribute('minlength', '3');
     addStepButton.setAttribute('required', 'true');

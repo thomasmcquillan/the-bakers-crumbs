@@ -168,9 +168,9 @@ def add_recipe():
     if request.method == "POST":
         recipe = {
             "recipe_name": request.form.get("recipe_name"),
+            "recipe_description": request.form.get("description"),
             "category_name": request.form.getlist("category_name"),
             "image_url": request.form.get("image_url"),
-            "recipe_description": request.form.get("description"),
             "ingredients": request.form.getlist("ingredients"),
             "directions": request.form.getlist("directions"),
             "created_by": session["user"]
@@ -254,4 +254,4 @@ def internal_server_error(e):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
