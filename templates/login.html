@@ -1,44 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="tbc-hero"></div>
-
-<div class="row">
-    <form class="col login-form mt-5 mx-auto" method="POST" action="{{ url_for('login') }}">
-        <!-- Username Input -->
-        <div class="row">
-            <div class="tbc-input col-3 mx-auto my-3">
-                <label for="username" class="tbc-input-label">Username</label>
-                <input id="username" name="username" type="text" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Username" required>
-            </div>
+<form class="login-form mt-4 container-fluid" method="POST" action="{{ url_for('login') }}">
+    <!-- Username Input -->
+    <div class="row justify-content-center">
+        <div class="tbc-input mx-auto my-3">
+            <label for="username" class="tbc-input-label">Username</label>
+            <input id="username" name="username" type="text" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Username" required>
         </div>
-        <!-- Password Input -->
-        <div class="row">
-            <div class="tbc-input col-3 mx-auto my-3">
-                <label for="username" class="tbc-input-label">Password</label>
-                <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Password" required>
-            </div>
+    </div>
+    <!-- Password Input -->
+    <div class="row justify-content-center">
+        <div class="tbc-input mx-auto my-3">
+            <label for="username" class="tbc-input-label">Password</label>
+            <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Password" required>
         </div>
-        <!-- Confirm Login Button -->
-        <div class="row">
-            <button type="submit" class="tbc-button btn mx-auto">
-                sign in
-            </button>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-10 col-md-6 justify-content-center">
-                <h4 style="text-align:center">
-                    No account? No problem!
-                </h4>
-                <a href="{{ url_for('register') }}" class="tbc-button btn my-5">
-                    <br><strong>Register here<br></strong></a>
-                <p class="login-page-msg">
-                    Registration only takes a moment and enables you to begin sharing your
-                    favourite baking recipes with <span class="pink-text">the baker's crumbs</span> community.
-                </p>
-            </div>
-        </div>
-    </form>
+    </div>
+    <!-- Confirm Login Button -->
+    <div class="row">
+        <button type="submit" class="tbc-button btn mx-auto">
+            sign in
+        </button>
+    </div>
+</form>
+<div class="row justify-content-center">
+    <div class="col-10 col-md-6 justify-content-center">
+        <h4 style="text-align:center">
+            No account? No problem!
+        </h4>
+        <a href="{{ url_for('register') }}" class="tbc-button btn my-5">
+            <br><strong>Register here<br></strong></a>
+        <p class="login-page-msg">
+            Registration is easy and allows you to begin sharing your
+            favourite recipes with <span class="pink-text">the baker's crumbs</span> community.
+        </p>
+    </div>
 </div>
 
 {% endblock %}
