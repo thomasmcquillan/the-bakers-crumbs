@@ -1,38 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-<div class="row page-content justify-content-center">
-    <form class="col login-form mx-auto" method="POST" action="{{ url_for('register') }}">
-        <!-- Username Input -->
-        <div class="row" style="width:500px">
-            <div class="mx-auto">
-                <p style="text-align:center">Please enter a username</p>
-            </div>
-            <div class="tbc-input">
-                <input id="username" name="username" type="text" minlength="6" maxlength="15" class="validate" autocomplete="on" title="Please enter a username of at least 6 characters" required>
-            </div>
+<form class="login-form mx-auto mt-lg-5" method="POST" action="{{ url_for('register') }}">
+    <!-- Username Input -->
+    <div class="row justify-content-center">
+        <div class="tbc-input mx-auto my-3">
+            <label for="username" class="tbc-input-label">Please enter a Username</label>
+            <input id="username" 
+                    name="username"
+                    type="text"
+                    minlength="6" 
+                    maxlength="15" 
+                    class="validate" 
+                    placeholder="Username"
+                    title="Please enter a username of at least 6 characters"
+                    required>
         </div>
-        <!-- Password Input -->
-        <div class="row" style="width:500px">
-            <div class="col-5">
-                <p style="text-align:center">Please enter a Password</p>
-            </div>
-            <div class="tbc-input">
-                <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Password" required>
-            </div>
+    </div>
+    <!-- Password Input -->
+    <div class="row justify-content-center">
+        <div class="tbc-input mx-auto my-3">
+            <label for="username" class="tbc-input-label">Please enter a password</label>
+            <input id="password"
+                    name="password"
+                    type="password"
+                    minlength="6"
+                    maxlength="15"
+                    class="validate"
+                    placeholder="Password"
+                    title="Password must have at least 6 characters"
+                    required>
         </div>
-        <div class="row">
-            <div class="col">
-                <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" title="Password must have at least 6 characters" required>
-            </div>
-        </div>
-        <div class="row nudge-down">
-            <button type="submit" class="tbc-button blue-button justify-content-center">
-                Confirm Registration
-            </button>
-        </div>
-    </form>
-</div>
+    </div>
+    <!-- Confirm Login Button -->
+    <div class="row">
+        <button type="submit" class="tbc-button btn mx-auto">
+            Confirm Registration
+        </button>
+    </div>
+</form>
 
 {% endblock %}

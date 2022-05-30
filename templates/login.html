@@ -1,25 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form class="login-form mt-4 container-fluid" method="POST" action="{{ url_for('login') }}">
+<form class="login-form mx-auto mt-lg-5" method="POST" action="{{ url_for('login') }}">
     <!-- Username Input -->
     <div class="row justify-content-center">
         <div class="tbc-input mx-auto my-3">
             <label for="username" class="tbc-input-label">Username</label>
-            <input id="username" name="username" type="text" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Username" required>
+            <input id="username" 
+                    name="username"
+                    type="text"
+                    minlength="6" 
+                    maxlength="15" 
+                    class="validate" 
+                    autocomplete="on"
+                    placeholder="Username"
+                    title="Please enter your username"
+                    required>
         </div>
     </div>
     <!-- Password Input -->
     <div class="row justify-content-center">
         <div class="tbc-input mx-auto my-3">
             <label for="username" class="tbc-input-label">Password</label>
-            <input id="password" name="password" type="password" minlength="6" maxlength="15" class="validate" autocomplete="on" placeholder="Password" required>
+            <input id="password"
+                    name="password"
+                    type="password"
+                    minlength="6"
+                    maxlength="15"
+                    class="validate"
+                    autocomplete="on"
+                    placeholder="Password"
+                    required>
         </div>
     </div>
     <!-- Confirm Login Button -->
     <div class="row">
         <button type="submit" class="tbc-button btn mx-auto">
-            sign in
+            Sign in
         </button>
     </div>
 </form>
