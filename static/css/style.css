@@ -301,6 +301,8 @@ input {
     display: flex;
     flex-direction: row;
     height: 54px;
+    justify-content: space-between;
+    padding-right: 6vw;
     /*  Lined-paper css styles borrowed from Emily Gagne article, then adapted for
         own use:  https://codepen.io/ceg9498/post/creating-lined-paper */
     background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 50px, #faa7e3 50.5px, #d15da7 51px, #d15da7 52px, rgb(245, 245, 245) 52.5px, rgb(245, 245, 245) 70.5px);
@@ -361,6 +363,66 @@ input {
     justify-items: center;
     width: 100vw;
     margin: 182px auto auto auto;
+}
+
+/* ============================== Image Styling =============================== */
+
+.recipe-link-wrap,
+.cat-link-wrap {
+    margin: auto;
+    padding: 0;
+}
+
+.cat-link-wrap a img {
+    aspect-ratio: 1 / 1;
+}
+
+.recipe-thumb {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.recipe-img-wrap img {
+    display: flex;
+    max-width: 40vw;
+    aspect-ratio: 4 / 5;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.view-recipe-img {
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin: -40px auto 0 auto;
+    border: 16px solid rgb(245, 245, 245);
+}
+
+#icon-wrap {
+    display: inline-flex;
+    justify-content: center;
+    margin: auto;
+    background: transparent;
+    border: none;
+}
+
+#icon-wrap img {
+    height: 1em;
+    width: auto;
+    margin-top: -6px;
+}
+
+#tbc-search,
+#tbc-search-hover {
+    width: 30px;
+    z-index: 99;
+    transition: .35s ease-in;
+}
+
+#tbc-search-hover {
+    display: none;
 }
 
 /* ============================== Media Queries =============================== */
@@ -448,58 +510,10 @@ input {
         padding-top: .2em;
         margin-left: 3em;
     }
-}
 
-/* ============================== Image Styling =============================== */
-
-.recipe-link-wrap,
-.cat-link-wrap {
-    margin: auto;
-    padding: 0;
-}
-
-.cat-link-wrap a img {
-    aspect-ratio: 1 / 1;
-}
-
-.recipe-thumb {
-    display: flex;
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-}
-
-#icon-wrap {
-    display: inline-flex;
-    justify-content: center;
-    margin: auto;
-    background: transparent;
-    border: none;
-}
-
-#icon-wrap img {
-    height: 1em;
-    width: auto;
-    margin-top: -6px;
-}
-
-#tbc-search,
-#tbc-search-hover {
-    width: 30px;
-    z-index: 99;
-    transition: .35s ease-in;
-}
-
-#tbc-search-hover {
-    display: none;
-}
-
-/* testing recipe view styles */
-
-.view-recipe-img {
-    height: auto;
-    width: 100%;
-    display: flex;
+    .view-recipe-img {
+        margin: 3em auto 0 auto;
+    }
 }
 
 /* testing area */

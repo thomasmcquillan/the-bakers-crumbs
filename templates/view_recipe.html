@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row justify-content-center mt-3">
+<div class="row justify-content-center mt-md-3">
     <div class="recipe-img-wrap col-6 col-md-4 mx-auto">
         <img src="{{ recipe.image_url }}" class="view-recipe-img" alt="{{ recipe.recipe_name }}">
     </div>
 </div>
 <div class="row justify-content-center recipe-wrap">
     <div class="recipe-card-header col-10 col-md-8 mx-auto">
-        <h4>{{ recipe.recipe_name|title }}</h4>
+        <h4 style="color:black">{{ recipe.recipe_name|title }}</h4>
+        <h4 class="pink-text">Added by: {{ recipe.created_by|title }}</h4>
     </div>
     <div class="recipe-card col-10 col-md-8 mx-auto">
         <h4 class="pink-text"><br>Ingredients</h4>
