@@ -19,7 +19,7 @@ body {
 }
 
 .page-content {
-    margin: 16em auto;
+    margin: 15rem auto;
 }
 
 /* ============================== Links Styling =============================== */
@@ -39,7 +39,6 @@ a:hover {
 }
 
 .tbc-links {
-    margin-bottom: 54px;
     text-align: center;
     padding-top: .8em;
     font-size: .9em;
@@ -69,16 +68,6 @@ a:hover {
 
 /* ============================== Header & Navigation Styling =============================== */
 
-header {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 8.5em;
-}
-
 #navlinks-sm {
     display: none;
     position: fixed;
@@ -107,7 +96,7 @@ header {
     left: 0;
     top: 0;
     width: 100vw;
-    height: 8em;
+    height: 9rem;
     place-items: center;
     justify-content: flex-end;
     background-color:rgb(249, 233, 235);
@@ -151,7 +140,7 @@ header {
 #logo-wrap {
     display: flex;
     flex-direction: row;
-    width: 94vw;
+    width: 96%;
     top:auto;
     justify-content: space-between;
     justify-self: flex-end;
@@ -214,8 +203,7 @@ header {
 /* =========================== Button & Inputs etc =========================== */
 
         .btn {
-            display: flex; 
-            /* flex-direction: column; */
+            display: flex;
             background: none;
             font-family: 'Noto Sans Mono', monospace;
             font-size: 1em;
@@ -226,8 +214,8 @@ header {
             height: 2em;
             margin: 1em auto;
             padding: 0 1.2em;
-            /* background-color: rgba(248, 202, 209, 0.719); */
-            /* position: relative; */
+            background-color: rgba(248, 202, 209, 0.719);
+            border: 1px solid grey;
             max-width: fit-content;
         }
 
@@ -312,18 +300,19 @@ input {
 .recipe-card-header {   
     display: flex;
     flex-direction: row;
-    height: 108px;
+    height: 54px;
     /*  Lined-paper css styles borrowed from Emily Gagne article, then adapted for
         own use:  https://codepen.io/ceg9498/post/creating-lined-paper */
-    background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 100px, #faa7e3 101px, #d15da7 102px, #d15da7 104px, rgb(245, 245, 245) 105px, rgb(245, 245, 245) 141px);
+    background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 50px, #faa7e3 50.5px, #d15da7 51px, #d15da7 52px, rgb(245, 245, 245) 52.5px, rgb(245, 245, 245) 70.5px);
     align-items: center;
 }
 
 .recipe-card-header h4 {
-    /* color: #3f7a9c; */
     color: #0e5781;
-    margin-left: 4em;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-left: 1.5em;
+    
 }
 
 .recipe-card {
@@ -340,8 +329,8 @@ input {
     padding: 0;
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: 3em;
-    margin-right: 3em;
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 .recipe-card-header,
@@ -445,13 +434,27 @@ input {
         margin-left: 6rem;
         margin-right: 8rem;
     }
+
+    .recipe-card-header {   
+        display: flex;
+        flex-direction: row;
+        height: 108px;
+        background: linear-gradient(rgb(245, 245, 245),rgb(245, 245, 245) 100px, #faa7e3 101px, #d15da7 102px, #d15da7 104px, rgb(245, 245, 245) 105px, rgb(245, 245, 245) 141px);
+        align-items: center;
+    }
+    
+    .recipe-card-header h4 {
+        font-size: 1.2em;
+        padding-top: .2em;
+        margin-left: 3em;
+    }
 }
 
 /* ============================== Image Styling =============================== */
 
 .recipe-link-wrap,
 .cat-link-wrap {
-    margin: 30px 30px 0 30px;
+    margin: auto;
     padding: 0;
 }
 
@@ -465,13 +468,6 @@ input {
     aspect-ratio: 4 / 5;
     object-fit: cover;
 }
-
-/* .recipe-card-img {
-    display: flex;
-    max-height: 80%;
-    margin: auto;
-    width: auto;
-} */
 
 #icon-wrap {
     display: inline-flex;
