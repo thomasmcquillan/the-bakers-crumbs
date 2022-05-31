@@ -20,7 +20,7 @@ body {
 }
 
 .page-content {
-    margin: 7em auto 3rem auto;
+    margin: 7em auto auto auto;
 }
 
 /* ============================== Links Styling =============================== */
@@ -31,8 +31,9 @@ a {
 }
 
 a:hover {
-    color:rgb(245, 146, 163);
-    color: brown !important;
+    /* color:rgb(245, 146, 163); */
+    /* color: brown !important; */
+    color: rgb(61, 149, 175);
 }
 
 .tbc-logo a:hover h1 {
@@ -50,6 +51,24 @@ a:hover {
 }
 
 /* ============================== Fonts Styling =============================== */
+
+.tbc-logo {
+    text-align: center;
+}
+
+.tbc-logo h1 {
+    font-size: 27px;
+}
+
+.tbc-logo-caption {
+    font-size: 19.2px;
+    margin-top: -.2em;
+}
+
+            .tbc-nav-item {
+                font-size: 18px;
+                color:rgb(245, 146, 163);
+            }
 
 .pink-text {
     color: #d665ba;
@@ -71,9 +90,66 @@ a:hover {
     text-align: center;
 }
 
+@media (min-width: 330px) {
+    /* .tbc-logo h1 {
+        font-size: 2em;
+    } */
+    
+    /* .tbc-logo-caption {
+        font-size: 1.4em;
+        margin-top: -.2em;
+    } */
+}
+
+@media (max-width: 380px) {
+    /* .tbc-logo h1 {
+        font-size: 2em;
+    } */
+    
+    /* .tbc-logo-caption {
+        font-size: 1.4em;
+        margin-top: -.2em;
+    } */
+}
+
+@media (min-width: 440px) {
+}
+
 /* ============================== Header & Navigation Styling =============================== */
 
-#navlinks-sm {
+#tbc-nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 14rem;
+    justify-content: center;
+    align-content: space-between;
+    z-index: 200;
+    /* background-color:rgb(249, 233, 235); */
+    height: 188px;
+    background-color: rgb(248, 248, 248);
+}
+
+/* .tbc-nav-item {
+    display: block;
+    font-size: .8em;
+    color:rgb(245, 146, 163);
+} */
+
+#nav-wrap {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    flex-direction: column;
+    width: 100vw;
+    height: 188px;
+}
+
+/* #navlinks-sm {
     display: none;
     position: fixed;
     top: 0;
@@ -85,6 +161,24 @@ a:hover {
     flex-direction: column;
     align-items: space-between;
     background-color:rgb(249, 233, 235);
+} */
+
+#navlinks-sm {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 188px;
+    height: 100vh;
+    padding: 6em 0 8em 0;
+    align-items: space-evenly;
+
+    background-color:rgb(240, 230, 231);
+}
+
+#navlinks-sm a {
+    font-size: 1.3em;
 }
 
 #nav-trigger {
@@ -94,37 +188,11 @@ a:hover {
     margin-right: .6em;
 }
 
-.tbc-nav {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 9rem;
-    place-items: center;
-    justify-content: flex-end;
-    background-color:rgb(249, 233, 235);
-}
-
-.tbc-nav-item {
-    display: block;
-    font-size: .8em;
-    color:rgb(245, 146, 163);
-}
-
-.tbc-nav-item:hover {
-    text-decoration: underline;
-}
-
-.nav-wrap {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-}
-
 .tbc-mobile-nav {
     display: flex;
+
+    display: none;
+
     flex-direction: column;
     width: 100%;
     height: 100vw;
@@ -143,35 +211,39 @@ a:hover {
 
 #logo-wrap {
     display: flex;
-    flex-direction: row;
-    width: 96%;
-    top:auto;
-    justify-content: space-between;
+    flex-direction: column;
+    position: absolute;
+    /* width: 100%; */
+
+    width: 100vw;
+    height: 140px;
+    padding-top: 30px;
+    
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    justify-content: center;
     justify-self: flex-end;
+    align-items: center;
     z-index: 5;
-}
 
-.tbc-logo h1 {
-    text-align: center;
-    font-size: 1.7em;
-}
-
-.tbc-logo-caption {
-    text-align: center;
-    font-size: 1.2em;
-    line-height: 54px;
-    margin-top: -10px;
+    /* background-color: rgb(248, 248, 248); */
 }
 
 #search-and-social-nav {
-    display: flex;
+   
+    display: none;
+
     flex-direction: row;
     position: fixed;
+    position: absolute;
     left: 0;
+    bottom: 10px;
     top: .2em;
-    width: 100vw;
+    width: 100%;
     height: 2em;
     justify-content: space-between;
+    background: none;
 }
 
 #tbc-search,
@@ -200,7 +272,7 @@ a:hover {
 }
 
 .social-links li {
-    padding-left: .8em;
+    padding-left: .5em;
 }
 
 /* ============================== Forms Styling =============================== */
@@ -217,14 +289,6 @@ a:hover {
     align-content: center;
     line-height: 38px;
 }
-
-/* #food-delivery > input > textarea {
-    display: flex;
-    flex-direction: row;
-    color: pink;
-    align-items: center;
-    text-justify: center;
-} */
 
 /* =========================== Button & Inputs etc =========================== */
 
@@ -279,7 +343,6 @@ input {
     width: 100%;
     height: 50px;
     line-height: 54px;
-    /* margin-bottom: 54px; */
     align-items: center;
 }
 
@@ -333,9 +396,13 @@ li::marker {
 
 /* ============================== Recipe Styling =============================== */
 
-.recipe-wrap {
+#recipe-wrap {
+    position: absolute;
+    top: 10vh;
+    left: 0;
     justify-content: center;
-    margin: 3em auto 4em auto;
+    margin: 6em auto 9em 0;
+    width: 100vw;
 }
 
 .recipe-card-header {   
@@ -476,35 +543,27 @@ li::marker {
 
 /* ============================== Media Queries =============================== */
 
-@media (max-width: 380px) {
-    * {
-        font-size: small;
-    }
-
-    .tbc-nav {
-        font-size: .7em;
-    }
-}
-
-@media (max-width: 440px) {
-    .tbc-nav {
-        font-size: smaller;
-    }
-}
-
 @media (min-width: 992px) {
 
-    .tbc-nav {
-        height: 12em;
+    #tbc-nav {
+        height: 244px;
+        background-color: rgb(248, 248, 248);
+
+    }
+
+    #nav-wrap {
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+        height: 100%;
+        align-items: flex-end;
     }
 
     #logo-wrap {
-        padding-top: 4em;
-        place-self: center;
-    }
-
-    .tbc-logo {
-        margin: -100px auto;
+        display: flex;
+        width: 100vw;
+        margin: auto auto;
+        height: 160px;
     }
 
     .tbc-logo h1 {
@@ -527,16 +586,28 @@ li::marker {
         justify-content: space-between;
     }
 
-    .tbc-nav-item {
+    /* .tbc-nav-item {
         font-size: .9em;
-    }
+    } */
 
     .tbc-desktop-nav li {
         margin-top: 0;
     }
 
+    #search-and-social-nav {
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        position: absolute;
+        left: 0;
+        top: .2em;
+        width: 100vw;
+        height: 2em;
+        justify-content: space-between;
+    }
+
     .page-content {
-        margin: 13em auto 3rem auto;
+        margin: 13em auto 1em auto;
     }
 
     .recipe-card {
