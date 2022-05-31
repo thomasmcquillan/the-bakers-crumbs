@@ -7,6 +7,7 @@
 
 body {
     font-family: 'Noto Sans Mono', monospace;
+    /* font-family: 'Noto Sans', sans-serif; */
     font-weight: 300;
     font-size: 22px;
     color: #454545;
@@ -54,11 +55,11 @@ a:hover {
     color: #d665ba;
     color: rgb(239, 115, 135);
     color: rgb(209, 0, 0);
-    font-weight: 600;
 }
 
 .blue-text {
     color: #72a9c9;
+    color: #6396b4;
 }
 
 .login-page-msg {
@@ -109,7 +110,6 @@ a:hover {
 .tbc-nav-item {
     display: block;
     font-size: .8em;
-    font-weight: 400;
     color:rgb(245, 146, 163);
 }
 
@@ -154,7 +154,6 @@ a:hover {
 .tbc-logo h1 {
     text-align: center;
     font-size: 1.7em;
-    font-weight: 500;
 }
 
 .tbc-logo-caption {
@@ -204,7 +203,7 @@ a:hover {
     padding-left: .8em;
 }
 
-/* form styling */
+/* ============================== Forms Styling =============================== */
 
 .add-recipe-row {
     max-width: 800px;
@@ -234,7 +233,6 @@ a:hover {
     background: none;
     font-family: 'Noto Sans Mono', monospace;
     font-size: 1em;
-    font-weight: 600;
     justify-content: center;
     justify-self: center;
     align-content: center;
@@ -249,7 +247,6 @@ a:hover {
 .tbc-button {
     display: flex;
     line-height: 54px;
-    /* margin-bottom: 54px; */
     align-items: center;
     background-color:rgb(249, 233, 235);
 }
@@ -284,6 +281,10 @@ input {
     line-height: 54px;
     /* margin-bottom: 54px; */
     align-items: center;
+}
+
+li::marker {
+    color:rgb(215, 121, 136);
 }
 
 /* ============================== Homepage Styling =============================== */
@@ -351,10 +352,8 @@ input {
 
 .recipe-card-header h4 {
     color: #0e5781;
-    font-weight: 500;
     font-size: 1rem;
-    margin-left: 1.5em;
-    
+    margin: auto auto auto 1.5em;
 }
 
 .recipe-card {
@@ -385,6 +384,12 @@ input {
                 0 16px 8px rgba(0,0,0,0.06),
                 0 32px 16px rgba(0,0,0,0.06),
                 0 64px 32px rgba(0,0,0,0.06);
+}
+
+.recipe-card-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .recipe-ingredients li,
@@ -541,8 +546,8 @@ input {
     .recipe-card > * {
         font-size: 1em;
         line-height: 54px;
-        margin-left: 6rem;
-        margin-right: 8rem;
+        margin-left: 5rem;
+        margin-right: 7rem;
     }
 
     .recipe-card-header {   
@@ -566,7 +571,6 @@ input {
 
 /* testing area */
 
-/* * {
-    border: 1px solid rgba(211, 211, 211, 0);
-    border: 1px solid pink;
-} */
+* {
+    font-weight: 300 !important;
+}

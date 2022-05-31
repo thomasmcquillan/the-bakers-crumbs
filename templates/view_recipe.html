@@ -7,12 +7,15 @@
     </div>
 </div>
 <div class="row justify-content-center recipe-wrap">
-    <div class="recipe-card-header col-10 col-md-8 mx-auto">
+    <div class="recipe-card-header col-11 col-md-8 mx-auto">
         <h4 style="color:black">{{ recipe.recipe_name|title }}</h4>
-        <h4 class="pink-text">Added by: {{ recipe.created_by|title }}</h4>
     </div>
-    <div class="recipe-card col-10 col-md-8 mx-auto">
+    <div class="recipe-card recipe-card-top col-10 col-md-8 mx-auto">
         <h4 class="pink-text"><br>Ingredients</h4>
+        <h4 class="blue-text"><br>Added by {{ recipe.created_by|title }}.</h4>
+    </div>
+
+    <div class="recipe-card col-10 col-md-8 mx-auto">
         <ul class="recipe-ingredients">
             {% for ingredient in recipe.ingredients %}
             <li>{{ ingredient }}</li>
@@ -32,14 +35,14 @@
 {% if (session.user|lower == recipe.created_by|lower) or (session.user == "admin") %}
 
     <button class="btn">
-        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="submit btn">
+        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="submit my-auto">
             Edit Recipe
         </a>
     </button>
 
     <!-- Delete Recipe Modal Trigger -->
-    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#confirmRecipeDeletionModal" style="margin: 2em;">
-        <a href="#delete_recipe">
+    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#confirmRecipeDeletionModal">
+        <a href="#delete_recipe" class="my-auto">
             Delete Recipe
         </a>
     </button>
