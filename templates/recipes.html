@@ -2,9 +2,6 @@
 {% block content %}
 
 <div class="row justify-content-center mx-auto p-0 my-md-2 my-lg-5 pt-lg-5">
-    <div classs="col mx-auto">
-        <h4 class="text-center">Viewing All Recipes</h4>
-    </div>
     {% for recipe in recipes %}
     <div class="col-11 col-md-5 col-lg-4 px-3 px-md-3 px-lg-5 mx-auto my-5">
         <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="recipe-link-wrap">
