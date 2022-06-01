@@ -28,7 +28,7 @@
                     baking wisdom, <span id="served-hot-hover"><em>served hot</em></span>
                 </h3>
             </a>
-            <button class="d-lg-none" id="nav-trigger"><i class="lni lni-menu d-lg-none blue-text"></i></button>
+            <!-- <button class="d-lg-none" id="nav-trigger"><i class="lni lni-menu d-lg-none blue-text"></i></button> -->
         </div>
         <div id="nav-wrap">
             <ul class="tbc-mobile-nav" id="navlinks-sm">
@@ -97,7 +97,8 @@
                         src="{{ url_for('static', filename='images/tbc-search-hover.png') }}">
                 </button>
             </form>
-            <ul class="social-links">
+            <button class="d-lg-none" id="nav-trigger"><i class="lni lni-menu d-lg-none blue-text"></i></button>
+            <ul class="social-links d-none d-lg-flex">
                 <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">
                     <i class="lni lni-facebook"></i></a></li>
                 <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">
