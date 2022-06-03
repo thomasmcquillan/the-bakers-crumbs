@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* ============================== Body Styling =============================== */
 
 body {
@@ -15,6 +19,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     width: 100vw;
+    min-height: 100vh;
     position: absolute;
     left: 0;
 }
@@ -158,11 +163,11 @@ a:hover {
     display: none;
     flex-direction: column;
     width: 100%;
-    position: absolute;
+    position: fixed;
     left: 0;
-    top: 188px;
+    top: 0;
     height: 100vh;
-    padding: 6em 0 8em 0;
+    padding: 10em 0 2em 0;
     align-items: space-evenly;
     background-color:rgb(240, 230, 231);
 }
@@ -179,21 +184,21 @@ a:hover {
 }
 
 .tbc-mobile-nav {
-    display: none;
+    display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vw;
-    justify-content: space-evenly;
+    height: 100%;
+    justify-items: space-evenly;
     align-items: center;
-    padding: 0;
+    padding-bottom: 2rem;
 }
 
 .tbc-mobile-nav li,
 .tbc-desktop-nav li {
-    margin-top: 2em;
+    font-size: 1.2rem;
+    padding: 2rem 0 2rem 0;
     text-align: center;
-    z-index: 11;
-    padding-top: 4em;
+    z-index: 1;
 }
 
 #logo-wrap {
@@ -312,7 +317,7 @@ input.tbc-search-input:focus {
 
 .tbc-button {
     display: flex;
-    line-height: 54px;
+    /* line-height: 54px; */
     align-items: center;
     background-color:rgb(249, 233, 235);
 }
