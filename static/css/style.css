@@ -69,7 +69,7 @@ a:hover {
 .tbc-links {
     text-align: center;
     padding-top: .8em;
-    font-size: .9em;
+    font-size: .7em;
 }
 
 .social-links a {
@@ -276,9 +276,14 @@ a:hover {
 input.tbc-search-input:focus {
     outline-width: 0;
     background-color: var(--tbc-bg-pinky);
+    /* border: 2px solid orange; */
 }
 
 .input-search input:hover {
+    background-color: var(--tbc-bg-pinky);
+}
+
+.input-search input:active {
     background-color: var(--tbc-bg-pinky);
 }
 
@@ -553,7 +558,6 @@ li::marker {
 .recipe-img-wrap img {
     display: flex;
     max-width: 40vw;
-    aspect-ratio: 4 / 5;
     aspect-ratio: 1 / 1;
     object-fit: cover;
 }

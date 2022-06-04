@@ -157,7 +157,7 @@ def get_category(category_id):
     recipes = list(mongo.db.recipes.find(
         {"category_name": category["category_name"]}))
     return render_template(
-        "category.html", recipes=recipes, category=category)
+        "recipes.html", recipes=recipes)
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
