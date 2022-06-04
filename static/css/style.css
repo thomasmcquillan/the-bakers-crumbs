@@ -80,6 +80,12 @@ a:hover {
     display: none;
 }
 
+.inline-link {
+    color: var(--tbc-inky-blue);
+    font-size: larger;
+    background-color: var(--tbc-bg-pinky);
+}
+
 /* ============================== Fonts Styling =============================== */
 
 #tbc-logo {
@@ -333,23 +339,19 @@ input.tbc-search-input:focus {
 
 .btn {
     display: flex;
-    font-size: 1.2rem;
+        font-size: .9em;
+        font-weight: 400;
     justify-content: center;
-    justify-self: center;
     align-content: center;
-    height: fit-content;
-    max-width: fit-content;
+    align-items: center;
+    justify-self: center;
+    height: 54px;
     margin: 1em auto;
-    padding: .3rem 1.2rem;
-    font-weight: 300;
+    padding: .2rem 1.2rem;
+    width: 100%;
     color: --tbc-soft-pink;
     background-color: var(--tbc-bg-pinky);
-    border: .8px solid var(--tbc-soft-pink);
-}
-
-.tbc-button {
-    display: flex;
-    align-items: center;
+    border: .9px solid var(--tbc-soft-pink);
 }
 
 .tbc-input-label {
@@ -357,7 +359,7 @@ input.tbc-search-input:focus {
     width: 100%;
     justify-content: center;
     margin: auto;
-    padding-bottom: .3em;
+    padding-bottom: .5em;
     font-size: .8em;
     color: var(--tbc-dark-grey);
     margin: auto;
@@ -373,14 +375,17 @@ input {
     margin: auto;
 }
 
-.tbc-input input,
-.tbc-button {
+.tbc-input input {
     margin-top: 2px;
     display: flex;
     width: 100%;
     height: 50px;
     line-height: 54px;
     align-items: center;
+}
+
+.form-control {
+    color: var(--tbc-soft-blue);
 }
 
 li::marker {
@@ -521,9 +526,11 @@ li::marker {
 
 /* ======================= Add / Edit Recipe Pages ============================== */
 
+.add-edit-recipe {
+    margin: 8rem auto 3rem auto;
+}
 
-
-/* ======================= Login & Register Pages =============================== */
+/* ==================== Login / Register / Profile Pages ======================= */
 
 .card-login,
 .card-register {
@@ -534,6 +541,21 @@ li::marker {
     justify-items: center;
     width: 100vw;
     margin: 182px auto auto auto;
+}
+
+.profile-content {
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    margin: 1.1rem auto 1.3rem auto;
+    font-size: .7em;
+    line-height: 1.9em;
+    text-align: center;
+}
+
+.profile-content > h4 {
+    font-size: 1.2em;
+    color: var(--tbc-inky-blue);
 }
 
 /* ============================== Image Styling =============================== */
@@ -666,7 +688,18 @@ li::marker {
 
     #nav-trigger {
         margin: 134px 24px auto auto;
-    }    
+    }
+
+    .profile-header,
+    .profile-content {
+        margin: 3rem auto 2rem auto;
+        font-size: 1em;
+        line-height: 1.9em;
+    }
+
+    .profile-header {
+        margin-top: 7rem;
+    }
 }
 
 @media (min-width: 992px) {
@@ -770,5 +803,16 @@ li::marker {
 
     .view-recipe-img {
         margin: 3em auto 0 auto;
+    }
+
+    .profile-header,
+    .profile-content {
+        margin: 4rem auto 2rem auto;
+        font-size: .9em;
+        line-height: 1.9em;
+    }
+
+    .profile-header {
+        margin-top: 7rem;
     }
 }

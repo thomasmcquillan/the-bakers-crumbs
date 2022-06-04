@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="row">
-    <h3 class="text-center my-5">Add Recipe</h3>
-    <h5 class="text-center mb-5">Please add your recipe below, taking care to fill out all fields.</h5>
+<div class="row add-edit-recipe mb-5">
+    <div class="mx-auto col col-lg-9">
+        <h3 class="text-center my-5">New Recipe</h3>
+        <p class="text-center mb-5">Add your recipe below, taking care to fill out all fields.</p>
+    </div>
 </div>
 
 <form class="row justify-content-center" method="POST" action="{{ url_for('add_recipe') }}">
-    <div class="add-recipe-row row justify-content-center">
+    <div class="add-recipe-row row">
         <label for="recipe_name" class="tbc-input-label"><h4>recipe name</h4></label>
         <div class="tbc-input">
             <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
@@ -36,9 +38,9 @@
         <div class="tbc-input">
             <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
             <select name="category_name" class="form-control" required>
-                <option class="text-center" selected disabled>Click here to select the category that most closely matches your recipe</option>
+                <option class="text-center" selected disabled>Select the category that best matches your recipe</option>
                 {% for category in categories %}
-                <option value="{{category.category_name}}">{{ category.category_name }}</option>
+                <option class="text-center" value="{{category.category_name}}">{{ category.category_name }}</option>
                 {% endfor %}
             </select>
         </div>
@@ -51,15 +53,15 @@
                     name="ingredients" 
                     type="text"
                     class="form-control" 
-                    placeholder="Click here to add first ingredient. For example, 200g flour." 
+                    placeholder="Add first ingredient here. For example, 200g flour." 
                     minlength="3">
             <div class="food-basket"></div>
         </div>
     </div>
     <div class="add-recipe-row row">
-        <div class="col-6 mx-auto">
-            <button type="button" id="add-ingredient-btn" class="blue-button tbc-button mb-3 justify-content-center">Add Ingredient</button>
-            <button type="button" id="del-ingredient-btn" class="blue-button tbc-button justify-content-center">Remove Last Added</button>
+        <div class="col-5 mx-auto">
+            <button type="button" id="add-ingredient-btn" class="btn">Add Ingredient</button>
+            <button type="button" id="del-ingredient-btn" class="btn">Remove Last</button>
         </div>
     </div>
     <!-- Recipe Directions -->
@@ -78,16 +80,15 @@
         </div>
     </div>
     <div class="add-recipe-row row">
-        <div class="col-6 mx-auto">
-            <button type="button" id="add-step-button" class="directions blue-button tbc-button mb-3 justify-content-center">Add Step</button>
-            <button type="button" id="remove-step-button" class="tbc-button blue-button justify-content-center">Remove Last Added</button>
+        <div class="col-5 mx-auto">
+            <button type="button" id="add-step-button" class="directions btn">Add Step</button>
+            <button type="button" id="remove-step-button" class="btn">Remove</button>
         </div>
         <div class="next-steps"></div>
     </div>
     <!-- Recipe Image URL -->
     <div class="add-recipe-row row">
         <h4 class="text-center">Recipe Image</h4>
-        <!-- <div class="form-control" style="height:113px"> -->
             <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
             <input id="image_url" 
                     name="image_url" 
@@ -98,9 +99,9 @@
         <!-- </div> -->
     </div>
     <!-- Submit Recipe Button -->
-    <div class="add-recipe-row row pb-4">
-        <div class="col-6 mx-auto">
-            <button type="submit" class="blue-button tbc-button justify-content-center">Publish Recipe</button>            
+    <div class="add-recipe-row row mb-5">
+        <div class="col-5 mx-auto">
+            <button type="submit" class="btn">Publish Recipe</button>            
         </div>
     </div>
 </form>
