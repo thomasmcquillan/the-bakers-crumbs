@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row profile-content">
-    <h4 class="blue-text">Welcome {{ username.capitalize() }}</h4>
+<div class="row profile-content my-5">
+    <h4 class="blue-text my-5">Welcome {{ username.capitalize() }}</h4>
     <div class="col-11 col-md-7 col-lg-5 mx-auto">
         {% if recipes|length > 0 %}
             <p class="text-center">
                 Recipes you have shared are displayed below.
                 To add another recipe click below
+                <br>
             </p>
-            <button class="btn">
-                <a href="{{ url_for('add_recipe') }}" class="submit my-auto">
+            <button class="btn" style="width:50%">
+                <a href="{{ url_for('add_recipe') }}">
                     Add Recipe
                 </a>
             </button>
@@ -19,22 +20,23 @@
                 We see you have not uploaded any recipes.
                 <br>
                 To share a recipe 
-                <br>
-                <span><a href="{{ url_for('add_recipe') }}" class="inline-link"><strong>Add Recipe</strong></a></span>
-            </p><br>
+            </p>
+            <button class="btn" style="width:50%">
+                <a href="{{ url_for('add_recipe') }}" class="text-blue">
+                    Add Recipe
+                </a>
+            </button>
         {% endif %}
     </div>
 </div>
-<div class="row">
+<div class="row justify-content-center my-5 pb-5">
     {% for recipe in recipes %}
     <!-- Will display any recipes contributed by current user -->
     {% if session.user|lower == recipe.created_by|lower %}
-    <!-- <div class="col-10 col-md-5 col-lg-4 mx-auto"> -->
-        <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="col-10 col-md-6 mx-auto">
+        <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="col-6 col-md-4 mx-auto">
             <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}" class="img-fluid recipe-thumb">
             <h4 class="tbc-links">{{ recipe.recipe_name }}</h4>
         </a>
-    <!-- </div> -->
     {% endif %}
     {% endfor %}
 </div>
