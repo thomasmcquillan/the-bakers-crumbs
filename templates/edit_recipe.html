@@ -1,5 +1,112 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div class="row add-edit-recipe">
+    <div class="mx-auto col col-lg-9">
+        <h3 class="text-center blue-text my-5">Edit Recipe</h3>
+        <p class="text-center">Edit your recipe, adjusting as many or as few fields as required.</p>
+    </div>
+</div>
+<div class="row add-recipe-row">
+    <div class="col mx-auto">
+        <form class="mx-auto" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+            <div class="add-recipe-row row">
+                <label for="recipe_name" class="tbc-input-label"><h4>recipe name</h4></label>
+                <div class="tbc-input">
+                    <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
+                    <input required type="text"  
+                            name="recipe_name" 
+                            class="form-control validate"
+                            placeholder="Enter a memorable name for your recipe"
+                            value="{{ recipe.recipe_name }}"
+                            maxlength="50"/>
+                </div>
+            </div>
+            <div class="add-recipe-row row">
+                <label for="description" class="tbc-input-label"><h4>description</h4></label>
+                <div class="tbc-input">
+                    <input
+                        id="description"
+                        name="description" 
+                        type="text" 
+                        class="validate form-control"
+                        value="{{ recipe.recipe_description }}"
+                        maxlength="120"
+                        required>
+                </div>
+            </div>
+            <div class="add-recipe-row row">
+                <label for="category" class="tbc-input-label"><h4>category</h4></label>
+                <div class="tbc-input">
+                    <select name="category_name" class="form-control" required>
+                        <option selected disabled>Current Category: <span style="color:pink">{{recipe.category_name}}</span></option>
+                        {% for category in categories %}
+                        <option value="{{category.category_name}}">{{category.category_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="add-recipe-row row my-0">
+                <label for="ingredients" class="tbc-input-label"><h4>ingredients</h4></label>
+                <div id="food-delivery" class="tbc-input">
+                    {% for ingredient in recipe.ingredients %}
+                    <input required
+                            name="ingredients"
+                            type="text"
+                            class="ingredient-list form-control validate"
+                            style="font-size: small"
+                            placeholder="Add first ingredient here. ie, 200g flour."
+                            value="{{ ingredient }}"
+                            minlength="3">
+                    {% endfor %}
+                    <!-- Updated ingredient list is added below -->
+                    <div class="food-basket"></div>
+                </div>
+                <button type="button" id="add-ingredient-btn" class="btn">Add Ingredient</button>
+                <button type="button" id="del-ingredient-btn" class="btn">Remove Last</button>
+            </div>
+            <!-- Recipe Directions -->
+            <div class="add-recipe-row row my-0">
+                <label for="directions" class="tbc-input-label"><h4>directions</h4></label>
+                <div id="recipe-directions-section" class="tbc-input">
+                    <!-- Python takes list of directions from recipe collection on MongoDB and displays as editable fields -->
+                    {% for direction in recipe.directions %}
+                    <input name="directions" 
+                            type="text"
+                            class="recipe-directions form-control validate"
+                            style="font-size: small"
+                            minlength="3"
+                            maxlength="3000"
+                            value="{{ direction }}"
+                            required>
+                    {% endfor %}
+                    <div class="next-steps"></div>
+                </div>
+                <button type="button" id="add-step-button" class="directions btn">Add Step</button>
+                <button type="button" id="remove-step-button" class="btn">Remove</button>
+            </div>
+            <!-- Recipe Image URL -->
+            <div class="add-recipe-row row my-3">
+                <h4 class="text-center mb-3">Recipe Image</h4>
+                <p class="text-center mb-5">Please enter the address for an image of your recipe. Images hosted on 
+                    services such as Flickr, Dropbox, Imgur, Cloudinary, Google Photos, Wix etc should work fine.
+                    Simply copy image address and paste below.
+                </p>
+                <input id="image_url" 
+                        name="image_url"
+                        type="text"
+                        class="form-control validate"
+                        value="{{ recipe.image_url }}"
+                        style="height:108px"/>
+            </div>
+            <div class="add-recipe-row row mt-5">
+                <p class="text-center">Once you are happy with your edits simply click the link below to update your recipe.</p>
+            </div>
+            <!-- Submit recipe changes button -->
+            <button type="submit" class="btn mb-4">Update Recipe</button>
+            <button type="button" class="btn"><a href="{{ url_for('profile', username=session['user']) }}"></a>Cancel</button>
+        </form>
+    </div>
+</div>
 
 {% endblock %}
