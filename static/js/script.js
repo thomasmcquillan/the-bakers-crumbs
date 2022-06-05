@@ -34,7 +34,7 @@ addIngredient.onclick = function(){
     addFoodstuff.setAttribute('style', 'height:54px');
     addFoodstuff.setAttribute('required', 'true');
     addFoodstuff.setAttribute('placeholder', 'Next ingredient goes here');
-        foodDelivery.appendChild(addFoodstuff);
+    foodDelivery.appendChild(addFoodstuff);
 };
 
 delIngredient.onclick = function(){
