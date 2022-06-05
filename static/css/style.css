@@ -123,6 +123,11 @@ a:hover {
     text-align: center;
 }
 
+.add-edit-recipe p,
+.add-recipe-row p {
+    font-size: .95em;
+}
+
 @media (min-width: 330px) {
     #tbc-logo h1 {
         font-size: 29.7px;
@@ -349,7 +354,7 @@ input.tbc-search-input:focus {
     /* padding: .4rem 1.2rem; */
     margin: 0 auto .3rem auto;
     min-width: 180px;
-    max-width: 50%;
+    max-width: 30%;
     color: --tbc-soft-pink !important;
     background-color: var(--tbc-bg-pinky);
     border: .9px solid var(--tbc-soft-pink);
@@ -381,7 +386,7 @@ textarea {
 .tbc-input input {
     margin-top: 2px;
     display: flex;
-    /* height: 50px; */
+    height: 54px;
     line-height: 54px;
     align-items: center;
 }
@@ -397,6 +402,7 @@ li::marker {
 option {
     text-align: center;
     justify-content: center;
+    height: 54px;
 }
 
 /* ============================== Homepage Styling =============================== */
@@ -538,10 +544,6 @@ option {
     margin: 8rem auto 3rem auto;
 }
 
-#recipe-directions {
-    height: 54px;
-}
-
 /* ==================== Login / Register / Profile Pages ======================= */
 
 .card-login,
@@ -667,6 +669,7 @@ option {
     .add-edit-recipe label,
     .add-recipe-row h4,
     .add-recipe-row p,
+    .add-edit-recipe p,
     .add-recipe-row input {
         font-size: small;
     }

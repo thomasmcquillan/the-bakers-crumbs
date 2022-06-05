@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="row add-edit-recipe">
-    <div class="mx-auto col col-lg-9">
+    <div class="mx-auto col col-lg-8">
         <h3 class="text-center blue-text my-5">Edit Recipe</h3>
         <p class="text-center">Edit your recipe, adjusting as many or as few fields as required.</p>
     </div>
@@ -17,7 +17,6 @@
                     <input required type="text"  
                             name="recipe_name" 
                             class="form-control validate"
-                            placeholder="Enter a memorable name for your recipe"
                             value="{{ recipe.recipe_name }}"
                             maxlength="50"/>
                 </div>
@@ -50,20 +49,20 @@
                 <label for="ingredients" class="tbc-input-label"><h4>ingredients</h4></label>
                 <div id="food-delivery" class="tbc-input">
                     {% for ingredient in recipe.ingredients %}
-                    <input required
-                            name="ingredients"
+                    <input name="ingredients"
                             type="text"
                             class="ingredient-list form-control validate"
                             style="font-size: small"
                             placeholder="Add first ingredient here. ie, 200g flour."
                             value="{{ ingredient }}"
-                            minlength="3">
+                            minlength="3"
+                            required>
                     {% endfor %}
                     <!-- Updated ingredient list is added below -->
                     <div class="food-basket"></div>
                 </div>
                 <button type="button" id="add-ingredient-btn" class="btn">Add Ingredient</button>
-                <button type="button" id="del-ingredient-btn" class="btn">Remove Last</button>
+                <button type="button" id="del-ingredient-btn" class="btn">Delete Ingredient</button>
             </div>
             <!-- Recipe Directions -->
             <div class="add-recipe-row row my-0">
@@ -71,7 +70,7 @@
                 <div id="recipe-directions-section" class="tbc-input">
                     <!-- Python takes list of directions from recipe collection on MongoDB and displays as editable fields -->
                     {% for direction in recipe.directions %}
-                    <input name="directions" 
+                    <input  name="directions" 
                             type="text"
                             class="recipe-directions form-control validate"
                             style="font-size: small"
@@ -83,7 +82,7 @@
                     <div class="next-steps"></div>
                 </div>
                 <button type="button" id="add-step-button" class="directions btn">Add Step</button>
-                <button type="button" id="remove-step-button" class="btn">Remove</button>
+                <button type="button" id="remove-step-button" class="btn">Delete Step</button>
             </div>
             <!-- Recipe Image URL -->
             <div class="add-recipe-row row my-3">
@@ -101,10 +100,10 @@
             </div>
             <div class="add-recipe-row row mt-5">
                 <p class="text-center">Once you are happy with your edits simply click the link below to update your recipe.</p>
+                <!-- Submit recipe changes button -->
+                <button type="submit" class="btn mb-4">Update Recipe</button>
+                <button type="button" class="btn"><a href="{{ url_for('profile', username=session['user']) }}"></a>Cancel</button>
             </div>
-            <!-- Submit recipe changes button -->
-            <button type="submit" class="btn mb-4">Update Recipe</button>
-            <button type="button" class="btn"><a href="{{ url_for('profile', username=session['user']) }}"></a>Cancel</button>
         </form>
     </div>
 </div>
