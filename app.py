@@ -175,6 +175,7 @@ def add_recipe():
     Enables user to add a recipe of their own to the db
     """
     if request.method == "POST":
+        # user = mongo.db.users.find_one({"username": session["user"]})
         recipe = {
             "recipe_name": request.form.get("recipe_name"),
             "recipe_description": request.form.get("description"),
@@ -198,16 +199,18 @@ def edit_recipe(recipe_id):
     Allows user to update their previously submitted recipes
     """
     if request.method == "POST":
-        submit = {
+        # user = mongo.db.users.find_one({"username": session["user"]})
+        update = {
             "recipe_name": request.form.get("recipe_name"),
             "recipe_description": request.form.get("description"),
-            "category_name": request.form.get("category_name"),
+            "category_name": request.form.getlist("category_name"),
             "image_url": request.form.get("image_url"),
             "ingredients": request.form.getlist("ingredients"),
             "directions": request.form.getlist("directions"),
-            "created_by": session["user"]
+            # "created_by": session["user"]
+            "created_by": ObjectId(user["_id"])
         }
-        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update)
         flash("Recipe successfully updated!")
         return redirect(url_for("profile", username=session["user"]))
 
