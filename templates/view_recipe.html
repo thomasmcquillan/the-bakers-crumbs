@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row justify-content-center mt-md-3">
+<div class="row justify-content-center mt-5">
     <div class="recipe-img-wrap col-6 col-md-4 mx-auto">
         <img src="{{ recipe.image_url }}" class="view-recipe-img" alt="{{ recipe.recipe_name }}">
     </div>
-</div>
-<div class="row" id="recipe-wrap">
-    <div class="recipe-card-header col-12 mx-auto">
+<!-- </div>
+<div class="row" id="recipe-wrap"> -->
+    <div class="recipe-card-header col-12 mx-auto mt-5">
         <h4 style="color:black">{{ recipe.recipe_name|title }}</h4>
     </div>
     <div class="recipe-card recipe-card-top d-flex col-12 mx-auto">
