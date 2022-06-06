@@ -160,6 +160,15 @@ def get_category(category_id):
         "recipes.html", recipes=recipes)
 
 
+@app.route("/view_recipe/<recipe_id>")
+def view_recipe(recipe_id):
+    """
+    Displays full recipe, as selected by user.
+    """
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("view_recipe.html", recipe=recipe)
+
+
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     """
@@ -183,15 +192,6 @@ def add_recipe():
     return render_template("add_recipe.html", categories=categories)
 
 
-@app.route("/view_recipe/<recipe_id>")
-def view_recipe(recipe_id):
-    """
-    Displays full recipe, as selected by user.
-    """
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("view_recipe.html", recipe=recipe)
-
-
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     """
@@ -200,15 +200,16 @@ def edit_recipe(recipe_id):
     if request.method == "POST":
         submit = {
             "recipe_name": request.form.get("recipe_name"),
+            "recipe_description": request.form.get("description"),
             "category_name": request.form.get("category_name"),
             "image_url": request.form.get("image_url"),
-            "recipe_description": request.form.get("description"),
             "ingredients": request.form.getlist("ingredients"),
             "directions": request.form.getlist("directions"),
             "created_by": session["user"]
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Recipe successfully updated!")
+        return redirect(url_for("profile", username=session["user"]))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
