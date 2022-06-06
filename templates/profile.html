@@ -8,12 +8,17 @@
         <p class="text-center">
             Your recipes can be seen below.
             <br>To add another recipe:<br>
-            <span>  
+            <!-- <span>  
                 <a href="{{ url_for('add_recipe') }}">
-                    <h4 class="inline-link">Click Here</h4>
+                    <h4 class="inline-link">Add Recipe</h4>
                 </a>
-            </span>
-        </p>
+            </span> -->
+        </p> 
+        <a class="btn" href="{{ url_for('add_recipe') }}">
+            <!-- <button class="btn"> -->
+                <h4>Add Recipe</h4>
+            <!-- </button> -->
+        </a>
         {% else %}
         <p class="text-center"> 
             We see you have not uploaded any recipes.

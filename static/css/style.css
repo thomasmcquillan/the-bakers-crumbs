@@ -40,10 +40,11 @@ body {
     left: 0;
 }
 
-/* #page-content {
+#page-content {
     position: relative;
-    margin-top: 1rem;
-} */
+    min-height: calc(100vh - 180px)
+    /* margin-top: 1rem; */
+}
 
 /* ============================== Links Styling =============================== */
 
@@ -378,12 +379,16 @@ input.tbc-search-input:focus {
 
 .btn {
     display: flex;
+    /* flex-direction: row; */
+    /* height: auto; */
     justify-content: center;
     align-content: center;
     align-items: center;
     justify-self: center;
+    font-size: 11px;
     /* padding: .4rem 1.2rem; */
-    margin: 0 auto .3rem auto;
+    /* margin: 0 auto .3rem auto; */
+    margin: 0 auto;
     min-width: 180px;
     max-width: 30%;
     color: --tbc-soft-pink !important;
