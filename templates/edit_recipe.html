@@ -13,12 +13,11 @@
             <div class="add-recipe-row row">
                 <label for="recipe_name" class="tbc-input-label"><h4>recipe name</h4></label>
                 <div class="tbc-input">
-                    <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
                     <input required type="text"  
                             name="recipe_name" 
                             class="form-control validate"
                             value="{{ recipe.recipe_name }}"
-                            maxlength="50"/>
+                            maxlength="50">
                 </div>
             </div>
             <div class="add-recipe-row row">
@@ -96,13 +95,13 @@
                         type="text"
                         class="form-control validate"
                         value="{{ recipe.image_url }}"
-                        style="height:108px"/>
+                        style="height:108px">
             </div>
             <div class="add-recipe-row row mt-5">
                 <p class="text-center">Once you are happy with your edits simply click the link below to update your recipe.</p>
                 <!-- Submit recipe changes button -->
-                <button type="submit" class="btn mb-4">Update Recipe</button>
-                <button type="button" class="btn"><a href="{{ url_for('profile', username=session['user']) }}"></a>Cancel</button>
+                <button type="submit" class="btn">Update Recipe</button>
+                <button type="button" class="btn"><a href="{{ url_for('profile', username=session['user']) }}">Cancel</a></button>
             </div>
         </form>
     </div>
