@@ -67,9 +67,11 @@ a:hover {
 }
 
 .tbc-links {
+    font-size: 12px;
     text-align: center;
-    padding-top: .8em;
+    padding: 8px;
     font-size: .58em;
+    width: 100%;
 }
 
 /* .social-links a {
@@ -448,6 +450,7 @@ option {
 h5.flash-message {
     color: var(--tbc-inky-blue);
     background-color: var(--tbc-bg-light);
+    width: calc(fit-content + 1em);
 }
 
 .closebtn {
@@ -500,7 +503,7 @@ h5.flash-message {
 /* ============================== Layout Styling =============================== */
 
 #page-content {
-    margin: 200px auto auto auto;
+    margin: 200px auto 200px auto;
     padding: 0;
 }
 
@@ -641,7 +644,7 @@ h5.flash-message {
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
-    padding: 2vh;
+    padding: 1vh;
 }
 
 .recipe-img-wrap img {
@@ -715,7 +718,7 @@ h5.flash-message {
     }
 
     #page-content {
-        margin-top: 99px;
+        margin-top: 110px;
     }
 
     .form-control,
@@ -827,7 +830,7 @@ h5.flash-message {
     }
 
     .tbc-links {
-        font-size: .8em;
+        font-size: 15px;
     }
 
     /* ==== @media 992px> : Navigation ==== */
@@ -896,7 +899,7 @@ h5.flash-message {
     /* ==== @media 992px> : layout etc ==== */
 
     #page-content {
-        margin-top: 222px;
+        margin-top: 244px;
     }
 
     .row {
