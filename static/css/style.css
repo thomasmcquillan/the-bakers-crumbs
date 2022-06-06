@@ -69,7 +69,7 @@ a:hover {
 .tbc-links {
     text-align: center;
     padding-top: .8em;
-    font-size: .7em;
+    font-size: .58em;
 }
 
 /* .social-links a {
@@ -80,6 +80,9 @@ a:hover {
     color: var(--tbc-inky-blue);
     font-size: larger;
     background-color: var(--tbc-bg-pinky);
+    width: fit-content;
+    margin: 0 auto;
+    padding: 2px;
 }
 
 /* ============================== Fonts Styling =============================== */
@@ -126,6 +129,11 @@ a:hover {
 .add-edit-recipe p,
 .add-recipe-row p {
     font-size: .95em;
+}
+
+h5.flash-message {
+    color: var(--tbc-inky-blue);
+    background-color: var(--tbc-bg-light);
 }
 
 @media (min-width: 330px) {
@@ -405,6 +413,21 @@ option {
     height: 54px;
 }
 
+.flash-wrap {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: color #74aac9;
+    place-content: center;
+    top: 0;
+    left: 0;
+}
+
+.flashes {
+    height: 20vh;
+}
+
 /* ============================== Homepage Styling =============================== */
 
 #hero-sm {
@@ -451,9 +474,12 @@ option {
 /* ============================== Layout Styling =============================== */
 
 #page-content {
-    margin-top: 200px;
     margin: 200px auto auto auto;
     padding: 0;
+}
+
+.row {
+    padding: 0 1rem 0 1rem;
 }
 
 /* ============================== Recipe Styling =============================== */
@@ -589,6 +615,7 @@ option {
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
+    padding: 2vh;
 }
 
 .recipe-img-wrap img {
@@ -637,6 +664,11 @@ option {
 /* ----- Catering to bakers on old tech (iphone4 etc) ----- */
 
 @media (max-width: 360px) {
+
+    body {
+        right: 8px;
+    }
+
     #tbc-nav {
         height: 150px;
     }
@@ -656,14 +688,14 @@ option {
         padding: 2.2 0 2.2rem 0;
     }
 
+    #page-content {
+        margin-top: 99px;
+    }
+
     .form-control,
     .btn {
         font-size: small;
         padding: auto 0;
-    }
-
-    #page-content {
-        margin-top: 44px;
     }
 
     .add-edit-recipe label,
@@ -678,6 +710,21 @@ option {
         font-size: .8em;
         color: var(--tbc-dark-grey);
         color: var(--tbc-soft-pink);
+    }
+
+    .row {
+        width: 100vw;
+        justify-content: space-evenly;
+        margin: 0 auto 2rem auto;
+    }
+
+    .recipe-thumb {
+        max-width: 120px;
+        margin: 0 auto;
+    }
+
+    .tbc-links {
+        font-size: 11px;
     }
 }
 
@@ -700,6 +747,10 @@ option {
     .tbc-mobile-nav li {
         font-size: 1rem;
         padding: 4rem 0 4rem 0;
+    }
+
+    .row {
+        padding: 0 1.3rem 0 1.3rem;
     }
 }
 
@@ -728,15 +779,10 @@ option {
         margin: 134px 24px auto auto;
     }
 
-    .profile-header,
     .profile-content {
         margin: 3rem auto 2rem auto;
         font-size: 1em;
         line-height: 1.9em;
-    }
-
-    .profile-header {
-        margin-top: 7rem;
     }
 }
 
@@ -752,6 +798,10 @@ option {
     .tbc-logo-caption {
         font-size: 1.4em;
         margin: 0px auto 33px auto;
+    }
+
+    .tbc-links {
+        font-size: .8em;
     }
 
     /* ==== @media 992px> : Navigation ==== */
@@ -823,6 +873,10 @@ option {
         margin-top: 222px;
     }
 
+    .row {
+        padding: 0 2.2rem 0 2.2rem;
+    }
+
     .recipe-card-header {   
         display: flex;
         flex-direction: row;
@@ -852,14 +906,13 @@ option {
         margin: 3em auto 0 auto;
     }
 
-    .profile-header,
     .profile-content {
         margin: 4rem auto 2rem auto;
         font-size: .9em;
         line-height: 1.9em;
     }
 
-    .profile-header {
-        margin-top: 7rem;
+    .recipe-thumb {
+        padding: 11px;
     }
 }

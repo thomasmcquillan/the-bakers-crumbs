@@ -1,43 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row profile-content my-5">
+<div class="row profile-content my-4 p-0">
     <h4 class="blue-text my-5">Welcome {{ username.capitalize() }}</h4>
-    <div class="col-11 col-md-7 col-lg-5 mx-auto">
+    <div class="col-11 col-md-9 col-lg-6 mx-auto">
         {% if recipes|length > 0 %}
-            <p class="text-center">
-                Recipes you have shared are displayed below.
-                To add another recipe click below
-                <br>
-            </p>
-            <button class="btn" style="width:50%">
+        <p class="text-center">
+            Your recipes can be seen below.
+            <br>To add another recipe:<br>
+            <span>  
                 <a href="{{ url_for('add_recipe') }}">
-                    Add Recipe
+                    <h4 class="inline-link">Click Here</h4>
                 </a>
-            </button>
+            </span>
+        </p>
         {% else %}
-            <p class="text-center"> 
-                We see you have not uploaded any recipes.
-                <br>
-                To share a recipe 
-            </p>
-            <button class="btn" style="width:50%">
-                <a href="{{ url_for('add_recipe') }}" class="text-blue">
-                    Add Recipe
+        <p class="text-center"> 
+            We see you have not uploaded any recipes.
+            <br>To share a recipe:<br>
+            <span>
+                <a href="{{ url_for('add_recipe') }}">
+                    <h4 class="inline-link">Click Here</h4>
                 </a>
-            </button>
+            </span>
+        </p>
         {% endif %}
     </div>
 </div>
-<div class="row justify-content-center my-5 pb-5">
+<div class="recipe-row row justify-content-center">
     {% for recipe in recipes %}
-    <!-- Will display any recipes contributed by current user -->
-    {% if session.user|lower == recipe.created_by|lower %}
-        <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="col-6 col-md-4 mx-auto">
-            <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}" class="img-fluid recipe-thumb">
-            <h4 class="tbc-links">{{ recipe.recipe_name }}</h4>
-        </a>
-    {% endif %}
+        <!-- Will display any recipes contributed by current user -->
+        {% if session.user|lower == recipe.created_by|lower %}
+            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="col-6 col-md-4 col-lg-3 my-3 thumb-wrap">
+                <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}" class="img-fluid recipe-thumb">
+                <h4 class="tbc-links">{{ recipe.recipe_name }}</h4>
+            </a>
+        {% endif %}
     {% endfor %}
 </div>
 

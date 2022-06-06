@@ -119,7 +119,32 @@
     <div id="page-content" class="container-xl mx-auto">
         {% block content %}
         {% endblock %}
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <div class="flash-wrap">
+                    <div class="row flashes">
+                        <h5 class="flash-message">{{ message }}</h5>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
     </div>
+
+    <!-- Flash messages will appear here -->
+    <!-- <div> -->
+        <!-- {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <div class="row flashes">
+                    <h5 class="flash-message">{{ message }}</h5>
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %} -->
+    <!-- </div> -->
 
 <!-- jquery script -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
