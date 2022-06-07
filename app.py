@@ -211,7 +211,7 @@ def edit_recipe(recipe_id):
         }
         mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, update)
         flash("Recipe Successfully Updated!")
-        return redirect(url_for("profile"))
+        return redirect(url_for("profile", username=session["user"]))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -227,7 +227,7 @@ def delete_recipe(recipe_id):
     """
     mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
     flash("recipe deleted!")
-    return redirect(url_for("index"))
+    return redirect(url_for("profile", username=session["user"]))
 
 
 @app.errorhandler(403)

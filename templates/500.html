@@ -5,11 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-6 mx-auto justify-content-center">
             <h2 class="text-blue text-center">500 - Page not found </h2>
-            <h4 class="text-pink">  Sorry, something went awry - but nevermind, <br>
-                                    let's get back to the kitchen.</h4>
+            <h4 class="text-pink">  
+                Hmmmm, donut know what happened there.
+            </h4>
+            <a class="error-button" href="{{ url_for('index')}}">Let's back to the kitchen.</a>
         </div>
     </div>
-    <a class="error-button" href="{{ url_for('index')}}">Let's Bake</a>
+    
 </div>
 
 {% endblock %}
