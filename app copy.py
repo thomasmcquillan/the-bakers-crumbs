@@ -198,19 +198,16 @@ def edit_recipe(recipe_id):
     Allows user to update their previously submitted recipes
     """
     if request.method == "POST":
-        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-        recipe = {
-            "$set": {
-                "recipe_name": request.form.get("recipe_name"),
-                "recipe_description": request.form.get("description"),
-                "category_name": request.form.get("category_name"),
-                "image_url": request.form.get("image_url"),
-                "ingredients": request.form.getlist("ingredients"),
-                "directions": request.form.getlist("directions"),
-                "created_by": session["user"]
-            }
+        submit = {
+            "recipe_name": request.form.get("recipe_name"),
+            "recipe_description": request.form.get("description"),
+            "category_name": request.form.get("category_name"),
+            "image_url": request.form.get("image_url"),
+            "ingredients": request.form.getlist("ingredients"),
+            "directions": request.form.getlist("directions"),
+            "created_by": session["user"]
         }
-        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, recipe)
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Recipe successfully updated!")
         return redirect(url_for("profile", username=session["user"]))
 
