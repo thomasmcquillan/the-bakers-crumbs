@@ -445,9 +445,10 @@ option {
     display: grid;
     width: 100vw;
     height: 100vh;
-    background-color:rgba(241, 217, 217, 0.572);
+    place-self: center;
+    place-items: center;
+    background-color:rgba(247, 228, 228, 0.722);
     position: absolute;
-    place-content: center;
     top: 0;
     left: 0;
 }
@@ -455,7 +456,10 @@ option {
 h5.flash-message {
     color: var(--tbc-inky-blue);
     background-color: var(--tbc-bg-light);
-    width: calc(fit-content + 1em);
+    width: fit-content;
+    height: fit-content;
+    margin: auto auto;
+    padding: 1.5em;
 }
 
 .closebtn {
