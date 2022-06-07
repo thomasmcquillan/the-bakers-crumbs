@@ -209,7 +209,7 @@ def edit_recipe(recipe_id):
             }
         }
         mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, update)
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("profile"))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
