@@ -1,12 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="error-wrap container-fluid">
-    <h2 class="text-blue text-center">500 - Page not found </h2>
-    <h4 class="text-pink text-center">  
-        Hmmmm, donut know what happened there.
-    </h4>
-    <a class="error-button text-center" href="{{ url_for('index')}}">Let's back to the kitchen.</a>
+<div class="error-wrap container-lg">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center">500 - Page not found</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h5 class="text-center">Hmmmm, donut how this happened..</h5>
+        </div>
+    <div class="row">
+        <div class="col-12">
+            <a class="btn mx-auto" href="{{ url_for('index')}}">>>> Back to Baking >>></a>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

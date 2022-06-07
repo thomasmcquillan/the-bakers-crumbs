@@ -701,14 +701,20 @@ h5.flash-message {
 
 .error-wrap {
     display: flex;
+    flex-direction: column;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #f592a3;
+    background-color: #f592a3db;
     justify-content: center;
     align-content: center;
+    z-index: 1000;
+}
+
+.error-wrap.children {
+    margin: 2rem auto;
 }
 
 /* ============================== Media Queries =============================== */
