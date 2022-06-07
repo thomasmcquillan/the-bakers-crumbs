@@ -211,6 +211,7 @@ def edit_recipe(recipe_id):
         }
         mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, update)
         flash("Recipe successfully updated!")
+        return redirect(url_for("index"))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -243,6 +244,14 @@ def page_not_found(e):
     404 Error page - page not found
     """
     return render_template('404.html'), 404
+
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    """
+    500 Error page - server error
+    """
+    return render_template('500.html'), 500
 
 
 if __name__ == "__main__":
