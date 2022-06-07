@@ -14,11 +14,3 @@ $(document).ready(function() {
         $("#navlinks-sm").toggle();
     });
 });
-
-$(document).ready(function(){
-    if (('.alert').is(':visible')) { 
-       setTimeout(() => {
-          $('.alert').fadeOut('slow')
-       }, 3000);
-    }
-});
