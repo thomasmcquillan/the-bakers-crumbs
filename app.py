@@ -115,7 +115,7 @@ def profile(username):
     """
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
+
     if session["user"]:
         recipes = list(mongo.db.recipes.find({"created_by": username}))
         return render_template(
@@ -185,7 +185,6 @@ def add_recipe():
             "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
-        flash("Recipe successfully added!")
         return redirect(url_for("profile", username=session["user"]))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -210,8 +209,7 @@ def edit_recipe(recipe_id):
             }
         }
         mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, update)
-        flash("Recipe successfully updated!")
-        return redirect(url_for("index"))
+        return redirect(url_for("profile", username=session["user"]))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
