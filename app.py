@@ -185,6 +185,7 @@ def add_recipe():
             "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
+        flash("Recipe Added!")
         return redirect(url_for("profile", username=session["user"]))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -209,6 +210,7 @@ def edit_recipe(recipe_id):
             }
         }
         mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, update)
+        flash("Recipe Successfully Updated!")
         return redirect(url_for("profile"))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
