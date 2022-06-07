@@ -198,8 +198,7 @@ def edit_recipe(recipe_id):
     Allows user to update their previously submitted recipes
     """
     if request.method == "POST":
-        updaterecipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-        updaterecipe = {
+        update = {
             "$set": {
                 "recipe_name": request.form.get("recipe_name"),
                 "recipe_description": request.form.get("description"),
@@ -210,7 +209,7 @@ def edit_recipe(recipe_id):
                 "created_by": session["user"]
             }
         }
-        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, updaterecipe)
+        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, update)
         flash("Recipe successfully updated!")
         return redirect(url_for("profile", username=session["user"]))
 
