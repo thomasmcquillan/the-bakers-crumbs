@@ -178,7 +178,7 @@ def add_recipe():
         recipe = {
             "recipe_name": request.form.get("recipe_name"),
             "recipe_description": request.form.get("description"),
-            "category_name": request.form.get("category_name"),
+            "category_name": request.form.getlist("category_name"),
             "image_url": request.form.get("image_url"),
             "ingredients": request.form.getlist("ingredients"),
             "directions": request.form.getlist("directions"),
@@ -202,7 +202,7 @@ def edit_recipe(recipe_id):
             "$set": {
                 "recipe_name": request.form.get("recipe_name"),
                 "recipe_description": request.form.get("description"),
-                "category_name": request.form.get("category_name"),
+                "category_name": request.form.getlist("category_name"),
                 "image_url": request.form.get("image_url"),
                 "ingredients": request.form.getlist("ingredients"),
                 "directions": request.form.getlist("directions"),
@@ -210,7 +210,7 @@ def edit_recipe(recipe_id):
             }
         }
         mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, update)
-        flash("Recipe Successfully Updated!")
+        # flash("Recipe Successfully Updated!")
         return redirect(url_for("profile", username=session["user"]))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})

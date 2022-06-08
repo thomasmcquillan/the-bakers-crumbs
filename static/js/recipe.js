@@ -40,11 +40,11 @@ nextStepButton.onclick = function(){
     var addStepButton = document.createElement('textarea');
     addStepButton.setAttribute('type', 'text');
     addStepButton.setAttribute('name', 'directions');
-    addStepButton.setAttribute('class', 'recipe-directions validate form-control text-center');
-    addStepButton.setAttribute('style', 'height:54px');
+    addStepButton.setAttribute('class', 'recipe-directions validate form-control');
     addStepButton.setAttribute('minlength', '3');
+    addStepButton.setAttribute('maxlength', '222');
     addStepButton.setAttribute('required', 'true');
-    addStepButton.setAttribute('placeholder', 'Add next step here.');
+    addStepButton.setAttribute('title', 'Add the next step here');
     recipeDirectionsDiv.appendChild(addStepButton);
 };
 
