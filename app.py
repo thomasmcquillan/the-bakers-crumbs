@@ -2,6 +2,7 @@ import os
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
+from flask_login import login_required
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -101,9 +102,10 @@ def login():
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 return redirect(url_for("profile", username=session["user"]))
-        else:
-            flash("Invalid username and/or password")
-            return redirect(url_for("login"))
+            else:
+                flash("Invalid username and/or password")
+
+        return redirect(url_for("login"))
 
     return render_template("login.html")
 
@@ -146,11 +148,11 @@ def delete_user(username):
     dead_recipes = list(
         mongo.db.recipes.find({"created_by": username}))
     for recipe in dead_recipes:
-        mongo.db.recipes.remove(recipe)
-    mongo.db.users.remove({"username": username})
+        mongo.db.recipes.delete_one(recipe)
+    mongo.db.users.delete_one({"username": username})
     flash("Your account and recipes were successfully deleted")
     session.pop("user")
-    return redirect(url_for("register"))
+    return redirect(url_for("index"))
 
 
 @app.route("/get_category/<category_id>")
@@ -262,4 +264,4 @@ def internal_server_error(e):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)

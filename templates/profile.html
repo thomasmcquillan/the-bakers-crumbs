@@ -2,19 +2,6 @@
 {% block content %}
 
 <div class="row profile-content my-4 p-0">
-    <ul id="profile-links">
-        <li>
-            <a class="tbc-links d-block" href="{{ url_for('add_recipe') }}">
-                Add Recipe
-            </a>
-        </li>
-        <li>
-            <a href="#delete_user" class="my-auto">
-                Delete Account
-            </a>
-        </li>
-    </ul>
-    
     <h4 class="blue-text my-5">Welcome {{ username.capitalize() }}</h4>
     <div class="col-11 col-md-9 col-lg-6 mx-auto">
         {% if recipes|length > 0 %}
@@ -46,8 +33,22 @@
     {% endfor %}
 </div>
 
+<ul id="profile-links">
+    <li>
+        <a class="tbc-links d-block" href="{{ url_for('add_recipe') }}">
+            Add Recipe
+        </a>
+    </li>
+    <li>
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#confirmAccountDeletionModal">
+            <a href="#delete_user" class="my-auto">
+                Delete Account
+            </a>
+        </button>
+    </li>
+</ul>
 <!-- Delete Account Confirmation Modal -->
-<div class="modal fade" id="confirmAccountDeletionModal" tabindex="-1" aria-labelledby="deleteAccount" aria-hidden="true">
+<div class="modal fade" id="confirmAccountDeletionModal" tabindex="-1" aria-labelledby="delete_user" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -57,7 +58,7 @@
                 </h5>
             </div>
             <div class="modal-body">
-                <p>Are you sure want to permanently delete this recipe?</p>
+                <p>Are you sure you want to delete your account and any recipes you have submitted? Deletion is permanent.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn">
