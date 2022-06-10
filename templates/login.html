@@ -1,54 +1,55 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row justify-content-center mt-5">
-<form class="login-form mx-auto mt-lg-5" method="POST" action="{{ url_for('login') }}">
-    <div class="row justify-content-center">
-        <h5 class="page-title">Sign in</h5>
-        <label for="username" class="tbc-input-label">Username</label>
-        <!-- Username Input -->
-        <input id="username" 
-                name="username"
-                type="text"
-                minlength="6" 
-                maxlength="15" 
-                class="validate tbc-input" 
-                autocomplete="on"
-                placeholder="Username"
-                title="Please enter your username"
-                required>
-        <label for="password" class="tbc-input-label">Password</label>
-        <!-- Password Input -->
-        <input id="password"
-                name="password"
-                type="password"
-                minlength="6"
-                maxlength="15"
-                class="validate tbc-input"
-                autocomplete="on"
-                placeholder="Password"
-                required>
-    </div>
-    <!-- Confirm Login Button -->
-    <div class="row my-0 my-md-5">
-        <a type="submit" class="tbc-button mx-auto">
-            Sign in
-        </a>
-    </div>
-</form>
+    <form class="login-form" method="POST" action="{{ url_for('login') }}">
+        <div class="row justify-content-center">
+            <h5 class="page-title">Sign in</h5>
+            <div class="col-9 col-lg-6 my-4">
+                <label for="username" class="tbc-input-label">Username</label>
+                <!-- Username Input -->
+                <input id="username" 
+                    name="username"
+                    type="text"
+                    minlength="6" 
+                    maxlength="15" 
+                    class="validate tbc-input" 
+                    autocomplete="on"
+                    placeholder="Username"
+                    title="Please enter your username"
+                    required>
+                <label for="password" class="tbc-input-label">Password</label>
+                <!-- Password Input -->
+                <input id="password"
+                    name="password"
+                    type="password"
+                    minlength="6"
+                    maxlength="15"
+                    class="validate tbc-input"
+                    autocomplete="on"
+                    placeholder="Password"
+                    required>
+            </div>
+        </div>
+        <!-- Confirm Login Button -->
+        <div class="row my-3 my-md-4">
+            <a type="submit" class="tbc-button mx-auto">
+                Sign in
+            </a>
+        </div>
+    </form>
 </div>
-<div class="row justify-content-center my-3">
+<div class="row justify-content-center my-2">
     <div class="col-10 col-md-7 col-xl-6">
         <h5 class="page-title pb-3">
             Not a member?
         </h5>
         <p id="login-msg" class="text-prompt">
-            Registration is fast and easy, and enables you to begin 
-            sharing favourite recipes with <span><strong class="blue-text">the baker's crumbs</strong></span> community.
+            Registration is easy and allows you to share favourite recipes with <span><strong class="blue-text">the&nbsp;baker's&nbsp;crumbs</strong></span>&nbsp;community.
         </p>
     </div>
     <div class="row my-3 my-md-5">
         <a href="{{ url_for('register') }}" class="tbc-button mx-auto">
-            Register
+            Register Here
         </a>
     </div>
 </div>

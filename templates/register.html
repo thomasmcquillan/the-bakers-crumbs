@@ -1,43 +1,57 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form class="login-form mx-auto mt-lg-5" method="POST" action="{{ url_for('register') }}">
+<div class="row justify-content-center mt-5">
+    <form class="register-form" method="POST" action="{{ url_for('register') }}">
     <!-- Username Input -->
     <div class="row justify-content-center">
-        <div class="tbc-input mx-auto my-3">
-            <label for="username" class="tbc-input-label">Please enter a Username</label>
+        <h5 class="page-title">Register Below</h5>
+        <div class="col-9 col-lg-6 my-4">
+            <label for="username" class="tbc-input-label">Username</label>
+            <!-- Username Input -->
             <input id="username" 
-                    name="username"
-                    type="text"
-                    minlength="6" 
-                    maxlength="15" 
-                    class="validate" 
-                    placeholder="Username"
-                    title="Please enter a username of at least 6 characters"
-                    required>
-        </div>
-    </div>
-    <!-- Password Input -->
-    <div class="row justify-content-center">
-        <div class="tbc-input mx-auto my-3">
-            <label for="username" class="tbc-input-label">Please enter a password</label>
+                name="username"
+                type="text"
+                minlength="6" 
+                maxlength="15" 
+                class="validate tbc-input" 
+                placeholder="Please enter a Username"
+                title="Please enter a username of at least 6 characters"
+                required>
+            <label for="username" class="tbc-input-label">Password</label>
+            <!-- Password Input -->
             <input id="password"
-                    name="password"
-                    type="password"
-                    minlength="6"
-                    maxlength="15"
-                    class="validate"
-                    placeholder="Password"
-                    title="Password must have at least 6 characters"
-                    required>
+                name="password"
+                type="password"
+                minlength="6"
+                maxlength="15"
+                class="validate tbc-input"
+                placeholder="Please enter a password"
+                title="Password must have at least 6 characters"
+                required>
         </div>
     </div>
     <!-- Confirm Login Button -->
-    <div class="row">
-        <button type="submit" class="tbc-button btn mx-auto">
-            Confirm Registration
-        </button>
+    <div class="row my-3 my-md-4">
+        <a type="submit" class="tbc-button mx-auto">
+            Confirm
+        </a>
     </div>
 </form>
+<div class="row justify-content-center my-2">
+    <div class="col-10 col-md-7 col-xl-6">
+        <h5 class="page-title pb-3">
+            Already a Member?
+        </h5>
+        <p id="register-msg" class="text-prompt d-none">
+            Log in to your account below
+        </p>
+    </div>
+    <div class="row my-3 my-md-5">
+        <a href="{{ url_for('login') }}" class="tbc-button mx-auto">
+            Sign in here
+        </a>
+    </div>
+</div>
 
 {% endblock %}

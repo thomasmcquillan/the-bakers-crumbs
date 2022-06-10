@@ -124,8 +124,10 @@ a:hover {
 .page-title {
     margin: .8rem auto 1.2rem auto;
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
+    font-weight: 400;
     color: var(--tbc-soft-blue);
+    color: var(--tbc-soft-pink);
 }
 
 .login-page-msg {
@@ -411,7 +413,6 @@ textarea {
     padding: 0;
     margin: auto;
     width: 100%;
-    max-width: 80vw;
 }
 
 .ingredient-list,
@@ -723,6 +724,11 @@ a.tbc-button {
     display: none;
 }
 
+.login-form,
+.register-form {
+    margin-top: 2rem;
+}
+
 /* ============================== Image Styling =============================== */
 
 .recipe-link-wrap,
@@ -861,7 +867,6 @@ a.tbc-button {
 
     .tbc-input-label {
         font-size: .7em;
-            /* margin: 1em auto; */
         color: var(--tbc-soft-pink);
     }
 
@@ -905,9 +910,13 @@ a.tbc-button {
 
 @media (min-width: 361px) and (max-width: 380px) {
     #page-content {
-        margin-top: 106px;
+        margin-top: 155px;
     }
 
+    #tbc-nav {
+        width: 104vw;
+    }
+    
     #navlinks-sm {
         padding: 7rem 0 3rem 0;
     }
@@ -974,9 +983,10 @@ a.tbc-button {
         line-height: 1.8em;
     }
 
-    #login-msg {
+    #login-msg,
+    #register-msg {
         display: inline-block;
-        text-align: center;
+        margin: 0 auto;
     }
 }
 
