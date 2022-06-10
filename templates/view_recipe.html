@@ -25,7 +25,7 @@
         <h4 class="pink-text">Directions</h4>
         <ul>
             {% for direction in recipe.directions %}
-            <li>{{ direction }}</li>
+            <li>&#9702; {{ direction }}</li>
             {% endfor %}
         </ul>
         <br>
@@ -35,14 +35,14 @@
 {% if (session.user|lower == recipe.created_by|lower) or (session.user == "admin") %}
 <div class="recipe-button-row">
     <button class="btn">
-        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="submit my-auto">
+        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="submit my-auto tbc-button">
             Edit Recipe
         </a>
     </button>
 
     <!-- Delete Recipe Modal Trigger -->
     <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#confirmRecipeDeletionModal">
-        <a href="#delete_recipe" class="my-auto">
+        <a href="#delete_recipe" class="my-auto tbc-button">
             Delete Recipe
         </a>
     </button>
