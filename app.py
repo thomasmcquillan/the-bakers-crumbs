@@ -140,10 +140,15 @@ def logout():
 @app.route("/delete_user/<username>")
 def delete_user(username):
     """
-    This function allows deletion of a user account.
+    This function allows deletion of a user account,
+    along with any recipes they have submitted.
     """
+    dead_recipes = list(
+        mongo.db.recipes.find({"created_by": username}))
+    for recipe in dead_recipes:
+        mongo.db.recipes.remove(recipe)
     mongo.db.users.remove({"username": username})
-    flash("Your account has been deleted")
+    flash("Your account and recipes were successfully deleted")
     session.pop("user")
     return redirect(url_for("register"))
 

@@ -2,26 +2,28 @@
 {% block content %}
 
 <div class="row profile-content my-4 p-0">
+    <ul id="profile-links">
+        <li>
+            <a class="tbc-links d-block" href="{{ url_for('add_recipe') }}">
+                Add Recipe
+            </a>
+        </li>
+        <li>
+            <a href="#delete_user" class="my-auto">
+                Delete Account
+            </a>
+        </li>
+    </ul>
+    
     <h4 class="blue-text my-5">Welcome {{ username.capitalize() }}</h4>
     <div class="col-11 col-md-9 col-lg-6 mx-auto">
         {% if recipes|length > 0 %}
         <p class="text-center">
             Your recipes can be seen below.
-            <br>To add another recipe:<br>
-            <!-- <span>  
-                <a href="{{ url_for('add_recipe') }}">
-                    <h4 class="inline-link">Add Recipe</h4>
-                </a>
-            </span> -->
-        </p> 
-        <a class="tbc-button" href="{{ url_for('add_recipe') }}">
-            <!-- <button class="btn"> -->
-                Add Recipe
-            <!-- </button> -->
-        </a>
+        </p>
         {% else %}
         <p class="text-center"> 
-            We see you have not uploaded any recipes.
+            You haven't uploaded any recipes. When you do they will be displayed here.
             <br>To share a recipe:<br>
             <span>
                 <a href="{{ url_for('add_recipe') }}">
@@ -42,6 +44,34 @@
             </a>
         {% endif %}
     {% endfor %}
+</div>
+
+<!-- Delete Account Confirmation Modal -->
+<div class="modal fade" id="confirmAccountDeletionModal" tabindex="-1" aria-labelledby="deleteAccount" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" 
+                    id="confirmAccountDeletionModal">
+                    Confirm Deletion
+                </h5>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure want to permanently delete this recipe?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn">
+                    <a href="{{ url_for('delete_user', username=username) }}" id="delete_user">
+                        Yes, Delete
+                    </a>
+                </button>
+                <button type="button"
+                        data-bs-dismiss="modal">
+                        Cancel
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
