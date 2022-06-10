@@ -386,7 +386,7 @@ input.tbc-search-input:focus {
 #recipe-directions-section > textarea:placeholder-shown {
     background-color:var(--tbc-bg-pinky);
     align-content: center;
-    line-height: 38px;
+        /* line-height: 38px; */
         line-height: 54px;
 
 }

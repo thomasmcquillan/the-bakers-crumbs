@@ -4,7 +4,7 @@
 <div class="row add-edit-recipe">
     <div class="mx-auto col col-lg-8">
         <h3 class="text-center blue-text my-5">Edit Recipe</h3>
-        <p class="text-center">Edit only the fields you wish to change.</p>
+        <p class="text-center">Edit fields as required, making sure to choose a category from the menu.</p>
     </div>
 </div>
 <div class="row add-recipe-row">
@@ -12,51 +12,42 @@
         <form class="mx-auto" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
             <div class="add-recipe-row row">
                 <label for="recipe_name" class="tbc-input-label"><h4>recipe name</h4></label>
-                <div class="tbc-input">
-                    <input required type="text"  
-                            name="recipe_name" 
-                            class="form-control validate"
-                            value="{{ recipe.recipe_name }}"
-                            maxlength="50">
-                </div>
+                <input required type="text"  
+                    name="recipe_name" 
+                    class="form-control validate tbc-input"
+                    value="{{ recipe.recipe_name }}"
+                    maxlength="50">
             </div>
             <div class="add-recipe-row row">
                 <label for="description" class="tbc-input-label"><h4>description</h4></label>
-                <div class="tbc-input">
-                    <textarea id="description" name="description" minlength="6" maxlength="70" class="form-control validate" type="text" required>
-                        {{ recipe.recipe_description }}
-                    </textarea>
-                    <!-- <input
-                        id="description"
-                        name="description" 
-                        type="text" 
-                        class="validate form-control"
-                        value="{{ recipe.recipe_description }}"
-                        maxlength="120"
-                        required> -->
-                </div>
+                <input id="description"
+                    name="description" 
+                    type="text" 
+                    class="validate form-control tbc-input"
+                    value="{{ recipe.recipe_description }}"
+                    maxlength="120"
+                    required>
             </div>
             <div class="add-recipe-row row">
                 <label for="category" class="tbc-input-label"><h4>category</h4></label>
-                <div class="tbc-input">
-                    <select name="category_name" class="form-control" required>
-                        <option selected disabled> {{recipe.category_name}}</option>
-                        {% for category in categories %}
-                        <option class="text-pink" value="{{category.category_name}}">{{category.category_name}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
+                <select name="category_name" class="form-control" required>
+                    <option selected value="{{recipe.category_name}}" disabled>{{recipe.category_name}}</option>
+                    {% for category in categories %}
+                    <option class="text-pink" value="{{category.category_name}}">{{category.category_name}}</option>
+                    {% endfor %}
+                </select>
             </div>
-            <div class="add-recipe-row row my-0">
+            <div class="add-recipe-row row">
                 <label for="ingredients" class="tbc-input-label"><h4>ingredients</h4></label>
                 <div id="food-delivery" class="tbc-input">
                     {% for ingredient in recipe.ingredients %}
                     <textarea name="ingredients"
-                            type="text"
-                            class="ingredient-list form-control validate"
-                            minlength="3"
-                            maxlength="222"
-                            required>&#9702; {{ ingredient }}</textarea>
+                        type="text"
+                        class="ingredient-list form-control validate"
+                        minlength="3"
+                        maxlength="222"
+                        required>{{ ingredient }}
+                    </textarea>
                     {% endfor %}
                     <!-- Updated ingredient list is added below -->
                     <div class="food-basket"></div>
@@ -73,12 +64,13 @@
                     <!-- Python takes list of directions from recipe collection on MongoDB and displays as editable fields -->
                     {% for direction in recipe.directions %}
                     <textarea name="directions" 
-                            type="text"
-                            class="recipe-directions form-control validate"
-                            minlength="3"
-                            maxlength="222"
-                            value="{{ direction }}"
-                            required>&#9702; {{ direction }}</textarea>
+                        type="text"
+                        class="recipe-directions form-control validate"
+                        minlength="3"
+                        maxlength="222"
+                        value="{{ direction }}"
+                        required>{{ direction }}
+                    </textarea>
                     {% endfor %}
                     <div class="next-steps"></div>
                 </div>
@@ -90,13 +82,13 @@
             <!-- Recipe Image URL -->
             <div class="add-recipe-row row my-3">
                 <h4 class="text-center mb-3">Recipe Image</h4>
-                <p class="text-center mb-5">Paste the URL of an image of your recipe, from Flickr, Dropbox, Imgur, Cloudinary, Google Photos, Wix etc..
-                </p>
+                <p class="text-center mb-5">Paste the URL of an image of your finished recipe.</p>
                 <input id="image_url" 
                         name="image_url"
                         type="text"
                         class="form-control validate"
                         value="{{ recipe.image_url }}"
+                        placeholder="Copy and paste link from Flickr, Dropbox, Cloudinary, Google Photos etc."
                         style="height:78px">
             </div>
             <div class="add-recipe-row row mt-5">
@@ -105,7 +97,6 @@
                 <div class="row btn-row justify-content-center">
                     <button type="submit" class="tbc-button bouncy" style="animation-delay:0.07s" role="submit">Update</button>
                     <a href="{{ url_for('profile', username=session['user']) }} " class="tbc-button">Cancel</a>
-                    <!-- <a href="{{ url_for('profile', username=session['user']) }} " class="tbc-button bouncy" style="animation-delay:0.14s">Cancel</a> -->
                 </div>
             </div>
         </form>

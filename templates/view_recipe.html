@@ -16,14 +16,14 @@
         <h4 class="blue-text d-none d-md-flex"><br>Added by {{ recipe.created_by|title }}.</h4>
     </div>
     <div class="recipe-card col-12 col-md-8 mx-auto">
-        <ul class="recipe-ingredients">
+        <ul>
             {% for ingredient in recipe.ingredients %}
             <li>{{ ingredient }}</li>
             {% endfor %}
             <br>
         </ul>
         <h4 class="pink-text">Directions</h4>
-        <ul class="recipe-directions">
+        <ul>
             {% for direction in recipe.directions %}
             <li>{{ direction }}</li>
             {% endfor %}
