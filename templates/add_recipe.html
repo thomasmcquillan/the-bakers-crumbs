@@ -40,7 +40,7 @@
                 <div class="tbc-input">
                     <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
                     <select name="category_name" class="form-control" required>
-                        <option selected disabled>Select category that best matches your recipe</option>
+                        <option selected disabled>&#8595;&#8595;  Click here to select a recipe category  &#8595;&#8595;</option>
                         {% for category in categories %}
                         <option value="{{category.category_name}}">{{ category.category_name }}</option>
                         {% endfor %}
@@ -51,31 +51,35 @@
                 <label for="ingredients" class="tbc-input-label"><h4>ingredients</h4></label>
                 <div id="food-delivery" class="tbc-input">
                     <!-- Extra input fields added by custom js script will appear below this one -->
-                    <input  name="ingredients"
-                            type="text"
-                            class="ingredient-list form-control validate" 
-                            placeholder="Add first ingredient here. ie, 200g flour." 
-                            minlength="3"
-                            required>
+                    <input  
+                        name="ingredients"
+                        type="text"
+                        class="form-control validate" 
+                        placeholder="Add first ingredient here. ie, 200g flour." 
+                        minlength="3"
+                        required>
                     <div class="food-basket"></div>
                 </div>
                 <button type="button" id="add-ingredient-btn" class="btn">Add Ingredient</button>
                 <button type="button" id="del-ingredient-btn" class="btn">Delete Ingredient</button>
             </div>
             <!-- Recipe Directions -->
-            <div class="add-recipe-row row my-0">
-                <label for="directions" class="tbc-input-label"><h4>directions</h4></label>
+            <div class="add-recipe-row row mt-3">
+                <label for="directions" class="tbc-input-label btn-col text-center mb-0">
+                    <h4>directions</h4>
+                    <p>Please enter the first step in the space below. <br> (max 220 characters)</p>
+                </label>
                 <div id="recipe-directions-section" class="tbc-input">
                     <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-                    <input  id="recipe-directions"
-                            name="directions" 
+                    <textarea  id="recipe-directions"
+                            name="directions"
                             type="text"
                             class="recipe-directions form-control validate"
                             style="font-size: smaller"
                             minlength="3"
-                            maxlength="3000" 
-                            placeholder="Enter instructions one at a time." 
+                            maxlength="222" 
                             required>
+                    </textarea>
                     <div class="next-steps"></div>
                 </div>
                 <button type="button" id="add-step-button" class="directions btn">Add Step</button>
@@ -84,16 +88,13 @@
             <!-- Recipe Image URL -->
             <div class="add-recipe-row row my-3">
                 <h4 class="text-center mb-3">Recipe Image</h4>
-                <p class="text-center mb-5">Please enter the address for an image of your recipe. Images hosted on 
-                    services such as Flickr, Dropbox, Imgur, Cloudinary, Google Photos, Wix etc should work fine.
-                    Simply copy image address and paste below.
-                </p>
+                <p class="text-center mb-5">Paste the URL of an image of your finished recipe.</p>
                 <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
                 <input id="image_url" 
                         name="image_url"
                         type="text"
                         class="form-control validate"
-                        placeholder="Enter the URL of an image of the finished recipe"
+                        placeholder="Paste a link from Flickr, Dropbox, Cloudinary, Google Photos etc."
                         style="height:108px"/>
             </div>
             <div class="add-recipe-row row mt-5">

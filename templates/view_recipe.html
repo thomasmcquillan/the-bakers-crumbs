@@ -33,16 +33,15 @@
 </div>
 
 {% if (session.user|lower == recipe.created_by|lower) or (session.user == "admin") %}
-<div class="recipe-button-row">
-    <button class="btn">
-        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="submit my-auto tbc-button">
-            Edit Recipe
-        </a>
-    </button>
+<div class="row btn-row justify-content-center">
+    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="tbc-button col">
+        Edit Recipe
+    </a>
 
     <!-- Delete Recipe Modal Trigger -->
-    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#confirmRecipeDeletionModal">
-        <a href="#delete_recipe" class="my-auto tbc-button">
+    <button type="button" class="tbc-button col" data-bs-toggle="modal" data-bs-target="#confirmRecipeDeletionModal">
+        <!-- <a href="#delete_recipe" class="my-auto tbc-button"> -->
+        <a href="#delete_recipe">
             Delete Recipe
         </a>
     </button>

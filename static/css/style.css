@@ -130,6 +130,17 @@ a:hover {
     color: var(--tbc-soft-pink);
 }
 
+p.add-recipe-row {
+    font-size: .7em;
+    color: orange !important;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: .9em !important;
+}
+
 .login-page-msg {
     text-align: center;
     line-height: 54px;
@@ -388,7 +399,6 @@ input.tbc-search-input:focus {
     align-content: center;
         /* line-height: 38px; */
         line-height: 54px;
-
 }
 
 .tbc-input-label {
@@ -413,6 +423,10 @@ textarea {
     padding: 0;
     margin: auto;
     width: 100%;
+}
+
+select > option > #pink-span > strong {
+    color: var(--tbc-rich-pink) !important;
 }
 
 .ingredient-list,
@@ -482,13 +496,21 @@ h5.flash-message {
     color: var(--tbc-rich-pink);
 }
 
-.btn-row {
+.btn-row,
+.btn-col {
     display: flex;
-    flex-direction: column;
     width: 100%;
-    justify-content: center;
-    margin: 0 auto;
+    margin: .4em auto;
     left: 0;
+    justify-content: center;
+}
+
+.btn-row {
+    flex-direction: row;
+}
+
+.btn-col {
+    flex-direction: column;
 }
 
 .btn {
@@ -540,14 +562,14 @@ a.tbc-button {
     background-color: #f8f8f8;
 }
 
-@media all and (max-width:920px){
+/* @media all and (max-width:920px){
     .tbc-button {
-        /* display: block; */
-        /* width: 80%; */
+        display: block;
+        width: 80%;
         height: 40px;
         margin: 0.18em auto;
-        /* font-size: .6em; */
-    }
+        font-size: .6em;
+    } */
 }
 
 /* ============================== Homepage Styling =============================== */

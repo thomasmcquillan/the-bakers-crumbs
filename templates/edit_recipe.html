@@ -4,7 +4,7 @@
 <div class="row add-edit-recipe">
     <div class="mx-auto col col-lg-8">
         <h3 class="text-center blue-text my-5">Edit Recipe</h3>
-        <p class="text-center">Edit fields as required, making sure to choose a category from the menu.</p>
+        <p class="text-center">Edit only the fields that require updating. Also be sure to select a recipe category from the menu.</p>
     </div>
 </div>
 <div class="row add-recipe-row">
@@ -31,7 +31,7 @@
             <div class="add-recipe-row row">
                 <label for="category" class="tbc-input-label"><h4>category</h4></label>
                 <select name="category_name" class="form-control" required>
-                    <option selected value="{{recipe.category_name}}" disabled>{{recipe.category_name}}</option>
+                    <option selected value="{{recipe.category_name}}">{{recipe.category_name}}</option>
                     {% for category in categories %}
                     <option class="text-pink" value="{{category.category_name}}">{{category.category_name}}</option>
                     {% endfor %}
@@ -52,7 +52,7 @@
                     <!-- Updated ingredient list is added below -->
                     <div class="food-basket"></div>
                 </div>
-                <div class="btn-row justify-content-center">
+                <div class="btn-col justify-content-center">
                     <button type="button" id="add-ingredient-btn" class="tbc-button">Add Ingredient</button>
                     <button type="button" id="del-ingredient-btn" class="tbc-button">Delete Ingredient</button>
                 </div>
@@ -63,18 +63,19 @@
                 <div id="recipe-directions-section" class="tbc-input">
                     <!-- Python takes list of directions from recipe collection on MongoDB and displays as editable fields -->
                     {% for direction in recipe.directions %}
-                    <textarea name="directions" 
-                        type="text"
-                        class="recipe-directions form-control validate"
-                        minlength="3"
-                        maxlength="222"
-                        value="{{ direction }}"
-                        required>{{ direction }}
+                    <textarea 
+                            name="directions" 
+                            type="text"
+                            class="recipe-directions form-control validate"
+                            minlength="3"
+                            maxlength="222"
+                            value="{{ direction }}"
+                            required>{{ direction }}
                     </textarea>
                     {% endfor %}
                     <div class="next-steps"></div>
                 </div>
-                <div class="btn-row justify-content-center">
+                <div class="btn-col justify-content-center">
                     <button type="button" id="add-step-button" class="directions tbc-button">Add Step</button>
                     <button type="button" id="remove-step-button" class="tbc-button">Delete Step</button>
                 </div>
@@ -92,9 +93,9 @@
                         style="height:78px">
             </div>
             <div class="add-recipe-row row mt-5">
-                <p class="text-center col-12 mb-4">When you are happy with your changes click Update below</p>
+                <p class="text-center col-12 mb-3">When you are happy with your changes click Update below</p>
                 <!-- Submit recipe changes button -->
-                <div class="row btn-row justify-content-center">
+                <div class="row btn-col justify-content-center">
                     <button type="submit" class="tbc-button bouncy" style="animation-delay:0.07s" role="submit">Update</button>
                     <a href="{{ url_for('profile', username=session['user']) }} " class="tbc-button">Cancel</a>
                 </div>
