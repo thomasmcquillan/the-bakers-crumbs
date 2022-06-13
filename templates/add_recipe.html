@@ -57,6 +57,7 @@
                         class="form-control validate" 
                         placeholder="Add first ingredient here. ie, 200g flour." 
                         minlength="3"
+                        maxlength="222"
                         required>
                     <div class="food-basket"></div>
                 </div>
@@ -71,11 +72,10 @@
                 </label>
                 <div id="recipe-directions-section" class="tbc-input">
                     <!-- Python takes 'name' key to pull data from the form and place it into the MongoDB database. -->
-                    <textarea  id="recipe-directions"
+                    <textarea id="recipe-directions"
                             name="directions"
                             type="text"
                             class="recipe-directions form-control validate"
-                            style="font-size: smaller"
                             minlength="3"
                             maxlength="222" 
                             required>

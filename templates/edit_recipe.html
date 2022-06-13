@@ -4,7 +4,7 @@
 <div class="row add-edit-recipe">
     <div class="mx-auto col col-lg-8">
         <h3 class="text-center blue-text my-5">Edit Recipe</h3>
-        <p class="text-center">Edit only the fields that require updating. Also be sure to select a recipe category from the menu.</p>
+        <p class="text-center">Edit only the fields that you wish to change. Make sure to select a recipe category from the menu.</p>
     </div>
 </div>
 <div class="row add-recipe-row">
@@ -64,13 +64,13 @@
                     <!-- Python takes list of directions from recipe collection on MongoDB and displays as editable fields -->
                     {% for direction in recipe.directions %}
                     <textarea 
-                            name="directions" 
-                            type="text"
-                            class="recipe-directions form-control validate"
-                            minlength="3"
-                            maxlength="222"
-                            value="{{ direction }}"
-                            required>{{ direction }}
+                        name="directions" 
+                        type="text"
+                        class="recipe-directions form-control validate"
+                        minlength="3"
+                        maxlength="222"
+                        value="{{ direction }}"
+                        required>{{ direction }}
                     </textarea>
                     {% endfor %}
                     <div class="next-steps"></div>
@@ -96,7 +96,7 @@
                 <p class="text-center col-12 mb-3">When you are happy with your changes click Update below</p>
                 <!-- Submit recipe changes button -->
                 <div class="row btn-col justify-content-center">
-                    <button type="submit" class="tbc-button bouncy" style="animation-delay:0.07s" role="submit">Update</button>
+                    <button type="submit" class="tbc-button" role="submit">Update</button>
                     <a href="{{ url_for('profile', username=session['user']) }} " class="tbc-button">Cancel</a>
                 </div>
             </div>
