@@ -18,6 +18,7 @@
 
 * {
     list-style-type: none;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -135,10 +136,10 @@ a:hover {
     color: var(--tbc-soft-pink);
 }
 
-p.add-recipe-row {
-    font-size: .7em;
-    color: orange !important;
-}
+        p.add-recipe-row {
+            font-size: .7em;
+            color: orange !important;
+        }
 
 p {
     margin-top: 0;
@@ -727,6 +728,13 @@ a.tbc-button {
     margin: 182px auto auto auto;
 }
 
+#profile-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .profile-content {
     justify-content: center;
     margin: auto;
@@ -785,9 +793,9 @@ a.tbc-button {
     object-fit: cover;
 }
 
-.thumb-wrap {
+/* .thumb-wrap {
     background-color: var(--tbc-bg-light);
-}
+} */
 
 .view-recipe-img {
     width: 100%;
