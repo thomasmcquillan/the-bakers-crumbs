@@ -1,26 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-<ul id="profile-links" class="row justify-items-center">
-    <li>
-        <a class="tbc-button mt-3" href="{{ url_for('add_recipe') }}">
-            Add Recipe
+
+<!-- <div class="profile-nav">
+    <a class="tbc-button my-3" href="{{ url_for('add_recipe') }}">
+        Add Recipe
+    </a>
+    <button type="button" class="tbc-button my-3" data-bs-toggle="modal" data-bs-target="#confirmAccountDeletionModal">
+        <a href="#delete_user" class="my-auto">
+            Delete Account
         </a>
-    </li>
-    <li>
-        <button type="button" class="tbc-button mt-3" data-bs-toggle="modal" data-bs-target="#confirmAccountDeletionModal">
-            <a href="#delete_user" class="my-auto">
-                Delete Account
-            </a>
-        </button>
-    </li>
-</ul>
+    </button>
+</div> -->
 <div class="row profile-content my-4 p-0">
     <h4 class="blue-text my-5">Welcome {{ username.capitalize() }}</h4>
     <div class="col-11 col-md-9 col-lg-6 mx-auto">
         {% if recipes|length > 0 %}
         <p class="text-center">
-            Your recipes can be seen below.
+            Recipes you have shared are displayed below.
         </p>
+        <a class="tbc-button mx-auto my-3" href="{{ url_for('add_recipe') }}">
+            Add Recipe
+        </a>
         {% else %}
         <p class="text-center"> 
             You are yet to upload a recipe. Uploaded recipes will appear here.
@@ -34,9 +34,9 @@
         
         <!-- <div class="row recipe-card-profile px-0"> -->
             <div class="thumb-wrap col-8 col-md-4 mx-auto justify-content-center my-2">
-                <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">
-                    <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}" class="img-fluid recipe-thumb px-2 py-3">
-                    <h5 class="text-center pb-3">{{ recipe.recipe_name }}</h5>
+                <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="recipe-link-wrap">
+                    <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}" class="img-fluid recipe-thumb py-3">
+                    <h5 class="recipe-link">{{ recipe.recipe_name }}</h5>
                 </a>
             <!-- </div> -->
             <!-- <div class="mx-auto mb-2"> -->

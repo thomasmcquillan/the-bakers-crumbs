@@ -3,6 +3,7 @@
     
     --tbc-text-font: 'Noto Sans Mono', monospace;
     --tbc-bg-light: #f8f8f8;
+    --tbc-bg-light-clr: #f8f8f888;
     --tbc-bg-pinky: #fceeee;
     --tbc-bg-pinkish: #fffafa;
     --tbc-text-dark: #454545;
@@ -89,6 +90,15 @@ a:hover {
     width: fit-content;
     margin: 0 auto;
     padding: 2px;
+}
+
+.recipe-link {
+    text-align: center;
+    font-size: .8em;
+}
+
+.recipe-link-wrap:hover {
+    filter:brightness(80%);
 }
 
 /* ============================== Fonts Styling =============================== */
@@ -524,7 +534,9 @@ h5.flash-message {
     font-size: 11px;
     margin: 0 auto;
     min-width: 180px;
-    max-width: 30%;
+
+        max-width: 30%;
+            
     color: --tbc-soft-pink !important;
     background-color: var(--tbc-bg-pinky);
     border: .9px solid var(--tbc-soft-pink);
@@ -552,7 +564,9 @@ a.tbc-button {
     justify-content: center;
     width: 60%;
 
-    max-width: 280px;
+            max-width: 280px;
+            max-width: 220px;
+
     font-size: 1.1rem;
     font-weight: 300;
     color: var(--tbc-dark-grey);
@@ -612,6 +626,7 @@ a.tbc-button {
 #page-content {
     margin: 200px auto 200px auto;
     padding: 0;
+    background-color: var(--tbc-bg-light-clr);
 }
 
 .row {
@@ -759,13 +774,6 @@ a.tbc-button {
     margin-top: 2rem;
 }
 
-.recipe-card-profile {
-    background-color: var(--tbc-bg-pinkish);
-    width: 66%;
-    padding: 0;
-    margin: 22px auto;
-}
-
 /* ============================== Image Styling =============================== */
 
 .recipe-link-wrap,
@@ -793,9 +801,22 @@ a.tbc-button {
     object-fit: cover;
 }
 
-/* .thumb-wrap {
-    background-color: var(--tbc-bg-light);
-} */
+.thumb-wrap {
+    /* background-color: rgba(255, 255, 255, 0.533); */
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+.profile-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    /* border: 1px solid red; */
+    margin: 1em auto 1em auto;
+}
 
 .view-recipe-img {
     width: 100%;
@@ -1119,14 +1140,14 @@ a.tbc-button {
         font-weight: 400;
         height: 54px;
         margin: 1em auto;
-        padding: .2rem 1.2rem;
+        padding: .2rem 1rem;
             width: 100%;
     }
 
     /* ==== @media 992px> : layout etc ==== */
 
     #page-content {
-        margin-top: 244px;
+        margin-top: 280px;
     }
 
     .row {
