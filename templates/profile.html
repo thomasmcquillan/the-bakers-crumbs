@@ -18,13 +18,16 @@
         <p class="text-center">
             Recipes you have shared are displayed below.
         </p>
-        <a class="tbc-button mx-auto my-3" href="{{ url_for('add_recipe') }}">
+        <a class="tbc-button mx-auto m-4" href="{{ url_for('add_recipe') }}">
             Add Recipe
         </a>
         {% else %}
         <p class="text-center"> 
-            You are yet to upload a recipe. Uploaded recipes will appear here.
+            Recipes you add will be displayed below.
         </p>
+        <a class="tbc-button mx-auto m-4" href="{{ url_for('add_recipe') }}">
+            Add Recipe
+        </a>
         {% endif %}
     </div>
 </div>
