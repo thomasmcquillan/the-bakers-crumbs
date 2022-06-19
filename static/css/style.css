@@ -101,15 +101,6 @@ a:hover {
     margin-left: 11px;
 }
 
-        /* .inline-link {
-            color: var(--tbc-inky-blue);
-            font-size: larger;
-            background-color: var(--tbc-bg-pinky);
-            width: fit-content;
-            margin: 0 auto;
-            padding: 2px;
-        } */
-
 .recipe-link {
     text-align: center;
     font-size: .9em;
@@ -138,10 +129,6 @@ a:hover {
 .tbc-nav-item {
     color: var(--tbc-soft-pink);
 }
-
-        /* #served-hot-hover {
-            color: var(--tbc-rich-pink);
-        } */
 
 .pink-text {
     color: var(--tbc-rich-pink);
@@ -225,7 +212,7 @@ p.text-prompt {
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
+    min-width: 100%;
     height: 14rem;
     justify-content: center;
     align-content: space-between;
@@ -234,31 +221,41 @@ p.text-prompt {
     background-color: var(--tbc-bg-light);
 }
 
-        #nav-wrap {
-            display: flex;
-            position: absolute;
-            left: 0;
-            top: 0;
-            flex-direction: column;
-                    width: 100%;
-            height: 188px;
-        }
+#nav-wrap {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    flex-direction: column;
+    width: 100%;
+    height: 188px;
+}
 
 #navlinks-sm {
     display: none;
     flex-direction: column;
     width: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
+    position: absolute;
+    right: 0;
+    top: 188px;
     height: 100vh;
-    padding: 10em 0 2em 0;
+    padding: 11em 0 2em 0;
     align-items: space-evenly;
+    animation: introLoad 400ms forwards;
     background-color: var(--tbc-bg-pinky);
 }
 
+@keyframes introLoad {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
 #navlinks-sm a {
-    font-size: 1.3em;
+    font-size: 1.33em;
 }
 
 #nav-trigger {
@@ -268,16 +265,17 @@ p.text-prompt {
     margin: -2px 24px auto auto;
 }
 
-.tbc-mobile-nav {
+/* .tbc-mobile-nav {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
+    width: 50vw;
+    height: 100vh;
+    position: absolute;
+    right: 0;
     justify-items: space-evenly;
     align-items: center;
-    padding-bottom: 2rem;
     z-index: 66;
-}
+} */
 
 .tbc-mobile-nav li,
 .tbc-desktop-nav li {
@@ -319,7 +317,6 @@ p.text-prompt {
     width: 100%;
     height: 44px;
     justify-content: space-between;
-    /* background: none; */
     z-index: 11;
     max-width: 1124px;
     margin: 0 auto;
@@ -645,7 +642,8 @@ a.tbc-button {
     /* background-color: var(--tbc-bg-light-clr); */
 }
 
-.recipe-row {
+.recipe-row,
+.cat-row {
     margin: 3em auto 2em auto;
     padding: 0;
 }
@@ -913,9 +911,10 @@ a.tbc-button {
     }
 
     #navlinks-sm {
-        height: 100vh;
-        padding-top: 4rem;
-        z-index: 66;
+        position: fixed;
+        top: 140px;
+        padding: 0;
+        z-index: 44;
     }
 
     .tbc-mobile-nav li {
@@ -991,11 +990,11 @@ a.tbc-button {
     }
     
     #navlinks-sm {
-        padding: 7rem 0 3rem 0;
+        padding: 0;
     }
 
     .tbc-mobile-nav li {
-        padding: 2rem 0 4rem 0;
+        padding: 4rem 0 4rem 0;
         font-size: .95rem;
     }
 
@@ -1020,6 +1019,7 @@ a.tbc-button {
 }
 
 @media (min-width: 480px) {
+
     .input-search {
         padding-top: 10px;
     }
@@ -1118,30 +1118,12 @@ a.tbc-button {
         margin-top: 0;
     }
 
-            #search-and-social-nav {
-                /* left: 2px; */
-                /* top: .2em; */
-                align-self: flex-start;
-                width: 100%;
-                /* max-width: 1322px; */
-                margin: -188px auto 0 auto;
-                position: unset;
-            }
-
-            /* #search-and-social-nav {
-                display: flex;
-                flex-direction: row;
-                position: absolute;
-                left: 0;
-                bottom: 10px;
-                top: .2em;
-                width: 100%;
-                height: 2em;
-                justify-content: space-between;
-                background: none;
-                z-index: 11;
-                z-index: 1000;
-            } */
+    #search-and-social-nav {
+        align-self: flex-start;
+        width: 100%;
+        margin: -222px auto 0 auto;
+        position: unset;
+    }
 
     #tbc-search-form {
         display: unset;
@@ -1171,6 +1153,14 @@ a.tbc-button {
 
     .row {
         padding: 0 1.2em 0 1.2em;
+    }
+
+    .recipe-row {
+        max-width: 1198px;
+    }
+
+    .cat-row {
+        max-width: 1172px;
     }
 
     .recipe-link-wrap {

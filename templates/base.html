@@ -18,110 +18,109 @@
 <body>
     
     <div class="tbc-hero"></div>
-<div id="tbc-header">
-    <nav id="tbc-nav">
-        <div id="logo-wrap" class="justify-content-center">
-            <a id="tbc-logo" href="{{ url_for('index') }}">
-                <h1>the baker's crumbs</h1>
-                <h3 class="tbc-logo-caption mx-auto">
-                    baking wisdom, <span id="served-hot-hover"><em>served hot</em></span>
-                </h3>
-            </a>
-        </div>
-        <div id="nav-wrap">
-            <ul class="tbc-mobile-nav" id="navlinks-sm">
-                <li class="d-lg-none">
-                    <a href="{{ url_for('all_recipes') }}" class="tbc-nav-item" aria-label="View all Recipes">All Recipes</a>
-                </li>
-                <li class="d-lg-none">
-                    <a href="{{ url_for('all_categories') }}" class="tbc-nav-item" aria-label="Browse by Category">Browse by Category</a>
-                </li>
-                {% if session.user %}
-                {% if session.user|lower == "admin"|lower %}
+    <div id="tbc-header">
+        <nav id="tbc-nav">
+            <div id="logo-wrap" class="justify-content-center">
+                <a id="tbc-logo" href="{{ url_for('index') }}">
+                    <h1>the baker's crumbs</h1>
+                    <h3 class="tbc-logo-caption mx-auto">
+                        baking wisdom, <span id="served-hot-hover"><em>served hot</em></span>
+                    </h3>
+                </a>
+            </div>
+            <div id="nav-wrap">
+                <ul class="tbc-mobile-nav" id="navlinks-sm">
                     <li class="d-lg-none">
-                        <a href="{{ url_for('add_recipe') }}">Add Recipe</a>
+                        <a href="{{ url_for('all_recipes') }}" class="tbc-nav-item" aria-label="View all Recipes">All Recipes</a>
                     </li>
-                {% endif %}
-                <li class="d-lg-none">
-                    <a href="{{ url_for('profile', username=session['user']) }}" class="tbc-nav-item" aria-label="profile page">Profile</a>
-                </li>
-                <li class="d-lg-none">
-                    <a href="{{ url_for('logout') }}" class="tbc-nav-item" aria-label="log in">Log Out</a>
-                </li>
-                {% else %}
-                <li class="d-lg-none">
-                    <a href="{{ url_for('login') }}" class="tbc-nav-item" aria-label="sign in">Log In</a>
-                </li>
-                <li class="d-lg-none">
-                    <a href="{{ url_for('register') }}" class="tbc-nav-item" aria-label="sign up">Register</a>
-                </li>
-                {% endif %}
-            </ul>
-            <ul class="tbc-desktop-nav mx-auto" id="navlinks-lg">   
-                <li class="d-none d-lg-flex">
-                    <a href="{{ url_for('all_recipes') }}" class="tbc-nav-item" aria-label="View all Recipes">All Recipes</a>
-                </li>
-                <li class="d-none d-lg-flex">
-                    <a href="{{ url_for('all_categories') }}" class="tbc-nav-item" aria-label="Browse by Category">Browse by Category</a>
-                </li>
-                {% if session.user %}
-                {% if session.user|lower == "admin"|lower %}
-                    <li class="d-none d-lg-flex">
-                        <a href="{{ url_for('add_recipe') }}">Add Recipe</a>
+                    <li class="d-lg-none">
+                        <a href="{{ url_for('all_categories') }}" class="tbc-nav-item" aria-label="Browse by Category">Browse by Category</a>
                     </li>
-                {% endif %}
-                <li class="d-none d-lg-flex">
-                    <a href="{{ url_for('profile', username=session['user']) }}" class="tbc-nav-item" aria-label="profile page">Profile</a>
-                </li>
-                <li class="d-none d-lg-flex">
-                    <a href="{{ url_for('logout') }}" class="tbc-nav-item" aria-label="log in">Log Out</a>
-                </li>
-                {% else %}
-                <li class="d-none d-lg-flex">
-                    <a href="{{ url_for('login') }}" class="tbc-nav-item" aria-label="sign in">Log In</a>
+                    {% if session.user %}
+                    {% if session.user|lower == "admin"|lower %}
+                        <li class="d-lg-none">
+                            <a href="{{ url_for('add_recipe') }}">Add Recipe</a>
+                        </li>
+                    {% endif %}
+                    <li class="d-lg-none">
+                        <a href="{{ url_for('profile', username=session['user']) }}" class="tbc-nav-item" aria-label="profile page">Profile</a>
+                    </li>
+                    <li class="d-lg-none">
+                        <a href="{{ url_for('logout') }}" class="tbc-nav-item" aria-label="log in">Sign Out</a>
+                    </li>
+                    {% else %}
+                    <li class="d-lg-none">
+                        <a href="{{ url_for('login') }}" class="tbc-nav-item" aria-label="sign in">Sign In</a>
                         <span>&nbsp; / &nbsp;</span> 
-                    <a href="{{ url_for('register') }}" class="tbc-nav-item" aria-label="sign up">Register</a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-        <div id="search-and-social-nav">
-            <form action="{{ url_for('search') }}" method="post" class="d-flex" id="tbc-search-form">
-                <div class="input-search">
-                    <input type="text"
-                        name="query"
-                        id="query" 
-                        minlength="3" 
-                        class="validate tbc-search-input"
-                        placeholder="Search Recipes.."
-                        title="Search by keyword or ingredient"
-                        required>
-                </div>
-                <button type="submit" id="icon-wrap">
-                    <img id="tbc-search" src="{{ url_for('static', filename='images/tbc-search.png') }}">
-                    <img id="tbc-search-hover" type="submit"
-                        src="{{ url_for('static', filename='images/tbc-search-hover.png') }}">
-                </button>
-            </form>
-            <button class="d-lg-none" id="nav-trigger"><i class="lni lni-menu d-lg-none blue-text"></i></button>
-            <ul class="social-links d-none d-lg-flex">
-                <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">
-                    <i class="lni lni-facebook"></i></a></li>
-                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">
-                    <i class="lni lni-instagram"></i></a></li>
-                <li><a href="https://www.twitter.com/" target="_blank" rel="noopener">
-                    <i class="lni lni-twitter"></i></a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
+                        <a href="{{ url_for('register') }}" class="tbc-nav-item" aria-label="sign up">Register</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <ul class="tbc-desktop-nav mx-auto" id="navlinks-lg">   
+                    <li class="d-none d-lg-flex">
+                        <a href="{{ url_for('all_recipes') }}" class="tbc-nav-item" aria-label="View all Recipes">All Recipes</a>
+                    </li>
+                    <li class="d-none d-lg-flex">
+                        <a href="{{ url_for('all_categories') }}" class="tbc-nav-item" aria-label="Browse by Category">Browse by Category</a>
+                    </li>
+                    {% if session.user %}
+                    {% if session.user|lower == "admin"|lower %}
+                        <li class="d-none d-lg-flex">
+                            <a href="{{ url_for('add_recipe') }}">Add Recipe</a>
+                        </li>
+                    {% endif %}
+                    <li class="d-none d-lg-flex">
+                        <a href="{{ url_for('profile', username=session['user']) }}" class="tbc-nav-item" aria-label="profile page">Profile</a>
+                    </li>
+                    <li class="d-none d-lg-flex">
+                        <a href="{{ url_for('logout') }}" class="tbc-nav-item" aria-label="log in">Sign Out</a>
+                    </li>
+                    {% else %}
+                    <li class="d-none d-lg-flex">
+                        <a href="{{ url_for('login') }}" class="tbc-nav-item" aria-label="sign in">Sign in</a>
+                            <span>&nbsp; / &nbsp;</span> 
+                        <a href="{{ url_for('register') }}" class="tbc-nav-item" aria-label="sign up">Register</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div id="search-and-social-nav">
+                <form action="{{ url_for('search') }}" method="post" class="d-flex" id="tbc-search-form">
+                    <div class="input-search">
+                        <input type="text"
+                            name="query"
+                            id="query" 
+                            minlength="3" 
+                            class="validate tbc-search-input"
+                            placeholder="Search Recipes.."
+                            title="Search by keyword or ingredient"
+                            required>
+                    </div>
+                    <button type="submit" id="icon-wrap">
+                        <img id="tbc-search" src="{{ url_for('static', filename='images/tbc-search.png') }}">
+                        <img id="tbc-search-hover" type="submit"
+                            src="{{ url_for('static', filename='images/tbc-search-hover.png') }}">
+                    </button>
+                </form>
+                <button class="d-lg-none" id="nav-trigger"><i class="lni lni-menu d-lg-none blue-text"></i></button>
+                <ul class="social-links d-none d-lg-flex">
+                    <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">
+                        <i class="lni lni-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">
+                        <i class="lni lni-instagram"></i></a></li>
+                    <li><a href="https://www.twitter.com/" target="_blank" rel="noopener">
+                        <i class="lni lni-twitter"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
     <div id="page-content" class="container-xl">
         <!-- HTML templates will be inserted here -->
         {% block content %}
         {% endblock %}
     </div>
 
-    <div id="social-mobile" class="d-flex d-md-none">
+    <!-- <div id="social-mobile" class="d-flex d-md-none">
         <ul class="d-flex d-md-none">
             <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">
                 <i class="lni lni-facebook"></i></a></li>
@@ -130,7 +129,7 @@
             <li><a href="https://www.twitter.com/" target="_blank" rel="noopener">
                 <i class="lni lni-twitter"></i></a></li>
         </ul>
-    </div>
+    </div> -->
 
     <!-- Flash messages will be displayed here -->
     {% with messages = get_flashed_messages() %}
