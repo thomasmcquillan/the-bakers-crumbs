@@ -131,7 +131,7 @@ def change_password():
     """
     users = mongo.db["users"]
     current_user = users.find_one(
-        {"username": request.form.get("username").lower()})
+        {"username": request.form.get("username")})
 
     if request.method == "POST":
         new_password = request.form.get("new_password")
@@ -149,7 +149,7 @@ def change_password():
 
             else:
                 flash("Incorrect Username or Password")
-                return redirect(url_for("profile"))
+                return redirect(url_for("index"))
 
         else:
             flash("Incorrect Username or Password")

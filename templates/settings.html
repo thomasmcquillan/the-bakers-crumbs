@@ -7,6 +7,19 @@
     <div class="row justify-content-center">
         <h5 class="page-title">Settings</h5>
         <div class="col-9 col-lg-6 my-4">
+            <label for="username" class="tbc-input-label">Enter your Username</label>
+            
+            <!-- Password Input -->
+            <input 
+                name="username"
+                type="password"
+                minlength="6"
+                maxlength="15"
+                class="validate tbc-input"
+                placeholder="Please enter your username"
+                autocomplete="off"
+                required>
+
             <label for="edit_password" class="tbc-input-label">Update Password</label>
             
             <!-- Password Input -->
@@ -16,7 +29,7 @@
                 minlength="6"
                 maxlength="15"
                 class="validate tbc-input"
-                placeholder="Please enter a password"
+                placeholder="Please enter your old password"
                 title="Password must have at least 6 characters"
                 autocomplete="off"
                 required>
@@ -30,7 +43,7 @@
                 minlength="6"
                 maxlength="15"
                 class="validate tbc-input"
-                placeholder="Please enter a password"
+                placeholder="Please enter a new password"
                 title="Password must have at least 6 characters"
                 autocomplete="off"
                 required>
@@ -39,7 +52,7 @@
     <!-- Confirm Login Button -->
     <div class="row my-3 my-md-4">
         <button type="submit" class="tbc-button mx-auto">
-            Confirm
+            Save changes
         </button>
     </div>
 </form>
