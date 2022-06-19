@@ -1,15 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- <div class="row justify-content-center mx-auto p-0 my-md-2 my-lg-5 pt-lg-5"> -->
-
-    <div class="row mx-auto p-0 my-md-2 my-lg-5 pt-lg-5 mt-5">
+<div class="row recipe-row">
     {% for recipe in recipes %}
-    <!-- <div class="col-11 col-md-5 col-lg-4 px-3 px-md-3 px-lg-5 mx-auto my-5"> -->
-    <div class="col-6 col-md-5 col-lg-4 px-2 px-md-3 px-lg-3 mx-auto my-2">
-
+    <div class="recipe-link col-6 col-md-4">
         <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="recipe-link-wrap">
-            <img src="{{recipe.image_url}}" class="recipe-thumb mb-2" alt="{{recipe.recipe_name}}">
+            <img src="{{recipe.image_url}}" class="recipe-thumb" alt="{{recipe.recipe_name}}">
             <h4 class="tbc-links">{{ recipe.recipe_name.title() }}</h4>
         </a>
     </div>

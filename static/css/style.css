@@ -46,8 +46,8 @@ body {
 
 #page-content {
     position: relative;
+    margin-top: 270px;
     min-height: calc(100vh - 180px)
-    /* margin-top: 1rem; */
 }
 
 /* ============================== Links Styling =============================== */
@@ -61,14 +61,20 @@ a:hover {
     color: var(--tbc-rich-pink);
 }
 
-/* #tbc-logo:hover {
-    color: var(--tbc-inky-blue);
-} */
-
-#tbc-logo:hover span {
-    color: var(--tbc-rich-red);
-    transition: 30ms ease-in;
+#tbc-logo:hover {
+    color: var(--tbc-dark-grey);
     font-weight: 500;
+}
+
+#tbc-logo:hover #served-hot-hover {
+    color: var(--tbc-rich-pink);
+    transition: 100ms ease;
+    font-weight: 500;
+}
+
+.tbc-logo-caption {
+    font-size: 1.4em;
+    margin: 0px auto 33px auto;
 }
 
 .tbc-links {
@@ -79,26 +85,26 @@ a:hover {
     width: 100%;
 }
 
-/* .social-links a {
+.social-links a {
     margin-left: 11px;
-} */
-
-.inline-link {
-    color: var(--tbc-inky-blue);
-    font-size: larger;
-    background-color: var(--tbc-bg-pinky);
-    width: fit-content;
-    margin: 0 auto;
-    padding: 2px;
 }
+
+        /* .inline-link {
+            color: var(--tbc-inky-blue);
+            font-size: larger;
+            background-color: var(--tbc-bg-pinky);
+            width: fit-content;
+            margin: 0 auto;
+            padding: 2px;
+        } */
 
 .recipe-link {
     text-align: center;
-    font-size: .8em;
+    font-size: .9em;
 }
 
-.recipe-link-wrap:hover {
-    filter:brightness(80%);
+.recipe-link-wrap:hover img {
+    filter: brightness(95%);
 }
 
 /* ============================== Fonts Styling =============================== */
@@ -109,6 +115,7 @@ a:hover {
 
 #tbc-logo h1 {
     font-size: 27px;
+    text-align: center;
 }
 
 .tbc-logo-caption {
@@ -120,9 +127,9 @@ a:hover {
     color: var(--tbc-soft-pink);
 }
 
-#served-hot-hover {
-    color: var(--tbc-rich-pink);
-}
+        /* #served-hot-hover {
+            color: var(--tbc-rich-pink);
+        } */
 
 .pink-text {
     color: var(--tbc-rich-pink);
@@ -145,11 +152,6 @@ a:hover {
     color: var(--tbc-soft-blue);
     color: var(--tbc-soft-pink);
 }
-
-        p.add-recipe-row {
-            font-size: .7em;
-            color: orange !important;
-        }
 
 p {
     margin-top: 0;
@@ -629,15 +631,23 @@ a.tbc-button {
     background-color: var(--tbc-bg-light-clr);
 }
 
-.row {
+/* .row {
     padding: 0 1rem 0 1rem;
+} */
+
+.recipe-row {
+    margin: 5em auto 2em auto;
+    padding: 0;
+}
+
+.recipe-link-wrap {
+    margin: 1em auto 2em auto;
+    padding: 0 .3em 0 .3em;
 }
 
 /* ============================== Recipe Styling =============================== */
 
 .card {
-    background-color: var(--tbc-bg-light);
-    background-color: var(--tbc-bg-pinky);
     background-color: var(--tbc-bg-pinkish);
     max-width: 950px;
     max-width: 1100px;
@@ -776,22 +786,12 @@ a.tbc-button {
 
 /* ============================== Image Styling =============================== */
 
-.recipe-link-wrap,
-.cat-link-wrap {
-    margin: auto;
-    padding: 0;
-}
-
-.cat-link-wrap a img {
-    aspect-ratio: 1 / 1;
-}
-
 .recipe-thumb {
     display: flex;
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
-    padding: 1vh;
+    padding: .3em;
 }
 
 .recipe-img-wrap img {
@@ -802,20 +802,9 @@ a.tbc-button {
 }
 
 .thumb-wrap {
-    /* background-color: rgba(255, 255, 255, 0.533); */
     display: flex;
     align-content: space-between;
     flex-wrap: wrap;
-}
-
-.profile-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-    max-width: 900px;
-    /* border: 1px solid red; */
-    margin: 1em auto 1em auto;
 }
 
 .view-recipe-img {
@@ -1025,7 +1014,7 @@ a.tbc-button {
     }
 
     #page-content {
-        margin-top: 200px;
+        margin-top: 196px;
     }
 
     #logo-wrap {
@@ -1141,18 +1130,24 @@ a.tbc-button {
         height: 54px;
         margin: 1em auto;
         padding: .2rem 1rem;
-            width: 100%;
+        width: 100%;
     }
 
     /* ==== @media 992px> : layout etc ==== */
 
     #page-content {
-        margin-top: 280px;
+        margin-top: 274px;
     }
 
     .row {
-        padding: 0 2.2rem 0 2.2rem;
+        padding: 0 1.2em 0 1.2em;
     }
+
+    .recipe-link-wrap {
+        margin: 1em auto 2em auto;
+        padding: 0 .2em 0 .2em;
+    }
+
 
     .recipe-card-header {   
         display: flex;
@@ -1195,6 +1190,7 @@ a.tbc-button {
     }
 
     .recipe-thumb {
-        padding: 11px;
+        padding: 1em;
+        margin-bottom: .3em;   
     }
 }

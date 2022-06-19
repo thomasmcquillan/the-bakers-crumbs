@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row justify-content-center mx-auto p-0 my-md-2 my-lg-5 pt-lg-5">
+<div class="row recipe-row">
         {% for category in categories %}
-        <div class="col-5 col-lg-4 px-2 px-md-5 px-lg-5 my-5 cat-link-wrap">
-            <a href="{{ url_for('get_category', category_id=category._id) }}">
-                <img src="{{ category.category_img }}" class="recipe-thumb mb-2" alt="sourdough loaf">
+        <div class="recipe-link col-4 col-lg-2 p-lg-0">
+            <a href="{{ url_for('get_category', category_id=category._id) }}" class="recipe-link-wrap">
+                <img src="{{ category.category_img }}" class="recipe-thumb" alt="{{ category.category_name.title }}">
                     <h4 class="tbc-links">{{ category.category_name }}</h4>
             </a>
         </div>
         {% endfor %}
-    </div>
 </div>
 
 {% endblock %}
