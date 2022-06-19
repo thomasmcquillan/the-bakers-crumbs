@@ -42,12 +42,24 @@ body {
     min-height: 100vh;
     position: absolute;
     left: 0;
+    top: 0;
+}
+
+#tbc-header {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 188px;
+    justify-content: center;
 }
 
 #page-content {
     position: relative;
     margin-top: 270px;
-    min-height: calc(100vh - 180px)
+    min-height: calc(100vh - 180px);
 }
 
 /* ============================== Links Styling =============================== */
@@ -213,7 +225,7 @@ p.text-prompt {
     position: absolute;
     left: 0;
     top: 0;
-    width: 100vw;
+    width: 100%;
     height: 14rem;
     justify-content: center;
     align-content: space-between;
@@ -222,15 +234,15 @@ p.text-prompt {
     background-color: var(--tbc-bg-light);
 }
 
-#nav-wrap {
-    display: flex;
-    position: absolute;
-    left: 0;
-    top: 0;
-    flex-direction: column;
-    width: 100vw;
-    height: 188px;
-}
+        #nav-wrap {
+            display: flex;
+            position: absolute;
+            left: 0;
+            top: 0;
+            flex-direction: column;
+                    width: 100%;
+            height: 188px;
+        }
 
 #navlinks-sm {
     display: none;
@@ -305,11 +317,13 @@ p.text-prompt {
     bottom: 10px;
     top: .2em;
     width: 100%;
-    height: 2em;
+    height: 44px;
     justify-content: space-between;
-    background: none;
+    /* background: none; */
     z-index: 11;
-    z-index: 1000;
+    max-width: 1124px;
+    margin: 0 auto;
+    padding: 0;
 }
 
 #social-mobile {
@@ -602,7 +616,7 @@ a.tbc-button {
     position: fixed;
     top: 0;
     left: 0;
-    background: linear-gradient(rgba(216, 216, 216, 0.86), rgba(250, 250, 250, 0.88)), url('    https://images.pexels.com/photos/4110541/pexels-photo-4110541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background: linear-gradient(rgba(216, 216, 216, 0.93), rgba(250, 250, 250, 0.94)), url('    https://images.pexels.com/photos/4110541/pexels-photo-4110541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     background-size: cover;
     background-position-x: 60%;
     background-position-y: 90%;
@@ -628,15 +642,11 @@ a.tbc-button {
 #page-content {
     margin: 200px auto 200px auto;
     padding: 0;
-    background-color: var(--tbc-bg-light-clr);
+    /* background-color: var(--tbc-bg-light-clr); */
 }
 
-/* .row {
-    padding: 0 1rem 0 1rem;
-} */
-
 .recipe-row {
-    margin: 5em auto 2em auto;
+    margin: 3em auto 2em auto;
     padding: 0;
 }
 
@@ -915,6 +925,7 @@ a.tbc-button {
 
     #page-content {
         margin-top: 106px;
+        min-height: 100vh;
     }
 
     .form-control,
@@ -932,7 +943,7 @@ a.tbc-button {
     }
 
     .tbc-input-label {
-        font-size: .7em;
+        font-size: .6em;
         color: var(--tbc-soft-pink);
     }
 
@@ -941,7 +952,7 @@ a.tbc-button {
     }
 
     input.tbc-search-input {
-        font-size: .66em;
+        font-size: .6em;
     }
     
     i.blue-text,
@@ -1041,7 +1052,7 @@ a.tbc-button {
 
     p.text-prompt {
         text-align: center;
-        font-size: .88em;
+        font-size: .8em;
         line-height: 1.8em;
     }
 
@@ -1074,7 +1085,6 @@ a.tbc-button {
 
     #tbc-nav {
         height: 266px;
-        background-color: var(--tbc-bg-light);
     }
 
     #nav-wrap {
@@ -1108,10 +1118,30 @@ a.tbc-button {
         margin-top: 0;
     }
 
-    #search-and-social-nav {
-        left: 2px;
-        top: .2em;
-    }
+            #search-and-social-nav {
+                /* left: 2px; */
+                /* top: .2em; */
+                align-self: flex-start;
+                width: 100%;
+                /* max-width: 1322px; */
+                margin: -188px auto 0 auto;
+                position: unset;
+            }
+
+            /* #search-and-social-nav {
+                display: flex;
+                flex-direction: row;
+                position: absolute;
+                left: 0;
+                bottom: 10px;
+                top: .2em;
+                width: 100%;
+                height: 2em;
+                justify-content: space-between;
+                background: none;
+                z-index: 11;
+                z-index: 1000;
+            } */
 
     #tbc-search-form {
         display: unset;
@@ -1136,7 +1166,7 @@ a.tbc-button {
     /* ==== @media 992px> : layout etc ==== */
 
     #page-content {
-        margin-top: 274px;
+        margin-top: 270px;
     }
 
     .row {
@@ -1192,5 +1222,11 @@ a.tbc-button {
     .recipe-thumb {
         padding: 1em;
         margin-bottom: .3em;   
+    }
+}
+
+@media (min-width: 1400px) {
+    #search-and-social-nav {
+        max-width: 1128px;
     }
 }

@@ -1,16 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- <div class="profile-nav">
-    <a class="tbc-button my-3" href="{{ url_for('add_recipe') }}">
-        Add Recipe
-    </a>
-    <button type="button" class="tbc-button my-3" data-bs-toggle="modal" data-bs-target="#confirmAccountDeletionModal">
-        <a href="#delete_user" class="my-auto">
-            Delete Account
-        </a>
-    </button>
-</div> -->
 <div class="row profile-content my-4 p-0">
     <h4 class="blue-text my-5">Welcome {{ username.capitalize() }}</h4>
     <div class="col-11 col-md-9 col-lg-6 mx-auto">
@@ -34,16 +24,11 @@
 <div class="recipe-row row justify-content-center">
     {% for recipe in recipes %}
         <!-- Will display any recipes contributed by current user -->
-        
-        <!-- <div class="row recipe-card-profile px-0"> -->
             <div class="thumb-wrap col-8 col-md-4 mx-auto justify-content-center my-2">
                 <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="recipe-link-wrap">
                     <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}" class="img-fluid recipe-thumb py-3">
                     <h5 class="recipe-link">{{ recipe.recipe_name }}</h5>
                 </a>
-            <!-- </div> -->
-            <!-- <div class="mx-auto mb-2"> -->
-                <!-- <h5 class="pink-text text-center pb-3">{{ recipe.recipe_name }}</h5> -->
                 <div class="btn-col">
                     <button class="tbc-button mt-5">
                         <a class="blue-text" href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
@@ -57,7 +42,6 @@
                     </button>
                 </div>
             </div>
-        
         <!-- Delete Recipe Confirmation Modal -->
         <div class="modal fade" id="confirmRecipeDeletionModal" tabindex="-1" aria-labelledby="deleteRecipe" aria-hidden="true">
             <div class="modal-dialog">

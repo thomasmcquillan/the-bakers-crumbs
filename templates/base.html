@@ -18,7 +18,7 @@
 <body>
     
     <div class="tbc-hero"></div>
-
+<div id="tbc-header">
     <nav id="tbc-nav">
         <div id="logo-wrap" class="justify-content-center">
             <a id="tbc-logo" href="{{ url_for('index') }}">
@@ -31,19 +31,19 @@
         <div id="nav-wrap">
             <ul class="tbc-mobile-nav" id="navlinks-sm">
                 <li class="d-lg-none">
-                    <a href="{{ url_for('all_recipes') }}" class="tbc-nav-item" aria-label="View all Recipes">View all Recipes</a>
+                    <a href="{{ url_for('all_recipes') }}" class="tbc-nav-item" aria-label="View all Recipes">All Recipes</a>
                 </li>
                 <li class="d-lg-none">
                     <a href="{{ url_for('all_categories') }}" class="tbc-nav-item" aria-label="Browse by Category">Browse by Category</a>
                 </li>
                 {% if session.user %}
                 {% if session.user|lower == "admin"|lower %}
-                    <li class="d-none">
+                    <li class="d-lg-none">
                         <a href="{{ url_for('add_recipe') }}">Add Recipe</a>
                     </li>
                 {% endif %}
                 <li class="d-lg-none">
-                    <a href="{{ url_for('profile', username=session['user']) }}" class="tbc-nav-item" aria-label="profile page">View Profile</a>
+                    <a href="{{ url_for('profile', username=session['user']) }}" class="tbc-nav-item" aria-label="profile page">Profile</a>
                 </li>
                 <li class="d-lg-none">
                     <a href="{{ url_for('logout') }}" class="tbc-nav-item" aria-label="log in">Log Out</a>
@@ -59,7 +59,7 @@
             </ul>
             <ul class="tbc-desktop-nav mx-auto" id="navlinks-lg">   
                 <li class="d-none d-lg-flex">
-                    <a href="{{ url_for('all_recipes') }}" class="tbc-nav-item" aria-label="View all Recipes">View all Recipes</a>
+                    <a href="{{ url_for('all_recipes') }}" class="tbc-nav-item" aria-label="View all Recipes">All Recipes</a>
                 </li>
                 <li class="d-none d-lg-flex">
                     <a href="{{ url_for('all_categories') }}" class="tbc-nav-item" aria-label="Browse by Category">Browse by Category</a>
@@ -114,7 +114,7 @@
             </ul>
         </div>
     </nav>
-    
+</div>
     <div id="page-content" class="container-xl">
         <!-- HTML templates will be inserted here -->
         {% block content %}
