@@ -3,14 +3,19 @@
 
 <div class="error-wrap container-fluid">
     <div class="row justify-content-center">
-        <div class="col-6 mx-auto justify-content-center">
-            <h2 class="text-blue text-center">403 - This page doesn't want to rise. </h2>
-            <h4 class="text-pink text-center">  Sorry, something went awry - but nevermind, <br>
-                let's get back to the kitchen.</h4>
+        <div class="col-12">
+            <h2 class="text-center">403 - Page not found</h2>
         </div>
-        <a class="btn mx-auto" href="{{ url_for('index')}}">Let's Bake</a>
     </div>
-    
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <h5 class="text-center">Hmmmm, donut how this happened..</h5>
+        </div>
+    <div class="row">
+        <div class="col-12">
+            <a class="btn mx-auto" href="{{ url_for('index')}}">Let's go Bake..</a>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

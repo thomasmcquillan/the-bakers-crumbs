@@ -2,6 +2,11 @@
 {% block content %}
 
 <div class="row profile-content my-4 p-0">
+
+    <a class="tbc-button mx-auto m-4" href="{{ url_for('change_password') }}">
+        Settings
+    </a>
+
     <h4 class="blue-text my-5">Welcome {{ username.capitalize() }}</h4>
     <div class="col-11 col-md-9 col-lg-6 mx-auto">
         {% if recipes|length > 0 %}

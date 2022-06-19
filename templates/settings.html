@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row justify-content-center mt-3">
+    <form class="edit_password" method="POST" action="{{ url_for('change_password') }}">
+    <!-- Username Input -->
+    <div class="row justify-content-center">
+        <h5 class="page-title">Settings</h5>
+        <div class="col-9 col-lg-6 my-4">
+            <label for="edit_password" class="tbc-input-label">Update Password</label>
+            
+            <!-- Password Input -->
+            <input 
+                name="password"
+                type="password"
+                minlength="6"
+                maxlength="15"
+                class="validate tbc-input"
+                placeholder="Please enter a password"
+                title="Password must have at least 6 characters"
+                autocomplete="off"
+                required>
+
+            <label for="edit_password" class="tbc-input-label">Update Password</label>
+            
+            <!-- Password Input -->
+            <input 
+                name="new_password"
+                type="password"
+                minlength="6"
+                maxlength="15"
+                class="validate tbc-input"
+                placeholder="Please enter a password"
+                title="Password must have at least 6 characters"
+                autocomplete="off"
+                required>
+        </div>
+    </div>
+    <!-- Confirm Login Button -->
+    <div class="row my-3 my-md-4">
+        <button type="submit" class="tbc-button mx-auto">
+            Confirm
+        </button>
+    </div>
+</form>
+</div>
+
+{% endblock %}

@@ -116,13 +116,45 @@ def profile(username):
     """
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-
     if session["user"]:
         recipes = list(mongo.db.recipes.find({"created_by": username}))
         return render_template(
             "profile.html", username=username, recipes=recipes)
     else:
         return redirect(url_for("login"))
+
+
+@app.route("/change_password", methods=["GET", "POST"])
+def change_password():
+    """
+    Allows user to change their password.
+    """
+    users = mongo.db["users"]
+    current_user = users.find_one(
+        {"username": request.form.get("username").lower()})
+
+    if request.method == "POST":
+        new_password = request.form.get("new_password")
+
+        if current_user:
+            if check_password_hash(
+                    current_user["password"], request.form.get("password")):
+                to_update = {"_id": current_user["_id"]}
+                updated_password = {"$set": {
+                    "password": generate_password_hash(new_password)}}
+                users.update_one(to_update, updated_password)
+                flash("Password Updated!")
+                return redirect(url_for(
+                    "profile", username=session["user"]))
+
+            else:
+                flash("Incorrect Username or Password")
+                return redirect(url_for("profile"))
+
+        else:
+            flash("Incorrect Username or Password")
+            return redirect(url_for('profile'))
+    return render_template("settings.html", username=session["user"])
 
 
 @app.route("/logout")
