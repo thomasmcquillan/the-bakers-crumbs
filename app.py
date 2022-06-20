@@ -69,12 +69,12 @@ def register():
             flash("Username already in use")
             return redirect(url_for("register"))
 
-        register = {
+        register_user = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(
                 request.form.get("password"))
         }
-        mongo.db.users.insert_one(register)
+        mongo.db.users.insert_one(register_user)
 
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
@@ -131,44 +131,37 @@ def change_password():
     """
     Allows user to change their password.
     """
-    # update_user = {}
+    update_user = {}
 
+    form_username = request.form.get("username")
     form_existing_password = request.form.get("existing_password")
     form_new_password = request.form.get("new_password")
-    form_confirm_new_password = request.form.get("confirm_new_password")
-    users = mongo.db["users"]
-    current_user = users.find_one(
-        {"username": request.form.get("username")})
-
-    if request.method == "POST":
-
-        if check_password_hash(
-                current_user["password"], form_existing_password):
+    form_confirm_new_password = \
+        request.form.get("confirm_new_password")
+    if form_existing_password:
+        if check_password_hash(user["password"], form_existing_password):
             if form_new_password:
 
                 if form_new_password == form_confirm_new_password:
-                    to_update = {"_id": current_user["_id"]}
-                    updated_password = {"$set": {
-                        "password": generate_password_hash(
-                                form_new_password)}}
-                    users.update_one(to_update, updated_password)
-                    flash("Password Updated!")
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
-                else:
-                    flash("Your new passwords don't match, try again.")
-                    return redirect(url_for(
-                        "settings", username=session["user"]))
-            else:
-                flash("Please enter a password in the correct format.")
-                return redirect(url_for(
-                        "settings", username=session["user"]))
-        else:
-            flash("Incorrect Username or Password")
-            return redirect(url_for(
-                "settings", username=session["user"]))
+                    update_user["password"] = \
+                        generate_password_hash(form_new_password)
 
-    return render_template("settings.html", username=session["user"])
+                else:
+                    flash("Your new passwords don't match.")
+                    return redirect(url_for("profile", username=session["user"]))
+            else:
+                flash("You must enter a password")
+                
+                return redirect(url_for("profile", username=session["user"]))
+
+        else:
+            flash("Your password was incorrect, please try again.")
+            return redirect(url_for("profile", username=session["user"]))
+
+    if (form_new_password and not form_existing_password) or \
+            (form_confirm_new_password and not form_existing_password):
+        flash("You need to enter your old password before entering a new one.")
+        return redirect(url_for("profile", username=session["user"]))
 
 
 @app.route("/logout")
@@ -285,27 +278,27 @@ def delete_recipe(recipe_id):
 
 
 @app.errorhandler(403)
-def forbidden(e):
+def forbidden(error):
     """
     404 Error Page - Forbidden
     """
-    return render_template('403.html'), 403
+    return render_template('403.html', error=error), 403
 
 
 @app.errorhandler(404)
-def page_not_found(e):
+def page_not_found(error):
     """
     404 Error page - page not found
     """
-    return render_template('404.html'), 404
+    return render_template('404.html', error=error), 404
 
 
 @app.errorhandler(500)
-def internal_server_error(e):
+def internal_server_error(error):
     """
     500 Error page - server error
     """
-    return render_template('500.html'), 500
+    return render_template('500.html', error=error), 500
 
 
 if __name__ == "__main__":
