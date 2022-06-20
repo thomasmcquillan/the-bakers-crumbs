@@ -103,8 +103,10 @@ def login():
                 return redirect(url_for("profile", username=session["user"]))
             else:
                 flash("Invalid username and/or password")
-
-        return redirect(url_for("login"))
+                return redirect(url_for("login"))
+        else:
+            flash("Invalid username and/or password")
+            return redirect(url_for("login"))
 
     return render_template("login.html")
 
@@ -129,31 +131,43 @@ def change_password():
     """
     Allows user to change their password.
     """
+    # update_user = {}
+
+    form_existing_password = request.form.get("existing_password")
+    form_new_password = request.form.get("new_password")
+    form_confirm_new_password = request.form.get("confirm_new_password")
     users = mongo.db["users"]
     current_user = users.find_one(
         {"username": request.form.get("username")})
 
     if request.method == "POST":
-        new_password = request.form.get("new_password")
 
-        if current_user:
-            if check_password_hash(
-                    current_user["password"], request.form.get("password")):
-                to_update = {"_id": current_user["_id"]}
-                updated_password = {"$set": {
-                    "password": generate_password_hash(new_password)}}
-                users.update_one(to_update, updated_password)
-                flash("Password Updated!")
-                return redirect(url_for(
-                    "profile", username=session["user"]))
+        if check_password_hash(
+                current_user["password"], form_existing_password):
+            if form_new_password:
 
+                if form_new_password == form_confirm_new_password:
+                    to_update = {"_id": current_user["_id"]}
+                    updated_password = {"$set": {
+                        "password": generate_password_hash(
+                                form_new_password)}}
+                    users.update_one(to_update, updated_password)
+                    flash("Password Updated!")
+                    return redirect(url_for(
+                        "profile", username=session["user"]))
+                else:
+                    flash("Your new passwords don't match, try again.")
+                    return redirect(url_for(
+                        "settings", username=session["user"]))
             else:
-                flash("Incorrect Username or Password")
-                return redirect(url_for("index"))
-
+                flash("Please enter a password in the correct format.")
+                return redirect(url_for(
+                        "settings", username=session["user"]))
         else:
             flash("Incorrect Username or Password")
-            return redirect(url_for('profile'))
+            return redirect(url_for(
+                "settings", username=session["user"]))
+
     return render_template("settings.html", username=session["user"])
 
 
@@ -176,6 +190,8 @@ def delete_user(username):
     This function allows deletion of a user account,
     along with any recipes they have submitted.
     """
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
     dead_recipes = list(
         mongo.db.recipes.find({"created_by": username}))
     for recipe in dead_recipes:
@@ -295,4 +311,4 @@ def internal_server_error(e):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)

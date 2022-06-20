@@ -2,59 +2,115 @@
 {% block content %}
 
 <div class="row justify-content-center mt-3">
-    <form class="edit_password" method="POST" action="{{ url_for('change_password') }}">
+    <h4 class="text-center my-3">Account Settings</h4>
+    {% if session.user %}
+    <form class="edit_password" method="GET, POST" action="{{ url_for('change_password') }}">
     <!-- Username Input -->
     <div class="row justify-content-center">
-        <h5 class="page-title">Settings</h5>
-        <div class="col-9 col-lg-6 my-4">
-            <label for="username" class="tbc-input-label">Enter your Username</label>
-            
-            <!-- Password Input -->
-            <input 
-                name="username"
-                type="password"
+        <h5 class="page-title">Change Password</h5>
+        <!-- <div class="col-9 col-lg-6 my-4"> -->
+        <div class="form-group col-9 col-md-7">
+            <label for="username" class="tbc-input-label mt-4">Please enter your username</label>
+            <!-- Old Password Verification -->
+            <input name="username"
+                type="text"
                 minlength="6"
                 maxlength="15"
                 class="validate tbc-input"
-                placeholder="Please enter your username"
+                placeholder="Username"
                 autocomplete="off"
                 required>
-
-            <label for="edit_password" class="tbc-input-label">Update Password</label>
-            
-            <!-- Password Input -->
-            <input 
-                name="password"
+        </div>
+        <div class="form-group col-9 col-md-7 mt-4">
+            <label for="existing_password" class="tbc-input-label mt-4">Please enter your existing password</label>
+            <!-- New Password Input -->
+            <input name="existing_password"
+                id="existing_password"
                 type="password"
                 minlength="6"
                 maxlength="15"
                 class="validate tbc-input"
-                placeholder="Please enter your old password"
+                placeholder="Current Password"
                 title="Password must have at least 6 characters"
                 autocomplete="off"
                 required>
-
-            <label for="edit_password" class="tbc-input-label">Please re-enter Password</label>
-            <!-- Password Input -->
-            <input 
+        </div>
+        <div class="form-group col-9 col-md-7 mt-4">
+            <label for="new_password" class="tbc-input-label">Please enter a new password</label>
+            <!-- Re-Entry of new Password -->
+            <input id="new_password"
                 name="new_password"
                 type="password"
                 minlength="6"
                 maxlength="15"
                 class="validate tbc-input"
-                placeholder="Please enter a new password"
+                placeholder="New Password"
                 title="Password must have at least 6 characters"
                 autocomplete="off"
                 required>
         </div>
-    </div>
-    <!-- Confirm Login Button -->
-    <div class="row my-3 my-md-4">
-        <button type="submit" class="tbc-button mx-auto">
-            Save Changes
-        </button>
-    </div>
-</form>
+        <div class="form-group col-9 col-md-7">
+            <label for="confirm_new_password" class="tbc-input-label">Re-enter your new password</label>
+            <!-- Password Input -->
+            <input 
+                id="confirm_new_password"
+                name="confirm_new_password"
+                type="password"
+                minlength="6"
+                maxlength="15"
+                class="validate tbc-input"
+                placeholder="New Password"
+                title="Password must have at least 6 characters"
+                autocomplete="off"
+                required>
+        </div>
+        <!-- Confirm Login Button -->
+        <div class="row my-3 my-md-4">
+            <button type="submit" class="tbc-button mx-auto">
+                Save Changes
+            </button>
+        </div>
+    </form>
+    {% endif %}
 </div>
+
+{% if session.user %}
+<div class="profile-nav row justify-content-center">
+    <button type="button" class="tbc-button mx-auto my-5" data-bs-toggle="modal" data-bs-target="#confirmAccountDeletionModal">
+        <a href="#delete_user" class="my-auto">
+            Delete Account
+        </a>
+    </button>
+</div>
+
+<!-- Delete Account Confirmation Modal -->
+<div class="modal fade" id="confirmAccountDeletionModal" tabindex="-1" aria-labelledby="delete_user" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" 
+                    id="confirmAccountDeletionModal">
+                    Confirm Deletion
+                </h5>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete your account and any recipes you have submitted? Deletion is permanent.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="tbc-button mt-3">
+                    <a href="{{ url_for('delete_user', username=username) }}" id="delete_user">
+                        Yes, Delete
+                    </a>
+                </button>
+                <button type="button"
+                        class="tbc-button mt-3"
+                        data-bs-dismiss="modal">
+                        Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
 
 {% endblock %}

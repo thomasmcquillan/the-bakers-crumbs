@@ -25,7 +25,7 @@
 <div class="recipe-row row justify-content-center">
     {% for recipe in recipes %}
         <!-- Will display any recipes contributed by current user -->
-        <div class="thumb-wrap col-8 col-md-4 mx-auto justify-content-center mb-2 px-2">
+        <div class="thumb-wrap col-6 col-md-4 mx-auto justify-content-center mb-2 px-2">
             <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}" class="recipe-link-wrap">
                 <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}" class="img-fluid recipe-thumb">
                 <h5 class="recipe-link">{{ recipe.recipe_name }}</h5>
