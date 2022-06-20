@@ -102,8 +102,9 @@ a:hover {
 }
 
 .recipe-link {
+    padding-top: .5em;
     text-align: center;
-    font-size: .9em;
+    font-size: .84em;
 }
 
 .recipe-link-wrap:hover img {
@@ -490,25 +491,25 @@ option {
     height: 54px;
 }
 
-.alert {
-    display: grid;
+.flash-message {    
+    display: flex;
     width: 100vw;
     height: 100vh;
-    place-self: center;
-    place-items: center;
-    background-color:rgba(247, 228, 228, 0.722);
+    background-color:rgba(247, 228, 228, 0.6);
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
 }
 
-h5.flash-message {
-    color: var(--tbc-inky-blue);
+.flash-message h5 {
+    color: var(--tbc-dark-grey);
     background-color: var(--tbc-bg-light);
-    width: fit-content;
-    height: fit-content;
     margin: auto auto;
-    padding: 1.5em;
+    padding: 6em;
+    text-align: center;
 }
 
 .closebtn {
@@ -637,20 +638,21 @@ a.tbc-button {
 /* ============================== Layout Styling =============================== */
 
 #page-content {
-    margin: 200px auto 200px auto;
+    margin: 200px auto 0 auto;
     padding: 0;
-    /* background-color: var(--tbc-bg-light-clr); */
+    background-color: var(--tbc-bg-light-clr);
 }
 
 .recipe-row,
 .cat-row {
-    margin: 3em auto 2em auto;
+    margin: 1em auto;
     padding: 0;
 }
 
 .recipe-link-wrap {
-    margin: 1em auto 2em auto;
+    margin: 1em auto 1em auto;
     padding: 0 .3em 0 .3em;
+    /* background-color: var(--tbc-bg-light); */
 }
 
 /* ============================== Recipe Styling =============================== */
@@ -799,7 +801,9 @@ a.tbc-button {
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
-    padding: .3em;
+    margin: 0;
+    /* padding: .3em; */
+    padding: 0;
 }
 
 .recipe-img-wrap img {
@@ -813,6 +817,8 @@ a.tbc-button {
     display: flex;
     align-content: space-between;
     flex-wrap: wrap;
+    background-color: var(--tbc-bg-light);
+    padding: 0;
 }
 
 .view-recipe-img {
@@ -820,7 +826,7 @@ a.tbc-button {
     height: auto;
     display: flex;
     margin: -40px auto 0 auto;
-    border: 16px solid rgb(245, 245, 245);
+    border: 12px solid rgb(245, 245, 245);
 }
 
 .view-recipe-img-wrap {
@@ -863,6 +869,42 @@ a.tbc-button {
 
 #tbc-search-hover {
     display: none;
+}
+
+/* ============================= Modal Styling =============================== */
+
+.modal-dialog {
+    position: relative;
+    width: auto;
+    pointer-events: none;
+    margin: auto;
+    top: 40%;
+}
+
+.modal-header,
+.modal-footer {
+    background-color: var(--tbc-bg-pinky);
+}
+
+.modal-content,
+.modal-footer button {
+    background-color: var(--tbc-bg-light);
+}
+
+.modal-footer button {
+    margin: 0 auto;
+}
+
+.modal p {
+    font-size: 16px !important;
+    padding: 0 .6em;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* ============================= Error handlers =============================== */
@@ -1164,10 +1206,9 @@ a.tbc-button {
     }
 
     .recipe-link-wrap {
-        margin: 1em auto 2em auto;
+        margin: 1em auto 1em auto;
         padding: 0 .2em 0 .2em;
     }
-
 
     .recipe-card-header {   
         display: flex;
@@ -1209,9 +1250,14 @@ a.tbc-button {
         line-height: 1.9em;
     }
 
+    .thumb-wrap {
+        margin: 0 auto;
+        padding: 0;
+    }
+
     .recipe-thumb {
         padding: 1em;
-        margin-bottom: .3em;   
+        margin-bottom: .3em;
     }
 }
 

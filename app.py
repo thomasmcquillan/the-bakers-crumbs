@@ -181,7 +181,7 @@ def delete_user(username):
     for recipe in dead_recipes:
         mongo.db.recipes.delete_one(recipe)
     mongo.db.users.delete_one({"username": username})
-    flash("Your account and recipes were successfully deleted")
+    flash("Account and recipes deleted! Sorry to see you go!")
     session.pop("user")
     return redirect(url_for("index"))
 
@@ -223,7 +223,7 @@ def add_recipe():
             "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
-        flash("Recipe Added!")
+        flash("Recipe Submitted!")
         return redirect(url_for("profile", username=session["user"]))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -248,7 +248,7 @@ def edit_recipe(recipe_id):
             }
         }
         mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, update)
-        # flash("Recipe Successfully Updated!")
+        flash("Recipe Updated!")
         return redirect(url_for("profile", username=session["user"]))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -264,7 +264,7 @@ def delete_recipe(recipe_id):
     be performed by the user who submitted it or site admin.
     """
     mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
-    flash("recipe deleted!")
+    flash("Recipe Deleted!")
     return redirect(url_for("profile", username=session["user"]))
 
 
@@ -295,4 +295,4 @@ def internal_server_error(e):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
