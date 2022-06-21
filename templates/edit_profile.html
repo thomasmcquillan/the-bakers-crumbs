@@ -4,11 +4,9 @@
 <div class="row justify-content-center mt-3">
     <h4 class="text-center my-3">Account Settings</h4>
     {% if session.user %}
-    <form class="edit_password" method="GET, POST" action="{{ url_for('change_password') }}">
+    <form class="edit_profile row justify-content-center" method="GET, POST" action="{{ url_for('edit_user', username=session['user']) }}">
     <!-- Username Input -->
-    <div class="row justify-content-center">
         <h5 class="page-title">Change Password</h5>
-        <!-- <div class="col-9 col-lg-6 my-4"> -->
         <div class="form-group col-9 col-md-7">
             <label for="username" class="tbc-input-label mt-4">Please enter your username</label>
             <!-- Old Password Verification -->
@@ -37,7 +35,7 @@
         </div>
         <div class="form-group col-9 col-md-7 mt-4">
             <label for="new_password" class="tbc-input-label">Please enter a new password</label>
-            <!-- Re-Entry of new Password -->
+            <!-- New Password Entry -->
             <input id="new_password"
                 name="new_password"
                 type="password"
@@ -51,7 +49,7 @@
         </div>
         <div class="form-group col-9 col-md-7">
             <label for="confirm_new_password" class="tbc-input-label">Re-enter your new password</label>
-            <!-- Password Input -->
+            <!-- Confirmation of new Password -->
             <input 
                 id="confirm_new_password"
                 name="confirm_new_password"

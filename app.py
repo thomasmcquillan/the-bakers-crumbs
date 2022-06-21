@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, abort)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -126,18 +126,84 @@ def profile(username):
         return redirect(url_for("login"))
 
 
-@app.route("/change_password", methods=["GET", "POST"])
-def change_password():
+@app.route("/settings/<username>", methods=["GET", "POST"])
+def settings(username):
     """
-    Allows user to change their password.
+    Displays user profile settings page
+    """
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    if session["user"]:
+        return render_template(
+            "settings.html", username=username)
+    else:
+        return redirect(url_for("login"))
+
+
+@app.route("/edit_profile/<username>", methods=["GET", "POST"])
+def edit_profile(username):
+    """
+    'GET' displays the user settings template form if user in session
+    after checking if the user in session is the same as the username 
+    passed to the request. Assuming yes, 'POST' allows a user to edit
+    their profile settings.
+    """
+    if 'user' in session:
+        if session["user"] == username or session["user"] == 'admin':
+
+            user = mongo.db.users.find_one({"username": username})
+
+            if request.method == "POST":
+
+                if 'user' in session:
+                    if session["user"] == \
+                            username or session["user"] == 'admin':
+
+                        return render_template(
+                                "settings.html", username=username)
+                    else:
+                        flash("You don't have permission to do that!")
+                        abort(403)
+                else:
+                    flash("You must be logged in to edit your profile!")
+                    abort(403)
+
+            return render_template(
+                'edit_profile.html', user=user)
+        else:
+            flash("You don't have permission to do that!")
+            return redirect(url_for('login'))
+    else:
+        flash("You must be logged in to edit your profile!")
+        return redirect(url_for('login'))
+
+
+@app.route("/edit_user/<username>", methods=["GET", "POST"])
+def edit_user(username):
+    """
+    Allows the user to update their username and/or password.
+    The user must first correctly enter their current username
+    and password, before entering their new password twice to
+    avoid typos.
     """
     update_user = {}
-
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
+# {"username": session["user"]})["username"]
     form_username = request.form.get("username")
     form_existing_password = request.form.get("existing_password")
     form_new_password = request.form.get("new_password")
-    form_confirm_new_password = \
-        request.form.get("confirm_new_password")
+    form_confirm_new_password = request.form.get("confirm_new_password")
+
+    # if form_username != user["username"]:
+    #     existing_username = mongo.db.users.find_one(
+    #             {"username": form_username})
+    #     if existing_username:
+    #         flash("Sorry, that username is already in use.")
+    #         return redirect(url_for("profile", username=session["user"]))
+    #     else:
+    #         update_user["username"] = form_username
+
     if form_existing_password:
         if check_password_hash(user["password"], form_existing_password):
             if form_new_password:
@@ -145,13 +211,14 @@ def change_password():
                 if form_new_password == form_confirm_new_password:
                     update_user["password"] = \
                         generate_password_hash(form_new_password)
+                    flash("You did it!")
 
                 else:
                     flash("Your new passwords don't match.")
-                    return redirect(url_for("profile", username=session["user"]))
+                    return redirect(
+                            url_for("profile", username=session["user"]))
             else:
-                flash("You must enter a password")
-                
+                flash("Your password must be between 6 and 15 characters.")
                 return redirect(url_for("profile", username=session["user"]))
 
         else:
@@ -162,6 +229,14 @@ def change_password():
             (form_confirm_new_password and not form_existing_password):
         flash("You need to enter your old password before entering a new one.")
         return redirect(url_for("profile", username=session["user"]))
+
+    if update_user:
+        mongo.db.users.update_one(
+                              {"username": username}, {'$set': update_user})
+
+    username = form_username
+    flash("Profile updated!")
+    return render_template("index.html")
 
 
 @app.route("/logout")

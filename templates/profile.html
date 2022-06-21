@@ -3,7 +3,7 @@
 
 <div class="row profile-content mt-4 mb-2 p-0">
 
-    <a class="tbc-button mx-auto mb-4" href="{{ url_for('change_password') }}">
+    <a class="tbc-button mx-auto mb-4" href="{{ url_for('edit_profile', username=session['user']) }}">
         Edit Profile
     </a>
     <a class="tbc-button mx-auto mb-4" href="{{ url_for('add_recipe') }}">
