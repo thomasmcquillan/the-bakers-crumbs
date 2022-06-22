@@ -539,7 +539,8 @@ option {
     flex-direction: column;
 }
 
-.btn {
+.btn,
+.modal-footer #delete_recipe {
     display: flex;
     justify-content: center;
     align-content: center;
@@ -548,9 +549,7 @@ option {
     font-size: 11px;
     margin: 0 auto;
     min-width: 180px;
-
-        max-width: 30%;
-            
+    max-width: 30%;
     color: --tbc-soft-pink !important;
     background-color: var(--tbc-bg-pinky);
     border: .9px solid var(--tbc-soft-pink);
@@ -577,17 +576,16 @@ a.tbc-button {
     transition: all 0.2s;
     justify-content: center;
     width: 60%;
-
-            max-width: 280px;
-            max-width: 220px;
-
-    font-size: 1.1rem;
+    max-width: 220px;
+    font-size: 1rem;
     font-weight: 300;
     color: var(--tbc-dark-grey);
     background-color: var(--tbc-bg-pinky);
 }
 
-.tbc-button:hover{
+.tbc-button:hover,
+#delete_recipe:hover,
+.modal-footer a {
     color: var(--tbc-dark-grey);
     background-color: #f8f8f8;
 }
@@ -761,6 +759,10 @@ a.tbc-button {
     justify-items: center;
     width: 100vw;
     margin: 182px auto auto auto;
+}
+
+.profile-nav {
+    width: 50vw;
 }
 
 #profile-links {
@@ -1178,7 +1180,8 @@ a.tbc-button {
         display: block;
     }
 
-    .btn {
+    .btn,
+    .modal-footer #delete_recipe {
         font-size: .9em;
         font-weight: 400;
         height: 54px;
